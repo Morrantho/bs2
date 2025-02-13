@@ -1,0 +1,18 @@
+{
+	"files.associations": {
+		"array": "c",
+		"functional": "c",
+		"tuple": "c",
+		"type_traits": "c",
+		"utility": "c",
+		"compare": "c",
+		"optional": "c",
+		"system_error": "c",
+		"deque": "c",
+		"string": "c",
+		"unordered_map": "c",
+		"vector": "c",
+		"string_view": "c",
+		"initializer_list": "c"
+	}
+}

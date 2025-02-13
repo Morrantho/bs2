@@ -1,0 +1,48 @@
+typedef enum OpCode
+{
+	OP_NOP,
+	OP_NOT,
+	OP_BNOT,
+	OP_PREINC,
+	OP_PREDEC,
+	OP_POSTINC,
+	OP_POSTDEC,
+
+	OP_ADD,
+	OP_SUB,
+	OP_MUL,
+	OP_DIV,
+	OP_MOD,
+	OP_POW,
+
+	OP_BAND,
+	OP_BOR,
+	OP_BXOR,
+	OP_LSH,
+	OP_RSH,
+
+	OP_EQ,
+	OP_NEQ,
+	OP_LT,
+	OP_LE,
+	OP_GT,
+	OP_GE,
+
+	OP_AND,
+	OP_OR,
+
+	OP_MOV, /* Assign / : */
+	OP_ADDEQ,
+	OP_SUBEQ,
+	OP_MULEQ,
+	OP_DIVEQ,
+	OP_MODEQ,
+	OP_POWEQ,
+	OP_BANDEQ,
+	OP_BOREQ,
+	OP_BXOREQ,
+	OP_LSHEQ,
+	OP_RSHEQ,
+
+	OP_N
+} OpCode;

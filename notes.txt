@@ -1,0 +1,19 @@
+TODO:
+
+Local allocation
+Register allocation / frees
+Find a way to map ++ and -- to PREINC and POSTINC opcodes.
+
+DONE:
+
+Bytecode array
+Constant array
+Locals array
+Function metadata array
+Everything uses accessors now, no true globals.
+Finish Map.
+EvalUnaErr() takes opcode for debugging.
+Dont return offset 0 for the first element pushed to an arena.
+Take the awful realloc() copies with contiguous arenas.
+tokens to opcodes are done
+arenas are done
