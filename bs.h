@@ -14,6 +14,7 @@
 #include "std/value.h"
 #include "std/table.h"
 #include "std/map.h"
+#include "std/env.h"
 #include "std/err.h"
 #include "std/io.h"
 

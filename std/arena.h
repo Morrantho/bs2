@@ -27,7 +27,7 @@ Void ArenaAlloc( Arena *arena, U32 max )
 {
 	max = ALIGN_UP( max, PAGE( 1 ) );
 	arena->base = malloc( max );
-	arena->used = 0;
+	arena->used = 1; /* ensures we can offset from 0 */
 	arena->max = max;
 }
 

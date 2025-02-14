@@ -1,6 +1,6 @@
 typedef struct String
 {
-	U32 offset;
+	U32 offset; /* strings arena offset */
 	U32 len;
 	U32 hash;
 } String;

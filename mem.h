@@ -6,7 +6,7 @@ Void MemAlloc( )
 	VecAlloc( GetConsts( ), 256, sizeof( Value ) ); /* Vec< Value > */
 	VecAlloc( GetLocals( ), 256, sizeof( Var ) ); /* Vec< Var > */
 	VecAlloc( GetGlobals( ), 256, sizeof( Var ) ); /* Vec< Var > */
-	MapAlloc( GetEnv( ), 256 ); /* Map< String, U8 > */
+	EnvAlloc( GetEnv( ), 256 ); /* Env< Evar: 8 > */
 	VecAlloc( GetCode( ), 256, sizeof( Op ) ); /* Vec< Op > */
 	VecAlloc( GetFuncs( ), 128, sizeof( Func ) ); /* Vec< Func > */
 }

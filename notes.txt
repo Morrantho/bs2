@@ -1,5 +1,8 @@
 TODO:
 
+Make Env its own Map, so we can store exclusively U16s for better caching.
+When done compiling a function, make sure to set: compliler->fn = NULL
+
 Local allocation
 Register allocation / frees
 Find a way to map ++ and -- to PREINC and POSTINC opcodes.

@@ -1,26 +1,19 @@
 typedef struct Entry
-{
+{ /* Used in GetGlobals() and GetLocals() vectors. */
 	union{ String *key; String *name; };
 	Value value;
 } Entry;
 typedef Entry Var;
 
 typedef struct Map
-{
+{ /* These are for user-defined hashmaps in code. */
 	Entry *base;
 	U32 len;
 	U32 max;
 } Map;
-typedef Map Env;
 
 Void MapGrow( Map *map );
 Void MapPut( Map *map, String *key, Value value );
-
-STIL Map *GetEnv( )
-{
-	static Map env = { 0 };
-	return &env;
-}
 
 Void MapAlloc( Map *map, U32 max )
 {

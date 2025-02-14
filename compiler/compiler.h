@@ -56,14 +56,15 @@ Void FnCommit( )
 Void CompilerInit( )
 {
 	Compiler *compiler = GetCompiler( );
-	compiler->in_fn = 0;
-	FnCommit( );
+	// compiler->in_fn = 0;
+	// compiler->fn = 0;
+	// FnCommit( );
 }
 
 STIL U32 ConstPush( Value value )
 {
 	Compiler *compiler = GetCompiler( );
-	compiler->fn->nconsts++;
+	if( compiler->fn ){ compiler->fn->nconsts++; }
 	return VecPush( GetConsts( ), &value );
 }
 
@@ -73,7 +74,7 @@ STIL Value *ConstGet( U32 idx )
 }
 
 STIL Var *LocalPush( U32 *out_idx, Func *fn, String *name, Value value )
-{
+{ /* assert( fn ) */
 	fn->nlocals++;
 	Vec *locals = GetLocals( );
 	Var *var = VecCommit( locals );
@@ -103,7 +104,7 @@ STIL Var *GlobalPush( U32 *out_idx, String *name, Value value )
 	Var *var = VecCommit( globals );
 	var->name = name;
 	var->value = value;
-	MapPut( GetEnv( ), name, ( Value ){ .i64 = idx } );
+	EnvPut( GetEnv( ), name, idx );
 	*out_idx = idx;
 	return var;
 }
@@ -111,17 +112,17 @@ STIL Var *GlobalPush( U32 *out_idx, String *name, Value value )
 STIL Var *GlobalGet( U32 *out_idx, String *name )
 {
 	Vec *globals = GetGlobals( );
-	Var *var = MapGet( GetEnv( ), name );
-	if( !var ){ return NULL; }
-	*out_idx = var->value.i64; /* its globals index */
-	return VecGet( globals, *out_idx );
+	Evar *evar = EnvGet( GetEnv( ), name );
+	if( !evar ){ return NULL; }
+	*out_idx = evar->idx; /* its globals index */
+	return VecGet( globals, evar->idx );
 }
 
 STIL U32 OpPush( OpCode OP, U8 D, U8 S, U8 M, U8 DT, U8 ST )
 {
 	Compiler *compiler = GetCompiler( );
 	Vec *code = GetCode( );
-	compiler->fn->ncode++;
+	if( compiler->fn ){ compiler->fn->ncode++; }
 	Op *op = VecCommit( code );
 	op->OP = OP;
 	op->D = D; /* dest */

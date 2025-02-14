@@ -122,7 +122,7 @@ ParseNode ParseId( Parser *parser )
 	ParseMatch( parser, TK_COLON );
 	if( parser->token.type == TK_LP ){ return ParseFunc( parser, name ); }
 	ParseNode rhs = ParseExpr( parser, PREC_NONE );
-	// CompileAssign( name, &rhs );
+	CompileAssign( name, &rhs );
 	return rhs;
 }
 /*******************************************************************************/
