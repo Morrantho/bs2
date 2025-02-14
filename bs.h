@@ -25,8 +25,8 @@
 #include "parser/parser.h"
 
 #include "compiler/opcode.h"
-#include "compiler/assign.h"
 #include "compiler/compiler.h"
+#include "compiler/assign/assign.h"
 #include "compiler/unary/eval.h"
 #include "compiler/unary/unary.h"
 #include "compiler/binary/eval.h"

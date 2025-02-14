@@ -72,14 +72,15 @@ STIL Value *ConstGet( U32 idx )
 	return VecGet( GetConsts( ), idx );
 }
 
-STIL U32 LocalPush( Func *fn, String *name, Value *value )
+STIL Var *LocalPush( U32 *out_idx, Func *fn, String *name, Value value )
 {
 	fn->nlocals++;
 	Vec *locals = GetLocals( );
 	Var *var = VecCommit( locals );
 	var->name = name;
 	var->value = value;
-	return locals->len - 1;
+	*out_idx = locals->len - 1;
+	return var;
 }
 
 STIL Var *LocalGet( U32 *out_idx, Func *fn, String *name )
@@ -95,26 +96,24 @@ STIL Var *LocalGet( U32 *out_idx, Func *fn, String *name )
 	return NULL;
 }
 
-STIL U32 GlobalPush( String *name, Value *value )
+STIL Var *GlobalPush( U32 *out_idx, String *name, Value value )
 {
-	Env *env = GetEnv( );
 	Vec *globals = GetGlobals( );
 	U32 idx = globals->len;
 	Var *var = VecCommit( globals );
 	var->name = name;
 	var->value = value;
-	Value idxv = { .i64 = idx };
-	MapPut( env, name, &idxv );
-	return idx;
+	MapPut( GetEnv( ), name, ( Value ){ .i64 = idx } );
+	*out_idx = idx;
+	return var;
 }
 
 STIL Var *GlobalGet( U32 *out_idx, String *name )
 {
-	Env *env = GetEnv( );
 	Vec *globals = GetGlobals( );
-	Var *var = MapGet( env, name );
+	Var *var = MapGet( GetEnv( ), name );
 	if( !var ){ return NULL; }
-	*out_idx = var->value->i64; /* its globals index */
+	*out_idx = var->value.i64; /* its globals index */
 	return VecGet( globals, *out_idx );
 }
 

@@ -1,7 +1,7 @@
 typedef struct Entry
 {
 	union{ String *key; String *name; };
-	Value *value;
+	Value value;
 } Entry;
 typedef Entry Var;
 
@@ -14,7 +14,7 @@ typedef struct Map
 typedef Map Env;
 
 Void MapGrow( Map *map );
-Void MapPut( Map *map, String *key, Value *value );
+Void MapPut( Map *map, String *key, Value value );
 
 STIL Map *GetEnv( )
 {
@@ -55,7 +55,7 @@ Entry *MapGet( Map *map, String *key )
 	return NULL;
 }
 
-Void MapPut( Map *map, String *key, Value *value )
+Void MapPut( Map *map, String *key, Value value )
 {
 	if( map->len > map->max ){ MapGrow( map ); }
 	Entry *entry = MapGet( map, key );

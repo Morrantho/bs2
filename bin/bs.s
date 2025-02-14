@@ -7,7 +7,7 @@
 # options passed: -masm=intel -mtune=generic -march=x86-64 -g -O0 -std=c2x -fasynchronous-unwind-tables -fstack-protector-strong -fstack-clash-protection -fcf-protection
 	.text
 .Ltext0:
-	.file 0 "/home/morrantho/Documents/code/c/yep" "bs.c"
+	.file 0 "/home/morrantho/Documents/code/c/bs2" "bs.c"
 	.type	GetSrc, @function
 GetSrc:
 .LFB0:
@@ -21,7 +21,7 @@ GetSrc:
 	.cfi_def_cfa_register 6
 # std/arena.h:17: 	return &src;
 	.loc 1 17 9
-	lea	rax, src.3[rip]	# _1,
+	lea	rax, src.1[rip]	# _1,
 # std/arena.h:18: }
 	.loc 1 18 1
 	pop	rbp	#
@@ -42,7 +42,7 @@ GetStrings:
 	.cfi_def_cfa_register 6
 # std/arena.h:23: 	return &strings;
 	.loc 1 23 9
-	lea	rax, strings.45[rip]	# _1,
+	lea	rax, strings.46[rip]	# _1,
 # std/arena.h:24: }
 	.loc 1 24 1
 	pop	rbp	#
@@ -319,7 +319,7 @@ GetConsts:
 	.cfi_def_cfa_register 6
 # std/vec.h:12: 	return &consts;
 	.loc 2 12 9
-	lea	rax, consts.39[rip]	# _1,
+	lea	rax, consts.40[rip]	# _1,
 # std/vec.h:13: }
 	.loc 2 13 1
 	pop	rbp	#
@@ -340,7 +340,7 @@ GetLocals:
 	.cfi_def_cfa_register 6
 # std/vec.h:18: 	return &locals;
 	.loc 2 18 9
-	lea	rax, locals.38[rip]	# _1,
+	lea	rax, locals.39[rip]	# _1,
 # std/vec.h:19: }
 	.loc 2 19 1
 	pop	rbp	#
@@ -361,7 +361,7 @@ GetGlobals:
 	.cfi_def_cfa_register 6
 # std/vec.h:24: 	return &globals;
 	.loc 2 24 9
-	lea	rax, globals.1[rip]	# _1,
+	lea	rax, globals.37[rip]	# _1,
 # std/vec.h:25: }
 	.loc 2 25 1
 	pop	rbp	#
@@ -382,7 +382,7 @@ GetCode:
 	.cfi_def_cfa_register 6
 # std/vec.h:30: 	return &code;
 	.loc 2 30 9
-	lea	rax, code.37[rip]	# _1,
+	lea	rax, code.38[rip]	# _1,
 # std/vec.h:31: }
 	.loc 2 31 1
 	pop	rbp	#
@@ -403,7 +403,7 @@ GetFuncs:
 	.cfi_def_cfa_register 6
 # std/vec.h:36: 	return &funcs;
 	.loc 2 36 9
-	lea	rax, funcs.40[rip]	# _1,
+	lea	rax, funcs.41[rip]	# _1,
 # std/vec.h:37: }
 	.loc 2 37 1
 	pop	rbp	#
@@ -1051,7 +1051,7 @@ ValueSet:
 	.loc 4 25 13
 	mov	eax, DWORD PTR -12[rbp]	# tmp85, type
 	lea	rdx, 0[0+rax*8]	# tmp86,
-	lea	rax, types.50[rip]	# tmp87,
+	lea	rax, types.51[rip]	# tmp87,
 	mov	rax, QWORD PTR [rdx+rax]	# _1, types[type_6(D)]
 # std/value.h:25: 	goto *types[ type ];
 	.loc 4 25 2
@@ -1112,7 +1112,7 @@ GetInterns:
 	.cfi_def_cfa_register 6
 # std/table.h:14: 	return &interns;
 	.loc 5 14 9
-	lea	rax, interns.2[rip]	# _1,
+	lea	rax, interns.0[rip]	# _1,
 # std/table.h:15: }
 	.loc 5 15 1
 	pop	rbp	#
@@ -1649,7 +1649,7 @@ GetEnv:
 	.cfi_def_cfa_register 6
 # std/map.h:22: 	return &env;
 	.loc 6 22 9
-	lea	rax, env.0[rip]	# _1,
+	lea	rax, env.36[rip]	# _1,
 # std/map.h:23: }
 	.loc 6 23 1
 	pop	rbp	#
@@ -1676,7 +1676,7 @@ MapAlloc:
 # std/map.h:27: 	map->base = calloc( max, sizeof( Entry ) );
 	.loc 6 27 14
 	mov	eax, DWORD PTR -12[rbp]	# _1, max
-	mov	esi, 16	#,
+	mov	esi, 24	#,
 	mov	rdi, rax	#, _1
 	call	calloc@PLT	#
 	mov	rdx, rax	# _2, tmp84
@@ -1718,24 +1718,24 @@ MapGrow:
 	mov	QWORD PTR -40[rbp], rdi	# map, map
 # std/map.h:34: 	Entry *entries = map->base;
 	.loc 6 34 9
-	mov	rax, QWORD PTR -40[rbp]	# tmp89, map
-	mov	rax, QWORD PTR [rax]	# tmp90, map_12(D)->base
-	mov	QWORD PTR -16[rbp], rax	# entries, tmp90
+	mov	rax, QWORD PTR -40[rbp]	# tmp88, map
+	mov	rax, QWORD PTR [rax]	# tmp89, map_11(D)->base
+	mov	QWORD PTR -16[rbp], rax	# entries, tmp89
 # std/map.h:35: 	U32 old_max = map->max;
 	.loc 6 35 6
-	mov	rax, QWORD PTR -40[rbp]	# tmp91, map
-	mov	eax, DWORD PTR 12[rax]	# tmp92, map_12(D)->max
-	mov	DWORD PTR -20[rbp], eax	# old_max, tmp92
+	mov	rax, QWORD PTR -40[rbp]	# tmp90, map
+	mov	eax, DWORD PTR 12[rax]	# tmp91, map_11(D)->max
+	mov	DWORD PTR -20[rbp], eax	# old_max, tmp91
 # std/map.h:36: 	MapAlloc( map, map->max << 1 );
 	.loc 6 36 20
-	mov	rax, QWORD PTR -40[rbp]	# tmp93, map
-	mov	eax, DWORD PTR 12[rax]	# _1, map_12(D)->max
+	mov	rax, QWORD PTR -40[rbp]	# tmp92, map
+	mov	eax, DWORD PTR 12[rax]	# _1, map_11(D)->max
 # std/map.h:36: 	MapAlloc( map, map->max << 1 );
 	.loc 6 36 2
 	lea	edx, [rax+rax]	# _2,
-	mov	rax, QWORD PTR -40[rbp]	# tmp94, map
+	mov	rax, QWORD PTR -40[rbp]	# tmp93, map
 	mov	esi, edx	#, _2
-	mov	rdi, rax	#, tmp94
+	mov	rdi, rax	#, tmp93
 	call	MapAlloc	#
 .LBB6:
 # std/map.h:37: 	for( U32 i = 0; i < old_max; i++ )
@@ -1748,31 +1748,34 @@ MapGrow:
 .LBB7:
 # std/map.h:39: 		Entry *entry = &entries[ i ];
 	.loc 6 39 26
-	mov	eax, DWORD PTR -24[rbp]	# _3, i
-	sal	rax, 4	# _3,
-	mov	rdx, rax	# _4, _3
+	mov	edx, DWORD PTR -24[rbp]	# _3, i
+	mov	rax, rdx	# tmp94, _3
+	add	rax, rax	# tmp94
+	add	rax, rdx	# tmp94, _3
+	sal	rax, 3	# tmp95,
+	mov	rdx, rax	# _4, tmp94
 # std/map.h:39: 		Entry *entry = &entries[ i ];
 	.loc 6 39 10
-	mov	rax, QWORD PTR -16[rbp]	# tmp98, entries
-	add	rax, rdx	# tmp97, _4
-	mov	QWORD PTR -8[rbp], rax	# entry, tmp97
+	mov	rax, QWORD PTR -16[rbp]	# tmp99, entries
+	add	rax, rdx	# tmp98, _4
+	mov	QWORD PTR -8[rbp], rax	# entry, tmp98
 # std/map.h:40: 		if( !entry->key ){ continue; }
 	.loc 6 40 13
-	mov	rax, QWORD PTR -8[rbp]	# tmp99, entry
-	mov	rax, QWORD PTR [rax]	# _5, entry_18->D.4226.key
+	mov	rax, QWORD PTR -8[rbp]	# tmp100, entry
+	mov	rax, QWORD PTR [rax]	# _5, entry_17->D.4226.key
 # std/map.h:40: 		if( !entry->key ){ continue; }
 	.loc 6 40 5
 	test	rax, rax	# _5
 	je	.L94	#,
 # std/map.h:41: 		MapPut( map, entry->key, entry->value );
 	.loc 6 41 3
-	mov	rax, QWORD PTR -8[rbp]	# tmp100, entry
-	mov	rdx, QWORD PTR 8[rax]	# _6, entry_18->value
 	mov	rax, QWORD PTR -8[rbp]	# tmp101, entry
-	mov	rcx, QWORD PTR [rax]	# _7, entry_18->D.4226.key
-	mov	rax, QWORD PTR -40[rbp]	# tmp102, map
-	mov	rsi, rcx	#, _7
-	mov	rdi, rax	#, tmp102
+	mov	rsi, QWORD PTR [rax]	# _6, entry_17->D.4226.key
+	mov	rax, QWORD PTR -8[rbp]	# tmp102, entry
+	mov	edx, DWORD PTR 8[rax]	# tmp103, entry_17->value
+	mov	rcx, QWORD PTR 16[rax]	# tmp104, entry_17->value
+	mov	rax, QWORD PTR -40[rbp]	# tmp105, map
+	mov	rdi, rax	#, tmp105
 	call	MapPut	#
 	jmp	.L92	#
 .L94:
@@ -1787,14 +1790,14 @@ MapGrow:
 .L90:
 # std/map.h:37: 	for( U32 i = 0; i < old_max; i++ )
 	.loc 6 37 20 discriminator 1
-	mov	eax, DWORD PTR -24[rbp]	# tmp103, i
-	cmp	eax, DWORD PTR -20[rbp]	# tmp103, old_max
+	mov	eax, DWORD PTR -24[rbp]	# tmp106, i
+	cmp	eax, DWORD PTR -20[rbp]	# tmp106, old_max
 	jb	.L93	#,
 .LBE6:
 # std/map.h:43: 	free( entries );
 	.loc 6 43 2
-	mov	rax, QWORD PTR -16[rbp]	# tmp104, entries
-	mov	rdi, rax	#, tmp104
+	mov	rax, QWORD PTR -16[rbp]	# tmp107, entries
+	mov	rdi, rax	#, tmp107
 	call	free@PLT	#
 # std/map.h:44: }
 	.loc 6 44 1
@@ -1839,18 +1842,21 @@ MapGet:
 # std/map.h:51: 		Entry *entry = &map->base[ idx ];
 	.loc 6 51 22
 	mov	rax, QWORD PTR -24[rbp]	# tmp98, map
-	mov	rax, QWORD PTR [rax]	# _4, map_16(D)->base
+	mov	rcx, QWORD PTR [rax]	# _4, map_16(D)->base
 # std/map.h:51: 		Entry *entry = &map->base[ idx ];
 	.loc 6 51 28
 	mov	edx, DWORD PTR -12[rbp]	# _5, idx
-	sal	rdx, 4	# _6,
+	mov	rax, rdx	# tmp99, _5
+	add	rax, rax	# tmp99
+	add	rax, rdx	# tmp99, _5
+	sal	rax, 3	# tmp100,
 # std/map.h:51: 		Entry *entry = &map->base[ idx ];
 	.loc 6 51 10
-	add	rax, rdx	# tmp99, _6
-	mov	QWORD PTR -8[rbp], rax	# entry, tmp99
+	add	rax, rcx	# tmp101, _4
+	mov	QWORD PTR -8[rbp], rax	# entry, tmp101
 # std/map.h:52: 		if( !entry->key ){ return entry; }
 	.loc 6 52 13
-	mov	rax, QWORD PTR -8[rbp]	# tmp100, entry
+	mov	rax, QWORD PTR -8[rbp]	# tmp102, entry
 	mov	rax, QWORD PTR [rax]	# _7, entry_18->D.4226.key
 # std/map.h:52: 		if( !entry->key ){ return entry; }
 	.loc 6 52 5
@@ -1865,7 +1871,7 @@ MapGet:
 .L96:
 # std/map.h:53: 		if( entry->key == key ){ return entry; }
 	.loc 6 53 12 is_stmt 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp101, entry
+	mov	rax, QWORD PTR -8[rbp]	# tmp103, entry
 	mov	rax, QWORD PTR [rax]	# _8, entry_18->D.4226.key
 # std/map.h:53: 		if( entry->key == key ){ return entry; }
 	.loc 6 53 5
@@ -1881,19 +1887,19 @@ MapGet:
 .LBE8:
 # std/map.h:49: 	for( ;; idx = ( idx + 1 ) & ( map->max - 1 ) )
 	.loc 6 49 22 is_stmt 1
-	mov	eax, DWORD PTR -12[rbp]	# tmp102, idx
+	mov	eax, DWORD PTR -12[rbp]	# tmp104, idx
 	lea	edx, 1[rax]	# _9,
 # std/map.h:49: 	for( ;; idx = ( idx + 1 ) & ( map->max - 1 ) )
 	.loc 6 49 35
-	mov	rax, QWORD PTR -24[rbp]	# tmp103, map
+	mov	rax, QWORD PTR -24[rbp]	# tmp105, map
 	mov	eax, DWORD PTR 12[rax]	# _10, map_16(D)->max
 # std/map.h:49: 	for( ;; idx = ( idx + 1 ) & ( map->max - 1 ) )
 	.loc 6 49 41
 	sub	eax, 1	# _11,
 # std/map.h:49: 	for( ;; idx = ( idx + 1 ) & ( map->max - 1 ) )
 	.loc 6 49 14
-	and	eax, edx	# tmp104, _9
-	mov	DWORD PTR -12[rbp], eax	# idx, tmp104
+	and	eax, edx	# tmp106, _9
+	mov	DWORD PTR -12[rbp], eax	# idx, tmp106
 # std/map.h:50: 	{
 	.loc 6 50 2
 	jmp	.L99	#
@@ -1921,14 +1927,17 @@ MapPut:
 	sub	rsp, 48	#,
 	mov	QWORD PTR -24[rbp], rdi	# map, map
 	mov	QWORD PTR -32[rbp], rsi	# key, key
-	mov	QWORD PTR -40[rbp], rdx	# value, value
+	mov	eax, edx	# tmp90, value
+	mov	rdx, rcx	#, tmp91
+	mov	QWORD PTR -48[rbp], rax	# value, tmp89
+	mov	QWORD PTR -40[rbp], rdx	# value,
 # std/map.h:60: 	if( map->len > map->max ){ MapGrow( map ); }
 	.loc 6 60 9
-	mov	rax, QWORD PTR -24[rbp]	# tmp89, map
+	mov	rax, QWORD PTR -24[rbp]	# tmp92, map
 	mov	eax, DWORD PTR 8[rax]	# _1, map_10(D)->len
 # std/map.h:60: 	if( map->len > map->max ){ MapGrow( map ); }
 	.loc 6 60 20
-	mov	rdx, QWORD PTR -24[rbp]	# tmp90, map
+	mov	rdx, QWORD PTR -24[rbp]	# tmp93, map
 	mov	edx, DWORD PTR 12[rdx]	# _2, map_10(D)->max
 # std/map.h:60: 	if( map->len > map->max ){ MapGrow( map ); }
 	.loc 6 60 4
@@ -1936,25 +1945,25 @@ MapPut:
 	jnb	.L101	#,
 # std/map.h:60: 	if( map->len > map->max ){ MapGrow( map ); }
 	.loc 6 60 29 discriminator 1
-	mov	rax, QWORD PTR -24[rbp]	# tmp91, map
-	mov	rdi, rax	#, tmp91
+	mov	rax, QWORD PTR -24[rbp]	# tmp94, map
+	mov	rdi, rax	#, tmp94
 	call	MapGrow	#
 .L101:
 # std/map.h:61: 	Entry *entry = MapGet( map, key );
 	.loc 6 61 17
-	mov	rdx, QWORD PTR -32[rbp]	# tmp92, key
-	mov	rax, QWORD PTR -24[rbp]	# tmp93, map
-	mov	rsi, rdx	#, tmp92
-	mov	rdi, rax	#, tmp93
+	mov	rdx, QWORD PTR -32[rbp]	# tmp95, key
+	mov	rax, QWORD PTR -24[rbp]	# tmp96, map
+	mov	rsi, rdx	#, tmp95
+	mov	rdi, rax	#, tmp96
 	call	MapGet	#
-	mov	QWORD PTR -8[rbp], rax	# entry, tmp94
+	mov	QWORD PTR -8[rbp], rax	# entry, tmp97
 # std/map.h:62: 	map->len += entry->key == NULL;
 	.loc 6 62 5
-	mov	rax, QWORD PTR -24[rbp]	# tmp95, map
+	mov	rax, QWORD PTR -24[rbp]	# tmp98, map
 	mov	edx, DWORD PTR 8[rax]	# _3, map_10(D)->len
 # std/map.h:62: 	map->len += entry->key == NULL;
 	.loc 6 62 19
-	mov	rax, QWORD PTR -8[rbp]	# tmp96, entry
+	mov	rax, QWORD PTR -8[rbp]	# tmp99, entry
 	mov	rax, QWORD PTR [rax]	# _4, entry_14->D.4226.key
 # std/map.h:62: 	map->len += entry->key == NULL;
 	.loc 6 62 25
@@ -1964,18 +1973,20 @@ MapPut:
 # std/map.h:62: 	map->len += entry->key == NULL;
 	.loc 6 62 11
 	add	edx, eax	# _7, _6
-	mov	rax, QWORD PTR -24[rbp]	# tmp97, map
+	mov	rax, QWORD PTR -24[rbp]	# tmp100, map
 	mov	DWORD PTR 8[rax], edx	# map_10(D)->len, _7
 # std/map.h:63: 	entry->key = key;
 	.loc 6 63 13
-	mov	rax, QWORD PTR -8[rbp]	# tmp98, entry
-	mov	rdx, QWORD PTR -32[rbp]	# tmp99, key
-	mov	QWORD PTR [rax], rdx	# entry_14->D.4226.key, tmp99
+	mov	rax, QWORD PTR -8[rbp]	# tmp101, entry
+	mov	rdx, QWORD PTR -32[rbp]	# tmp102, key
+	mov	QWORD PTR [rax], rdx	# entry_14->D.4226.key, tmp102
 # std/map.h:64: 	entry->value = value;
 	.loc 6 64 15
-	mov	rax, QWORD PTR -8[rbp]	# tmp100, entry
-	mov	rdx, QWORD PTR -40[rbp]	# tmp101, value
-	mov	QWORD PTR 8[rax], rdx	# entry_14->value, tmp101
+	mov	rcx, QWORD PTR -8[rbp]	# tmp103, entry
+	mov	rax, QWORD PTR -48[rbp]	# tmp104, value
+	mov	rdx, QWORD PTR -40[rbp]	#, value
+	mov	QWORD PTR 8[rcx], rax	# entry_14->value, tmp104
+	mov	QWORD PTR 16[rcx], rdx	# entry_14->value,
 # std/map.h:65: }
 	.loc 6 65 1
 	nop	
@@ -2034,7 +2045,7 @@ GetJmp:
 	.cfi_def_cfa_register 6
 # std/err.h:4: 	return &buf;
 	.loc 7 4 9
-	lea	rax, buf.47[rip]	# _1,
+	lea	rax, buf.48[rip]	# _1,
 # std/err.h:5: }
 	.loc 7 5 1
 	pop	rbp	#
@@ -2074,7 +2085,7 @@ Throw:
 # std/err.h:8: {
 	.loc 7 8 1
 	mov	rax, QWORD PTR fs:40	# tmp87, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -184[rbp], rax	# D.6321, tmp87
+	mov	QWORD PTR -184[rbp], rax	# D.6433, tmp87
 	xor	eax, eax	# tmp87
 # std/err.h:10: 	va_start( args, fmt );
 	.loc 7 10 2
@@ -2183,7 +2194,7 @@ IoRead:
 	mov	QWORD PTR -16[rbp], rax	# buf, tmp98
 # std/io.h:10: 	U64 bytes = fread( buf, sizeof( I8 ), len, stream );
 	.loc 8 10 14 is_stmt 1
-	mov	rdx, QWORD PTR -24[rbp]	# len.60_3, len
+	mov	rdx, QWORD PTR -24[rbp]	# len.67_3, len
 	mov	rcx, QWORD PTR -32[rbp]	# tmp99, stream
 	mov	rax, QWORD PTR -16[rbp]	# tmp100, buf
 	mov	esi, 1	#,
@@ -2225,7 +2236,7 @@ GetLexer:
 	.cfi_def_cfa_register 6
 # lexer/lexer.h:19: 	return &lexer;
 	.loc 9 19 9
-	lea	rax, lexer.48[rip]	# _1,
+	lea	rax, lexer.49[rip]	# _1,
 # lexer/lexer.h:20: }
 	.loc 9 20 1
 	pop	rbp	#
@@ -2403,7 +2414,7 @@ LexEof:
 # lexer/lexer.h:45: STIL Token LexEof( Lexer *lexer ){ return LexSet( lexer, TK_EOS, 0, 0 ); }
 	.loc 9 45 34
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6328, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6440, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:45: STIL Token LexEof( Lexer *lexer ){ return LexSet( lexer, TK_EOS, 0, 0 ); }
 	.loc 9 45 43
@@ -2416,7 +2427,7 @@ LexEof:
 	call	LexSet	#
 # lexer/lexer.h:45: STIL Token LexEof( Lexer *lexer ){ return LexSet( lexer, TK_EOS, 0, 0 ); }
 	.loc 9 45 74
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6328
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6440
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L118	#,
 	call	__stack_chk_fail@PLT	#
@@ -2477,7 +2488,7 @@ LexNot:
 # lexer/lexer.h:54: {	/* ! != */
 	.loc 9 54 1
 	mov	rax, QWORD PTR fs:40	# tmp90, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6331, tmp90
+	mov	QWORD PTR -8[rbp], rax	# D.6443, tmp90
 	xor	eax, eax	# tmp90
 # lexer/lexer.h:55: 	U8 off = ( *lexer->end == '=' );
 	.loc 9 55 19
@@ -2506,7 +2517,7 @@ LexNot:
 	call	LexSet	#
 # lexer/lexer.h:57: }
 	.loc 9 57 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6331
+	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6443
 	sub	rax, QWORD PTR fs:40	# tmp91, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L122	#,
 	call	__stack_chk_fail@PLT	#
@@ -2754,7 +2765,7 @@ LexMod:
 # lexer/lexer.h:79: {	/* % %= */
 	.loc 9 79 1
 	mov	rax, QWORD PTR fs:40	# tmp90, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6336, tmp90
+	mov	QWORD PTR -8[rbp], rax	# D.6448, tmp90
 	xor	eax, eax	# tmp90
 # lexer/lexer.h:80: 	U8 off = ( *lexer->end == '=' );
 	.loc 9 80 19
@@ -2783,7 +2794,7 @@ LexMod:
 	call	LexSet	#
 # lexer/lexer.h:82: }
 	.loc 9 82 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6336
+	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6448
 	sub	rax, QWORD PTR fs:40	# tmp91, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L135	#,
 	call	__stack_chk_fail@PLT	#
@@ -2811,7 +2822,7 @@ LexBand:
 # lexer/lexer.h:85: {	/* & &= && */
 	.loc 9 85 1
 	mov	rax, QWORD PTR fs:40	# tmp97, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6339, tmp97
+	mov	QWORD PTR -8[rbp], rax	# D.6451, tmp97
 	xor	eax, eax	# tmp97
 # lexer/lexer.h:86: 	U8 off = ( *lexer->end == '=' ) + ( *lexer->end == '&' ) * 2;
 	.loc 9 86 19
@@ -2864,7 +2875,7 @@ LexBand:
 	call	LexSet	#
 # lexer/lexer.h:88: }
 	.loc 9 88 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6339
+	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6451
 	sub	rax, QWORD PTR fs:40	# tmp98, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L140	#,
 	call	__stack_chk_fail@PLT	#
@@ -2892,7 +2903,7 @@ LexLp:
 # lexer/lexer.h:90: STIL Token LexLp( Lexer *lexer ){ return LexSet( lexer, TK_LP, 0, 0 ); }
 	.loc 9 90 33
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6342, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6454, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:90: STIL Token LexLp( Lexer *lexer ){ return LexSet( lexer, TK_LP, 0, 0 ); }
 	.loc 9 90 42
@@ -2905,7 +2916,7 @@ LexLp:
 	call	LexSet	#
 # lexer/lexer.h:90: STIL Token LexLp( Lexer *lexer ){ return LexSet( lexer, TK_LP, 0, 0 ); }
 	.loc 9 90 72
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6342
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6454
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L143	#,
 	call	__stack_chk_fail@PLT	#
@@ -2933,7 +2944,7 @@ LexRp:
 # lexer/lexer.h:91: STIL Token LexRp( Lexer *lexer ){ return LexSet( lexer, TK_RP, 0, 0 ); }
 	.loc 9 91 33
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6345, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6457, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:91: STIL Token LexRp( Lexer *lexer ){ return LexSet( lexer, TK_RP, 0, 0 ); }
 	.loc 9 91 42
@@ -2946,7 +2957,7 @@ LexRp:
 	call	LexSet	#
 # lexer/lexer.h:91: STIL Token LexRp( Lexer *lexer ){ return LexSet( lexer, TK_RP, 0, 0 ); }
 	.loc 9 91 72
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6345
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6457
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L146	#,
 	call	__stack_chk_fail@PLT	#
@@ -2974,7 +2985,7 @@ LexMul:
 # lexer/lexer.h:94: {	/* * *= ** **= */
 	.loc 9 94 1
 	mov	rax, QWORD PTR fs:40	# tmp108, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6348, tmp108
+	mov	QWORD PTR -8[rbp], rax	# D.6460, tmp108
 	xor	eax, eax	# tmp108
 # lexer/lexer.h:95: 	U8 off = ( *lexer->end == '=' )
 	.loc 9 95 19
@@ -3053,7 +3064,7 @@ LexMul:
 	call	LexSet	#
 # lexer/lexer.h:99: }
 	.loc 9 99 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp109, D.6348
+	mov	rax, QWORD PTR -8[rbp]	# tmp109, D.6460
 	sub	rax, QWORD PTR fs:40	# tmp109, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L151	#,
 	call	__stack_chk_fail@PLT	#
@@ -3081,7 +3092,7 @@ LexAdd:
 # lexer/lexer.h:102: {	/* +, +=, ++ */
 	.loc 9 102 1
 	mov	rax, QWORD PTR fs:40	# tmp97, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6351, tmp97
+	mov	QWORD PTR -8[rbp], rax	# D.6463, tmp97
 	xor	eax, eax	# tmp97
 # lexer/lexer.h:103: 	U8 off = ( *lexer->end == '=' ) + ( *lexer->end == '+' ) * 2;
 	.loc 9 103 19
@@ -3134,7 +3145,7 @@ LexAdd:
 	call	LexSet	#
 # lexer/lexer.h:105: }
 	.loc 9 105 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6351
+	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6463
 	sub	rax, QWORD PTR fs:40	# tmp98, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L156	#,
 	call	__stack_chk_fail@PLT	#
@@ -3162,7 +3173,7 @@ LexComma:
 # lexer/lexer.h:107: STIL Token LexComma( Lexer *lexer ){ return LexSet( lexer, TK_COMMA, 0, 0 ); }
 	.loc 9 107 36
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6354, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6466, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:107: STIL Token LexComma( Lexer *lexer ){ return LexSet( lexer, TK_COMMA, 0, 0 ); }
 	.loc 9 107 45
@@ -3175,7 +3186,7 @@ LexComma:
 	call	LexSet	#
 # lexer/lexer.h:107: STIL Token LexComma( Lexer *lexer ){ return LexSet( lexer, TK_COMMA, 0, 0 ); }
 	.loc 9 107 78
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6354
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6466
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L159	#,
 	call	__stack_chk_fail@PLT	#
@@ -3203,7 +3214,7 @@ LexSub:
 # lexer/lexer.h:110: {	/* -, -=, -- */
 	.loc 9 110 1
 	mov	rax, QWORD PTR fs:40	# tmp97, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6357, tmp97
+	mov	QWORD PTR -8[rbp], rax	# D.6469, tmp97
 	xor	eax, eax	# tmp97
 # lexer/lexer.h:111: 	U8 off = ( *lexer->end == '=' ) + ( *lexer->end == '-' ) * 2;
 	.loc 9 111 19
@@ -3256,7 +3267,7 @@ LexSub:
 	call	LexSet	#
 # lexer/lexer.h:113: }
 	.loc 9 113 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6357
+	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6469
 	sub	rax, QWORD PTR fs:40	# tmp98, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L164	#,
 	call	__stack_chk_fail@PLT	#
@@ -3284,7 +3295,7 @@ LexDot:
 # lexer/lexer.h:115: STIL Token LexDot( Lexer *lexer ){ return LexSet( lexer, TK_DOT, 0, 0 ); }
 	.loc 9 115 34
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6360, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6472, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:115: STIL Token LexDot( Lexer *lexer ){ return LexSet( lexer, TK_DOT, 0, 0 ); }
 	.loc 9 115 43
@@ -3297,7 +3308,7 @@ LexDot:
 	call	LexSet	#
 # lexer/lexer.h:115: STIL Token LexDot( Lexer *lexer ){ return LexSet( lexer, TK_DOT, 0, 0 ); }
 	.loc 9 115 74
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6360
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6472
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L167	#,
 	call	__stack_chk_fail@PLT	#
@@ -3325,7 +3336,7 @@ LexDiv:
 # lexer/lexer.h:118: {	/* /, /= */
 	.loc 9 118 1
 	mov	rax, QWORD PTR fs:40	# tmp90, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6363, tmp90
+	mov	QWORD PTR -8[rbp], rax	# D.6475, tmp90
 	xor	eax, eax	# tmp90
 # lexer/lexer.h:119: 	U8 off = ( *lexer->end == '=' );
 	.loc 9 119 19
@@ -3354,7 +3365,7 @@ LexDiv:
 	call	LexSet	#
 # lexer/lexer.h:121: }
 	.loc 9 121 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6363
+	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6475
 	sub	rax, QWORD PTR fs:40	# tmp91, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L170	#,
 	call	__stack_chk_fail@PLT	#
@@ -3581,7 +3592,7 @@ LexColon:
 # lexer/lexer.h:139: {	/* : :. :: */
 	.loc 9 139 1
 	mov	rax, QWORD PTR fs:40	# tmp97, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6368, tmp97
+	mov	QWORD PTR -8[rbp], rax	# D.6480, tmp97
 	xor	eax, eax	# tmp97
 # lexer/lexer.h:140: 	U8 off = ( *lexer->end == '.' ) + ( *lexer->end == ':' ) * 2;
 	.loc 9 140 19
@@ -3634,7 +3645,7 @@ LexColon:
 	call	LexSet	#
 # lexer/lexer.h:142: }
 	.loc 9 142 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6368
+	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6480
 	sub	rax, QWORD PTR fs:40	# tmp98, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L184	#,
 	call	__stack_chk_fail@PLT	#
@@ -3662,7 +3673,7 @@ LexSemi:
 # lexer/lexer.h:145: {	/* ; ;. ;; */
 	.loc 9 145 1
 	mov	rax, QWORD PTR fs:40	# tmp97, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6371, tmp97
+	mov	QWORD PTR -8[rbp], rax	# D.6483, tmp97
 	xor	eax, eax	# tmp97
 # lexer/lexer.h:146: 	U8 off = ( *lexer->end == '.' ) + ( *lexer->end == ';' ) * 2;
 	.loc 9 146 19
@@ -3715,7 +3726,7 @@ LexSemi:
 	call	LexSet	#
 # lexer/lexer.h:148: }
 	.loc 9 148 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6371
+	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6483
 	sub	rax, QWORD PTR fs:40	# tmp98, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L189	#,
 	call	__stack_chk_fail@PLT	#
@@ -3743,7 +3754,7 @@ LexLt:
 # lexer/lexer.h:151: {	/* < <= << <<= */
 	.loc 9 151 1
 	mov	rax, QWORD PTR fs:40	# tmp108, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6374, tmp108
+	mov	QWORD PTR -8[rbp], rax	# D.6486, tmp108
 	xor	eax, eax	# tmp108
 # lexer/lexer.h:152: 	U8 off = ( *lexer->end == '=' )
 	.loc 9 152 19
@@ -3822,7 +3833,7 @@ LexLt:
 	call	LexSet	#
 # lexer/lexer.h:156: }
 	.loc 9 156 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp109, D.6374
+	mov	rax, QWORD PTR -8[rbp]	# tmp109, D.6486
 	sub	rax, QWORD PTR fs:40	# tmp109, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L194	#,
 	call	__stack_chk_fail@PLT	#
@@ -3850,7 +3861,7 @@ LexEq:
 # lexer/lexer.h:159: { /* = == */
 	.loc 9 159 1
 	mov	rax, QWORD PTR fs:40	# tmp90, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6377, tmp90
+	mov	QWORD PTR -8[rbp], rax	# D.6489, tmp90
 	xor	eax, eax	# tmp90
 # lexer/lexer.h:160: 	U8 off = ( *lexer->end == '=' );
 	.loc 9 160 19
@@ -3879,7 +3890,7 @@ LexEq:
 	call	LexSet	#
 # lexer/lexer.h:162: }
 	.loc 9 162 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6377
+	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6489
 	sub	rax, QWORD PTR fs:40	# tmp91, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L197	#,
 	call	__stack_chk_fail@PLT	#
@@ -3907,7 +3918,7 @@ LexGt:
 # lexer/lexer.h:165: {	/* > >= >> >>= */
 	.loc 9 165 1
 	mov	rax, QWORD PTR fs:40	# tmp108, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6380, tmp108
+	mov	QWORD PTR -8[rbp], rax	# D.6492, tmp108
 	xor	eax, eax	# tmp108
 # lexer/lexer.h:166: 	U8 off = ( *lexer->end == '=' )
 	.loc 9 166 19
@@ -3986,7 +3997,7 @@ LexGt:
 	call	LexSet	#
 # lexer/lexer.h:170: }
 	.loc 9 170 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp109, D.6380
+	mov	rax, QWORD PTR -8[rbp]	# tmp109, D.6492
 	sub	rax, QWORD PTR fs:40	# tmp109, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L202	#,
 	call	__stack_chk_fail@PLT	#
@@ -4014,7 +4025,7 @@ LexReturn:
 # lexer/lexer.h:172: STIL Token LexReturn( Lexer *lexer ){ return LexSet( lexer, TK_RET, 0, 0 ); }
 	.loc 9 172 37
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6383, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6495, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:172: STIL Token LexReturn( Lexer *lexer ){ return LexSet( lexer, TK_RET, 0, 0 ); }
 	.loc 9 172 46
@@ -4027,7 +4038,7 @@ LexReturn:
 	call	LexSet	#
 # lexer/lexer.h:172: STIL Token LexReturn( Lexer *lexer ){ return LexSet( lexer, TK_RET, 0, 0 ); }
 	.loc 9 172 77
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6383
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6495
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L205	#,
 	call	__stack_chk_fail@PLT	#
@@ -4175,7 +4186,7 @@ LexLs:
 # lexer/lexer.h:184: STIL Token LexLs( Lexer *lexer ){ return LexSet( lexer, TK_LS, 0, 0 ); }
 	.loc 9 184 33
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6387, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6499, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:184: STIL Token LexLs( Lexer *lexer ){ return LexSet( lexer, TK_LS, 0, 0 ); }
 	.loc 9 184 42
@@ -4188,7 +4199,7 @@ LexLs:
 	call	LexSet	#
 # lexer/lexer.h:184: STIL Token LexLs( Lexer *lexer ){ return LexSet( lexer, TK_LS, 0, 0 ); }
 	.loc 9 184 72
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6387
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6499
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L212	#,
 	call	__stack_chk_fail@PLT	#
@@ -4216,7 +4227,7 @@ LexRs:
 # lexer/lexer.h:185: STIL Token LexRs( Lexer *lexer ){ return LexSet( lexer, TK_RS, 0, 0 ); }
 	.loc 9 185 33
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6390, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6502, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:185: STIL Token LexRs( Lexer *lexer ){ return LexSet( lexer, TK_RS, 0, 0 ); }
 	.loc 9 185 42
@@ -4229,7 +4240,7 @@ LexRs:
 	call	LexSet	#
 # lexer/lexer.h:185: STIL Token LexRs( Lexer *lexer ){ return LexSet( lexer, TK_RS, 0, 0 ); }
 	.loc 9 185 72
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6390
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6502
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L215	#,
 	call	__stack_chk_fail@PLT	#
@@ -4257,7 +4268,7 @@ LexBxor:
 # lexer/lexer.h:188: { /* ^ ^= */
 	.loc 9 188 1
 	mov	rax, QWORD PTR fs:40	# tmp90, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6393, tmp90
+	mov	QWORD PTR -8[rbp], rax	# D.6505, tmp90
 	xor	eax, eax	# tmp90
 # lexer/lexer.h:189: 	U8 off = ( *lexer->end == '=' );
 	.loc 9 189 19
@@ -4286,7 +4297,7 @@ LexBxor:
 	call	LexSet	#
 # lexer/lexer.h:191: }
 	.loc 9 191 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6393
+	mov	rax, QWORD PTR -8[rbp]	# tmp91, D.6505
 	sub	rax, QWORD PTR fs:40	# tmp91, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L218	#,
 	call	__stack_chk_fail@PLT	#
@@ -4314,7 +4325,7 @@ LexBnot:
 # lexer/lexer.h:193: STIL Token LexBnot( Lexer *lexer ){ return LexSet( lexer, TK_BNOT, 0, 0 ); }
 	.loc 9 193 35
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6396, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6508, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:193: STIL Token LexBnot( Lexer *lexer ){ return LexSet( lexer, TK_BNOT, 0, 0 ); }
 	.loc 9 193 44
@@ -4327,7 +4338,7 @@ LexBnot:
 	call	LexSet	#
 # lexer/lexer.h:193: STIL Token LexBnot( Lexer *lexer ){ return LexSet( lexer, TK_BNOT, 0, 0 ); }
 	.loc 9 193 76
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6396
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6508
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L221	#,
 	call	__stack_chk_fail@PLT	#
@@ -4355,7 +4366,7 @@ LexLc:
 # lexer/lexer.h:194: STIL Token LexLc( Lexer *lexer ){ return LexSet( lexer, TK_LC, 0, 0 ); }
 	.loc 9 194 33
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6399, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6511, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:194: STIL Token LexLc( Lexer *lexer ){ return LexSet( lexer, TK_LC, 0, 0 ); }
 	.loc 9 194 42
@@ -4368,7 +4379,7 @@ LexLc:
 	call	LexSet	#
 # lexer/lexer.h:194: STIL Token LexLc( Lexer *lexer ){ return LexSet( lexer, TK_LC, 0, 0 ); }
 	.loc 9 194 72
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6399
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6511
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L224	#,
 	call	__stack_chk_fail@PLT	#
@@ -4396,7 +4407,7 @@ LexBor:
 # lexer/lexer.h:197: { /* | |= || */
 	.loc 9 197 1
 	mov	rax, QWORD PTR fs:40	# tmp97, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6402, tmp97
+	mov	QWORD PTR -8[rbp], rax	# D.6514, tmp97
 	xor	eax, eax	# tmp97
 # lexer/lexer.h:198: 	U8 off = ( *lexer->end == '=' ) + ( *lexer->end == '|' ) * 2;
 	.loc 9 198 19
@@ -4449,7 +4460,7 @@ LexBor:
 	call	LexSet	#
 # lexer/lexer.h:200: }
 	.loc 9 200 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6402
+	mov	rax, QWORD PTR -8[rbp]	# tmp98, D.6514
 	sub	rax, QWORD PTR fs:40	# tmp98, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L229	#,
 	call	__stack_chk_fail@PLT	#
@@ -4477,7 +4488,7 @@ LexRc:
 # lexer/lexer.h:202: STIL Token LexRc( Lexer *lexer ){ return LexSet( lexer, TK_RC, 0, 0 ); }
 	.loc 9 202 33
 	mov	rax, QWORD PTR fs:40	# tmp84, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6405, tmp84
+	mov	QWORD PTR -8[rbp], rax	# D.6517, tmp84
 	xor	eax, eax	# tmp84
 # lexer/lexer.h:202: STIL Token LexRc( Lexer *lexer ){ return LexSet( lexer, TK_RC, 0, 0 ); }
 	.loc 9 202 42
@@ -4490,7 +4501,7 @@ LexRc:
 	call	LexSet	#
 # lexer/lexer.h:202: STIL Token LexRc( Lexer *lexer ){ return LexSet( lexer, TK_RC, 0, 0 ); }
 	.loc 9 202 72
-	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6405
+	mov	rax, QWORD PTR -8[rbp]	# tmp85, D.6517
 	sub	rax, QWORD PTR fs:40	# tmp85, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L232	#,
 	call	__stack_chk_fail@PLT	#
@@ -4519,7 +4530,7 @@ Lex:
 # lexer/lexer.h:205: {
 	.loc 9 205 1
 	mov	rax, QWORD PTR fs:40	# tmp158, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6408, tmp158
+	mov	QWORD PTR -8[rbp], rax	# D.6520, tmp158
 	xor	eax, eax	# tmp158
 # lexer/lexer.h:206: 	Lexer *lexer = GetLexer( );
 	.loc 9 206 17
@@ -4552,7 +4563,7 @@ Lex:
 	.loc 9 209 18
 	cdqe
 	lea	rdx, 0[0+rax*8]	# tmp94,
-	lea	rax, ascii.49[rip]	# tmp95,
+	lea	rax, ascii.50[rip]	# tmp95,
 	mov	rax, QWORD PTR [rdx+rax]	# _7, ascii[_6]
 # lexer/lexer.h:209: 	LEX: goto *ascii[ *( U8* )lexer->end++ ];
 	.loc 9 209 7
@@ -4715,7 +4726,7 @@ Lex:
 	.loc 10 16 13
 	mov	rax, QWORD PTR -24[rbp]	# tmp124, .result_ptr
 	mov	rsi, QWORD PTR -16[rbp]	# tmp125, lexer
-	lea	rdx, ascii.49[rip]	# tmp126,
+	lea	rdx, ascii.50[rip]	# tmp126,
 	mov	rcx, rdx	#, tmp126
 	lea	rdx, .L251[rip]	# tmp127,
 	mov	rdi, rax	#, tmp124
@@ -4787,7 +4798,7 @@ Lex:
 	.loc 10 23 12
 	mov	rax, QWORD PTR -24[rbp]	# tmp140, .result_ptr
 	mov	rsi, QWORD PTR -16[rbp]	# tmp141, lexer
-	lea	r8, ascii.49[rip]	#,
+	lea	r8, ascii.50[rip]	#,
 	lea	rdx, .L251[rip]	# tmp142,
 	mov	rcx, rdx	#, tmp142
 	lea	rdx, .L258[rip]	# tmp143,
@@ -4866,7 +4877,7 @@ Lex:
 .L236:
 # lexer/lexer.h:211: }
 	.loc 9 211 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp159, D.6408
+	mov	rax, QWORD PTR -8[rbp]	# tmp159, D.6520
 	sub	rax, QWORD PTR fs:40	# tmp159, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L266	#,
 	call	__stack_chk_fail@PLT	#
@@ -4891,7 +4902,7 @@ GetParser:
 	.cfi_def_cfa_register 6
 # parser/parser.h:22: 	return &parser;
 	.loc 11 22 9
-	lea	rax, parser.42[rip]	# _1,
+	lea	rax, parser.43[rip]	# _1,
 # parser/parser.h:23: }
 	.loc 11 23 1
 	pop	rbp	#
@@ -4957,7 +4968,7 @@ ParseNodeLog:
 	.loc 11 41 13
 	mov	eax, eax	# tmp91, _2
 	lea	rdx, 0[0+rax*8]	# tmp92,
-	lea	rax, types.46[rip]	# tmp93,
+	lea	rax, types.47[rip]	# tmp93,
 	mov	rax, QWORD PTR [rdx+rax]	# _3, types[_2]
 # parser/parser.h:41: 	goto *types[ node->value.type ];
 	.loc 11 41 2
@@ -5054,7 +5065,7 @@ ParseMatch:
 # parser/parser.h:56: {
 	.loc 11 56 1
 	mov	rax, QWORD PTR fs:40	# tmp92, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -24[rbp], rax	# D.6440, tmp92
+	mov	QWORD PTR -24[rbp], rax	# D.6552, tmp92
 	xor	eax, eax	# tmp92
 # parser/parser.h:57: 	if( type != parser->token.type )
 	.loc 11 57 27
@@ -5092,7 +5103,7 @@ ParseMatch:
 # parser/parser.h:62: }
 	.loc 11 62 1
 	nop	
-	mov	rax, QWORD PTR -24[rbp]	# tmp93, D.6440
+	mov	rax, QWORD PTR -24[rbp]	# tmp93, D.6552
 	sub	rax, QWORD PTR fs:40	# tmp93, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L280	#,
 	call	__stack_chk_fail@PLT	#
@@ -5122,7 +5133,7 @@ ParseIf:
 # parser/parser.h:67: {
 	.loc 11 67 1
 	mov	rax, QWORD PTR fs:40	# tmp98, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6444, tmp98
+	mov	QWORD PTR -8[rbp], rax	# D.6556, tmp98
 	xor	eax, eax	# tmp98
 # parser/parser.h:68: 	ParseMatch( parser, TK_IF );
 	.loc 11 68 2
@@ -5210,7 +5221,7 @@ ParseIf:
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp97
 # parser/parser.h:85: }
 	.loc 11 85 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp99, D.6444
+	mov	rax, QWORD PTR -8[rbp]	# tmp99, D.6556
 	sub	rax, QWORD PTR fs:40	# tmp99, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L288	#,
 	call	__stack_chk_fail@PLT	#
@@ -5349,7 +5360,7 @@ ParseFunc:
 # parser/parser.h:106: {
 	.loc 11 106 1
 	mov	rax, QWORD PTR fs:40	# tmp93, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6451, tmp93
+	mov	QWORD PTR -8[rbp], rax	# D.6563, tmp93
 	xor	eax, eax	# tmp93
 # parser/parser.h:107: 	ParseMatch( parser, TK_LP );
 	.loc 11 107 2
@@ -5406,7 +5417,7 @@ ParseFunc:
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp92
 # parser/parser.h:116: }
 	.loc 11 116 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp94, D.6451
+	mov	rax, QWORD PTR -8[rbp]	# tmp94, D.6563
 	sub	rax, QWORD PTR fs:40	# tmp94, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L301	#,
 	call	__stack_chk_fail@PLT	#
@@ -5436,7 +5447,7 @@ ParseId:
 # parser/parser.h:119: {
 	.loc 11 119 1
 	mov	rax, QWORD PTR fs:40	# tmp96, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6454, tmp96
+	mov	QWORD PTR -8[rbp], rax	# D.6566, tmp96
 	xor	eax, eax	# tmp96
 # parser/parser.h:120: 	String* name = parser->token.value.str;
 	.loc 11 120 10
@@ -5495,7 +5506,7 @@ ParseId:
 .L305:
 # parser/parser.h:127: }
 	.loc 11 127 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp97, D.6454
+	mov	rax, QWORD PTR -8[rbp]	# tmp97, D.6566
 	sub	rax, QWORD PTR fs:40	# tmp97, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L306	#,
 	call	__stack_chk_fail@PLT	#
@@ -5600,7 +5611,7 @@ ParseUnary:
 # parser/parser.h:143: {
 	.loc 11 143 1
 	mov	rax, QWORD PTR fs:40	# tmp93, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6461, tmp93
+	mov	QWORD PTR -8[rbp], rax	# D.6573, tmp93
 	xor	eax, eax	# tmp93
 # parser/parser.h:144: 	TokenType op = parser->token.type;
 	.loc 11 144 12
@@ -5633,7 +5644,7 @@ ParseUnary:
 	call	CompileUna	#
 # parser/parser.h:148: }
 	.loc 11 148 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp94, D.6461
+	mov	rax, QWORD PTR -8[rbp]	# tmp94, D.6573
 	sub	rax, QWORD PTR fs:40	# tmp94, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L313	#,
 	call	__stack_chk_fail@PLT	#
@@ -5665,7 +5676,7 @@ ParseBinary:
 # parser/parser.h:151: {
 	.loc 11 151 1
 	mov	rax, QWORD PTR fs:40	# tmp94, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6465, tmp94
+	mov	QWORD PTR -8[rbp], rax	# D.6577, tmp94
 	xor	eax, eax	# tmp94
 # parser/parser.h:152: 	TokenType op = parser->token.type;
 	.loc 11 152 12
@@ -5698,7 +5709,7 @@ ParseBinary:
 	call	CompileBin	#
 # parser/parser.h:156: }
 	.loc 11 156 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp95, D.6465
+	mov	rax, QWORD PTR -8[rbp]	# tmp95, D.6577
 	sub	rax, QWORD PTR fs:40	# tmp95, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L316	#,
 	call	__stack_chk_fail@PLT	#
@@ -5728,7 +5739,7 @@ ParseGroup:
 # parser/parser.h:159: {
 	.loc 11 159 1
 	mov	rax, QWORD PTR fs:40	# tmp89, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6469, tmp89
+	mov	QWORD PTR -8[rbp], rax	# D.6581, tmp89
 	xor	eax, eax	# tmp89
 # parser/parser.h:160: 	ParseMatch( parser, TK_LP );
 	.loc 11 160 2
@@ -5761,7 +5772,7 @@ ParseGroup:
 	mov	QWORD PTR 16[rcx], rax	# <retval>, tmp88
 # parser/parser.h:164: }
 	.loc 11 164 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp90, D.6469
+	mov	rax, QWORD PTR -8[rbp]	# tmp90, D.6581
 	sub	rax, QWORD PTR fs:40	# tmp90, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L319	#,
 	call	__stack_chk_fail@PLT	#
@@ -6053,7 +6064,7 @@ ParseExpr:
 # parser/parser.h:209: {
 	.loc 11 209 1
 	mov	rax, QWORD PTR fs:40	# tmp150, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6477, tmp150
+	mov	QWORD PTR -8[rbp], rax	# D.6589, tmp150
 	xor	eax, eax	# tmp150
 # parser/parser.h:211: 	ParseRule *rule = &rules[ parser->token.type ];
 	.loc 11 211 41
@@ -6066,7 +6077,7 @@ ParseExpr:
 	add	rax, rax	# tmp90
 	add	rax, rdx	# tmp90, tmp89
 	sal	rax, 3	# tmp91,
-	lea	rdx, rules.44[rip]	# tmp92,
+	lea	rdx, rules.45[rip]	# tmp92,
 	add	rax, rdx	# tmp93, tmp92
 	mov	QWORD PTR -40[rbp], rax	# rule, tmp93
 # parser/parser.h:212: 	ParseNode node = { 0 };
@@ -6093,7 +6104,7 @@ ParseExpr:
 	add	rax, rax	# tmp98
 	add	rax, rdx	# tmp98, tmp97
 	sal	rax, 3	# tmp99,
-	lea	rdx, rules.44[rip]	# tmp100,
+	lea	rdx, rules.45[rip]	# tmp100,
 	add	rax, rdx	# tmp101, tmp100
 	mov	QWORD PTR -40[rbp], rax	# rule, tmp101
 # parser/parser.h:216: 		if( rule->prec > prec ){ goto *rule->led; }
@@ -6314,7 +6325,7 @@ ParseExpr:
 	mov	QWORD PTR 16[rcx], rax	# <retval>, tmp149
 # parser/parser.h:220: }
 	.loc 11 220 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp151, D.6477
+	mov	rax, QWORD PTR -8[rbp]	# tmp151, D.6589
 	sub	rax, QWORD PTR fs:40	# tmp151, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L346	#,
 	call	__stack_chk_fail@PLT	#
@@ -6344,7 +6355,7 @@ ParseStmt:
 # parser/parser.h:223: {
 	.loc 11 223 1
 	mov	rax, QWORD PTR fs:40	# tmp100, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6489, tmp100
+	mov	QWORD PTR -8[rbp], rax	# D.6601, tmp100
 	xor	eax, eax	# tmp100
 # parser/parser.h:225: 	goto *stmts[ parser->token.type ];
 	.loc 11 225 28
@@ -6354,7 +6365,7 @@ ParseStmt:
 	.loc 11 225 13
 	mov	eax, eax	# tmp85, _1
 	lea	rdx, 0[0+rax*8]	# tmp86,
-	lea	rax, stmts.43[rip]	# tmp87,
+	lea	rax, stmts.44[rip]	# tmp87,
 	mov	rax, QWORD PTR [rdx+rax]	# _2, stmts[_1]
 # parser/parser.h:225: 	goto *stmts[ parser->token.type ];
 	.loc 11 225 2
@@ -6424,7 +6435,7 @@ ParseStmt:
 .L351:
 # parser/parser.h:227: }
 	.loc 11 227 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp101, D.6489
+	mov	rax, QWORD PTR -8[rbp]	# tmp101, D.6601
 	sub	rax, QWORD PTR fs:40	# tmp101, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L357	#,
 	call	__stack_chk_fail@PLT	#
@@ -6454,7 +6465,7 @@ Parse:
 # parser/parser.h:230: {
 	.loc 11 230 1
 	mov	rax, QWORD PTR fs:40	# tmp92, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -24[rbp], rax	# D.6497, tmp92
+	mov	QWORD PTR -24[rbp], rax	# D.6609, tmp92
 	xor	eax, eax	# tmp92
 # parser/parser.h:231: 	Parser *parser = GetParser( );
 	.loc 11 231 19
@@ -6502,7 +6513,7 @@ Parse:
 # parser/parser.h:238: }
 	.loc 11 238 1
 	nop	
-	mov	rax, QWORD PTR -24[rbp]	# tmp93, D.6497
+	mov	rax, QWORD PTR -24[rbp]	# tmp93, D.6609
 	sub	rax, QWORD PTR fs:40	# tmp93, MEM[(<address-space-1> long unsigned int *)40B]
 	je	.L361	#,
 	call	__stack_chk_fail@PLT	#
@@ -6527,7 +6538,7 @@ GetCompiler:
 	.cfi_def_cfa_register 6
 # compiler/compiler.h:42: 	return &compiler;
 	.loc 14 42 9
-	lea	rax, compiler.41[rip]	# _1,
+	lea	rax, compiler.42[rip]	# _1,
 # compiler/compiler.h:43: }
 	.loc 14 43 1
 	pop	rbp	#
@@ -6654,10 +6665,492 @@ CompilerInit:
 	.cfi_endproc
 .LFE98:
 	.size	CompilerInit, .-CompilerInit
+	.type	ConstPush, @function
+ConstPush:
+.LFB99:
+	.loc 14 64 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 32	#,
+	mov	eax, edi	# tmp89, value
+	mov	rcx, rsi	# tmp90, value
+	mov	rdx, rcx	#, tmp90
+	mov	QWORD PTR -32[rbp], rax	# value, tmp88
+	mov	QWORD PTR -24[rbp], rdx	# value,
+# compiler/compiler.h:65: 	Compiler *compiler = GetCompiler( );
+	.loc 14 65 23
+	call	GetCompiler	#
+	mov	QWORD PTR -8[rbp], rax	# compiler, tmp91
+# compiler/compiler.h:66: 	compiler->fn->nconsts++;
+	.loc 14 66 10
+	mov	rax, QWORD PTR -8[rbp]	# tmp92, compiler
+	mov	rax, QWORD PTR [rax]	# _1, compiler_8->fn
+# compiler/compiler.h:66: 	compiler->fn->nconsts++;
+	.loc 14 66 14
+	movzx	edx, BYTE PTR 12[rax]	# _2, _1->nconsts
+# compiler/compiler.h:66: 	compiler->fn->nconsts++;
+	.loc 14 66 23
+	add	edx, 1	# _4,
+	mov	BYTE PTR 12[rax], dl	# _1->nconsts, _4
+# compiler/compiler.h:67: 	return VecPush( GetConsts( ), &value );
+	.loc 14 67 9
+	call	GetConsts	#
+	mov	rdx, rax	# _5,
+# compiler/compiler.h:67: 	return VecPush( GetConsts( ), &value );
+	.loc 14 67 9 is_stmt 0 discriminator 1
+	lea	rax, -32[rbp]	# tmp93,
+	mov	rsi, rax	#, tmp93
+	mov	rdi, rdx	#, _5
+	call	VecPush	#
+# compiler/compiler.h:68: }
+	.loc 14 68 1 is_stmt 1
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE99:
+	.size	ConstPush, .-ConstPush
+	.type	LocalPush, @function
+LocalPush:
+.LFB101:
+	.loc 14 76 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 64	#,
+	mov	QWORD PTR -24[rbp], rdi	# out_idx, out_idx
+	mov	QWORD PTR -32[rbp], rsi	# fn, fn
+	mov	QWORD PTR -40[rbp], rdx	# name, name
+	mov	eax, ecx	# tmp89, value
+	mov	rcx, r8	# tmp90, value
+	mov	rdx, rcx	#, tmp90
+	mov	QWORD PTR -64[rbp], rax	# value, tmp88
+	mov	QWORD PTR -56[rbp], rdx	# value,
+# compiler/compiler.h:77: 	fn->nlocals++;
+	.loc 14 77 4
+	mov	rax, QWORD PTR -32[rbp]	# tmp91, fn
+	movzx	eax, BYTE PTR 13[rax]	# _1, fn_7(D)->nlocals
+# compiler/compiler.h:77: 	fn->nlocals++;
+	.loc 14 77 13
+	lea	edx, 1[rax]	# _3,
+	mov	rax, QWORD PTR -32[rbp]	# tmp92, fn
+	mov	BYTE PTR 13[rax], dl	# fn_7(D)->nlocals, _3
+# compiler/compiler.h:78: 	Vec *locals = GetLocals( );
+	.loc 14 78 16
+	call	GetLocals	#
+	mov	QWORD PTR -16[rbp], rax	# locals, tmp93
+# compiler/compiler.h:79: 	Var *var = VecCommit( locals );
+	.loc 14 79 13
+	mov	rax, QWORD PTR -16[rbp]	# tmp94, locals
+	mov	rdi, rax	#, tmp94
+	call	VecCommit	#
+	mov	QWORD PTR -8[rbp], rax	# var, tmp95
+# compiler/compiler.h:80: 	var->name = name;
+	.loc 14 80 12
+	mov	rax, QWORD PTR -8[rbp]	# tmp96, var
+	mov	rdx, QWORD PTR -40[rbp]	# tmp97, name
+	mov	QWORD PTR [rax], rdx	# var_12->D.4226.name, tmp97
+# compiler/compiler.h:81: 	var->value = value;
+	.loc 14 81 13
+	mov	rcx, QWORD PTR -8[rbp]	# tmp98, var
+	mov	rax, QWORD PTR -64[rbp]	# tmp99, value
+	mov	rdx, QWORD PTR -56[rbp]	#, value
+	mov	QWORD PTR 8[rcx], rax	# var_12->value, tmp99
+	mov	QWORD PTR 16[rcx], rdx	# var_12->value,
+# compiler/compiler.h:82: 	*out_idx = locals->len - 1;
+	.loc 14 82 19
+	mov	rax, QWORD PTR -16[rbp]	# tmp100, locals
+	mov	eax, DWORD PTR 8[rax]	# _4, locals_10->D.4073.len
+# compiler/compiler.h:82: 	*out_idx = locals->len - 1;
+	.loc 14 82 25
+	lea	edx, -1[rax]	# _5,
+# compiler/compiler.h:82: 	*out_idx = locals->len - 1;
+	.loc 14 82 11
+	mov	rax, QWORD PTR -24[rbp]	# tmp101, out_idx
+	mov	DWORD PTR [rax], edx	# *out_idx_16(D), _5
+# compiler/compiler.h:83: 	return var;
+	.loc 14 83 9
+	mov	rax, QWORD PTR -8[rbp]	# _18, var
+# compiler/compiler.h:84: }
+	.loc 14 84 1
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE101:
+	.size	LocalPush, .-LocalPush
+	.type	LocalGet, @function
+LocalGet:
+.LFB102:
+	.loc 14 87 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 56	#,
+	mov	QWORD PTR -40[rbp], rdi	# out_idx, out_idx
+	mov	QWORD PTR -48[rbp], rsi	# fn, fn
+	mov	QWORD PTR -56[rbp], rdx	# name, name
+# compiler/compiler.h:88: 	Vec *locals = GetLocals( );
+	.loc 14 88 16
+	call	GetLocals	#
+	mov	QWORD PTR -16[rbp], rax	# locals, tmp88
+# compiler/compiler.h:89: 	U32 start = fn->ilocals;
+	.loc 14 89 6
+	mov	rax, QWORD PTR -48[rbp]	# tmp89, fn
+	mov	eax, DWORD PTR 4[rax]	# tmp90, fn_12(D)->ilocals
+	mov	DWORD PTR -20[rbp], eax	# start, tmp90
+# compiler/compiler.h:90: 	U32 end = ( start + fn->nlocals ) - 1;
+	.loc 14 90 24
+	mov	rax, QWORD PTR -48[rbp]	# tmp91, fn
+	movzx	eax, BYTE PTR 13[rax]	# _1, fn_12(D)->nlocals
+	movzx	edx, al	# _2, _1
+# compiler/compiler.h:90: 	U32 end = ( start + fn->nlocals ) - 1;
+	.loc 14 90 20
+	mov	eax, DWORD PTR -20[rbp]	# tmp92, start
+	add	eax, edx	# _3, _2
+# compiler/compiler.h:90: 	U32 end = ( start + fn->nlocals ) - 1;
+	.loc 14 90 6
+	sub	eax, 1	# tmp93,
+	mov	DWORD PTR -24[rbp], eax	# end, tmp93
+# compiler/compiler.h:91: 	for( ; end >= start; end-- )
+	.loc 14 91 2
+	jmp	.L371	#
+.L374:
+.LBB12:
+# compiler/compiler.h:93: 		Var *var = VecGet( locals, end );
+	.loc 14 93 14
+	mov	edx, DWORD PTR -24[rbp]	# tmp94, end
+	mov	rax, QWORD PTR -16[rbp]	# tmp95, locals
+	mov	esi, edx	#, tmp94
+	mov	rdi, rax	#, tmp95
+	call	VecGet	#
+	mov	QWORD PTR -8[rbp], rax	# var, tmp96
+# compiler/compiler.h:94: 		if( var->name == name ){ *out_idx = end; return var; }
+	.loc 14 94 10
+	mov	rax, QWORD PTR -8[rbp]	# tmp97, var
+	mov	rax, QWORD PTR [rax]	# _4, var_17->D.4226.name
+# compiler/compiler.h:94: 		if( var->name == name ){ *out_idx = end; return var; }
+	.loc 14 94 5
+	cmp	QWORD PTR -56[rbp], rax	# name, _4
+	jne	.L372	#,
+# compiler/compiler.h:94: 		if( var->name == name ){ *out_idx = end; return var; }
+	.loc 14 94 37 discriminator 1
+	mov	rax, QWORD PTR -40[rbp]	# tmp98, out_idx
+	mov	edx, DWORD PTR -24[rbp]	# tmp99, end
+	mov	DWORD PTR [rax], edx	# *out_idx_20(D), tmp99
+# compiler/compiler.h:94: 		if( var->name == name ){ *out_idx = end; return var; }
+	.loc 14 94 51 discriminator 1
+	mov	rax, QWORD PTR -8[rbp]	# _6, var
+# compiler/compiler.h:94: 		if( var->name == name ){ *out_idx = end; return var; }
+	.loc 14 94 51 is_stmt 0
+	jmp	.L373	#
+.L372:
+.LBE12:
+# compiler/compiler.h:91: 	for( ; end >= start; end-- )
+	.loc 14 91 26 is_stmt 1
+	sub	DWORD PTR -24[rbp], 1	# end,
+.L371:
+# compiler/compiler.h:91: 	for( ; end >= start; end-- )
+	.loc 14 91 13 discriminator 1
+	mov	eax, DWORD PTR -24[rbp]	# tmp100, end
+	cmp	eax, DWORD PTR -20[rbp]	# tmp100, start
+	jnb	.L374	#,
+# compiler/compiler.h:96: 	return NULL;
+	.loc 14 96 9
+	mov	eax, 0	# _6,
+.L373:
+# compiler/compiler.h:97: }
+	.loc 14 97 1
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE102:
+	.size	LocalGet, .-LocalGet
+	.type	GlobalPush, @function
+GlobalPush:
+.LFB103:
+	.loc 14 100 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	r13	#
+	push	r12	#
+	push	rbx	#
+	sub	rsp, 72	#,
+	.cfi_offset 13, -24
+	.cfi_offset 12, -32
+	.cfi_offset 3, -40
+	mov	QWORD PTR -72[rbp], rdi	# out_idx, out_idx
+	mov	QWORD PTR -80[rbp], rsi	# name, name
+	mov	eax, edx	# tmp88, value
+	mov	rdx, rcx	#, tmp89
+	mov	QWORD PTR -96[rbp], rax	# value, tmp87
+	mov	QWORD PTR -88[rbp], rdx	# value,
+# compiler/compiler.h:101: 	Vec *globals = GetGlobals( );
+	.loc 14 101 17
+	call	GetGlobals	#
+	mov	QWORD PTR -48[rbp], rax	# globals, tmp90
+# compiler/compiler.h:102: 	U32 idx = globals->len;
+	.loc 14 102 6
+	mov	rax, QWORD PTR -48[rbp]	# tmp91, globals
+	mov	eax, DWORD PTR 8[rax]	# tmp92, globals_5->D.4073.len
+	mov	DWORD PTR -52[rbp], eax	# idx, tmp92
+# compiler/compiler.h:103: 	Var *var = VecCommit( globals );
+	.loc 14 103 13
+	mov	rax, QWORD PTR -48[rbp]	# tmp93, globals
+	mov	rdi, rax	#, tmp93
+	call	VecCommit	#
+	mov	QWORD PTR -40[rbp], rax	# var, tmp94
+# compiler/compiler.h:104: 	var->name = name;
+	.loc 14 104 12
+	mov	rax, QWORD PTR -40[rbp]	# tmp95, var
+	mov	rdx, QWORD PTR -80[rbp]	# tmp96, name
+	mov	QWORD PTR [rax], rdx	# var_8->D.4226.name, tmp96
+# compiler/compiler.h:105: 	var->value = value;
+	.loc 14 105 13
+	mov	rcx, QWORD PTR -40[rbp]	# tmp97, var
+	mov	rax, QWORD PTR -96[rbp]	# tmp98, value
+	mov	rdx, QWORD PTR -88[rbp]	#, value
+	mov	QWORD PTR 8[rcx], rax	# var_8->value, tmp98
+	mov	QWORD PTR 16[rcx], rdx	# var_8->value,
+# compiler/compiler.h:106: 	MapPut( GetEnv( ), name, ( Value ){ .i64 = idx } );
+	.loc 14 106 36
+	mov	r12d, 0	# D.4860,
+	mov	r13d, 0	# D.4860,
+	mov	eax, DWORD PTR -52[rbp]	# _1, idx
+	mov	r13, rax	# D.4860, _1
+# compiler/compiler.h:106: 	MapPut( GetEnv( ), name, ( Value ){ .i64 = idx } );
+	.loc 14 106 2
+	call	GetEnv	#
+	mov	rdi, rax	# _2,
+# compiler/compiler.h:106: 	MapPut( GetEnv( ), name, ( Value ){ .i64 = idx } );
+	.loc 14 106 2 is_stmt 0 discriminator 1
+	mov	rax, r12	# tmp99, D.4860
+	mov	rdx, r13	#, D.4860
+	mov	rcx, r12	# tmp100, D.4860
+	mov	rbx, r13	#, D.4860
+	mov	edx, eax	# tmp101, tmp99
+	mov	rcx, rbx	# tmp102,
+	mov	rax, QWORD PTR -80[rbp]	# tmp103, name
+	mov	rsi, rax	#, tmp103
+	call	MapPut	#
+# compiler/compiler.h:107: 	*out_idx = idx;
+	.loc 14 107 11 is_stmt 1
+	mov	rax, QWORD PTR -72[rbp]	# tmp104, out_idx
+	mov	edx, DWORD PTR -52[rbp]	# tmp105, idx
+	mov	DWORD PTR [rax], edx	# *out_idx_16(D), tmp105
+# compiler/compiler.h:108: 	return var;
+	.loc 14 108 9
+	mov	rax, QWORD PTR -40[rbp]	# _18, var
+# compiler/compiler.h:109: }
+	.loc 14 109 1
+	add	rsp, 72	#,
+	pop	rbx	#
+	pop	r12	#
+	pop	r13	#
+	pop	rbp	#
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE103:
+	.size	GlobalPush, .-GlobalPush
+	.type	GlobalGet, @function
+GlobalGet:
+.LFB104:
+	.loc 14 112 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 32	#,
+	mov	QWORD PTR -24[rbp], rdi	# out_idx, out_idx
+	mov	QWORD PTR -32[rbp], rsi	# name, name
+# compiler/compiler.h:113: 	Vec *globals = GetGlobals( );
+	.loc 14 113 17
+	call	GetGlobals	#
+	mov	QWORD PTR -16[rbp], rax	# globals, tmp88
+# compiler/compiler.h:114: 	Var *var = MapGet( GetEnv( ), name );
+	.loc 14 114 13
+	call	GetEnv	#
+	mov	rdx, rax	# _1,
+# compiler/compiler.h:114: 	Var *var = MapGet( GetEnv( ), name );
+	.loc 14 114 13 is_stmt 0 discriminator 1
+	mov	rax, QWORD PTR -32[rbp]	# tmp89, name
+	mov	rsi, rax	#, tmp89
+	mov	rdi, rdx	#, _1
+	call	MapGet	#
+	mov	QWORD PTR -8[rbp], rax	# var, tmp90
+# compiler/compiler.h:115: 	if( !var ){ return NULL; }
+	.loc 14 115 4 is_stmt 1
+	cmp	QWORD PTR -8[rbp], 0	# var,
+	jne	.L378	#,
+# compiler/compiler.h:115: 	if( !var ){ return NULL; }
+	.loc 14 115 21 discriminator 1
+	mov	eax, 0	# _5,
+# compiler/compiler.h:115: 	if( !var ){ return NULL; }
+	.loc 14 115 21 is_stmt 0
+	jmp	.L379	#
+.L378:
+# compiler/compiler.h:116: 	*out_idx = var->value.i64; /* its globals index */
+	.loc 14 116 23 is_stmt 1
+	mov	rax, QWORD PTR -8[rbp]	# tmp91, var
+	mov	rax, QWORD PTR 16[rax]	# _2, var_13->value.D.4160.i64
+# compiler/compiler.h:116: 	*out_idx = var->value.i64; /* its globals index */
+	.loc 14 116 11
+	mov	edx, eax	# _3, _2
+	mov	rax, QWORD PTR -24[rbp]	# tmp92, out_idx
+	mov	DWORD PTR [rax], edx	# *out_idx_14(D), _3
+# compiler/compiler.h:117: 	return VecGet( globals, *out_idx );
+	.loc 14 117 9
+	mov	rax, QWORD PTR -24[rbp]	# tmp93, out_idx
+	mov	edx, DWORD PTR [rax]	# _4, *out_idx_14(D)
+	mov	rax, QWORD PTR -16[rbp]	# tmp94, globals
+	mov	esi, edx	#, _4
+	mov	rdi, rax	#, tmp94
+	call	VecGet	#
+.L379:
+# compiler/compiler.h:118: }
+	.loc 14 118 1
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE104:
+	.size	GlobalGet, .-GlobalGet
+	.type	OpPush, @function
+OpPush:
+.LFB105:
+	.loc 14 121 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 64	#,
+	mov	DWORD PTR -36[rbp], edi	# OP, OP
+	mov	eax, ecx	# tmp96, M
+	mov	edi, r9d	# tmp100, ST
+	mov	ecx, esi	# tmp93, tmp92
+	mov	BYTE PTR -40[rbp], cl	# D, tmp93
+	mov	BYTE PTR -44[rbp], dl	# S, tmp95
+	mov	BYTE PTR -48[rbp], al	# M, tmp97
+	mov	eax, r8d	# tmp99, tmp98
+	mov	BYTE PTR -52[rbp], al	# DT, tmp99
+	mov	eax, edi	# tmp101, tmp100
+	mov	BYTE PTR -56[rbp], al	# ST, tmp101
+# compiler/compiler.h:122: 	Compiler *compiler = GetCompiler( );
+	.loc 14 122 23
+	call	GetCompiler	#
+	mov	QWORD PTR -24[rbp], rax	# compiler, tmp102
+# compiler/compiler.h:123: 	Vec *code = GetCode( );
+	.loc 14 123 14
+	call	GetCode	#
+	mov	QWORD PTR -16[rbp], rax	# code, tmp103
+# compiler/compiler.h:124: 	compiler->fn->ncode++;
+	.loc 14 124 10
+	mov	rax, QWORD PTR -24[rbp]	# tmp104, compiler
+	mov	rax, QWORD PTR [rax]	# _1, compiler_12->fn
+# compiler/compiler.h:124: 	compiler->fn->ncode++;
+	.loc 14 124 14
+	movzx	edx, WORD PTR 14[rax]	# _2, _1->ncode
+# compiler/compiler.h:124: 	compiler->fn->ncode++;
+	.loc 14 124 21
+	add	edx, 1	# _4,
+	mov	WORD PTR 14[rax], dx	# _1->ncode, _4
+# compiler/compiler.h:125: 	Op *op = VecCommit( code );
+	.loc 14 125 11
+	mov	rax, QWORD PTR -16[rbp]	# tmp105, code
+	mov	rdi, rax	#, tmp105
+	call	VecCommit	#
+	mov	QWORD PTR -8[rbp], rax	# op, tmp106
+# compiler/compiler.h:126: 	op->OP = OP;
+	.loc 14 126 9
+	mov	eax, DWORD PTR -36[rbp]	# tmp107, OP
+	mov	edx, eax	# _5, tmp107
+	mov	rax, QWORD PTR -8[rbp]	# tmp108, op
+	mov	BYTE PTR [rax], dl	# op_17->OP, _5
+# compiler/compiler.h:127: 	op->D = D; /* dest */
+	.loc 14 127 8
+	mov	rax, QWORD PTR -8[rbp]	# tmp109, op
+	movzx	edx, BYTE PTR -40[rbp]	# tmp110, D
+	mov	BYTE PTR 1[rax], dl	# op_17->D, tmp110
+# compiler/compiler.h:128: 	op->S = S; /* src */
+	.loc 14 128 8
+	mov	rax, QWORD PTR -8[rbp]	# tmp111, op
+	movzx	edx, BYTE PTR -44[rbp]	# tmp112, S
+	mov	BYTE PTR 2[rax], dl	# op_17->S, tmp112
+# compiler/compiler.h:129: 	op->M = M; /* mode */
+	.loc 14 129 8
+	movzx	eax, BYTE PTR -48[rbp]	# tmp113, M
+	and	eax, 3	# tmp113,
+	mov	edx, eax	# _6, tmp113
+	mov	rax, QWORD PTR -8[rbp]	# tmp114, op
+	mov	ecx, edx	# _6, _6
+	and	ecx, 3	# _6,
+	movzx	edx, BYTE PTR 3[rax]	# tmp117, op_17->M
+	and	edx, -4	# tmp118,
+	or	edx, ecx	# tmp119, tmp116
+	mov	BYTE PTR 3[rax], dl	# op_17->M, tmp119
+# compiler/compiler.h:130: 	op->DT = DT; /* dest type  */
+	.loc 14 130 9
+	movzx	eax, BYTE PTR -52[rbp]	# tmp120, DT
+	and	eax, 7	# tmp120,
+	mov	edx, eax	# _7, tmp120
+	mov	rax, QWORD PTR -8[rbp]	# tmp121, op
+	and	edx, 7	# tmp123,
+	lea	ecx, 0[0+rdx*4]	# tmp124,
+	movzx	edx, BYTE PTR 3[rax]	# tmp125, op_17->DT
+	and	edx, -29	# tmp126,
+	or	edx, ecx	# tmp127, tmp124
+	mov	BYTE PTR 3[rax], dl	# op_17->DT, tmp127
+# compiler/compiler.h:131: 	op->ST = ST; /* src type */
+	.loc 14 131 9
+	movzx	eax, BYTE PTR -56[rbp]	# tmp128, ST
+	and	eax, 7	# tmp128,
+	mov	edx, eax	# _8, tmp128
+	mov	rax, QWORD PTR -8[rbp]	# tmp129, op
+	mov	ecx, edx	# _8, _8
+	sal	ecx, 5	# _8,
+	movzx	edx, BYTE PTR 3[rax]	# tmp132, op_17->ST
+	and	edx, 31	# tmp133,
+	or	edx, ecx	# tmp134, tmp131
+	mov	BYTE PTR 3[rax], dl	# op_17->ST, tmp134
+# compiler/compiler.h:132: 	return code->len - 1;
+	.loc 14 132 13
+	mov	rax, QWORD PTR -16[rbp]	# tmp135, code
+	mov	eax, DWORD PTR 8[rax]	# _9, code_14->D.4073.len
+# compiler/compiler.h:132: 	return code->len - 1;
+	.loc 14 132 19
+	sub	eax, 1	# _30,
+# compiler/compiler.h:133: }
+	.loc 14 133 1
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE105:
+	.size	OpPush, .-OpPush
 	.type	TkToOp, @function
 TkToOp:
 .LFB107:
-	.loc 14 142 1
+	.loc 14 141 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -6665,30 +7158,481 @@ TkToOp:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 	mov	DWORD PTR -4[rbp], edi	# type, type
-# compiler/compiler.h:144: 	return token_ops[ type ];
-	.loc 14 144 18
+# compiler/compiler.h:143: 	return token_ops[ type ];
+	.loc 14 143 18
 	mov	eax, DWORD PTR -4[rbp]	# tmp84, type
 	lea	rdx, 0[0+rax*4]	# tmp85,
-	lea	rax, token_ops.29[rip]	# tmp86,
+	lea	rax, token_ops.27[rip]	# tmp86,
 	mov	eax, DWORD PTR [rdx+rax]	# _3, token_ops[type_2(D)]
-# compiler/compiler.h:145: }
-	.loc 14 145 1
+# compiler/compiler.h:144: }
+	.loc 14 144 1
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE107:
 	.size	TkToOp, .-TkToOp
+	.type	LocalAssign, @function
+LocalAssign:
+.LFB108:
+	.file 15 "compiler/assign/assign.h"
+	.loc 15 2 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 64	#,
+	mov	QWORD PTR -40[rbp], rdi	# fn, fn
+	mov	QWORD PTR -48[rbp], rsi	# name, name
+	mov	QWORD PTR -56[rbp], rdx	# rhs, rhs
+# compiler/assign/assign.h:2: {
+	.loc 15 2 1
+	mov	rax, QWORD PTR fs:40	# tmp96, MEM[(<address-space-1> long unsigned int *)40B]
+	mov	QWORD PTR -8[rbp], rax	# D.6612, tmp96
+	xor	eax, eax	# tmp96
+# compiler/assign/assign.h:3: 	U32 idx = 0;
+	.loc 15 3 6
+	mov	DWORD PTR -20[rbp], 0	# idx,
+# compiler/assign/assign.h:4: 	Var *var = LocalGet( &idx, fn, name );
+	.loc 15 4 13
+	mov	rdx, QWORD PTR -48[rbp]	# tmp84, name
+	mov	rcx, QWORD PTR -40[rbp]	# tmp85, fn
+	lea	rax, -20[rbp]	# tmp86,
+	mov	rsi, rcx	#, tmp85
+	mov	rdi, rax	#, tmp86
+	call	LocalGet	#
+	mov	QWORD PTR -16[rbp], rax	# var, tmp87
+# compiler/assign/assign.h:5: 	if( !var ){ var = LocalPush( &idx, fn, name, rhs->value ); }
+	.loc 15 5 4
+	cmp	QWORD PTR -16[rbp], 0	# var,
+	jne	.L385	#,
+# compiler/assign/assign.h:5: 	if( !var ){ var = LocalPush( &idx, fn, name, rhs->value ); }
+	.loc 15 5 20 discriminator 1
+	mov	rax, QWORD PTR -56[rbp]	# tmp88, rhs
+	mov	ecx, DWORD PTR 8[rax]	# tmp89, rhs_8(D)->value
+	mov	rdi, QWORD PTR 16[rax]	# tmp90, rhs_8(D)->value
+	mov	rdx, QWORD PTR -48[rbp]	# tmp91, name
+	mov	rsi, QWORD PTR -40[rbp]	# tmp92, fn
+	lea	rax, -20[rbp]	# tmp93,
+	mov	r8, rdi	#, tmp90
+	mov	rdi, rax	#, tmp93
+	call	LocalPush	#
+	mov	QWORD PTR -16[rbp], rax	# var, tmp94
+.L385:
+# compiler/assign/assign.h:6: 	return idx;
+	.loc 15 6 9
+	mov	eax, DWORD PTR -20[rbp]	# _11, idx
+# compiler/assign/assign.h:7: }
+	.loc 15 7 1
+	mov	rdx, QWORD PTR -8[rbp]	# tmp97, D.6612
+	sub	rdx, QWORD PTR fs:40	# tmp97, MEM[(<address-space-1> long unsigned int *)40B]
+	je	.L387	#,
+	call	__stack_chk_fail@PLT	#
+.L387:
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE108:
+	.size	LocalAssign, .-LocalAssign
+	.type	GlobalAssignConst, @function
+GlobalAssignConst:
+.LFB109:
+	.loc 15 10 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 32	#,
+	mov	DWORD PTR -20[rbp], edi	# dest, dest
+	mov	QWORD PTR -32[rbp], rsi	# var, var
+# compiler/assign/assign.h:11: 	U32 const_idx = ConstPush( var->value );
+	.loc 15 11 18
+	mov	rax, QWORD PTR -32[rbp]	# tmp88, var
+	mov	edx, DWORD PTR 8[rax]	# tmp89, var_6(D)->value
+	mov	rax, QWORD PTR 16[rax]	# tmp90, var_6(D)->value
+	mov	edi, edx	#, tmp89
+	mov	rsi, rax	#, tmp90
+	call	ConstPush	#
+	mov	DWORD PTR -8[rbp], eax	# const_idx, tmp91
+# compiler/assign/assign.h:12: 	U32 op_idx = OpPush( OP_MOV, dest, const_idx, MODE_CONST, 0, 0 ); 
+	.loc 15 12 15
+	mov	eax, DWORD PTR -8[rbp]	# tmp92, const_idx
+	movzx	edx, al	# _2, _1
+	mov	eax, DWORD PTR -20[rbp]	# tmp93, dest
+	movzx	eax, al	# _4, _3
+	mov	r9d, 0	#,
+	mov	r8d, 0	#,
+	mov	ecx, 1	#,
+	mov	esi, eax	#, _4
+	mov	edi, 26	#,
+	call	OpPush	#
+	mov	DWORD PTR -4[rbp], eax	# op_idx, tmp94
+# compiler/assign/assign.h:13: 	return op_idx;
+	.loc 15 13 9
+	mov	eax, DWORD PTR -4[rbp]	# _12, op_idx
+# compiler/assign/assign.h:14: }
+	.loc 15 14 1
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE109:
+	.size	GlobalAssignConst, .-GlobalAssignConst
 	.section	.rodata
+	.align 8
 .LC9:
+	.string	"Assignment to undefined reference: %s\n"
+	.text
+	.type	GlobalAssignRef, @function
+GlobalAssignRef:
+.LFB110:
+	.loc 15 17 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	sub	rsp, 72	#,
+	.cfi_offset 3, -24
+	mov	DWORD PTR -68[rbp], edi	# dest, dest
+	mov	QWORD PTR -80[rbp], rsi	# var, var
+# compiler/assign/assign.h:17: {
+	.loc 15 17 1
+	mov	rax, QWORD PTR fs:40	# tmp115, MEM[(<address-space-1> long unsigned int *)40B]
+	mov	QWORD PTR -24[rbp], rax	# D.6613, tmp115
+	xor	eax, eax	# tmp115
+# compiler/assign/assign.h:18: 	Compiler *compiler = GetCompiler( );
+	.loc 15 18 23
+	call	GetCompiler	#
+	mov	QWORD PTR -48[rbp], rax	# compiler, tmp100
+# compiler/assign/assign.h:19: 	U32 src = 0;
+	.loc 15 19 6
+	mov	DWORD PTR -52[rbp], 0	# src,
+# compiler/assign/assign.h:20: 	Var *ref = LocalGet( &src, compiler->fn, var->value.str );
+	.loc 15 20 13
+	mov	rax, QWORD PTR -80[rbp]	# tmp101, var
+	mov	rdx, QWORD PTR 16[rax]	# _1, var_23(D)->value.D.4160.str
+	mov	rax, QWORD PTR -48[rbp]	# tmp102, compiler
+	mov	rcx, QWORD PTR [rax]	# _2, compiler_21->fn
+	lea	rax, -52[rbp]	# tmp103,
+	mov	rsi, rcx	#, _2
+	mov	rdi, rax	#, tmp103
+	call	LocalGet	#
+	mov	QWORD PTR -40[rbp], rax	# ref, tmp104
+# compiler/assign/assign.h:21: 	if( ref ){ return OpPush( OP_MOV, dest, src, MODE_LOCAL, 0, 0 ); }
+	.loc 15 21 4
+	cmp	QWORD PTR -40[rbp], 0	# ref,
+	je	.L391	#,
+# compiler/assign/assign.h:21: 	if( ref ){ return OpPush( OP_MOV, dest, src, MODE_LOCAL, 0, 0 ); }
+	.loc 15 21 20 discriminator 1
+	mov	eax, DWORD PTR -52[rbp]	# src.20_3, src
+	movzx	edx, al	# _5, _4
+	mov	eax, DWORD PTR -68[rbp]	# tmp105, dest
+	movzx	eax, al	# _7, _6
+	mov	r9d, 0	#,
+	mov	r8d, 0	#,
+	mov	ecx, 0	#,
+	mov	esi, eax	#, _7
+	mov	edi, 26	#,
+	call	OpPush	#
+# compiler/assign/assign.h:21: 	if( ref ){ return OpPush( OP_MOV, dest, src, MODE_LOCAL, 0, 0 ); }
+	.loc 15 21 20 is_stmt 0
+	jmp	.L394	#
+.L391:
+# compiler/assign/assign.h:22: 	ref = GlobalGet( &src, var->value.str );
+	.loc 15 22 8 is_stmt 1
+	mov	rax, QWORD PTR -80[rbp]	# tmp106, var
+	mov	rdx, QWORD PTR 16[rax]	# _8, var_23(D)->value.D.4160.str
+	lea	rax, -52[rbp]	# tmp107,
+	mov	rsi, rdx	#, _8
+	mov	rdi, rax	#, tmp107
+	call	GlobalGet	#
+	mov	QWORD PTR -40[rbp], rax	# ref, tmp108
+# compiler/assign/assign.h:23: 	if( ref ){ return OpPush( OP_MOV, dest, src, MODE_GLOBAL, 0, 0 ); }
+	.loc 15 23 4
+	cmp	QWORD PTR -40[rbp], 0	# ref,
+	je	.L393	#,
+# compiler/assign/assign.h:23: 	if( ref ){ return OpPush( OP_MOV, dest, src, MODE_GLOBAL, 0, 0 ); }
+	.loc 15 23 20 discriminator 1
+	mov	eax, DWORD PTR -52[rbp]	# src.21_9, src
+	movzx	edx, al	# _11, _10
+	mov	eax, DWORD PTR -68[rbp]	# tmp109, dest
+	movzx	eax, al	# _13, _12
+	mov	r9d, 0	#,
+	mov	r8d, 0	#,
+	mov	ecx, 2	#,
+	mov	esi, eax	#, _13
+	mov	edi, 26	#,
+	call	OpPush	#
+# compiler/assign/assign.h:23: 	if( ref ){ return OpPush( OP_MOV, dest, src, MODE_GLOBAL, 0, 0 ); }
+	.loc 15 23 20 is_stmt 0
+	jmp	.L394	#
+.L393:
+# compiler/assign/assign.h:24: 	I8 *val = ArenaOff( GetStrings( ), var->value.str->offset );
+	.loc 15 24 47 is_stmt 1
+	mov	rax, QWORD PTR -80[rbp]	# tmp110, var
+	mov	rax, QWORD PTR 16[rax]	# _14, var_23(D)->value.D.4160.str
+# compiler/assign/assign.h:24: 	I8 *val = ArenaOff( GetStrings( ), var->value.str->offset );
+	.loc 15 24 12
+	mov	ebx, DWORD PTR [rax]	# _15, _14->offset
+	call	GetStrings	#
+# compiler/assign/assign.h:24: 	I8 *val = ArenaOff( GetStrings( ), var->value.str->offset );
+	.loc 15 24 12 is_stmt 0 discriminator 1
+	mov	esi, ebx	#, _15
+	mov	rdi, rax	#, _16
+	call	ArenaOff	#
+	mov	QWORD PTR -32[rbp], rax	# val, tmp111
+# compiler/assign/assign.h:25: 	Throw( "Assignment to undefined reference: %s\n", val );
+	.loc 15 25 2 is_stmt 1
+	mov	rax, QWORD PTR -32[rbp]	# tmp112, val
+	mov	rsi, rax	#, tmp112
+	lea	rax, .LC9[rip]	# tmp113,
+	mov	rdi, rax	#, tmp113
+	mov	eax, 0	#,
+	call	Throw	#
+# compiler/assign/assign.h:26: 	return 0;
+	.loc 15 26 9
+	mov	eax, 0	# _17,
+.L394:
+# compiler/assign/assign.h:27: }
+	.loc 15 27 1
+	mov	rdx, QWORD PTR -24[rbp]	# tmp116, D.6613
+	sub	rdx, QWORD PTR fs:40	# tmp116, MEM[(<address-space-1> long unsigned int *)40B]
+	je	.L395	#,
+	call	__stack_chk_fail@PLT	#
+.L395:
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE110:
+	.size	GlobalAssignRef, .-GlobalAssignRef
+	.type	GlobalAssignCall, @function
+GlobalAssignCall:
+.LFB111:
+	.loc 15 30 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	mov	DWORD PTR -4[rbp], edi	# dest, dest
+	mov	QWORD PTR -16[rbp], rsi	# var, var
+# compiler/assign/assign.h:31: 	return 0;
+	.loc 15 31 9
+	mov	eax, 0	# _1,
+# compiler/assign/assign.h:32: }
+	.loc 15 32 1
+	pop	rbp	#
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE111:
+	.size	GlobalAssignCall, .-GlobalAssignCall
+	.type	GlobalAssign, @function
+GlobalAssign:
+.LFB112:
+	.loc 15 35 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 32	#,
+	mov	QWORD PTR -8[rbp], rdi	# var, var
+	mov	DWORD PTR -12[rbp], esi	# dest, dest
+	mov	QWORD PTR -24[rbp], rdx	# name, name
+	mov	QWORD PTR -32[rbp], rcx	# rhs, rhs
+# compiler/assign/assign.h:37: 	if( !var ){ var = GlobalPush( &dest, name, rhs->value ); }
+	.loc 15 37 4
+	cmp	QWORD PTR -8[rbp], 0	# var,
+	jne	.L399	#,
+# compiler/assign/assign.h:37: 	if( !var ){ var = GlobalPush( &dest, name, rhs->value ); }
+	.loc 15 37 20 discriminator 1
+	mov	rax, QWORD PTR -32[rbp]	# tmp89, rhs
+	mov	edx, DWORD PTR 8[rax]	# tmp90, rhs_13(D)->value
+	mov	rcx, QWORD PTR 16[rax]	# tmp91, rhs_13(D)->value
+	mov	rsi, QWORD PTR -24[rbp]	# tmp92, name
+	lea	rax, -12[rbp]	# tmp93,
+	mov	rdi, rax	#, tmp93
+	call	GlobalPush	#
+	mov	QWORD PTR -8[rbp], rax	# var, tmp94
+.L399:
+# compiler/assign/assign.h:38: 	var->value = rhs->value;
+	.loc 15 38 13
+	mov	rcx, QWORD PTR -8[rbp]	# tmp95, var
+	mov	rax, QWORD PTR -32[rbp]	# tmp96, rhs
+	mov	rdx, QWORD PTR 16[rax]	#, rhs_13(D)->value
+	mov	rax, QWORD PTR 8[rax]	# tmp97, rhs_13(D)->value
+	mov	QWORD PTR 8[rcx], rax	# var_6->value, tmp97
+	mov	QWORD PTR 16[rcx], rdx	# var_6->value,
+# compiler/assign/assign.h:39: 	goto *types[ rhs->type ];
+	.loc 15 39 18
+	mov	rax, QWORD PTR -32[rbp]	# tmp98, rhs
+	mov	eax, DWORD PTR [rax]	# _1, rhs_13(D)->type
+# compiler/assign/assign.h:39: 	goto *types[ rhs->type ];
+	.loc 15 39 13
+	mov	eax, eax	# tmp99, _1
+	lea	rdx, 0[0+rax*8]	# tmp100,
+	lea	rax, types.35[rip]	# tmp101,
+	mov	rax, QWORD PTR [rdx+rax]	# _2, types[_1]
+# compiler/assign/assign.h:39: 	goto *types[ rhs->type ];
+	.loc 15 39 2
+	nop	
+	jmp	rax	# _2
+.L401:
+	endbr64	
+# compiler/assign/assign.h:40: 	CONST: return GlobalAssignConst( dest, var );
+	.loc 15 40 16
+	mov	eax, DWORD PTR -12[rbp]	# dest.16_3, dest
+	mov	rdx, QWORD PTR -8[rbp]	# tmp102, var
+	mov	rsi, rdx	#, tmp102
+	mov	edi, eax	#, dest.16_3
+	call	GlobalAssignConst	#
+	jmp	.L402	#
+.L403:
+	endbr64	
+# compiler/assign/assign.h:41: 	REF: return GlobalAssignRef( dest, var );
+	.loc 15 41 14
+	mov	eax, DWORD PTR -12[rbp]	# dest.17_4, dest
+	mov	rdx, QWORD PTR -8[rbp]	# tmp103, var
+	mov	rsi, rdx	#, tmp103
+	mov	edi, eax	#, dest.17_4
+	call	GlobalAssignRef	#
+	jmp	.L402	#
+.L404:
+	endbr64	
+# compiler/assign/assign.h:42: 	CALL: return GlobalAssignCall( dest, var );
+	.loc 15 42 15
+	mov	eax, DWORD PTR -12[rbp]	# dest.18_5, dest
+	mov	rdx, QWORD PTR -8[rbp]	# tmp104, var
+	mov	rsi, rdx	#, tmp104
+	mov	edi, eax	#, dest.18_5
+	call	GlobalAssignCall	#
+.L402:
+# compiler/assign/assign.h:50: }
+	.loc 15 50 1
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE112:
+	.size	GlobalAssign, .-GlobalAssign
+	.globl	CompileAssign
+	.type	CompileAssign, @function
+CompileAssign:
+.LFB113:
+	.loc 15 53 1
+	.cfi_startproc
+	endbr64	
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	sub	rsp, 48	#,
+	mov	QWORD PTR -40[rbp], rdi	# name, name
+	mov	QWORD PTR -48[rbp], rsi	# rhs, rhs
+# compiler/assign/assign.h:53: {
+	.loc 15 53 1
+	mov	rax, QWORD PTR fs:40	# tmp101, MEM[(<address-space-1> long unsigned int *)40B]
+	mov	QWORD PTR -8[rbp], rax	# D.6615, tmp101
+	xor	eax, eax	# tmp101
+# compiler/assign/assign.h:54: 	Compiler *compiler = GetCompiler( );
+	.loc 15 54 23
+	call	GetCompiler	#
+	mov	QWORD PTR -24[rbp], rax	# compiler, tmp87
+# compiler/assign/assign.h:55: 	if( !compiler->fn ){ return GlobalAssign( NULL, 0, name, rhs ); }
+	.loc 15 55 15
+	mov	rax, QWORD PTR -24[rbp]	# tmp88, compiler
+	mov	rax, QWORD PTR [rax]	# _1, compiler_8->fn
+# compiler/assign/assign.h:55: 	if( !compiler->fn ){ return GlobalAssign( NULL, 0, name, rhs ); }
+	.loc 15 55 4
+	test	rax, rax	# _1
+	jne	.L406	#,
+# compiler/assign/assign.h:55: 	if( !compiler->fn ){ return GlobalAssign( NULL, 0, name, rhs ); }
+	.loc 15 55 30 discriminator 1
+	mov	rdx, QWORD PTR -48[rbp]	# tmp89, rhs
+	mov	rax, QWORD PTR -40[rbp]	# tmp90, name
+	mov	rcx, rdx	#, tmp89
+	mov	rdx, rax	#, tmp90
+	mov	esi, 0	#,
+	mov	edi, 0	#,
+	call	GlobalAssign	#
+# compiler/assign/assign.h:55: 	if( !compiler->fn ){ return GlobalAssign( NULL, 0, name, rhs ); }
+	.loc 15 55 30 is_stmt 0
+	jmp	.L409	#
+.L406:
+# compiler/assign/assign.h:56: 	U32 idx = 0;
+	.loc 15 56 6 is_stmt 1
+	mov	DWORD PTR -28[rbp], 0	# idx,
+# compiler/assign/assign.h:57: 	Var *var = GlobalGet( &idx, name );
+	.loc 15 57 13
+	mov	rdx, QWORD PTR -40[rbp]	# tmp91, name
+	lea	rax, -28[rbp]	# tmp92,
+	mov	rsi, rdx	#, tmp91
+	mov	rdi, rax	#, tmp92
+	call	GlobalGet	#
+	mov	QWORD PTR -16[rbp], rax	# var, tmp93
+# compiler/assign/assign.h:58: 	if( var ){ return GlobalAssign( var, idx, name, rhs ); } /* global reassign */
+	.loc 15 58 4
+	cmp	QWORD PTR -16[rbp], 0	# var,
+	je	.L408	#,
+# compiler/assign/assign.h:58: 	if( var ){ return GlobalAssign( var, idx, name, rhs ); } /* global reassign */
+	.loc 15 58 20 discriminator 1
+	mov	esi, DWORD PTR -28[rbp]	# idx.15_2, idx
+	mov	rcx, QWORD PTR -48[rbp]	# tmp94, rhs
+	mov	rdx, QWORD PTR -40[rbp]	# tmp95, name
+	mov	rax, QWORD PTR -16[rbp]	# tmp96, var
+	mov	rdi, rax	#, tmp96
+	call	GlobalAssign	#
+# compiler/assign/assign.h:58: 	if( var ){ return GlobalAssign( var, idx, name, rhs ); } /* global reassign */
+	.loc 15 58 20 is_stmt 0
+	jmp	.L409	#
+.L408:
+# compiler/assign/assign.h:59: 	return LocalAssign( compiler->fn, name, rhs ); /* local assign or reassign */
+	.loc 15 59 9 is_stmt 1
+	mov	rax, QWORD PTR -24[rbp]	# tmp97, compiler
+	mov	rax, QWORD PTR [rax]	# _3, compiler_8->fn
+	mov	rdx, QWORD PTR -48[rbp]	# tmp98, rhs
+	mov	rcx, QWORD PTR -40[rbp]	# tmp99, name
+	mov	rsi, rcx	#, tmp99
+	mov	rdi, rax	#, _3
+	call	LocalAssign	#
+.L409:
+# compiler/assign/assign.h:60: }
+	.loc 15 60 1
+	mov	rdx, QWORD PTR -8[rbp]	# tmp102, D.6615
+	sub	rdx, QWORD PTR fs:40	# tmp102, MEM[(<address-space-1> long unsigned int *)40B]
+	je	.L410	#,
+	call	__stack_chk_fail@PLT	#
+.L410:
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE113:
+	.size	CompileAssign, .-CompileAssign
+	.section	.rodata
+.LC10:
 	.string	"Illegal Unary Operation: %d\n"
 	.text
 	.globl	EvalUnaErr
 	.type	EvalUnaErr, @function
 EvalUnaErr:
-.LFB108:
-	.file 15 "compiler/unary/eval.h"
-	.loc 15 2 1
+.LFB114:
+	.file 16 "compiler/unary/eval.h"
+	.loc 16 2 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -6702,37 +7646,37 @@ EvalUnaErr:
 	mov	DWORD PTR -20[rbp], edi	# op, op
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/unary/eval.h:3: 	Throw( "Illegal Unary Operation: %d\n", op );
-	.loc 15 3 2
+	.loc 16 3 2
 	mov	eax, DWORD PTR -20[rbp]	# tmp86, op
 	mov	esi, eax	#, tmp86
-	lea	rax, .LC9[rip]	# tmp87,
+	lea	rax, .LC10[rip]	# tmp87,
 	mov	rdi, rax	#, tmp87
 	mov	eax, 0	#,
 	call	Throw	#
 # compiler/unary/eval.h:4: 	return ( Value ){ 0 };
-	.loc 15 4 9
-	mov	eax, 0	# D.5686,
-	mov	edx, 0	# D.5686,
-	mov	rsi, rax	# tmp89, D.5686
-	mov	rdi, rdx	#, D.5686
-	mov	rcx, rax	# tmp90, D.5686
-	mov	rbx, rdx	#, D.5686
+	.loc 16 4 9
+	mov	eax, 0	# D.5778,
+	mov	edx, 0	# D.5778,
+	mov	rsi, rax	# tmp89, D.5778
+	mov	rdi, rdx	#, D.5778
+	mov	rcx, rax	# tmp90, D.5778
+	mov	rbx, rdx	#, D.5778
 	mov	eax, esi	# <retval>, tmp89
 	mov	rdx, rbx	# <retval>,
 # compiler/unary/eval.h:5: }
-	.loc 15 5 1
+	.loc 16 5 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE108:
+.LFE114:
 	.size	EvalUnaErr, .-EvalUnaErr
 	.globl	EvalNot
 	.type	EvalNot, @function
 EvalNot:
-.LFB109:
-	.loc 15 8 1
+.LFB115:
+	.loc 16 8 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -6744,85 +7688,85 @@ EvalNot:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# rhs, rhs
 # compiler/unary/eval.h:10: 	goto *types[ rhs->type ];
-	.loc 15 10 18
+	.loc 16 10 18
 	mov	rcx, QWORD PTR -24[rbp]	# tmp96, rhs
 	mov	ecx, DWORD PTR [rcx]	# _1, rhs_11(D)->type
 # compiler/unary/eval.h:10: 	goto *types[ rhs->type ];
-	.loc 15 10 13
+	.loc 16 10 13
 	mov	ecx, ecx	# tmp97, _1
 	lea	rsi, 0[0+rcx*8]	# tmp98,
-	lea	rcx, types.36[rip]	# tmp99,
+	lea	rcx, types.34[rip]	# tmp99,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, types[_1]
 # compiler/unary/eval.h:10: 	goto *types[ rhs->type ];
-	.loc 15 10 2
+	.loc 16 10 2
 	nop	
 	jmp	rcx	# _2
-.L372:
+.L415:
 	endbr64	
 # compiler/unary/eval.h:11: 	I64: return VALUE( I64, i64, !rhs->i64 );
-	.loc 15 11 14
+	.loc 16 11 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp100, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_11(D)->D.4160.i64
 	test	rcx, rcx	# _3
 	sete	cl	#, _4
 	movzx	ecx, cl	# _5, _4
-	mov	rdi, rax	# tmp102, D.5689
+	mov	rdi, rax	# tmp102, D.5781
 	movabs	rsi, -4294967296	# tmp104,
 	and	rsi, rdi	# tmp103, tmp102
-	mov	rax, rsi	# D.5689, tmp103
-	mov	rdx, rcx	# D.5689, _5
-	jmp	.L373	#
-.L374:
+	mov	rax, rsi	# D.5781, tmp103
+	mov	rdx, rcx	# D.5781, _5
+	jmp	.L416	#
+.L417:
 	endbr64	
 # compiler/unary/eval.h:12: 	F64: return VALUE( F64, f64, !rhs->f64 );
-	.loc 15 12 14
+	.loc 16 12 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp105, rhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _6, rhs_11(D)->D.4160.f64
 	pxor	xmm1, xmm1	# tmp106
 	ucomisd	xmm0, xmm1	# _6, tmp106
-	jp	.L375	#,
+	jp	.L418	#,
 	pxor	xmm1, xmm1	# tmp107
 	ucomisd	xmm0, xmm1	# _6, tmp107
-	jne	.L375	#,
+	jne	.L418	#,
 # compiler/unary/eval.h:12: 	F64: return VALUE( F64, f64, !rhs->f64 );
-	.loc 15 12 14 is_stmt 0 discriminator 1
-	movsd	xmm0, QWORD PTR .LC11[rip]	# iftmp.15_8,
-	jmp	.L377	#
-.L375:
+	.loc 16 12 14 is_stmt 0 discriminator 1
+	movsd	xmm0, QWORD PTR .LC12[rip]	# iftmp.22_8,
+	jmp	.L420	#
+.L418:
 # compiler/unary/eval.h:12: 	F64: return VALUE( F64, f64, !rhs->f64 );
-	.loc 15 12 14 discriminator 2
-	pxor	xmm0, xmm0	# iftmp.15_8
-.L377:
+	.loc 16 12 14 discriminator 2
+	pxor	xmm0, xmm0	# iftmp.22_8
+.L420:
 # compiler/unary/eval.h:12: 	F64: return VALUE( F64, f64, !rhs->f64 );
-	.loc 15 12 14 discriminator 4
-	mov	rsi, rax	# tmp109, D.5689
+	.loc 16 12 14 discriminator 4
+	mov	rsi, rax	# tmp109, D.5781
 	movabs	rcx, -4294967296	# tmp111,
 	and	rcx, rsi	# tmp110, tmp109
 	or	rcx, 1	# tmp112,
-	mov	rax, rcx	# D.5689, tmp112
-	movq	rdx, xmm0	# D.5689, iftmp.15_8
+	mov	rax, rcx	# D.5781, tmp112
+	movq	rdx, xmm0	# D.5781, iftmp.22_8
 # compiler/unary/eval.h:12: 	F64: return VALUE( F64, f64, !rhs->f64 );
-	.loc 15 12 14
-	jmp	.L373	#
-.L378:
+	.loc 16 12 14
+	jmp	.L416	#
+.L421:
 	endbr64	
 # compiler/unary/eval.h:13: 	STR: return VALUE( STR, str, rhs->str );
-	.loc 15 13 14 is_stmt 1
+	.loc 16 13 14 is_stmt 1
 	mov	rcx, QWORD PTR -24[rbp]	# tmp113, rhs
 	mov	rsi, QWORD PTR 8[rcx]	# _7, rhs_11(D)->D.4160.str
-	mov	rdi, rax	# tmp115, D.5689
+	mov	rdi, rax	# tmp115, D.5781
 	movabs	rcx, -4294967296	# tmp117,
 	and	rcx, rdi	# tmp116, tmp115
 	or	rcx, 2	# tmp118,
-	mov	rax, rcx	# D.5689, tmp118
-	mov	rdx, rsi	# D.5689, _7
-.L373:
+	mov	rax, rcx	# D.5781, tmp118
+	mov	rdx, rsi	# D.5781, _7
+.L416:
 # compiler/unary/eval.h:14: }
-	.loc 15 14 1
-	mov	rsi, rax	# tmp120, D.5689
-	mov	rdi, rdx	#, D.5689
-	mov	rcx, rax	# tmp121, D.5689
-	mov	rbx, rdx	#, D.5689
+	.loc 16 14 1
+	mov	rsi, rax	# tmp120, D.5781
+	mov	rdi, rdx	#, D.5781
+	mov	rcx, rax	# tmp121, D.5781
+	mov	rbx, rdx	#, D.5781
 	mov	eax, esi	# <retval>, tmp120
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -6830,13 +7774,13 @@ EvalNot:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE109:
+.LFE115:
 	.size	EvalNot, .-EvalNot
 	.globl	EvalBnot
 	.type	EvalBnot, @function
 EvalBnot:
-.LFB110:
-	.loc 15 17 1
+.LFB116:
+	.loc 16 17 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -6848,68 +7792,68 @@ EvalBnot:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# rhs, rhs
 # compiler/unary/eval.h:19: 	goto *types[ rhs->type ];
-	.loc 15 19 18
+	.loc 16 19 18
 	mov	rcx, QWORD PTR -24[rbp]	# tmp97, rhs
 	mov	ecx, DWORD PTR [rcx]	# _1, rhs_12(D)->type
 # compiler/unary/eval.h:19: 	goto *types[ rhs->type ];
-	.loc 15 19 13
+	.loc 16 19 13
 	mov	ecx, ecx	# tmp98, _1
 	lea	rsi, 0[0+rcx*8]	# tmp99,
-	lea	rcx, types.35[rip]	# tmp100,
+	lea	rcx, types.33[rip]	# tmp100,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, types[_1]
 # compiler/unary/eval.h:19: 	goto *types[ rhs->type ];
-	.loc 15 19 2
+	.loc 16 19 2
 	nop	
 	jmp	rcx	# _2
-.L383:
+.L426:
 	endbr64	
 # compiler/unary/eval.h:20: 	I64: return VALUE( I64, i64, ~rhs->i64 );
-	.loc 15 20 14
+	.loc 16 20 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp101, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_12(D)->D.4160.i64
 	not	rcx	# _4
-	mov	rdi, rax	# tmp103, D.5698
+	mov	rdi, rax	# tmp103, D.5790
 	movabs	rsi, -4294967296	# tmp105,
 	and	rsi, rdi	# tmp104, tmp103
-	mov	rax, rsi	# D.5698, tmp104
-	mov	rdx, rcx	# D.5698, _4
-	jmp	.L384	#
-.L385:
+	mov	rax, rsi	# D.5790, tmp104
+	mov	rdx, rcx	# D.5790, _4
+	jmp	.L427	#
+.L428:
 	endbr64	
 # compiler/unary/eval.h:21: 	F64: return VALUE( F64, f64, ~( I64 )rhs->f64 );
-	.loc 15 21 14
+	.loc 16 21 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp106, rhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _5, rhs_12(D)->D.4160.f64
 	cvttsd2si	rcx, xmm0	# _6, _5
 	not	rcx	# _7
 	pxor	xmm0, xmm0	# _8
 	cvtsi2sd	xmm0, rcx	# _8, _7
-	mov	rsi, rax	# tmp108, D.5698
+	mov	rsi, rax	# tmp108, D.5790
 	movabs	rcx, -4294967296	# tmp110,
 	and	rcx, rsi	# tmp109, tmp108
 	or	rcx, 1	# tmp111,
-	mov	rax, rcx	# D.5698, tmp111
-	movq	rdx, xmm0	# D.5698, _8
-	jmp	.L384	#
-.L386:
+	mov	rax, rcx	# D.5790, tmp111
+	movq	rdx, xmm0	# D.5790, _8
+	jmp	.L427	#
+.L429:
 	endbr64	
 # compiler/unary/eval.h:22: 	STR: return VALUE( STR, str, rhs->str );
-	.loc 15 22 14
+	.loc 16 22 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp112, rhs
 	mov	rsi, QWORD PTR 8[rcx]	# _9, rhs_12(D)->D.4160.str
-	mov	rdi, rax	# tmp114, D.5698
+	mov	rdi, rax	# tmp114, D.5790
 	movabs	rcx, -4294967296	# tmp116,
 	and	rcx, rdi	# tmp115, tmp114
 	or	rcx, 2	# tmp117,
-	mov	rax, rcx	# D.5698, tmp117
-	mov	rdx, rsi	# D.5698, _9
-.L384:
+	mov	rax, rcx	# D.5790, tmp117
+	mov	rdx, rsi	# D.5790, _9
+.L427:
 # compiler/unary/eval.h:23: }
-	.loc 15 23 1
-	mov	rsi, rax	# tmp119, D.5698
-	mov	rdi, rdx	#, D.5698
-	mov	rcx, rax	# tmp120, D.5698
-	mov	rbx, rdx	#, D.5698
+	.loc 16 23 1
+	mov	rsi, rax	# tmp119, D.5790
+	mov	rdi, rdx	#, D.5790
+	mov	rcx, rax	# tmp120, D.5790
+	mov	rbx, rdx	#, D.5790
 	mov	eax, esi	# <retval>, tmp119
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -6917,13 +7861,13 @@ EvalBnot:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE110:
+.LFE116:
 	.size	EvalBnot, .-EvalBnot
 	.globl	EvalPlus
 	.type	EvalPlus, @function
 EvalPlus:
-.LFB111:
-	.loc 15 26 1
+.LFB117:
+	.loc 16 26 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -6935,63 +7879,63 @@ EvalPlus:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# rhs, rhs
 # compiler/unary/eval.h:28: 	goto *types[ rhs->type ];
-	.loc 15 28 18
+	.loc 16 28 18
 	mov	rcx, QWORD PTR -24[rbp]	# tmp93, rhs
 	mov	ecx, DWORD PTR [rcx]	# _1, rhs_8(D)->type
 # compiler/unary/eval.h:28: 	goto *types[ rhs->type ];
-	.loc 15 28 13
+	.loc 16 28 13
 	mov	ecx, ecx	# tmp94, _1
 	lea	rsi, 0[0+rcx*8]	# tmp95,
-	lea	rcx, types.34[rip]	# tmp96,
+	lea	rcx, types.32[rip]	# tmp96,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, types[_1]
 # compiler/unary/eval.h:28: 	goto *types[ rhs->type ];
-	.loc 15 28 2
+	.loc 16 28 2
 	nop	
 	jmp	rcx	# _2
-.L390:
+.L433:
 	endbr64	
 # compiler/unary/eval.h:29: 	I64: return VALUE( I64, i64, +rhs->i64 );
-	.loc 15 29 14
+	.loc 16 29 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp97, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_8(D)->D.4160.i64
-	mov	rdi, rax	# tmp99, D.5703
+	mov	rdi, rax	# tmp99, D.5795
 	movabs	rsi, -4294967296	# tmp101,
 	and	rsi, rdi	# tmp100, tmp99
-	mov	rax, rsi	# D.5703, tmp100
-	mov	rdx, rcx	# D.5703, _3
-	jmp	.L391	#
-.L392:
+	mov	rax, rsi	# D.5795, tmp100
+	mov	rdx, rcx	# D.5795, _3
+	jmp	.L434	#
+.L435:
 	endbr64	
 # compiler/unary/eval.h:30: 	F64: return VALUE( F64, f64, +rhs->f64 );
-	.loc 15 30 14
+	.loc 16 30 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp102, rhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _4, rhs_8(D)->D.4160.f64
-	mov	rsi, rax	# tmp104, D.5703
+	mov	rsi, rax	# tmp104, D.5795
 	movabs	rcx, -4294967296	# tmp106,
 	and	rcx, rsi	# tmp105, tmp104
 	or	rcx, 1	# tmp107,
-	mov	rax, rcx	# D.5703, tmp107
-	movq	rdx, xmm0	# D.5703, _4
-	jmp	.L391	#
-.L393:
+	mov	rax, rcx	# D.5795, tmp107
+	movq	rdx, xmm0	# D.5795, _4
+	jmp	.L434	#
+.L436:
 	endbr64	
 # compiler/unary/eval.h:31: 	STR: return VALUE( STR, str, rhs->str );
-	.loc 15 31 14
+	.loc 16 31 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp108, rhs
 	mov	rsi, QWORD PTR 8[rcx]	# _5, rhs_8(D)->D.4160.str
-	mov	rdi, rax	# tmp110, D.5703
+	mov	rdi, rax	# tmp110, D.5795
 	movabs	rcx, -4294967296	# tmp112,
 	and	rcx, rdi	# tmp111, tmp110
 	or	rcx, 2	# tmp113,
-	mov	rax, rcx	# D.5703, tmp113
-	mov	rdx, rsi	# D.5703, _5
-.L391:
+	mov	rax, rcx	# D.5795, tmp113
+	mov	rdx, rsi	# D.5795, _5
+.L434:
 # compiler/unary/eval.h:32: }
-	.loc 15 32 1
-	mov	rsi, rax	# tmp115, D.5703
-	mov	rdi, rdx	#, D.5703
-	mov	rcx, rax	# tmp116, D.5703
-	mov	rbx, rdx	#, D.5703
+	.loc 16 32 1
+	mov	rsi, rax	# tmp115, D.5795
+	mov	rdi, rdx	#, D.5795
+	mov	rcx, rax	# tmp116, D.5795
+	mov	rbx, rdx	#, D.5795
 	mov	eax, esi	# <retval>, tmp115
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -6999,13 +7943,13 @@ EvalPlus:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE111:
+.LFE117:
 	.size	EvalPlus, .-EvalPlus
 	.globl	EvalMinus
 	.type	EvalMinus, @function
 EvalMinus:
-.LFB112:
-	.loc 15 35 1
+.LFB118:
+	.loc 16 35 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -7017,236 +7961,66 @@ EvalMinus:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# rhs, rhs
 # compiler/unary/eval.h:37: 	goto *types[ rhs->type ];
-	.loc 15 37 18
+	.loc 16 37 18
 	mov	rcx, QWORD PTR -24[rbp]	# tmp95, rhs
 	mov	ecx, DWORD PTR [rcx]	# _1, rhs_10(D)->type
 # compiler/unary/eval.h:37: 	goto *types[ rhs->type ];
-	.loc 15 37 13
-	mov	ecx, ecx	# tmp96, _1
-	lea	rsi, 0[0+rcx*8]	# tmp97,
-	lea	rcx, types.33[rip]	# tmp98,
-	mov	rcx, QWORD PTR [rsi+rcx]	# _2, types[_1]
-# compiler/unary/eval.h:37: 	goto *types[ rhs->type ];
-	.loc 15 37 2
-	nop	
-	jmp	rcx	# _2
-.L397:
-	endbr64	
-# compiler/unary/eval.h:38: 	I64: return VALUE( I64, i64, -rhs->i64 );
-	.loc 15 38 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp99, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_10(D)->D.4160.i64
-	neg	rcx	# _4
-	mov	rdi, rax	# tmp101, D.5708
-	movabs	rsi, -4294967296	# tmp103,
-	and	rsi, rdi	# tmp102, tmp101
-	mov	rax, rsi	# D.5708, tmp102
-	mov	rdx, rcx	# D.5708, _4
-	jmp	.L398	#
-.L399:
-	endbr64	
-# compiler/unary/eval.h:39: 	F64: return VALUE( F64, f64, -rhs->f64 );
-	.loc 15 39 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp104, rhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _5, rhs_10(D)->D.4160.f64
-	movq	xmm1, QWORD PTR .LC12[rip]	# tmp105,
-	xorpd	xmm0, xmm1	# _6, tmp105
-	mov	rsi, rax	# tmp107, D.5708
-	movabs	rcx, -4294967296	# tmp109,
-	and	rcx, rsi	# tmp108, tmp107
-	or	rcx, 1	# tmp110,
-	mov	rax, rcx	# D.5708, tmp110
-	movq	rdx, xmm0	# D.5708, _6
-	jmp	.L398	#
-.L400:
-	endbr64	
-# compiler/unary/eval.h:40: 	STR: return VALUE( STR, str, rhs->str );
-	.loc 15 40 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp111, rhs
-	mov	rsi, QWORD PTR 8[rcx]	# _7, rhs_10(D)->D.4160.str
-	mov	rdi, rax	# tmp113, D.5708
-	movabs	rcx, -4294967296	# tmp115,
-	and	rcx, rdi	# tmp114, tmp113
-	or	rcx, 2	# tmp116,
-	mov	rax, rcx	# D.5708, tmp116
-	mov	rdx, rsi	# D.5708, _7
-.L398:
-# compiler/unary/eval.h:41: }
-	.loc 15 41 1
-	mov	rsi, rax	# tmp118, D.5708
-	mov	rdi, rdx	#, D.5708
-	mov	rcx, rax	# tmp119, D.5708
-	mov	rbx, rdx	#, D.5708
-	mov	eax, esi	# <retval>, tmp118
-	mov	rdx, rbx	# <retval>,
-	mov	rbx, QWORD PTR -8[rbp]	#,
-	leave	
-	.cfi_def_cfa 7, 8
-	ret	
-	.cfi_endproc
-.LFE112:
-	.size	EvalMinus, .-EvalMinus
-	.globl	EvalInc
-	.type	EvalInc, @function
-EvalInc:
-.LFB113:
-	.loc 15 44 1
-	.cfi_startproc
-	endbr64	
-	push	rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp	#,
-	.cfi_def_cfa_register 6
-	push	rbx	#
-	.cfi_offset 3, -24
-	mov	QWORD PTR -24[rbp], rdi	# rhs, rhs
-# compiler/unary/eval.h:46: 	goto *types[ rhs->type ];
-	.loc 15 46 18
-	mov	rcx, QWORD PTR -24[rbp]	# tmp95, rhs
-	mov	ecx, DWORD PTR [rcx]	# _1, rhs_10(D)->type
-# compiler/unary/eval.h:46: 	goto *types[ rhs->type ];
-	.loc 15 46 13
-	mov	ecx, ecx	# tmp96, _1
-	lea	rsi, 0[0+rcx*8]	# tmp97,
-	lea	rcx, types.32[rip]	# tmp98,
-	mov	rcx, QWORD PTR [rsi+rcx]	# _2, types[_1]
-# compiler/unary/eval.h:46: 	goto *types[ rhs->type ];
-	.loc 15 46 2
-	nop	
-	jmp	rcx	# _2
-.L404:
-	endbr64	
-# compiler/unary/eval.h:47: 	I64: return VALUE( I64, i64, rhs->i64 + 1 );
-	.loc 15 47 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp99, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_10(D)->D.4160.i64
-	add	rcx, 1	# _4,
-	mov	rdi, rax	# tmp101, D.5713
-	movabs	rsi, -4294967296	# tmp103,
-	and	rsi, rdi	# tmp102, tmp101
-	mov	rax, rsi	# D.5713, tmp102
-	mov	rdx, rcx	# D.5713, _4
-	jmp	.L405	#
-.L406:
-	endbr64	
-# compiler/unary/eval.h:48: 	F64: return VALUE( F64, f64, rhs->f64 + 1 );
-	.loc 15 48 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp104, rhs
-	movsd	xmm1, QWORD PTR 8[rcx]	# _5, rhs_10(D)->D.4160.f64
-	movsd	xmm0, QWORD PTR .LC11[rip]	# tmp105,
-	addsd	xmm0, xmm1	# _6, _5
-	mov	rsi, rax	# tmp107, D.5713
-	movabs	rcx, -4294967296	# tmp109,
-	and	rcx, rsi	# tmp108, tmp107
-	or	rcx, 1	# tmp110,
-	mov	rax, rcx	# D.5713, tmp110
-	movq	rdx, xmm0	# D.5713, _6
-	jmp	.L405	#
-.L407:
-	endbr64	
-# compiler/unary/eval.h:49: 	STR: return VALUE( STR, str, rhs->str );
-	.loc 15 49 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp111, rhs
-	mov	rsi, QWORD PTR 8[rcx]	# _7, rhs_10(D)->D.4160.str
-	mov	rdi, rax	# tmp113, D.5713
-	movabs	rcx, -4294967296	# tmp115,
-	and	rcx, rdi	# tmp114, tmp113
-	or	rcx, 2	# tmp116,
-	mov	rax, rcx	# D.5713, tmp116
-	mov	rdx, rsi	# D.5713, _7
-.L405:
-# compiler/unary/eval.h:50: }
-	.loc 15 50 1
-	mov	rsi, rax	# tmp118, D.5713
-	mov	rdi, rdx	#, D.5713
-	mov	rcx, rax	# tmp119, D.5713
-	mov	rbx, rdx	#, D.5713
-	mov	eax, esi	# <retval>, tmp118
-	mov	rdx, rbx	# <retval>,
-	mov	rbx, QWORD PTR -8[rbp]	#,
-	leave	
-	.cfi_def_cfa 7, 8
-	ret	
-	.cfi_endproc
-.LFE113:
-	.size	EvalInc, .-EvalInc
-	.globl	EvalDec
-	.type	EvalDec, @function
-EvalDec:
-.LFB114:
-	.loc 15 53 1
-	.cfi_startproc
-	endbr64	
-	push	rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp	#,
-	.cfi_def_cfa_register 6
-	push	rbx	#
-	.cfi_offset 3, -24
-	mov	QWORD PTR -24[rbp], rdi	# rhs, rhs
-# compiler/unary/eval.h:55: 	goto *types[ rhs->type ];
-	.loc 15 55 18
-	mov	rcx, QWORD PTR -24[rbp]	# tmp95, rhs
-	mov	ecx, DWORD PTR [rcx]	# _1, rhs_10(D)->type
-# compiler/unary/eval.h:55: 	goto *types[ rhs->type ];
-	.loc 15 55 13
+	.loc 16 37 13
 	mov	ecx, ecx	# tmp96, _1
 	lea	rsi, 0[0+rcx*8]	# tmp97,
 	lea	rcx, types.31[rip]	# tmp98,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, types[_1]
-# compiler/unary/eval.h:55: 	goto *types[ rhs->type ];
-	.loc 15 55 2
+# compiler/unary/eval.h:37: 	goto *types[ rhs->type ];
+	.loc 16 37 2
 	nop	
 	jmp	rcx	# _2
-.L411:
+.L440:
 	endbr64	
-# compiler/unary/eval.h:56: 	I64: return VALUE( I64, i64, rhs->i64 - 1 );
-	.loc 15 56 14
+# compiler/unary/eval.h:38: 	I64: return VALUE( I64, i64, -rhs->i64 );
+	.loc 16 38 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp99, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_10(D)->D.4160.i64
-	sub	rcx, 1	# _4,
-	mov	rdi, rax	# tmp101, D.5718
+	neg	rcx	# _4
+	mov	rdi, rax	# tmp101, D.5800
 	movabs	rsi, -4294967296	# tmp103,
 	and	rsi, rdi	# tmp102, tmp101
-	mov	rax, rsi	# D.5718, tmp102
-	mov	rdx, rcx	# D.5718, _4
-	jmp	.L412	#
-.L413:
+	mov	rax, rsi	# D.5800, tmp102
+	mov	rdx, rcx	# D.5800, _4
+	jmp	.L441	#
+.L442:
 	endbr64	
-# compiler/unary/eval.h:57: 	F64: return VALUE( F64, f64, rhs->f64 - 1 );
-	.loc 15 57 14
+# compiler/unary/eval.h:39: 	F64: return VALUE( F64, f64, -rhs->f64 );
+	.loc 16 39 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp104, rhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _5, rhs_10(D)->D.4160.f64
-	movsd	xmm1, QWORD PTR .LC11[rip]	# tmp105,
-	subsd	xmm0, xmm1	# _6, tmp105
-	mov	rsi, rax	# tmp107, D.5718
+	movq	xmm1, QWORD PTR .LC13[rip]	# tmp105,
+	xorpd	xmm0, xmm1	# _6, tmp105
+	mov	rsi, rax	# tmp107, D.5800
 	movabs	rcx, -4294967296	# tmp109,
 	and	rcx, rsi	# tmp108, tmp107
 	or	rcx, 1	# tmp110,
-	mov	rax, rcx	# D.5718, tmp110
-	movq	rdx, xmm0	# D.5718, _6
-	jmp	.L412	#
-.L414:
+	mov	rax, rcx	# D.5800, tmp110
+	movq	rdx, xmm0	# D.5800, _6
+	jmp	.L441	#
+.L443:
 	endbr64	
-# compiler/unary/eval.h:58: 	STR: return VALUE( STR, str, rhs->str );
-	.loc 15 58 14
+# compiler/unary/eval.h:40: 	STR: return VALUE( STR, str, rhs->str );
+	.loc 16 40 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp111, rhs
 	mov	rsi, QWORD PTR 8[rcx]	# _7, rhs_10(D)->D.4160.str
-	mov	rdi, rax	# tmp113, D.5718
+	mov	rdi, rax	# tmp113, D.5800
 	movabs	rcx, -4294967296	# tmp115,
 	and	rcx, rdi	# tmp114, tmp113
 	or	rcx, 2	# tmp116,
-	mov	rax, rcx	# D.5718, tmp116
-	mov	rdx, rsi	# D.5718, _7
-.L412:
-# compiler/unary/eval.h:59: }
-	.loc 15 59 1
-	mov	rsi, rax	# tmp118, D.5718
-	mov	rdi, rdx	#, D.5718
-	mov	rcx, rax	# tmp119, D.5718
-	mov	rbx, rdx	#, D.5718
+	mov	rax, rcx	# D.5800, tmp116
+	mov	rdx, rsi	# D.5800, _7
+.L441:
+# compiler/unary/eval.h:41: }
+	.loc 16 41 1
+	mov	rsi, rax	# tmp118, D.5800
+	mov	rdi, rdx	#, D.5800
+	mov	rcx, rax	# tmp119, D.5800
+	mov	rbx, rdx	#, D.5800
 	mov	eax, esi	# <retval>, tmp118
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -7254,13 +8028,183 @@ EvalDec:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE114:
+.LFE118:
+	.size	EvalMinus, .-EvalMinus
+	.globl	EvalInc
+	.type	EvalInc, @function
+EvalInc:
+.LFB119:
+	.loc 16 44 1
+	.cfi_startproc
+	endbr64	
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	.cfi_offset 3, -24
+	mov	QWORD PTR -24[rbp], rdi	# rhs, rhs
+# compiler/unary/eval.h:46: 	goto *types[ rhs->type ];
+	.loc 16 46 18
+	mov	rcx, QWORD PTR -24[rbp]	# tmp95, rhs
+	mov	ecx, DWORD PTR [rcx]	# _1, rhs_10(D)->type
+# compiler/unary/eval.h:46: 	goto *types[ rhs->type ];
+	.loc 16 46 13
+	mov	ecx, ecx	# tmp96, _1
+	lea	rsi, 0[0+rcx*8]	# tmp97,
+	lea	rcx, types.30[rip]	# tmp98,
+	mov	rcx, QWORD PTR [rsi+rcx]	# _2, types[_1]
+# compiler/unary/eval.h:46: 	goto *types[ rhs->type ];
+	.loc 16 46 2
+	nop	
+	jmp	rcx	# _2
+.L447:
+	endbr64	
+# compiler/unary/eval.h:47: 	I64: return VALUE( I64, i64, rhs->i64 + 1 );
+	.loc 16 47 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp99, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_10(D)->D.4160.i64
+	add	rcx, 1	# _4,
+	mov	rdi, rax	# tmp101, D.5805
+	movabs	rsi, -4294967296	# tmp103,
+	and	rsi, rdi	# tmp102, tmp101
+	mov	rax, rsi	# D.5805, tmp102
+	mov	rdx, rcx	# D.5805, _4
+	jmp	.L448	#
+.L449:
+	endbr64	
+# compiler/unary/eval.h:48: 	F64: return VALUE( F64, f64, rhs->f64 + 1 );
+	.loc 16 48 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp104, rhs
+	movsd	xmm1, QWORD PTR 8[rcx]	# _5, rhs_10(D)->D.4160.f64
+	movsd	xmm0, QWORD PTR .LC12[rip]	# tmp105,
+	addsd	xmm0, xmm1	# _6, _5
+	mov	rsi, rax	# tmp107, D.5805
+	movabs	rcx, -4294967296	# tmp109,
+	and	rcx, rsi	# tmp108, tmp107
+	or	rcx, 1	# tmp110,
+	mov	rax, rcx	# D.5805, tmp110
+	movq	rdx, xmm0	# D.5805, _6
+	jmp	.L448	#
+.L450:
+	endbr64	
+# compiler/unary/eval.h:49: 	STR: return VALUE( STR, str, rhs->str );
+	.loc 16 49 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp111, rhs
+	mov	rsi, QWORD PTR 8[rcx]	# _7, rhs_10(D)->D.4160.str
+	mov	rdi, rax	# tmp113, D.5805
+	movabs	rcx, -4294967296	# tmp115,
+	and	rcx, rdi	# tmp114, tmp113
+	or	rcx, 2	# tmp116,
+	mov	rax, rcx	# D.5805, tmp116
+	mov	rdx, rsi	# D.5805, _7
+.L448:
+# compiler/unary/eval.h:50: }
+	.loc 16 50 1
+	mov	rsi, rax	# tmp118, D.5805
+	mov	rdi, rdx	#, D.5805
+	mov	rcx, rax	# tmp119, D.5805
+	mov	rbx, rdx	#, D.5805
+	mov	eax, esi	# <retval>, tmp118
+	mov	rdx, rbx	# <retval>,
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE119:
+	.size	EvalInc, .-EvalInc
+	.globl	EvalDec
+	.type	EvalDec, @function
+EvalDec:
+.LFB120:
+	.loc 16 53 1
+	.cfi_startproc
+	endbr64	
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	.cfi_offset 3, -24
+	mov	QWORD PTR -24[rbp], rdi	# rhs, rhs
+# compiler/unary/eval.h:55: 	goto *types[ rhs->type ];
+	.loc 16 55 18
+	mov	rcx, QWORD PTR -24[rbp]	# tmp95, rhs
+	mov	ecx, DWORD PTR [rcx]	# _1, rhs_10(D)->type
+# compiler/unary/eval.h:55: 	goto *types[ rhs->type ];
+	.loc 16 55 13
+	mov	ecx, ecx	# tmp96, _1
+	lea	rsi, 0[0+rcx*8]	# tmp97,
+	lea	rcx, types.29[rip]	# tmp98,
+	mov	rcx, QWORD PTR [rsi+rcx]	# _2, types[_1]
+# compiler/unary/eval.h:55: 	goto *types[ rhs->type ];
+	.loc 16 55 2
+	nop	
+	jmp	rcx	# _2
+.L454:
+	endbr64	
+# compiler/unary/eval.h:56: 	I64: return VALUE( I64, i64, rhs->i64 - 1 );
+	.loc 16 56 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp99, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_10(D)->D.4160.i64
+	sub	rcx, 1	# _4,
+	mov	rdi, rax	# tmp101, D.5810
+	movabs	rsi, -4294967296	# tmp103,
+	and	rsi, rdi	# tmp102, tmp101
+	mov	rax, rsi	# D.5810, tmp102
+	mov	rdx, rcx	# D.5810, _4
+	jmp	.L455	#
+.L456:
+	endbr64	
+# compiler/unary/eval.h:57: 	F64: return VALUE( F64, f64, rhs->f64 - 1 );
+	.loc 16 57 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp104, rhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _5, rhs_10(D)->D.4160.f64
+	movsd	xmm1, QWORD PTR .LC12[rip]	# tmp105,
+	subsd	xmm0, xmm1	# _6, tmp105
+	mov	rsi, rax	# tmp107, D.5810
+	movabs	rcx, -4294967296	# tmp109,
+	and	rcx, rsi	# tmp108, tmp107
+	or	rcx, 1	# tmp110,
+	mov	rax, rcx	# D.5810, tmp110
+	movq	rdx, xmm0	# D.5810, _6
+	jmp	.L455	#
+.L457:
+	endbr64	
+# compiler/unary/eval.h:58: 	STR: return VALUE( STR, str, rhs->str );
+	.loc 16 58 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp111, rhs
+	mov	rsi, QWORD PTR 8[rcx]	# _7, rhs_10(D)->D.4160.str
+	mov	rdi, rax	# tmp113, D.5810
+	movabs	rcx, -4294967296	# tmp115,
+	and	rcx, rdi	# tmp114, tmp113
+	or	rcx, 2	# tmp116,
+	mov	rax, rcx	# D.5810, tmp116
+	mov	rdx, rsi	# D.5810, _7
+.L455:
+# compiler/unary/eval.h:59: }
+	.loc 16 59 1
+	mov	rsi, rax	# tmp118, D.5810
+	mov	rdi, rdx	#, D.5810
+	mov	rcx, rax	# tmp119, D.5810
+	mov	rbx, rdx	#, D.5810
+	mov	eax, esi	# <retval>, tmp118
+	mov	rdx, rbx	# <retval>,
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE120:
 	.size	EvalDec, .-EvalDec
 	.type	UnaFold, @function
 UnaFold:
-.LFB115:
-	.file 16 "compiler/unary/unary.h"
-	.loc 16 2 1
+.LFB121:
+	.file 17 "compiler/unary/unary.h"
+	.loc 17 2 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7273,20 +8217,20 @@ UnaFold:
 	mov	DWORD PTR -20[rbp], edi	# op, op
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/unary/unary.h:4: 	goto *ops[ op ];
-	.loc 16 4 11
+	.loc 17 4 11
 	mov	eax, DWORD PTR -20[rbp]	# tmp93, op
 	lea	rdx, 0[0+rax*8]	# tmp94,
-	lea	rax, ops.28[rip]	# tmp95,
+	lea	rax, ops.26[rip]	# tmp95,
 	mov	rax, QWORD PTR [rdx+rax]	# _1, ops[op_11(D)]
 # compiler/unary/unary.h:4: 	goto *ops[ op ];
-	.loc 16 4 2
+	.loc 17 4 2
 	nop	
 	jmp	rax	# _1
-.L418:
+.L461:
 	endbr64	
 # compiler/unary/fold_labels.h:1: ERR: return EvalUnaErr( op, &rhs->value );
-	.file 17 "compiler/unary/fold_labels.h"
-	.loc 17 1 13
+	.file 18 "compiler/unary/fold_labels.h"
+	.loc 18 1 13
 	mov	rax, QWORD PTR -32[rbp]	# tmp96, rhs
 	lea	rdx, 8[rax]	# _2,
 	mov	eax, DWORD PTR -20[rbp]	# tmp97, op
@@ -7294,80 +8238,80 @@ UnaFold:
 	mov	edi, eax	#, tmp97
 	call	EvalUnaErr	#
 	mov	rcx, rdx	# tmp99,
-	mov	rdx, rcx	# D.5732, tmp99
-	jmp	.L419	#
-.L420:
+	mov	rdx, rcx	# D.5824, tmp99
+	jmp	.L462	#
+.L463:
 	endbr64	
 # compiler/unary/fold_labels.h:2: NOT: return EvalNot( &rhs->value );
-	.loc 17 2 13
+	.loc 18 2 13
 	mov	rax, QWORD PTR -32[rbp]	# tmp100, rhs
 	add	rax, 8	# _3,
 	mov	rdi, rax	#, _3
 	call	EvalNot	#
 	mov	rcx, rdx	# tmp102,
-	mov	rdx, rcx	# D.5732, tmp102
-	jmp	.L419	#
-.L421:
+	mov	rdx, rcx	# D.5824, tmp102
+	jmp	.L462	#
+.L464:
 	endbr64	
 # compiler/unary/fold_labels.h:3: BNOT: return EvalBnot( &rhs->value );
-	.loc 17 3 14
+	.loc 18 3 14
 	mov	rax, QWORD PTR -32[rbp]	# tmp103, rhs
 	add	rax, 8	# _4,
 	mov	rdi, rax	#, _4
 	call	EvalBnot	#
 	mov	rcx, rdx	# tmp105,
-	mov	rdx, rcx	# D.5732, tmp105
-	jmp	.L419	#
-.L422:
+	mov	rdx, rcx	# D.5824, tmp105
+	jmp	.L462	#
+.L465:
 	endbr64	
 # compiler/unary/fold_labels.h:4: PLUS: return EvalPlus( &rhs->value );
-	.loc 17 4 14
+	.loc 18 4 14
 	mov	rax, QWORD PTR -32[rbp]	# tmp106, rhs
 	add	rax, 8	# _5,
 	mov	rdi, rax	#, _5
 	call	EvalPlus	#
 	mov	rcx, rdx	# tmp108,
-	mov	rdx, rcx	# D.5732, tmp108
-	jmp	.L419	#
-.L423:
+	mov	rdx, rcx	# D.5824, tmp108
+	jmp	.L462	#
+.L466:
 	endbr64	
 # compiler/unary/fold_labels.h:5: MINUS: return EvalMinus( &rhs->value );
-	.loc 17 5 15
+	.loc 18 5 15
 	mov	rax, QWORD PTR -32[rbp]	# tmp109, rhs
 	add	rax, 8	# _6,
 	mov	rdi, rax	#, _6
 	call	EvalMinus	#
 	mov	rcx, rdx	# tmp111,
-	mov	rdx, rcx	# D.5732, tmp111
-	jmp	.L419	#
-.L424:
+	mov	rdx, rcx	# D.5824, tmp111
+	jmp	.L462	#
+.L467:
 	endbr64	
 # compiler/unary/fold_labels.h:6: INC: return EvalInc( &rhs->value );
-	.loc 17 6 13
+	.loc 18 6 13
 	mov	rax, QWORD PTR -32[rbp]	# tmp112, rhs
 	add	rax, 8	# _7,
 	mov	rdi, rax	#, _7
 	call	EvalInc	#
 	mov	rcx, rdx	# tmp114,
-	mov	rdx, rcx	# D.5732, tmp114
-	jmp	.L419	#
-.L425:
+	mov	rdx, rcx	# D.5824, tmp114
+	jmp	.L462	#
+.L468:
 	endbr64	
 # compiler/unary/fold_labels.h:7: DEC: return EvalDec( &rhs->value );
-	.loc 17 7 13
+	.loc 18 7 13
 	mov	rax, QWORD PTR -32[rbp]	# tmp115, rhs
 	add	rax, 8	# _8,
 	mov	rdi, rax	#, _8
 	call	EvalDec	#
 	mov	rcx, rdx	# tmp117,
-	mov	rdx, rcx	# D.5732, tmp117
-.L419:
+	mov	rdx, rcx	# D.5824, tmp117
+.L462:
 # compiler/unary/unary.h:6: }
-	.loc 16 6 1
-	mov	rsi, rax	# tmp119, D.5732
-	mov	rdi, rdx	#, D.5732
-	mov	rcx, rax	# tmp120, D.5732
-	mov	rbx, rdx	#, D.5732
+	.loc 17 6 1
+	mov	rsi, rax	# tmp119, D.5824
+	mov	rdi, rdx	#, D.5824
+	mov	rcx, rax	# tmp120, D.5824
+	mov	rbx, rdx	#, D.5824
 	mov	eax, esi	# <retval>, tmp119
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -7375,12 +8319,12 @@ UnaFold:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE115:
+.LFE121:
 	.size	UnaFold, .-UnaFold
 	.type	UnaConst, @function
 UnaConst:
-.LFB116:
-	.loc 16 9 1
+.LFB122:
+	.loc 17 9 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7392,19 +8336,19 @@ UnaConst:
 	mov	DWORD PTR -44[rbp], esi	# op, op
 	mov	QWORD PTR -56[rbp], rdx	# rhs, rhs
 # compiler/unary/unary.h:10: 	ParseNode node = { .type = PT_CONST, .value.type = rhs->value.type };
-	.loc 16 10 12
+	.loc 17 10 12
 	pxor	xmm0, xmm0	# tmp83
 	movaps	XMMWORD PTR -32[rbp], xmm0	# node, tmp83
 	movq	QWORD PTR -16[rbp], xmm0	# node, tmp83
 # compiler/unary/unary.h:10: 	ParseNode node = { .type = PT_CONST, .value.type = rhs->value.type };
-	.loc 16 10 63
+	.loc 17 10 63
 	mov	rax, QWORD PTR -56[rbp]	# tmp84, rhs
 	mov	eax, DWORD PTR 8[rax]	# _1, rhs_4(D)->value.type
 # compiler/unary/unary.h:10: 	ParseNode node = { .type = PT_CONST, .value.type = rhs->value.type };
-	.loc 16 10 12
+	.loc 17 10 12
 	mov	DWORD PTR -24[rbp], eax	# node.value.type, _1
 # compiler/unary/unary.h:11: 	node.value = UnaFold( op, rhs );
-	.loc 16 11 15
+	.loc 17 11 15
 	mov	rdx, QWORD PTR -56[rbp]	# tmp85, rhs
 	mov	eax, DWORD PTR -44[rbp]	# tmp86, op
 	mov	rsi, rdx	#, tmp85
@@ -7415,7 +8359,7 @@ UnaConst:
 	mov	DWORD PTR -24[rbp], ecx	# node.value, tmp87
 	mov	QWORD PTR -16[rbp], rax	# node.value, tmp88
 # compiler/unary/unary.h:12: 	return node;
-	.loc 16 12 9
+	.loc 17 12 9
 	mov	rcx, QWORD PTR -40[rbp]	# tmp89, .result_ptr
 	mov	rax, QWORD PTR -32[rbp]	# tmp90, node
 	mov	rdx, QWORD PTR -24[rbp]	#, node
@@ -7424,18 +8368,18 @@ UnaConst:
 	mov	rax, QWORD PTR -16[rbp]	# tmp91, node
 	mov	QWORD PTR 16[rcx], rax	# <retval>, tmp91
 # compiler/unary/unary.h:13: }
-	.loc 16 13 1
+	.loc 17 13 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE116:
+.LFE122:
 	.size	UnaConst, .-UnaConst
 	.type	UnaRef, @function
 UnaRef:
-.LFB117:
-	.loc 16 16 1
+.LFB123:
+	.loc 17 16 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7446,24 +8390,24 @@ UnaRef:
 	mov	DWORD PTR -44[rbp], esi	# op, op
 	mov	QWORD PTR -56[rbp], rdx	# rhs, rhs
 # compiler/unary/unary.h:17: 	return ( ParseNode ){ 0 };
-	.loc 16 17 9
+	.loc 17 17 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/unary/unary.h:18: }
-	.loc 16 18 1
+	.loc 17 18 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE117:
+.LFE123:
 	.size	UnaRef, .-UnaRef
 	.type	UnaCall, @function
 UnaCall:
-.LFB118:
-	.loc 16 21 1
+.LFB124:
+	.loc 17 21 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7474,25 +8418,25 @@ UnaCall:
 	mov	DWORD PTR -44[rbp], esi	# op, op
 	mov	QWORD PTR -56[rbp], rdx	# rhs, rhs
 # compiler/unary/unary.h:22: 	return ( ParseNode ){ 0 };
-	.loc 16 22 9
+	.loc 17 22 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/unary/unary.h:23: }
-	.loc 16 23 1
+	.loc 17 23 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE118:
+.LFE124:
 	.size	UnaCall, .-UnaCall
 	.globl	CompileUna
 	.type	CompileUna, @function
 CompileUna:
-.LFB119:
-	.loc 16 26 1
+.LFB125:
+	.loc 17 26 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -7505,87 +8449,87 @@ CompileUna:
 	mov	DWORD PTR -28[rbp], esi	# token_type, token_type
 	mov	QWORD PTR -40[rbp], rdx	# rhs, rhs
 # compiler/unary/unary.h:26: {
-	.loc 16 26 1
+	.loc 17 26 1
 	mov	rax, QWORD PTR fs:40	# tmp99, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6504, tmp99
+	mov	QWORD PTR -8[rbp], rax	# D.6620, tmp99
 	xor	eax, eax	# tmp99
 # compiler/unary/unary.h:28: 	OpCode op = TkToOp( token_type );
-	.loc 16 28 14
+	.loc 17 28 14
 	mov	eax, DWORD PTR -28[rbp]	# tmp84, token_type
 	mov	edi, eax	#, tmp84
 	call	TkToOp	#
 	mov	DWORD PTR -12[rbp], eax	# op, tmp85
 # compiler/unary/unary.h:29: 	goto *irs[ rhs->type ];
-	.loc 16 29 16
+	.loc 17 29 16
 	mov	rax, QWORD PTR -40[rbp]	# tmp86, rhs
 	mov	eax, DWORD PTR [rax]	# _1, rhs_8(D)->type
 # compiler/unary/unary.h:29: 	goto *irs[ rhs->type ];
-	.loc 16 29 11
+	.loc 17 29 11
 	mov	eax, eax	# tmp87, _1
 	lea	rdx, 0[0+rax*8]	# tmp88,
-	lea	rax, irs.30[rip]	# tmp89,
+	lea	rax, irs.28[rip]	# tmp89,
 	mov	rax, QWORD PTR [rdx+rax]	# _2, irs[_1]
 # compiler/unary/unary.h:29: 	goto *irs[ rhs->type ];
-	.loc 16 29 2
+	.loc 17 29 2
 	nop	
 	jmp	rax	# _2
-.L434:
+.L477:
 	endbr64	
 # compiler/unary/ir_labels.h:1: CONST: return UnaConst( op, rhs );
-	.file 18 "compiler/unary/ir_labels.h"
-	.loc 18 1 15
+	.file 19 "compiler/unary/ir_labels.h"
+	.loc 19 1 15
 	mov	rax, QWORD PTR -24[rbp]	# tmp90, .result_ptr
 	mov	rdx, QWORD PTR -40[rbp]	# tmp91, rhs
 	mov	ecx, DWORD PTR -12[rbp]	# tmp92, op
 	mov	esi, ecx	#, tmp92
 	mov	rdi, rax	#, tmp90
 	call	UnaConst	#
-	jmp	.L435	#
-.L436:
+	jmp	.L478	#
+.L479:
 	endbr64	
 # compiler/unary/ir_labels.h:2: REF: return UnaRef( op, rhs );
-	.loc 18 2 13
+	.loc 19 2 13
 	mov	rax, QWORD PTR -24[rbp]	# tmp93, .result_ptr
 	mov	rdx, QWORD PTR -40[rbp]	# tmp94, rhs
 	mov	ecx, DWORD PTR -12[rbp]	# tmp95, op
 	mov	esi, ecx	#, tmp95
 	mov	rdi, rax	#, tmp93
 	call	UnaRef	#
-	jmp	.L435	#
-.L437:
+	jmp	.L478	#
+.L480:
 	endbr64	
 # compiler/unary/ir_labels.h:3: CALL: return UnaCall( op, rhs );
-	.loc 18 3 14
+	.loc 19 3 14
 	mov	rax, QWORD PTR -24[rbp]	# tmp96, .result_ptr
 	mov	rdx, QWORD PTR -40[rbp]	# tmp97, rhs
 	mov	ecx, DWORD PTR -12[rbp]	# tmp98, op
 	mov	esi, ecx	#, tmp98
 	mov	rdi, rax	#, tmp96
 	call	UnaCall	#
-.L435:
+.L478:
 # compiler/unary/unary.h:31: }
-	.loc 16 31 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp100, D.6504
+	.loc 17 31 1
+	mov	rax, QWORD PTR -8[rbp]	# tmp100, D.6620
 	sub	rax, QWORD PTR fs:40	# tmp100, MEM[(<address-space-1> long unsigned int *)40B]
-	je	.L438	#,
+	je	.L481	#,
 	call	__stack_chk_fail@PLT	#
-.L438:
+.L481:
 	mov	rax, QWORD PTR -24[rbp]	#, .result_ptr
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE119:
+.LFE125:
 	.size	CompileUna, .-CompileUna
 	.section	.rodata
-.LC13:
+.LC14:
 	.string	"Illegal Binary Operation: %d"
 	.text
 	.type	EvalBinErr, @function
 EvalBinErr:
-.LFB120:
-	.file 19 "compiler/binary/eval.h"
-	.loc 19 2 1
+.LFB126:
+	.file 20 "compiler/binary/eval.h"
+	.loc 20 2 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7599,36 +8543,36 @@ EvalBinErr:
 	mov	DWORD PTR -28[rbp], esi	# op, op
 	mov	QWORD PTR -40[rbp], rdx	# rhs, rhs
 # compiler/binary/eval.h:3: 	Throw( "Illegal Binary Operation: %d", op );
-	.loc 19 3 2
+	.loc 20 3 2
 	mov	eax, DWORD PTR -28[rbp]	# tmp86, op
 	mov	esi, eax	#, tmp86
-	lea	rax, .LC13[rip]	# tmp87,
+	lea	rax, .LC14[rip]	# tmp87,
 	mov	rdi, rax	#, tmp87
 	mov	eax, 0	#,
 	call	Throw	#
 # compiler/binary/eval.h:4: 	return ( Value ){ 0 };
-	.loc 19 4 9
-	mov	eax, 0	# D.5751,
-	mov	edx, 0	# D.5751,
-	mov	rsi, rax	# tmp89, D.5751
-	mov	rdi, rdx	#, D.5751
-	mov	rcx, rax	# tmp90, D.5751
-	mov	rbx, rdx	#, D.5751
+	.loc 20 4 9
+	mov	eax, 0	# D.5843,
+	mov	edx, 0	# D.5843,
+	mov	rsi, rax	# tmp89, D.5843
+	mov	rdi, rdx	#, D.5843
+	mov	rcx, rax	# tmp90, D.5843
+	mov	rbx, rdx	#, D.5843
 	mov	eax, esi	# <retval>, tmp89
 	mov	rdx, rbx	# <retval>,
 # compiler/binary/eval.h:5: }
-	.loc 19 5 1
+	.loc 20 5 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE120:
+.LFE126:
 	.size	EvalBinErr, .-EvalBinErr
 	.type	EvalAdd, @function
 EvalAdd:
-.LFB121:
-	.loc 19 8 1
+.LFB127:
+	.loc 20 8 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7640,54 +8584,54 @@ EvalAdd:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:10: 	goto *ops[ lhs->type ];
-	.loc 19 10 16
+	.loc 20 10 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp102, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_17(D)->type
 # compiler/binary/eval.h:10: 	goto *ops[ lhs->type ];
-	.loc 19 10 11
+	.loc 20 10 11
 	mov	ecx, ecx	# tmp103, _1
 	lea	rsi, 0[0+rcx*8]	# tmp104,
-	lea	rcx, ops.24[rip]	# tmp105,
+	lea	rcx, ops.22[rip]	# tmp105,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:10: 	goto *ops[ lhs->type ];
-	.loc 19 10 2
+	.loc 20 10 2
 	nop	
 	jmp	rcx	# _2
-.L443:
+.L486:
 	endbr64	
 # compiler/binary/eval.h:11: 	I64: return VALUE( I64, i64, lhs->i64 + rhs->i64 );
-	.loc 19 11 14
+	.loc 20 11 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp106, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_17(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp107, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_19(D)->D.4160.i64
 	add	rcx, rsi	# _5, _3
-	mov	rdi, rax	# tmp109, D.5754
+	mov	rdi, rax	# tmp109, D.5846
 	movabs	rsi, -4294967296	# tmp111,
 	and	rsi, rdi	# tmp110, tmp109
-	mov	rax, rsi	# D.5754, tmp110
-	mov	rdx, rcx	# D.5754, _5
-	jmp	.L444	#
-.L445:
+	mov	rax, rsi	# D.5846, tmp110
+	mov	rdx, rcx	# D.5846, _5
+	jmp	.L487	#
+.L488:
 	endbr64	
 # compiler/binary/eval.h:12: 	F64: return VALUE( F64, f64, lhs->f64 + rhs->f64 );
-	.loc 19 12 14
+	.loc 20 12 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp112, lhs
 	movsd	xmm1, QWORD PTR 8[rcx]	# _6, lhs_17(D)->D.4160.f64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp113, rhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _7, rhs_19(D)->D.4160.f64
 	addsd	xmm0, xmm1	# _8, _6
-	mov	rsi, rax	# tmp115, D.5754
+	mov	rsi, rax	# tmp115, D.5846
 	movabs	rcx, -4294967296	# tmp117,
 	and	rcx, rsi	# tmp116, tmp115
 	or	rcx, 1	# tmp118,
-	mov	rax, rcx	# D.5754, tmp118
-	movq	rdx, xmm0	# D.5754, _8
-	jmp	.L444	#
-.L446:
+	mov	rax, rcx	# D.5846, tmp118
+	movq	rdx, xmm0	# D.5846, _8
+	jmp	.L487	#
+.L489:
 	endbr64	
 # compiler/binary/eval.h:13: 	STR: return VALUE( I64, i64, lhs->str->len + rhs->str->len );
-	.loc 19 13 14
+	.loc 20 13 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp119, lhs
 	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_17(D)->D.4160.str
 	mov	esi, DWORD PTR 4[rcx]	# _10, _9->len
@@ -7696,18 +8640,18 @@ EvalAdd:
 	mov	ecx, DWORD PTR 4[rcx]	# _12, _11->len
 	add	ecx, esi	# _13, _10
 	mov	esi, ecx	# _14, _13
-	mov	rdi, rax	# tmp122, D.5754
+	mov	rdi, rax	# tmp122, D.5846
 	movabs	rcx, -4294967296	# tmp124,
 	and	rcx, rdi	# tmp123, tmp122
-	mov	rax, rcx	# D.5754, tmp123
-	mov	rdx, rsi	# D.5754, _14
-.L444:
+	mov	rax, rcx	# D.5846, tmp123
+	mov	rdx, rsi	# D.5846, _14
+.L487:
 # compiler/binary/eval.h:14: }
-	.loc 19 14 1
-	mov	rsi, rax	# tmp126, D.5754
-	mov	rdi, rdx	#, D.5754
-	mov	rcx, rax	# tmp127, D.5754
-	mov	rbx, rdx	#, D.5754
+	.loc 20 14 1
+	mov	rsi, rax	# tmp126, D.5846
+	mov	rdi, rdx	#, D.5846
+	mov	rcx, rax	# tmp127, D.5846
+	mov	rbx, rdx	#, D.5846
 	mov	eax, esi	# <retval>, tmp126
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -7715,12 +8659,12 @@ EvalAdd:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE121:
+.LFE127:
 	.size	EvalAdd, .-EvalAdd
 	.type	EvalSub, @function
 EvalSub:
-.LFB122:
-	.loc 19 17 1
+.LFB128:
+	.loc 20 17 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7732,54 +8676,54 @@ EvalSub:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:19: 	goto *ops[ lhs->type ];
-	.loc 19 19 16
+	.loc 20 19 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp102, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_17(D)->type
 # compiler/binary/eval.h:19: 	goto *ops[ lhs->type ];
-	.loc 19 19 11
+	.loc 20 19 11
 	mov	ecx, ecx	# tmp103, _1
 	lea	rsi, 0[0+rcx*8]	# tmp104,
-	lea	rcx, ops.23[rip]	# tmp105,
+	lea	rcx, ops.21[rip]	# tmp105,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:19: 	goto *ops[ lhs->type ];
-	.loc 19 19 2
+	.loc 20 19 2
 	nop	
 	jmp	rcx	# _2
-.L450:
+.L493:
 	endbr64	
 # compiler/binary/eval.h:20: 	I64: return VALUE( I64, i64, lhs->i64 - rhs->i64 );
-	.loc 19 20 14
+	.loc 20 20 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp106, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_17(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp107, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_19(D)->D.4160.i64
 	sub	rsi, rcx	# _5, _4
-	mov	rdi, rax	# tmp109, D.5759
+	mov	rdi, rax	# tmp109, D.5851
 	movabs	rcx, -4294967296	# tmp111,
 	and	rcx, rdi	# tmp110, tmp109
-	mov	rax, rcx	# D.5759, tmp110
-	mov	rdx, rsi	# D.5759, _5
-	jmp	.L451	#
-.L452:
+	mov	rax, rcx	# D.5851, tmp110
+	mov	rdx, rsi	# D.5851, _5
+	jmp	.L494	#
+.L495:
 	endbr64	
 # compiler/binary/eval.h:21: 	F64: return VALUE( F64, f64, lhs->f64 - rhs->f64 );
-	.loc 19 21 14
+	.loc 20 21 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp112, lhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _6, lhs_17(D)->D.4160.f64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp113, rhs
 	movsd	xmm1, QWORD PTR 8[rcx]	# _7, rhs_19(D)->D.4160.f64
 	subsd	xmm0, xmm1	# _8, _7
-	mov	rsi, rax	# tmp115, D.5759
+	mov	rsi, rax	# tmp115, D.5851
 	movabs	rcx, -4294967296	# tmp117,
 	and	rcx, rsi	# tmp116, tmp115
 	or	rcx, 1	# tmp118,
-	mov	rax, rcx	# D.5759, tmp118
-	movq	rdx, xmm0	# D.5759, _8
-	jmp	.L451	#
-.L453:
+	mov	rax, rcx	# D.5851, tmp118
+	movq	rdx, xmm0	# D.5851, _8
+	jmp	.L494	#
+.L496:
 	endbr64	
 # compiler/binary/eval.h:22: 	STR: return VALUE( I64, i64, lhs->str->len - rhs->str->len );
-	.loc 19 22 14
+	.loc 20 22 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp119, lhs
 	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_17(D)->D.4160.str
 	mov	esi, DWORD PTR 4[rcx]	# _10, _9->len
@@ -7788,18 +8732,18 @@ EvalSub:
 	mov	ecx, DWORD PTR 4[rcx]	# _12, _11->len
 	sub	esi, ecx	# _13, _12
 	mov	esi, esi	# _14, _13
-	mov	rdi, rax	# tmp122, D.5759
+	mov	rdi, rax	# tmp122, D.5851
 	movabs	rcx, -4294967296	# tmp124,
 	and	rcx, rdi	# tmp123, tmp122
-	mov	rax, rcx	# D.5759, tmp123
-	mov	rdx, rsi	# D.5759, _14
-.L451:
+	mov	rax, rcx	# D.5851, tmp123
+	mov	rdx, rsi	# D.5851, _14
+.L494:
 # compiler/binary/eval.h:23: }
-	.loc 19 23 1
-	mov	rsi, rax	# tmp126, D.5759
-	mov	rdi, rdx	#, D.5759
-	mov	rcx, rax	# tmp127, D.5759
-	mov	rbx, rdx	#, D.5759
+	.loc 20 23 1
+	mov	rsi, rax	# tmp126, D.5851
+	mov	rdi, rdx	#, D.5851
+	mov	rcx, rax	# tmp127, D.5851
+	mov	rbx, rdx	#, D.5851
 	mov	eax, esi	# <retval>, tmp126
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -7807,12 +8751,12 @@ EvalSub:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE122:
+.LFE128:
 	.size	EvalSub, .-EvalSub
 	.type	EvalMul, @function
 EvalMul:
-.LFB123:
-	.loc 19 26 1
+.LFB129:
+	.loc 20 26 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7824,54 +8768,54 @@ EvalMul:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:28: 	goto *ops[ lhs->type ];
-	.loc 19 28 16
+	.loc 20 28 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp102, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_17(D)->type
 # compiler/binary/eval.h:28: 	goto *ops[ lhs->type ];
-	.loc 19 28 11
+	.loc 20 28 11
 	mov	ecx, ecx	# tmp103, _1
 	lea	rsi, 0[0+rcx*8]	# tmp104,
-	lea	rcx, ops.22[rip]	# tmp105,
+	lea	rcx, ops.20[rip]	# tmp105,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:28: 	goto *ops[ lhs->type ];
-	.loc 19 28 2
+	.loc 20 28 2
 	nop	
 	jmp	rcx	# _2
-.L457:
+.L500:
 	endbr64	
 # compiler/binary/eval.h:29: 	I64: return VALUE( I64, i64, lhs->i64 * rhs->i64 );
-	.loc 19 29 14
+	.loc 20 29 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp106, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_17(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp107, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_19(D)->D.4160.i64
 	imul	rcx, rsi	# _5, _3
-	mov	rdi, rax	# tmp109, D.5764
+	mov	rdi, rax	# tmp109, D.5856
 	movabs	rsi, -4294967296	# tmp111,
 	and	rsi, rdi	# tmp110, tmp109
-	mov	rax, rsi	# D.5764, tmp110
-	mov	rdx, rcx	# D.5764, _5
-	jmp	.L458	#
-.L459:
+	mov	rax, rsi	# D.5856, tmp110
+	mov	rdx, rcx	# D.5856, _5
+	jmp	.L501	#
+.L502:
 	endbr64	
 # compiler/binary/eval.h:30: 	F64: return VALUE( F64, f64, lhs->f64 * rhs->f64 );
-	.loc 19 30 14
+	.loc 20 30 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp112, lhs
 	movsd	xmm1, QWORD PTR 8[rcx]	# _6, lhs_17(D)->D.4160.f64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp113, rhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _7, rhs_19(D)->D.4160.f64
 	mulsd	xmm0, xmm1	# _8, _6
-	mov	rsi, rax	# tmp115, D.5764
+	mov	rsi, rax	# tmp115, D.5856
 	movabs	rcx, -4294967296	# tmp117,
 	and	rcx, rsi	# tmp116, tmp115
 	or	rcx, 1	# tmp118,
-	mov	rax, rcx	# D.5764, tmp118
-	movq	rdx, xmm0	# D.5764, _8
-	jmp	.L458	#
-.L460:
+	mov	rax, rcx	# D.5856, tmp118
+	movq	rdx, xmm0	# D.5856, _8
+	jmp	.L501	#
+.L503:
 	endbr64	
 # compiler/binary/eval.h:31: 	STR: return VALUE( I64, i64, lhs->str->len * rhs->str->len );
-	.loc 19 31 14
+	.loc 20 31 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp119, lhs
 	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_17(D)->D.4160.str
 	mov	esi, DWORD PTR 4[rcx]	# _10, _9->len
@@ -7880,18 +8824,18 @@ EvalMul:
 	mov	ecx, DWORD PTR 4[rcx]	# _12, _11->len
 	imul	ecx, esi	# _13, _10
 	mov	esi, ecx	# _14, _13
-	mov	rdi, rax	# tmp122, D.5764
+	mov	rdi, rax	# tmp122, D.5856
 	movabs	rcx, -4294967296	# tmp124,
 	and	rcx, rdi	# tmp123, tmp122
-	mov	rax, rcx	# D.5764, tmp123
-	mov	rdx, rsi	# D.5764, _14
-.L458:
+	mov	rax, rcx	# D.5856, tmp123
+	mov	rdx, rsi	# D.5856, _14
+.L501:
 # compiler/binary/eval.h:32: }
-	.loc 19 32 1
-	mov	rsi, rax	# tmp126, D.5764
-	mov	rdi, rdx	#, D.5764
-	mov	rcx, rax	# tmp127, D.5764
-	mov	rbx, rdx	#, D.5764
+	.loc 20 32 1
+	mov	rsi, rax	# tmp126, D.5856
+	mov	rdi, rdx	#, D.5856
+	mov	rcx, rax	# tmp127, D.5856
+	mov	rbx, rdx	#, D.5856
 	mov	eax, esi	# <retval>, tmp126
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -7899,12 +8843,12 @@ EvalMul:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE123:
+.LFE129:
 	.size	EvalMul, .-EvalMul
 	.type	EvalDiv, @function
 EvalDiv:
-.LFB124:
-	.loc 19 35 1
+.LFB130:
+	.loc 20 35 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -7916,23 +8860,23 @@ EvalDiv:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:37: 	goto *ops[ lhs->type ];
-	.loc 19 37 16
+	.loc 20 37 16
 	mov	rax, QWORD PTR -24[rbp]	# tmp102, lhs
 	mov	eax, DWORD PTR [rax]	# _1, lhs_17(D)->type
 # compiler/binary/eval.h:37: 	goto *ops[ lhs->type ];
-	.loc 19 37 11
+	.loc 20 37 11
 	mov	eax, eax	# tmp103, _1
 	lea	rdx, 0[0+rax*8]	# tmp104,
-	lea	rax, ops.21[rip]	# tmp105,
+	lea	rax, ops.19[rip]	# tmp105,
 	mov	rax, QWORD PTR [rdx+rax]	# _2, ops[_1]
 # compiler/binary/eval.h:37: 	goto *ops[ lhs->type ];
-	.loc 19 37 2
+	.loc 20 37 2
 	nop	
 	jmp	rax	# _2
-.L464:
+.L507:
 	endbr64	
 # compiler/binary/eval.h:38: 	I64: return VALUE( I64, i64, lhs->i64 / rhs->i64 );
-	.loc 19 38 14
+	.loc 20 38 14
 	mov	rax, QWORD PTR -24[rbp]	# tmp106, lhs
 	mov	rax, QWORD PTR 8[rax]	# _3, lhs_17(D)->D.4160.i64
 	mov	rdx, QWORD PTR -32[rbp]	# tmp107, rhs
@@ -7940,32 +8884,32 @@ EvalDiv:
 	cqo
 	idiv	rdi	# _4
 	mov	rdx, rax	# _5, tmp108
-	mov	rsi, rcx	# tmp111, D.5769
+	mov	rsi, rcx	# tmp111, D.5861
 	movabs	rax, -4294967296	# tmp113,
 	and	rax, rsi	# tmp112, tmp111
-	mov	rcx, rax	# D.5769, tmp112
-	mov	rbx, rdx	# D.5769, _5
-	jmp	.L465	#
-.L466:
+	mov	rcx, rax	# D.5861, tmp112
+	mov	rbx, rdx	# D.5861, _5
+	jmp	.L508	#
+.L509:
 	endbr64	
 # compiler/binary/eval.h:39: 	F64: return VALUE( F64, f64, lhs->f64 / rhs->f64 );
-	.loc 19 39 14
+	.loc 20 39 14
 	mov	rax, QWORD PTR -24[rbp]	# tmp114, lhs
 	movsd	xmm0, QWORD PTR 8[rax]	# _6, lhs_17(D)->D.4160.f64
 	mov	rax, QWORD PTR -32[rbp]	# tmp115, rhs
 	movsd	xmm1, QWORD PTR 8[rax]	# _7, rhs_19(D)->D.4160.f64
 	divsd	xmm0, xmm1	# _8, _7
-	mov	rdx, rcx	# tmp117, D.5769
+	mov	rdx, rcx	# tmp117, D.5861
 	movabs	rax, -4294967296	# tmp119,
 	and	rax, rdx	# tmp118, tmp117
 	or	rax, 1	# tmp120,
-	mov	rcx, rax	# D.5769, tmp120
-	movq	rbx, xmm0	# D.5769, _8
-	jmp	.L465	#
-.L467:
+	mov	rcx, rax	# D.5861, tmp120
+	movq	rbx, xmm0	# D.5861, _8
+	jmp	.L508	#
+.L510:
 	endbr64	
 # compiler/binary/eval.h:40: 	STR: return VALUE( I64, i64, lhs->str->len / rhs->str->len );
-	.loc 19 40 14
+	.loc 20 40 14
 	mov	rax, QWORD PTR -24[rbp]	# tmp121, lhs
 	mov	rax, QWORD PTR 8[rax]	# _9, lhs_17(D)->D.4160.str
 	mov	eax, DWORD PTR 4[rax]	# _10, _9->len
@@ -7975,28 +8919,28 @@ EvalDiv:
 	mov	edx, 0	# tmp124,
 	div	edi	# _12
 	mov	edx, eax	# _14, _13
-	mov	rsi, rcx	# tmp126, D.5769
+	mov	rsi, rcx	# tmp126, D.5861
 	movabs	rax, -4294967296	# tmp128,
 	and	rax, rsi	# tmp127, tmp126
-	mov	rcx, rax	# D.5769, tmp127
-	mov	rbx, rdx	# D.5769, _14
-.L465:
+	mov	rcx, rax	# D.5861, tmp127
+	mov	rbx, rdx	# D.5861, _14
+.L508:
 # compiler/binary/eval.h:41: }
-	.loc 19 41 1
-	mov	rax, rcx	# tmp130, D.5769
-	mov	rdx, rbx	#, D.5769
+	.loc 20 41 1
+	mov	rax, rcx	# tmp130, D.5861
+	mov	rdx, rbx	#, D.5861
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE124:
+.LFE130:
 	.size	EvalDiv, .-EvalDiv
 	.type	EvalMod, @function
 EvalMod:
-.LFB125:
-	.loc 19 44 1
+.LFB131:
+	.loc 20 44 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -8008,23 +8952,23 @@ EvalMod:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:46: 	goto *ops[ lhs->type ];
-	.loc 19 46 16
+	.loc 20 46 16
 	mov	rax, QWORD PTR -24[rbp]	# tmp105, lhs
 	mov	eax, DWORD PTR [rax]	# _1, lhs_20(D)->type
 # compiler/binary/eval.h:46: 	goto *ops[ lhs->type ];
-	.loc 19 46 11
+	.loc 20 46 11
 	mov	eax, eax	# tmp106, _1
 	lea	rdx, 0[0+rax*8]	# tmp107,
-	lea	rax, ops.20[rip]	# tmp108,
+	lea	rax, ops.18[rip]	# tmp108,
 	mov	rax, QWORD PTR [rdx+rax]	# _2, ops[_1]
 # compiler/binary/eval.h:46: 	goto *ops[ lhs->type ];
-	.loc 19 46 2
+	.loc 20 46 2
 	nop	
 	jmp	rax	# _2
-.L471:
+.L514:
 	endbr64	
 # compiler/binary/eval.h:47: 	I64: return VALUE( I64, i64, lhs->i64 % rhs->i64 );
-	.loc 19 47 14
+	.loc 20 47 14
 	mov	rax, QWORD PTR -24[rbp]	# tmp109, lhs
 	mov	rax, QWORD PTR 8[rax]	# _3, lhs_20(D)->D.4160.i64
 	mov	rdx, QWORD PTR -32[rbp]	# tmp110, rhs
@@ -8033,16 +8977,16 @@ EvalMod:
 	idiv	rdi	# _4
 	mov	rsi, rdx	# tmp111, tmp111
 	mov	rdx, rsi	# _5, tmp111
-	mov	rsi, rcx	# tmp114, D.5774
+	mov	rsi, rcx	# tmp114, D.5866
 	movabs	rax, -4294967296	# tmp116,
 	and	rax, rsi	# tmp115, tmp114
-	mov	rcx, rax	# D.5774, tmp115
-	mov	rbx, rdx	# D.5774, _5
-	jmp	.L472	#
-.L473:
+	mov	rcx, rax	# D.5866, tmp115
+	mov	rbx, rdx	# D.5866, _5
+	jmp	.L515	#
+.L516:
 	endbr64	
 # compiler/binary/eval.h:48: 	F64: return VALUE( F64, f64, ( I64 )lhs->f64 % ( I64 )rhs->f64 );
-	.loc 19 48 14
+	.loc 20 48 14
 	mov	rax, QWORD PTR -24[rbp]	# tmp117, lhs
 	movsd	xmm0, QWORD PTR 8[rax]	# _6, lhs_20(D)->D.4160.f64
 	cvttsd2si	rax, xmm0	# _7, _6
@@ -8055,17 +8999,17 @@ EvalMod:
 	mov	rax, rsi	# _10, tmp119
 	pxor	xmm0, xmm0	# _11
 	cvtsi2sd	xmm0, rax	# _11, _10
-	mov	rdx, rcx	# tmp122, D.5774
+	mov	rdx, rcx	# tmp122, D.5866
 	movabs	rax, -4294967296	# tmp124,
 	and	rax, rdx	# tmp123, tmp122
 	or	rax, 1	# tmp125,
-	mov	rcx, rax	# D.5774, tmp125
-	movq	rbx, xmm0	# D.5774, _11
-	jmp	.L472	#
-.L474:
+	mov	rcx, rax	# D.5866, tmp125
+	movq	rbx, xmm0	# D.5866, _11
+	jmp	.L515	#
+.L517:
 	endbr64	
 # compiler/binary/eval.h:49: 	STR: return VALUE( I64, i64, lhs->str->len % rhs->str->len );
-	.loc 19 49 14
+	.loc 20 49 14
 	mov	rax, QWORD PTR -24[rbp]	# tmp126, lhs
 	mov	rax, QWORD PTR 8[rax]	# _12, lhs_20(D)->D.4160.str
 	mov	eax, DWORD PTR 4[rax]	# _13, _12->len
@@ -8077,28 +9021,28 @@ EvalMod:
 	mov	esi, edx	# tmp128, tmp128
 	mov	eax, esi	# _16, tmp128
 	mov	edx, eax	# _17, _16
-	mov	rsi, rcx	# tmp131, D.5774
+	mov	rsi, rcx	# tmp131, D.5866
 	movabs	rax, -4294967296	# tmp133,
 	and	rax, rsi	# tmp132, tmp131
-	mov	rcx, rax	# D.5774, tmp132
-	mov	rbx, rdx	# D.5774, _17
-.L472:
+	mov	rcx, rax	# D.5866, tmp132
+	mov	rbx, rdx	# D.5866, _17
+.L515:
 # compiler/binary/eval.h:50: }
-	.loc 19 50 1
-	mov	rax, rcx	# tmp135, D.5774
-	mov	rdx, rbx	#, D.5774
+	.loc 20 50 1
+	mov	rax, rcx	# tmp135, D.5866
+	mov	rdx, rbx	#, D.5866
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE125:
+.LFE131:
 	.size	EvalMod, .-EvalMod
 	.type	EvalPow, @function
 EvalPow:
-.LFB126:
-	.loc 19 53 1
+.LFB132:
+	.loc 20 53 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -8115,23 +9059,23 @@ EvalPow:
 	mov	QWORD PTR -40[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -48[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:55: 	goto *ops[ lhs->type ];
-	.loc 19 55 16
+	.loc 20 55 16
 	mov	rax, QWORD PTR -40[rbp]	# tmp107, lhs
 	mov	eax, DWORD PTR [rax]	# _1, lhs_22(D)->type
 # compiler/binary/eval.h:55: 	goto *ops[ lhs->type ];
-	.loc 19 55 11
+	.loc 20 55 11
 	mov	eax, eax	# tmp108, _1
 	lea	rdx, 0[0+rax*8]	# tmp109,
-	lea	rax, ops.19[rip]	# tmp110,
+	lea	rax, ops.17[rip]	# tmp110,
 	mov	rax, QWORD PTR [rdx+rax]	# _2, ops[_1]
 # compiler/binary/eval.h:55: 	goto *ops[ lhs->type ];
-	.loc 19 55 2
+	.loc 20 55 2
 	nop	
 	jmp	rax	# _2
-.L478:
+.L521:
 	endbr64	
 # compiler/binary/eval.h:56: 	I64: return VALUE( I64, i64, ( I64 )pow( ( F64 )lhs->i64, ( F64 )rhs->i64 ) );
-	.loc 19 56 14
+	.loc 20 56 14
 	mov	rax, QWORD PTR -48[rbp]	# tmp111, rhs
 	mov	rax, QWORD PTR 8[rax]	# _3, rhs_24(D)->D.4160.i64
 	pxor	xmm0, xmm0	# _4
@@ -8145,20 +9089,20 @@ EvalPow:
 	movq	xmm0, rax	#, _6
 	call	pow@PLT	#
 # compiler/binary/eval.h:56: 	I64: return VALUE( I64, i64, ( I64 )pow( ( F64 )lhs->i64, ( F64 )rhs->i64 ) );
-	.loc 19 56 14 is_stmt 0 discriminator 1
+	.loc 20 56 14 is_stmt 0 discriminator 1
 	cvttsd2si	rax, xmm0	# _8, _7
-	mov	rcx, r12	# tmp114, D.5779
+	mov	rcx, r12	# tmp114, D.5871
 	movabs	rdx, -4294967296	# tmp116,
 	and	rdx, rcx	# tmp115, tmp114
-	mov	r12, rdx	# D.5779, tmp115
-	mov	r13, rax	# D.5779, _8
+	mov	r12, rdx	# D.5871, tmp115
+	mov	r13, rax	# D.5871, _8
 # compiler/binary/eval.h:56: 	I64: return VALUE( I64, i64, ( I64 )pow( ( F64 )lhs->i64, ( F64 )rhs->i64 ) );
-	.loc 19 56 14
-	jmp	.L479	#
-.L480:
+	.loc 20 56 14
+	jmp	.L522	#
+.L523:
 	endbr64	
 # compiler/binary/eval.h:57: 	F64: return VALUE( F64, f64, pow( lhs->f64, rhs->f64 ) );
-	.loc 19 57 14 is_stmt 1
+	.loc 20 57 14 is_stmt 1
 	mov	rax, QWORD PTR -48[rbp]	# tmp117, rhs
 	movsd	xmm0, QWORD PTR 8[rax]	# _9, rhs_24(D)->D.4160.f64
 	mov	rax, QWORD PTR -40[rbp]	# tmp118, lhs
@@ -8167,30 +9111,30 @@ EvalPow:
 	movq	xmm0, rax	#, _10
 	call	pow@PLT	#
 # compiler/binary/eval.h:57: 	F64: return VALUE( F64, f64, pow( lhs->f64, rhs->f64 ) );
-	.loc 19 57 14 is_stmt 0 discriminator 1
-	mov	rdx, r12	# tmp120, D.5779
+	.loc 20 57 14 is_stmt 0 discriminator 1
+	mov	rdx, r12	# tmp120, D.5871
 	movabs	rax, -4294967296	# tmp122,
 	and	rax, rdx	# tmp121, tmp120
 	or	rax, 1	# tmp123,
-	mov	r12, rax	# D.5779, tmp123
-	movq	r13, xmm0	# D.5779, _11
+	mov	r12, rax	# D.5871, tmp123
+	movq	r13, xmm0	# D.5871, _11
 # compiler/binary/eval.h:57: 	F64: return VALUE( F64, f64, pow( lhs->f64, rhs->f64 ) );
-	.loc 19 57 14
-	jmp	.L479	#
-.L481:
+	.loc 20 57 14
+	jmp	.L522	#
+.L524:
 	endbr64	
 # compiler/binary/eval.h:58: 	STR: return VALUE( I64, i64, ( I64 )pow( ( F64 )lhs->str->len, ( F64 )rhs->str->len ) );
-	.loc 19 58 14 is_stmt 1
+	.loc 20 58 14 is_stmt 1
 	mov	rax, QWORD PTR -48[rbp]	# tmp124, rhs
 	mov	rax, QWORD PTR 8[rax]	# _12, rhs_24(D)->D.4160.str
 	mov	eax, DWORD PTR 4[rax]	# _13, _12->len
 	mov	eax, eax	# tmp125, _13
 	test	rax, rax	# tmp125
-	js	.L482	#,
+	js	.L525	#,
 	pxor	xmm0, xmm0	# _14
 	cvtsi2sd	xmm0, rax	# _14, tmp125
-	jmp	.L483	#
-.L482:
+	jmp	.L526	#
+.L525:
 	mov	rdx, rax	# tmp127, tmp125
 	shr	rdx	# tmp127
 	and	eax, 1	# tmp128,
@@ -8198,18 +9142,18 @@ EvalPow:
 	pxor	xmm0, xmm0	# tmp126
 	cvtsi2sd	xmm0, rdx	# tmp126, tmp127
 	addsd	xmm0, xmm0	# _14, tmp126
-.L483:
+.L526:
 	mov	rax, QWORD PTR -40[rbp]	# tmp129, lhs
 	mov	rax, QWORD PTR 8[rax]	# _15, lhs_22(D)->D.4160.str
 	mov	eax, DWORD PTR 4[rax]	# _16, _15->len
 	mov	eax, eax	# tmp130, _16
 	test	rax, rax	# tmp130
-	js	.L484	#,
+	js	.L527	#,
 	pxor	xmm3, xmm3	# _17
 	cvtsi2sd	xmm3, rax	# _17, tmp130
 	movq	rax, xmm3	# _17, _17
-	jmp	.L485	#
-.L484:
+	jmp	.L528	#
+.L527:
 	mov	rdx, rax	# tmp132, tmp130
 	shr	rdx	# tmp132
 	and	eax, 1	# tmp133,
@@ -8218,25 +9162,25 @@ EvalPow:
 	cvtsi2sd	xmm1, rdx	# tmp131, tmp132
 	addsd	xmm1, xmm1	# tmp131, tmp131
 	movq	rax, xmm1	# _17, tmp131
-.L485:
+.L528:
 	movapd	xmm1, xmm0	#, _14
 	movq	xmm0, rax	#, _17
 	call	pow@PLT	#
 # compiler/binary/eval.h:58: 	STR: return VALUE( I64, i64, ( I64 )pow( ( F64 )lhs->str->len, ( F64 )rhs->str->len ) );
-	.loc 19 58 14 is_stmt 0 discriminator 1
+	.loc 20 58 14 is_stmt 0 discriminator 1
 	cvttsd2si	rax, xmm0	# _19, _18
-	mov	rcx, r12	# tmp135, D.5779
+	mov	rcx, r12	# tmp135, D.5871
 	movabs	rdx, -4294967296	# tmp137,
 	and	rdx, rcx	# tmp136, tmp135
-	mov	r12, rdx	# D.5779, tmp136
-	mov	r13, rax	# D.5779, _19
-.L479:
+	mov	r12, rdx	# D.5871, tmp136
+	mov	r13, rax	# D.5871, _19
+.L522:
 # compiler/binary/eval.h:59: }
-	.loc 19 59 1 is_stmt 1
-	mov	rax, r12	# tmp139, D.5779
-	mov	rdx, r13	#, D.5779
-	mov	rcx, r12	# tmp140, D.5779
-	mov	rbx, r13	#, D.5779
+	.loc 20 59 1 is_stmt 1
+	mov	rax, r12	# tmp139, D.5871
+	mov	rdx, r13	#, D.5871
+	mov	rcx, r12	# tmp140, D.5871
+	mov	rbx, r13	#, D.5871
 	mov	rdx, rbx	# <retval>,
 	add	rsp, 24	#,
 	pop	rbx	#
@@ -8246,12 +9190,12 @@ EvalPow:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE126:
+.LFE132:
 	.size	EvalPow, .-EvalPow
 	.type	EvalBand, @function
 EvalBand:
-.LFB127:
-	.loc 19 62 1
+.LFB133:
+	.loc 20 62 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -8263,38 +9207,38 @@ EvalBand:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:64: 	goto *ops[ lhs->type ];
-	.loc 19 64 16
+	.loc 20 64 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp105, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_20(D)->type
 # compiler/binary/eval.h:64: 	goto *ops[ lhs->type ];
-	.loc 19 64 11
+	.loc 20 64 11
 	mov	ecx, ecx	# tmp106, _1
 	lea	rsi, 0[0+rcx*8]	# tmp107,
-	lea	rcx, ops.18[rip]	# tmp108,
+	lea	rcx, ops.16[rip]	# tmp108,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:64: 	goto *ops[ lhs->type ];
-	.loc 19 64 2
+	.loc 20 64 2
 	nop	
 	jmp	rcx	# _2
-.L489:
+.L532:
 	endbr64	
 # compiler/binary/eval.h:65: 	I64: return VALUE( I64, i64, lhs->i64 & rhs->i64 );
-	.loc 19 65 14
+	.loc 20 65 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp109, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_20(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp110, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_22(D)->D.4160.i64
 	and	rcx, rsi	# _5, _3
-	mov	rdi, rax	# tmp112, D.5784
+	mov	rdi, rax	# tmp112, D.5876
 	movabs	rsi, -4294967296	# tmp114,
 	and	rsi, rdi	# tmp113, tmp112
-	mov	rax, rsi	# D.5784, tmp113
-	mov	rdx, rcx	# D.5784, _5
-	jmp	.L490	#
-.L491:
+	mov	rax, rsi	# D.5876, tmp113
+	mov	rdx, rcx	# D.5876, _5
+	jmp	.L533	#
+.L534:
 	endbr64	
 # compiler/binary/eval.h:66: 	F64: return VALUE( F64, f64, ( I64 )lhs->f64 & ( I64 )rhs->f64 );
-	.loc 19 66 14
+	.loc 20 66 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp115, lhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _6, lhs_20(D)->D.4160.f64
 	cvttsd2si	rsi, xmm0	# _7, _6
@@ -8304,17 +9248,17 @@ EvalBand:
 	and	rcx, rsi	# _10, _7
 	pxor	xmm0, xmm0	# _11
 	cvtsi2sd	xmm0, rcx	# _11, _10
-	mov	rsi, rax	# tmp118, D.5784
+	mov	rsi, rax	# tmp118, D.5876
 	movabs	rcx, -4294967296	# tmp120,
 	and	rcx, rsi	# tmp119, tmp118
 	or	rcx, 1	# tmp121,
-	mov	rax, rcx	# D.5784, tmp121
-	movq	rdx, xmm0	# D.5784, _11
-	jmp	.L490	#
-.L492:
+	mov	rax, rcx	# D.5876, tmp121
+	movq	rdx, xmm0	# D.5876, _11
+	jmp	.L533	#
+.L535:
 	endbr64	
 # compiler/binary/eval.h:67: 	STR: return VALUE( I64, i64, lhs->str->len & rhs->str->len );
-	.loc 19 67 14
+	.loc 20 67 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp122, lhs
 	mov	rcx, QWORD PTR 8[rcx]	# _12, lhs_20(D)->D.4160.str
 	mov	esi, DWORD PTR 4[rcx]	# _13, _12->len
@@ -8323,18 +9267,18 @@ EvalBand:
 	mov	ecx, DWORD PTR 4[rcx]	# _15, _14->len
 	and	ecx, esi	# _16, _13
 	mov	esi, ecx	# _17, _16
-	mov	rdi, rax	# tmp125, D.5784
+	mov	rdi, rax	# tmp125, D.5876
 	movabs	rcx, -4294967296	# tmp127,
 	and	rcx, rdi	# tmp126, tmp125
-	mov	rax, rcx	# D.5784, tmp126
-	mov	rdx, rsi	# D.5784, _17
-.L490:
+	mov	rax, rcx	# D.5876, tmp126
+	mov	rdx, rsi	# D.5876, _17
+.L533:
 # compiler/binary/eval.h:68: }
-	.loc 19 68 1
-	mov	rsi, rax	# tmp129, D.5784
-	mov	rdi, rdx	#, D.5784
-	mov	rcx, rax	# tmp130, D.5784
-	mov	rbx, rdx	#, D.5784
+	.loc 20 68 1
+	mov	rsi, rax	# tmp129, D.5876
+	mov	rdi, rdx	#, D.5876
+	mov	rcx, rax	# tmp130, D.5876
+	mov	rbx, rdx	#, D.5876
 	mov	eax, esi	# <retval>, tmp129
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -8342,12 +9286,12 @@ EvalBand:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE127:
+.LFE133:
 	.size	EvalBand, .-EvalBand
 	.type	EvalBor, @function
 EvalBor:
-.LFB128:
-	.loc 19 71 1
+.LFB134:
+	.loc 20 71 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -8359,38 +9303,38 @@ EvalBor:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:73: 	goto *ops[ lhs->type ];
-	.loc 19 73 16
+	.loc 20 73 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp105, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_20(D)->type
 # compiler/binary/eval.h:73: 	goto *ops[ lhs->type ];
-	.loc 19 73 11
+	.loc 20 73 11
 	mov	ecx, ecx	# tmp106, _1
 	lea	rsi, 0[0+rcx*8]	# tmp107,
-	lea	rcx, ops.17[rip]	# tmp108,
+	lea	rcx, ops.15[rip]	# tmp108,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:73: 	goto *ops[ lhs->type ];
-	.loc 19 73 2
+	.loc 20 73 2
 	nop	
 	jmp	rcx	# _2
-.L496:
+.L539:
 	endbr64	
 # compiler/binary/eval.h:74: 	I64: return VALUE( I64, i64, lhs->i64 | rhs->i64 );
-	.loc 19 74 14
+	.loc 20 74 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp109, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_20(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp110, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_22(D)->D.4160.i64
 	or	rcx, rsi	# _5, _3
-	mov	rdi, rax	# tmp112, D.5789
+	mov	rdi, rax	# tmp112, D.5881
 	movabs	rsi, -4294967296	# tmp114,
 	and	rsi, rdi	# tmp113, tmp112
-	mov	rax, rsi	# D.5789, tmp113
-	mov	rdx, rcx	# D.5789, _5
-	jmp	.L497	#
-.L498:
+	mov	rax, rsi	# D.5881, tmp113
+	mov	rdx, rcx	# D.5881, _5
+	jmp	.L540	#
+.L541:
 	endbr64	
 # compiler/binary/eval.h:75: 	F64: return VALUE( F64, f64, ( I64 )lhs->f64 | ( I64 )rhs->f64 );
-	.loc 19 75 14
+	.loc 20 75 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp115, lhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _6, lhs_20(D)->D.4160.f64
 	cvttsd2si	rsi, xmm0	# _7, _6
@@ -8400,17 +9344,17 @@ EvalBor:
 	or	rcx, rsi	# _10, _7
 	pxor	xmm0, xmm0	# _11
 	cvtsi2sd	xmm0, rcx	# _11, _10
-	mov	rsi, rax	# tmp118, D.5789
+	mov	rsi, rax	# tmp118, D.5881
 	movabs	rcx, -4294967296	# tmp120,
 	and	rcx, rsi	# tmp119, tmp118
 	or	rcx, 1	# tmp121,
-	mov	rax, rcx	# D.5789, tmp121
-	movq	rdx, xmm0	# D.5789, _11
-	jmp	.L497	#
-.L499:
+	mov	rax, rcx	# D.5881, tmp121
+	movq	rdx, xmm0	# D.5881, _11
+	jmp	.L540	#
+.L542:
 	endbr64	
 # compiler/binary/eval.h:76: 	STR: return VALUE( I64, i64, lhs->str->len | rhs->str->len );
-	.loc 19 76 14
+	.loc 20 76 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp122, lhs
 	mov	rcx, QWORD PTR 8[rcx]	# _12, lhs_20(D)->D.4160.str
 	mov	esi, DWORD PTR 4[rcx]	# _13, _12->len
@@ -8419,18 +9363,18 @@ EvalBor:
 	mov	ecx, DWORD PTR 4[rcx]	# _15, _14->len
 	or	ecx, esi	# _16, _13
 	mov	esi, ecx	# _17, _16
-	mov	rdi, rax	# tmp125, D.5789
+	mov	rdi, rax	# tmp125, D.5881
 	movabs	rcx, -4294967296	# tmp127,
 	and	rcx, rdi	# tmp126, tmp125
-	mov	rax, rcx	# D.5789, tmp126
-	mov	rdx, rsi	# D.5789, _17
-.L497:
+	mov	rax, rcx	# D.5881, tmp126
+	mov	rdx, rsi	# D.5881, _17
+.L540:
 # compiler/binary/eval.h:77: }
-	.loc 19 77 1
-	mov	rsi, rax	# tmp129, D.5789
-	mov	rdi, rdx	#, D.5789
-	mov	rcx, rax	# tmp130, D.5789
-	mov	rbx, rdx	#, D.5789
+	.loc 20 77 1
+	mov	rsi, rax	# tmp129, D.5881
+	mov	rdi, rdx	#, D.5881
+	mov	rcx, rax	# tmp130, D.5881
+	mov	rbx, rdx	#, D.5881
 	mov	eax, esi	# <retval>, tmp129
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -8438,12 +9382,12 @@ EvalBor:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE128:
+.LFE134:
 	.size	EvalBor, .-EvalBor
 	.type	EvalBxor, @function
 EvalBxor:
-.LFB129:
-	.loc 19 80 1
+.LFB135:
+	.loc 20 80 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -8455,38 +9399,38 @@ EvalBxor:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:82: 	goto *ops[ lhs->type ];
-	.loc 19 82 16
+	.loc 20 82 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp105, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_20(D)->type
 # compiler/binary/eval.h:82: 	goto *ops[ lhs->type ];
-	.loc 19 82 11
+	.loc 20 82 11
 	mov	ecx, ecx	# tmp106, _1
 	lea	rsi, 0[0+rcx*8]	# tmp107,
-	lea	rcx, ops.16[rip]	# tmp108,
+	lea	rcx, ops.14[rip]	# tmp108,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:82: 	goto *ops[ lhs->type ];
-	.loc 19 82 2
+	.loc 20 82 2
 	nop	
 	jmp	rcx	# _2
-.L503:
+.L546:
 	endbr64	
 # compiler/binary/eval.h:83: 	I64: return VALUE( I64, i64, lhs->i64 ^ rhs->i64 );
-	.loc 19 83 14
+	.loc 20 83 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp109, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_20(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp110, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_22(D)->D.4160.i64
 	xor	rcx, rsi	# _5, _3
-	mov	rdi, rax	# tmp112, D.5794
+	mov	rdi, rax	# tmp112, D.5886
 	movabs	rsi, -4294967296	# tmp114,
 	and	rsi, rdi	# tmp113, tmp112
-	mov	rax, rsi	# D.5794, tmp113
-	mov	rdx, rcx	# D.5794, _5
-	jmp	.L504	#
-.L505:
+	mov	rax, rsi	# D.5886, tmp113
+	mov	rdx, rcx	# D.5886, _5
+	jmp	.L547	#
+.L548:
 	endbr64	
 # compiler/binary/eval.h:84: 	F64: return VALUE( F64, f64, ( I64 )lhs->f64 ^ ( I64 )rhs->f64 );
-	.loc 19 84 14
+	.loc 20 84 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp115, lhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _6, lhs_20(D)->D.4160.f64
 	cvttsd2si	rsi, xmm0	# _7, _6
@@ -8496,17 +9440,17 @@ EvalBxor:
 	xor	rcx, rsi	# _10, _7
 	pxor	xmm0, xmm0	# _11
 	cvtsi2sd	xmm0, rcx	# _11, _10
-	mov	rsi, rax	# tmp118, D.5794
+	mov	rsi, rax	# tmp118, D.5886
 	movabs	rcx, -4294967296	# tmp120,
 	and	rcx, rsi	# tmp119, tmp118
 	or	rcx, 1	# tmp121,
-	mov	rax, rcx	# D.5794, tmp121
-	movq	rdx, xmm0	# D.5794, _11
-	jmp	.L504	#
-.L506:
+	mov	rax, rcx	# D.5886, tmp121
+	movq	rdx, xmm0	# D.5886, _11
+	jmp	.L547	#
+.L549:
 	endbr64	
 # compiler/binary/eval.h:85: 	STR: return VALUE( I64, i64, lhs->str->len ^ rhs->str->len );
-	.loc 19 85 14
+	.loc 20 85 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp122, lhs
 	mov	rcx, QWORD PTR 8[rcx]	# _12, lhs_20(D)->D.4160.str
 	mov	esi, DWORD PTR 4[rcx]	# _13, _12->len
@@ -8515,18 +9459,18 @@ EvalBxor:
 	mov	ecx, DWORD PTR 4[rcx]	# _15, _14->len
 	xor	ecx, esi	# _16, _13
 	mov	esi, ecx	# _17, _16
-	mov	rdi, rax	# tmp125, D.5794
+	mov	rdi, rax	# tmp125, D.5886
 	movabs	rcx, -4294967296	# tmp127,
 	and	rcx, rdi	# tmp126, tmp125
-	mov	rax, rcx	# D.5794, tmp126
-	mov	rdx, rsi	# D.5794, _17
-.L504:
+	mov	rax, rcx	# D.5886, tmp126
+	mov	rdx, rsi	# D.5886, _17
+.L547:
 # compiler/binary/eval.h:86: }
-	.loc 19 86 1
-	mov	rsi, rax	# tmp129, D.5794
-	mov	rdi, rdx	#, D.5794
-	mov	rcx, rax	# tmp130, D.5794
-	mov	rbx, rdx	#, D.5794
+	.loc 20 86 1
+	mov	rsi, rax	# tmp129, D.5886
+	mov	rdi, rdx	#, D.5886
+	mov	rcx, rax	# tmp130, D.5886
+	mov	rbx, rdx	#, D.5886
 	mov	eax, esi	# <retval>, tmp129
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -8534,12 +9478,12 @@ EvalBxor:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE129:
+.LFE135:
 	.size	EvalBxor, .-EvalBxor
 	.type	EvalLsh, @function
 EvalLsh:
-.LFB130:
-	.loc 19 89 1
+.LFB136:
+	.loc 20 89 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -8551,39 +9495,39 @@ EvalLsh:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:91: 	goto *ops[ lhs->type ];
-	.loc 19 91 16
+	.loc 20 91 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_22(D)->type
 # compiler/binary/eval.h:91: 	goto *ops[ lhs->type ];
-	.loc 19 91 11
+	.loc 20 91 11
 	mov	ecx, ecx	# tmp108, _1
 	lea	rsi, 0[0+rcx*8]	# tmp109,
-	lea	rcx, ops.15[rip]	# tmp110,
+	lea	rcx, ops.13[rip]	# tmp110,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:91: 	goto *ops[ lhs->type ];
-	.loc 19 91 2
+	.loc 20 91 2
 	nop	
 	jmp	rcx	# _2
-.L510:
+.L553:
 	endbr64	
 # compiler/binary/eval.h:92: 	I64: return VALUE( I64, i64, lhs->i64 << rhs->i64 );
-	.loc 19 92 14
+	.loc 20 92 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp111, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_22(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp112, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_24(D)->D.4160.i64
 	sal	rsi, cl	# _3, _5
 	mov	rcx, rsi	# _6, _3
-	mov	rdi, rax	# tmp114, D.5799
+	mov	rdi, rax	# tmp114, D.5891
 	movabs	rsi, -4294967296	# tmp116,
 	and	rsi, rdi	# tmp115, tmp114
-	mov	rax, rsi	# D.5799, tmp115
-	mov	rdx, rcx	# D.5799, _6
-	jmp	.L511	#
-.L512:
+	mov	rax, rsi	# D.5891, tmp115
+	mov	rdx, rcx	# D.5891, _6
+	jmp	.L554	#
+.L555:
 	endbr64	
 # compiler/binary/eval.h:93: 	F64: return VALUE( F64, f64, ( I64 )lhs->f64 << ( I64 )rhs->f64 );
-	.loc 19 93 14
+	.loc 20 93 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp117, lhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_22(D)->D.4160.f64
 	cvttsd2si	rsi, xmm0	# _8, _7
@@ -8594,17 +9538,17 @@ EvalLsh:
 	mov	rcx, rsi	# _12, _8
 	pxor	xmm0, xmm0	# _13
 	cvtsi2sd	xmm0, rcx	# _13, _12
-	mov	rsi, rax	# tmp120, D.5799
+	mov	rsi, rax	# tmp120, D.5891
 	movabs	rcx, -4294967296	# tmp122,
 	and	rcx, rsi	# tmp121, tmp120
 	or	rcx, 1	# tmp123,
-	mov	rax, rcx	# D.5799, tmp123
-	movq	rdx, xmm0	# D.5799, _13
-	jmp	.L511	#
-.L513:
+	mov	rax, rcx	# D.5891, tmp123
+	movq	rdx, xmm0	# D.5891, _13
+	jmp	.L554	#
+.L556:
 	endbr64	
 # compiler/binary/eval.h:94: 	STR: return VALUE( I64, i64, lhs->str->len << rhs->str->len );
-	.loc 19 94 14
+	.loc 20 94 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp124, lhs
 	mov	rcx, QWORD PTR 8[rcx]	# _14, lhs_22(D)->D.4160.str
 	mov	esi, DWORD PTR 4[rcx]	# _15, _14->len
@@ -8614,18 +9558,18 @@ EvalLsh:
 	sal	esi, cl	# _15, _17
 	mov	ecx, esi	# _18, _15
 	mov	esi, ecx	# _19, _18
-	mov	rdi, rax	# tmp127, D.5799
+	mov	rdi, rax	# tmp127, D.5891
 	movabs	rcx, -4294967296	# tmp129,
 	and	rcx, rdi	# tmp128, tmp127
-	mov	rax, rcx	# D.5799, tmp128
-	mov	rdx, rsi	# D.5799, _19
-.L511:
+	mov	rax, rcx	# D.5891, tmp128
+	mov	rdx, rsi	# D.5891, _19
+.L554:
 # compiler/binary/eval.h:95: }
-	.loc 19 95 1
-	mov	rsi, rax	# tmp131, D.5799
-	mov	rdi, rdx	#, D.5799
-	mov	rcx, rax	# tmp132, D.5799
-	mov	rbx, rdx	#, D.5799
+	.loc 20 95 1
+	mov	rsi, rax	# tmp131, D.5891
+	mov	rdi, rdx	#, D.5891
+	mov	rcx, rax	# tmp132, D.5891
+	mov	rbx, rdx	#, D.5891
 	mov	eax, esi	# <retval>, tmp131
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -8633,12 +9577,12 @@ EvalLsh:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE130:
+.LFE136:
 	.size	EvalLsh, .-EvalLsh
 	.type	EvalRsh, @function
 EvalRsh:
-.LFB131:
-	.loc 19 98 1
+.LFB137:
+	.loc 20 98 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -8650,39 +9594,39 @@ EvalRsh:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:100: 	goto *ops[ lhs->type ];
-	.loc 19 100 16
+	.loc 20 100 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_22(D)->type
 # compiler/binary/eval.h:100: 	goto *ops[ lhs->type ];
-	.loc 19 100 11
+	.loc 20 100 11
 	mov	ecx, ecx	# tmp108, _1
 	lea	rsi, 0[0+rcx*8]	# tmp109,
-	lea	rcx, ops.14[rip]	# tmp110,
+	lea	rcx, ops.12[rip]	# tmp110,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:100: 	goto *ops[ lhs->type ];
-	.loc 19 100 2
+	.loc 20 100 2
 	nop	
 	jmp	rcx	# _2
-.L517:
+.L560:
 	endbr64	
 # compiler/binary/eval.h:101: 	I64: return VALUE( I64, i64, lhs->i64 >> rhs->i64 );
-	.loc 19 101 14
+	.loc 20 101 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp111, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_22(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp112, rhs
 	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_24(D)->D.4160.i64
 	sar	rsi, cl	# _3, _5
 	mov	rcx, rsi	# _6, _3
-	mov	rdi, rax	# tmp114, D.5804
+	mov	rdi, rax	# tmp114, D.5896
 	movabs	rsi, -4294967296	# tmp116,
 	and	rsi, rdi	# tmp115, tmp114
-	mov	rax, rsi	# D.5804, tmp115
-	mov	rdx, rcx	# D.5804, _6
-	jmp	.L518	#
-.L519:
+	mov	rax, rsi	# D.5896, tmp115
+	mov	rdx, rcx	# D.5896, _6
+	jmp	.L561	#
+.L562:
 	endbr64	
 # compiler/binary/eval.h:102: 	F64: return VALUE( F64, f64, ( I64 )lhs->f64 >> ( I64 )rhs->f64 );
-	.loc 19 102 14
+	.loc 20 102 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp117, lhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_22(D)->D.4160.f64
 	cvttsd2si	rsi, xmm0	# _8, _7
@@ -8693,17 +9637,17 @@ EvalRsh:
 	mov	rcx, rsi	# _12, _8
 	pxor	xmm0, xmm0	# _13
 	cvtsi2sd	xmm0, rcx	# _13, _12
-	mov	rsi, rax	# tmp120, D.5804
+	mov	rsi, rax	# tmp120, D.5896
 	movabs	rcx, -4294967296	# tmp122,
 	and	rcx, rsi	# tmp121, tmp120
 	or	rcx, 1	# tmp123,
-	mov	rax, rcx	# D.5804, tmp123
-	movq	rdx, xmm0	# D.5804, _13
-	jmp	.L518	#
-.L520:
+	mov	rax, rcx	# D.5896, tmp123
+	movq	rdx, xmm0	# D.5896, _13
+	jmp	.L561	#
+.L563:
 	endbr64	
 # compiler/binary/eval.h:103: 	STR: return VALUE( I64, i64, lhs->str->len >> rhs->str->len );
-	.loc 19 103 14
+	.loc 20 103 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp124, lhs
 	mov	rcx, QWORD PTR 8[rcx]	# _14, lhs_22(D)->D.4160.str
 	mov	esi, DWORD PTR 4[rcx]	# _15, _14->len
@@ -8713,18 +9657,18 @@ EvalRsh:
 	shr	esi, cl	# _15, _17
 	mov	ecx, esi	# _18, _15
 	mov	esi, ecx	# _19, _18
-	mov	rdi, rax	# tmp127, D.5804
+	mov	rdi, rax	# tmp127, D.5896
 	movabs	rcx, -4294967296	# tmp129,
 	and	rcx, rdi	# tmp128, tmp127
-	mov	rax, rcx	# D.5804, tmp128
-	mov	rdx, rsi	# D.5804, _19
-.L518:
+	mov	rax, rcx	# D.5896, tmp128
+	mov	rdx, rsi	# D.5896, _19
+.L561:
 # compiler/binary/eval.h:104: }
-	.loc 19 104 1
-	mov	rsi, rax	# tmp131, D.5804
-	mov	rdi, rdx	#, D.5804
-	mov	rcx, rax	# tmp132, D.5804
-	mov	rbx, rdx	#, D.5804
+	.loc 20 104 1
+	mov	rsi, rax	# tmp131, D.5896
+	mov	rdi, rdx	#, D.5896
+	mov	rcx, rax	# tmp132, D.5896
+	mov	rbx, rdx	#, D.5896
 	mov	eax, esi	# <retval>, tmp131
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -8732,12 +9676,12 @@ EvalRsh:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE131:
+.LFE137:
 	.size	EvalRsh, .-EvalRsh
 	.type	EvalEqEq, @function
 EvalEqEq:
-.LFB132:
-	.loc 19 107 1
+.LFB138:
+	.loc 20 107 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -8749,23 +9693,23 @@ EvalEqEq:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:109: 	goto *ops[ lhs->type ];
-	.loc 19 109 16
+	.loc 20 109 16
 	mov	rcx, QWORD PTR -24[rbp]	# tmp101, lhs
 	mov	ecx, DWORD PTR [rcx]	# _1, lhs_16(D)->type
 # compiler/binary/eval.h:109: 	goto *ops[ lhs->type ];
-	.loc 19 109 11
+	.loc 20 109 11
 	mov	ecx, ecx	# tmp102, _1
 	lea	rsi, 0[0+rcx*8]	# tmp103,
-	lea	rcx, ops.13[rip]	# tmp104,
+	lea	rcx, ops.11[rip]	# tmp104,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
 # compiler/binary/eval.h:109: 	goto *ops[ lhs->type ];
-	.loc 19 109 2
+	.loc 20 109 2
 	nop	
 	jmp	rcx	# _2
-.L524:
+.L567:
 	endbr64	
 # compiler/binary/eval.h:110: 	I64: return VALUE( I64, i64, lhs->i64 == rhs->i64 );
-	.loc 19 110 14
+	.loc 20 110 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp105, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_16(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp106, rhs
@@ -8773,48 +9717,48 @@ EvalEqEq:
 	cmp	rsi, rcx	# _3, _4
 	sete	cl	#, _5
 	movzx	ecx, cl	# _6, _5
-	mov	rdi, rax	# tmp108, D.5809
+	mov	rdi, rax	# tmp108, D.5901
 	movabs	rsi, -4294967296	# tmp110,
 	and	rsi, rdi	# tmp109, tmp108
-	mov	rax, rsi	# D.5809, tmp109
-	mov	rdx, rcx	# D.5809, _6
-	jmp	.L525	#
-.L526:
+	mov	rax, rsi	# D.5901, tmp109
+	mov	rdx, rcx	# D.5901, _6
+	jmp	.L568	#
+.L569:
 	endbr64	
 # compiler/binary/eval.h:111: 	F64: return VALUE( F64, f64, lhs->f64 == rhs->f64 );
-	.loc 19 111 14
+	.loc 20 111 14
 	mov	rcx, QWORD PTR -24[rbp]	# tmp111, lhs
 	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_16(D)->D.4160.f64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp112, rhs
 	movsd	xmm1, QWORD PTR 8[rcx]	# _8, rhs_18(D)->D.4160.f64
 	ucomisd	xmm0, xmm1	# _7, _8
-	jp	.L527	#,
+	jp	.L570	#,
 	ucomisd	xmm0, xmm1	# _7, _8
-	jne	.L527	#,
+	jne	.L570	#,
 # compiler/binary/eval.h:111: 	F64: return VALUE( F64, f64, lhs->f64 == rhs->f64 );
-	.loc 19 111 14 is_stmt 0 discriminator 1
-	movsd	xmm0, QWORD PTR .LC11[rip]	# iftmp.37_13,
-	jmp	.L529	#
-.L527:
+	.loc 20 111 14 is_stmt 0 discriminator 1
+	movsd	xmm0, QWORD PTR .LC12[rip]	# iftmp.44_13,
+	jmp	.L572	#
+.L570:
 # compiler/binary/eval.h:111: 	F64: return VALUE( F64, f64, lhs->f64 == rhs->f64 );
-	.loc 19 111 14 discriminator 2
-	pxor	xmm0, xmm0	# iftmp.37_13
-.L529:
+	.loc 20 111 14 discriminator 2
+	pxor	xmm0, xmm0	# iftmp.44_13
+.L572:
 # compiler/binary/eval.h:111: 	F64: return VALUE( F64, f64, lhs->f64 == rhs->f64 );
-	.loc 19 111 14 discriminator 4
-	mov	rsi, rax	# tmp114, D.5809
+	.loc 20 111 14 discriminator 4
+	mov	rsi, rax	# tmp114, D.5901
 	movabs	rcx, -4294967296	# tmp116,
 	and	rcx, rsi	# tmp115, tmp114
 	or	rcx, 1	# tmp117,
-	mov	rax, rcx	# D.5809, tmp117
-	movq	rdx, xmm0	# D.5809, iftmp.37_13
+	mov	rax, rcx	# D.5901, tmp117
+	movq	rdx, xmm0	# D.5901, iftmp.44_13
 # compiler/binary/eval.h:111: 	F64: return VALUE( F64, f64, lhs->f64 == rhs->f64 );
-	.loc 19 111 14
-	jmp	.L525	#
-.L530:
+	.loc 20 111 14
+	jmp	.L568	#
+.L573:
 	endbr64	
 # compiler/binary/eval.h:112: 	STR: return VALUE( I64, i64, lhs->str == rhs->str );
-	.loc 19 112 14 is_stmt 1
+	.loc 20 112 14 is_stmt 1
 	mov	rcx, QWORD PTR -24[rbp]	# tmp118, lhs
 	mov	rsi, QWORD PTR 8[rcx]	# _9, lhs_16(D)->D.4160.str
 	mov	rcx, QWORD PTR -32[rbp]	# tmp119, rhs
@@ -8822,726 +9766,19 @@ EvalEqEq:
 	cmp	rsi, rcx	# _9, _10
 	sete	cl	#, _11
 	movzx	ecx, cl	# _12, _11
-	mov	rdi, rax	# tmp121, D.5809
+	mov	rdi, rax	# tmp121, D.5901
 	movabs	rsi, -4294967296	# tmp123,
 	and	rsi, rdi	# tmp122, tmp121
-	mov	rax, rsi	# D.5809, tmp122
-	mov	rdx, rcx	# D.5809, _12
-.L525:
+	mov	rax, rsi	# D.5901, tmp122
+	mov	rdx, rcx	# D.5901, _12
+.L568:
 # compiler/binary/eval.h:113: }
-	.loc 19 113 1
-	mov	rsi, rax	# tmp125, D.5809
-	mov	rdi, rdx	#, D.5809
-	mov	rcx, rax	# tmp126, D.5809
-	mov	rbx, rdx	#, D.5809
+	.loc 20 113 1
+	mov	rsi, rax	# tmp125, D.5901
+	mov	rdi, rdx	#, D.5901
+	mov	rcx, rax	# tmp126, D.5901
+	mov	rbx, rdx	#, D.5901
 	mov	eax, esi	# <retval>, tmp125
-	mov	rdx, rbx	# <retval>,
-	mov	rbx, QWORD PTR -8[rbp]	#,
-	leave	
-	.cfi_def_cfa 7, 8
-	ret	
-	.cfi_endproc
-.LFE132:
-	.size	EvalEqEq, .-EvalEqEq
-	.type	EvalNeq, @function
-EvalNeq:
-.LFB133:
-	.loc 19 116 1
-	.cfi_startproc
-	push	rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp	#,
-	.cfi_def_cfa_register 6
-	push	rbx	#
-	.cfi_offset 3, -24
-	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
-	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:118: 	goto *ops[ lhs->type ];
-	.loc 19 118 16
-	mov	rcx, QWORD PTR -24[rbp]	# tmp101, lhs
-	mov	ecx, DWORD PTR [rcx]	# _1, lhs_16(D)->type
-# compiler/binary/eval.h:118: 	goto *ops[ lhs->type ];
-	.loc 19 118 11
-	mov	ecx, ecx	# tmp102, _1
-	lea	rsi, 0[0+rcx*8]	# tmp103,
-	lea	rcx, ops.12[rip]	# tmp104,
-	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
-# compiler/binary/eval.h:118: 	goto *ops[ lhs->type ];
-	.loc 19 118 2
-	nop	
-	jmp	rcx	# _2
-.L535:
-	endbr64	
-# compiler/binary/eval.h:119: 	I64: return VALUE( I64, i64, lhs->i64 != rhs->i64 );
-	.loc 19 119 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp105, lhs
-	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_16(D)->D.4160.i64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp106, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_18(D)->D.4160.i64
-	cmp	rsi, rcx	# _3, _4
-	setne	cl	#, _5
-	movzx	ecx, cl	# _6, _5
-	mov	rdi, rax	# tmp108, D.5818
-	movabs	rsi, -4294967296	# tmp110,
-	and	rsi, rdi	# tmp109, tmp108
-	mov	rax, rsi	# D.5818, tmp109
-	mov	rdx, rcx	# D.5818, _6
-	jmp	.L536	#
-.L537:
-	endbr64	
-# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
-	.loc 19 120 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp111, lhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_16(D)->D.4160.f64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp112, rhs
-	movsd	xmm1, QWORD PTR 8[rcx]	# _8, rhs_18(D)->D.4160.f64
-	ucomisd	xmm0, xmm1	# _7, _8
-	jp	.L543	#,
-	ucomisd	xmm0, xmm1	# _7, _8
-	je	.L538	#,
-.L543:
-# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
-	.loc 19 120 14 is_stmt 0 discriminator 1
-	movsd	xmm0, QWORD PTR .LC11[rip]	# iftmp.39_13,
-	jmp	.L540	#
-.L538:
-# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
-	.loc 19 120 14 discriminator 2
-	pxor	xmm0, xmm0	# iftmp.39_13
-.L540:
-# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
-	.loc 19 120 14 discriminator 4
-	mov	rsi, rax	# tmp114, D.5818
-	movabs	rcx, -4294967296	# tmp116,
-	and	rcx, rsi	# tmp115, tmp114
-	or	rcx, 1	# tmp117,
-	mov	rax, rcx	# D.5818, tmp117
-	movq	rdx, xmm0	# D.5818, iftmp.39_13
-# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
-	.loc 19 120 14
-	jmp	.L536	#
-.L541:
-	endbr64	
-# compiler/binary/eval.h:121: 	STR: return VALUE( I64, i64, lhs->str != rhs->str );
-	.loc 19 121 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp118, lhs
-	mov	rsi, QWORD PTR 8[rcx]	# _9, lhs_16(D)->D.4160.str
-	mov	rcx, QWORD PTR -32[rbp]	# tmp119, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _10, rhs_18(D)->D.4160.str
-	cmp	rsi, rcx	# _9, _10
-	setne	cl	#, _11
-	movzx	ecx, cl	# _12, _11
-	mov	rdi, rax	# tmp121, D.5818
-	movabs	rsi, -4294967296	# tmp123,
-	and	rsi, rdi	# tmp122, tmp121
-	mov	rax, rsi	# D.5818, tmp122
-	mov	rdx, rcx	# D.5818, _12
-.L536:
-# compiler/binary/eval.h:122: }
-	.loc 19 122 1
-	mov	rsi, rax	# tmp125, D.5818
-	mov	rdi, rdx	#, D.5818
-	mov	rcx, rax	# tmp126, D.5818
-	mov	rbx, rdx	#, D.5818
-	mov	eax, esi	# <retval>, tmp125
-	mov	rdx, rbx	# <retval>,
-	mov	rbx, QWORD PTR -8[rbp]	#,
-	leave	
-	.cfi_def_cfa 7, 8
-	ret	
-	.cfi_endproc
-.LFE133:
-	.size	EvalNeq, .-EvalNeq
-	.type	EvalLt, @function
-EvalLt:
-.LFB134:
-	.loc 19 125 1
-	.cfi_startproc
-	push	rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp	#,
-	.cfi_def_cfa_register 6
-	push	rbx	#
-	.cfi_offset 3, -24
-	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
-	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:127: 	goto *ops[ lhs->type ];
-	.loc 19 127 16
-	mov	rcx, QWORD PTR -24[rbp]	# tmp103, lhs
-	mov	ecx, DWORD PTR [rcx]	# _1, lhs_18(D)->type
-# compiler/binary/eval.h:127: 	goto *ops[ lhs->type ];
-	.loc 19 127 11
-	mov	ecx, ecx	# tmp104, _1
-	lea	rsi, 0[0+rcx*8]	# tmp105,
-	lea	rcx, ops.11[rip]	# tmp106,
-	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
-# compiler/binary/eval.h:127: 	goto *ops[ lhs->type ];
-	.loc 19 127 2
-	nop	
-	jmp	rcx	# _2
-.L546:
-	endbr64	
-# compiler/binary/eval.h:128: 	I64: return VALUE( I64, i64, lhs->i64 < rhs->i64 );
-	.loc 19 128 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
-	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_18(D)->D.4160.i64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_20(D)->D.4160.i64
-	cmp	rsi, rcx	# _3, _4
-	setl	cl	#, _5
-	movzx	ecx, cl	# _6, _5
-	mov	rdi, rax	# tmp110, D.5827
-	movabs	rsi, -4294967296	# tmp112,
-	and	rsi, rdi	# tmp111, tmp110
-	mov	rax, rsi	# D.5827, tmp111
-	mov	rdx, rcx	# D.5827, _6
-	jmp	.L547	#
-.L548:
-	endbr64	
-# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
-	.loc 19 129 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp113, lhs
-	movsd	xmm1, QWORD PTR 8[rcx]	# _7, lhs_18(D)->D.4160.f64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp114, rhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _8, rhs_20(D)->D.4160.f64
-	comisd	xmm0, xmm1	# _8, _7
-	jbe	.L555	#,
-# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
-	.loc 19 129 14 is_stmt 0 discriminator 1
-	movsd	xmm0, QWORD PTR .LC11[rip]	# iftmp.41_15,
-	jmp	.L551	#
-.L555:
-# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
-	.loc 19 129 14 discriminator 2
-	pxor	xmm0, xmm0	# iftmp.41_15
-.L551:
-# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
-	.loc 19 129 14 discriminator 4
-	mov	rsi, rax	# tmp116, D.5827
-	movabs	rcx, -4294967296	# tmp118,
-	and	rcx, rsi	# tmp117, tmp116
-	or	rcx, 1	# tmp119,
-	mov	rax, rcx	# D.5827, tmp119
-	movq	rdx, xmm0	# D.5827, iftmp.41_15
-# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
-	.loc 19 129 14
-	jmp	.L547	#
-.L552:
-	endbr64	
-# compiler/binary/eval.h:130: 	STR: return VALUE( I64, i64, lhs->str->len < rhs->str->len );
-	.loc 19 130 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp120, lhs
-	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_18(D)->D.4160.str
-	mov	esi, DWORD PTR 4[rcx]	# _10, _9->len
-	mov	rcx, QWORD PTR -32[rbp]	# tmp121, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _11, rhs_20(D)->D.4160.str
-	mov	ecx, DWORD PTR 4[rcx]	# _12, _11->len
-	cmp	esi, ecx	# _10, _12
-	setb	cl	#, _13
-	movzx	ecx, cl	# _14, _13
-	mov	rdi, rax	# tmp123, D.5827
-	movabs	rsi, -4294967296	# tmp125,
-	and	rsi, rdi	# tmp124, tmp123
-	mov	rax, rsi	# D.5827, tmp124
-	mov	rdx, rcx	# D.5827, _14
-.L547:
-# compiler/binary/eval.h:131: }
-	.loc 19 131 1
-	mov	rsi, rax	# tmp127, D.5827
-	mov	rdi, rdx	#, D.5827
-	mov	rcx, rax	# tmp128, D.5827
-	mov	rbx, rdx	#, D.5827
-	mov	eax, esi	# <retval>, tmp127
-	mov	rdx, rbx	# <retval>,
-	mov	rbx, QWORD PTR -8[rbp]	#,
-	leave	
-	.cfi_def_cfa 7, 8
-	ret	
-	.cfi_endproc
-.LFE134:
-	.size	EvalLt, .-EvalLt
-	.type	EvalLe, @function
-EvalLe:
-.LFB135:
-	.loc 19 134 1
-	.cfi_startproc
-	push	rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp	#,
-	.cfi_def_cfa_register 6
-	push	rbx	#
-	.cfi_offset 3, -24
-	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
-	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:136: 	goto *ops[ lhs->type ];
-	.loc 19 136 16
-	mov	rcx, QWORD PTR -24[rbp]	# tmp103, lhs
-	mov	ecx, DWORD PTR [rcx]	# _1, lhs_18(D)->type
-# compiler/binary/eval.h:136: 	goto *ops[ lhs->type ];
-	.loc 19 136 11
-	mov	ecx, ecx	# tmp104, _1
-	lea	rsi, 0[0+rcx*8]	# tmp105,
-	lea	rcx, ops.10[rip]	# tmp106,
-	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
-# compiler/binary/eval.h:136: 	goto *ops[ lhs->type ];
-	.loc 19 136 2
-	nop	
-	jmp	rcx	# _2
-.L558:
-	endbr64	
-# compiler/binary/eval.h:137: 	I64: return VALUE( I64, i64, lhs->i64 <= rhs->i64 );
-	.loc 19 137 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
-	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_18(D)->D.4160.i64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_20(D)->D.4160.i64
-	cmp	rsi, rcx	# _3, _4
-	setle	cl	#, _5
-	movzx	ecx, cl	# _6, _5
-	mov	rdi, rax	# tmp110, D.5836
-	movabs	rsi, -4294967296	# tmp112,
-	and	rsi, rdi	# tmp111, tmp110
-	mov	rax, rsi	# D.5836, tmp111
-	mov	rdx, rcx	# D.5836, _6
-	jmp	.L559	#
-.L560:
-	endbr64	
-# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
-	.loc 19 138 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp113, lhs
-	movsd	xmm1, QWORD PTR 8[rcx]	# _7, lhs_18(D)->D.4160.f64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp114, rhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _8, rhs_20(D)->D.4160.f64
-	comisd	xmm0, xmm1	# _8, _7
-	jb	.L567	#,
-# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
-	.loc 19 138 14 is_stmt 0 discriminator 1
-	movsd	xmm0, QWORD PTR .LC11[rip]	# iftmp.43_15,
-	jmp	.L563	#
-.L567:
-# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
-	.loc 19 138 14 discriminator 2
-	pxor	xmm0, xmm0	# iftmp.43_15
-.L563:
-# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
-	.loc 19 138 14 discriminator 4
-	mov	rsi, rax	# tmp116, D.5836
-	movabs	rcx, -4294967296	# tmp118,
-	and	rcx, rsi	# tmp117, tmp116
-	or	rcx, 1	# tmp119,
-	mov	rax, rcx	# D.5836, tmp119
-	movq	rdx, xmm0	# D.5836, iftmp.43_15
-# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
-	.loc 19 138 14
-	jmp	.L559	#
-.L564:
-	endbr64	
-# compiler/binary/eval.h:139: 	STR: return VALUE( I64, i64, lhs->str->len <= rhs->str->len );
-	.loc 19 139 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp120, lhs
-	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_18(D)->D.4160.str
-	mov	ecx, DWORD PTR 4[rcx]	# _10, _9->len
-	mov	rsi, QWORD PTR -32[rbp]	# tmp121, rhs
-	mov	rsi, QWORD PTR 8[rsi]	# _11, rhs_20(D)->D.4160.str
-	mov	esi, DWORD PTR 4[rsi]	# _12, _11->len
-	cmp	esi, ecx	# _12, _10
-	setnb	cl	#, _13
-	movzx	ecx, cl	# _14, _13
-	mov	rdi, rax	# tmp123, D.5836
-	movabs	rsi, -4294967296	# tmp125,
-	and	rsi, rdi	# tmp124, tmp123
-	mov	rax, rsi	# D.5836, tmp124
-	mov	rdx, rcx	# D.5836, _14
-.L559:
-# compiler/binary/eval.h:140: }
-	.loc 19 140 1
-	mov	rsi, rax	# tmp127, D.5836
-	mov	rdi, rdx	#, D.5836
-	mov	rcx, rax	# tmp128, D.5836
-	mov	rbx, rdx	#, D.5836
-	mov	eax, esi	# <retval>, tmp127
-	mov	rdx, rbx	# <retval>,
-	mov	rbx, QWORD PTR -8[rbp]	#,
-	leave	
-	.cfi_def_cfa 7, 8
-	ret	
-	.cfi_endproc
-.LFE135:
-	.size	EvalLe, .-EvalLe
-	.type	EvalGt, @function
-EvalGt:
-.LFB136:
-	.loc 19 143 1
-	.cfi_startproc
-	push	rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp	#,
-	.cfi_def_cfa_register 6
-	push	rbx	#
-	.cfi_offset 3, -24
-	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
-	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:145: 	goto *ops[ lhs->type ];
-	.loc 19 145 16
-	mov	rcx, QWORD PTR -24[rbp]	# tmp103, lhs
-	mov	ecx, DWORD PTR [rcx]	# _1, lhs_18(D)->type
-# compiler/binary/eval.h:145: 	goto *ops[ lhs->type ];
-	.loc 19 145 11
-	mov	ecx, ecx	# tmp104, _1
-	lea	rsi, 0[0+rcx*8]	# tmp105,
-	lea	rcx, ops.9[rip]	# tmp106,
-	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
-# compiler/binary/eval.h:145: 	goto *ops[ lhs->type ];
-	.loc 19 145 2
-	nop	
-	jmp	rcx	# _2
-.L570:
-	endbr64	
-# compiler/binary/eval.h:146: 	I64: return VALUE( I64, i64, lhs->i64 > rhs->i64 );
-	.loc 19 146 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
-	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_18(D)->D.4160.i64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_20(D)->D.4160.i64
-	cmp	rsi, rcx	# _3, _4
-	setg	cl	#, _5
-	movzx	ecx, cl	# _6, _5
-	mov	rdi, rax	# tmp110, D.5845
-	movabs	rsi, -4294967296	# tmp112,
-	and	rsi, rdi	# tmp111, tmp110
-	mov	rax, rsi	# D.5845, tmp111
-	mov	rdx, rcx	# D.5845, _6
-	jmp	.L571	#
-.L572:
-	endbr64	
-# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
-	.loc 19 147 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp113, lhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_18(D)->D.4160.f64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp114, rhs
-	movsd	xmm1, QWORD PTR 8[rcx]	# _8, rhs_20(D)->D.4160.f64
-	comisd	xmm0, xmm1	# _7, _8
-	jbe	.L579	#,
-# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
-	.loc 19 147 14 is_stmt 0 discriminator 1
-	movsd	xmm0, QWORD PTR .LC11[rip]	# iftmp.45_15,
-	jmp	.L575	#
-.L579:
-# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
-	.loc 19 147 14 discriminator 2
-	pxor	xmm0, xmm0	# iftmp.45_15
-.L575:
-# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
-	.loc 19 147 14 discriminator 4
-	mov	rsi, rax	# tmp116, D.5845
-	movabs	rcx, -4294967296	# tmp118,
-	and	rcx, rsi	# tmp117, tmp116
-	or	rcx, 1	# tmp119,
-	mov	rax, rcx	# D.5845, tmp119
-	movq	rdx, xmm0	# D.5845, iftmp.45_15
-# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
-	.loc 19 147 14
-	jmp	.L571	#
-.L576:
-	endbr64	
-# compiler/binary/eval.h:148: 	STR: return VALUE( I64, i64, lhs->str->len > rhs->str->len );
-	.loc 19 148 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp120, lhs
-	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_18(D)->D.4160.str
-	mov	ecx, DWORD PTR 4[rcx]	# _10, _9->len
-	mov	rsi, QWORD PTR -32[rbp]	# tmp121, rhs
-	mov	rsi, QWORD PTR 8[rsi]	# _11, rhs_20(D)->D.4160.str
-	mov	esi, DWORD PTR 4[rsi]	# _12, _11->len
-	cmp	esi, ecx	# _12, _10
-	setb	cl	#, _13
-	movzx	ecx, cl	# _14, _13
-	mov	rdi, rax	# tmp123, D.5845
-	movabs	rsi, -4294967296	# tmp125,
-	and	rsi, rdi	# tmp124, tmp123
-	mov	rax, rsi	# D.5845, tmp124
-	mov	rdx, rcx	# D.5845, _14
-.L571:
-# compiler/binary/eval.h:149: }
-	.loc 19 149 1
-	mov	rsi, rax	# tmp127, D.5845
-	mov	rdi, rdx	#, D.5845
-	mov	rcx, rax	# tmp128, D.5845
-	mov	rbx, rdx	#, D.5845
-	mov	eax, esi	# <retval>, tmp127
-	mov	rdx, rbx	# <retval>,
-	mov	rbx, QWORD PTR -8[rbp]	#,
-	leave	
-	.cfi_def_cfa 7, 8
-	ret	
-	.cfi_endproc
-.LFE136:
-	.size	EvalGt, .-EvalGt
-	.type	EvalGe, @function
-EvalGe:
-.LFB137:
-	.loc 19 152 1
-	.cfi_startproc
-	push	rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp	#,
-	.cfi_def_cfa_register 6
-	push	rbx	#
-	.cfi_offset 3, -24
-	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
-	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:154: 	goto *ops[ lhs->type ];
-	.loc 19 154 16
-	mov	rcx, QWORD PTR -24[rbp]	# tmp103, lhs
-	mov	ecx, DWORD PTR [rcx]	# _1, lhs_18(D)->type
-# compiler/binary/eval.h:154: 	goto *ops[ lhs->type ];
-	.loc 19 154 11
-	mov	ecx, ecx	# tmp104, _1
-	lea	rsi, 0[0+rcx*8]	# tmp105,
-	lea	rcx, ops.8[rip]	# tmp106,
-	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
-# compiler/binary/eval.h:154: 	goto *ops[ lhs->type ];
-	.loc 19 154 2
-	nop	
-	jmp	rcx	# _2
-.L582:
-	endbr64	
-# compiler/binary/eval.h:155: 	I64: return VALUE( I64, i64, lhs->i64 >= rhs->i64 );
-	.loc 19 155 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
-	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_18(D)->D.4160.i64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_20(D)->D.4160.i64
-	cmp	rsi, rcx	# _3, _4
-	setge	cl	#, _5
-	movzx	ecx, cl	# _6, _5
-	mov	rdi, rax	# tmp110, D.5854
-	movabs	rsi, -4294967296	# tmp112,
-	and	rsi, rdi	# tmp111, tmp110
-	mov	rax, rsi	# D.5854, tmp111
-	mov	rdx, rcx	# D.5854, _6
-	jmp	.L583	#
-.L584:
-	endbr64	
-# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
-	.loc 19 156 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp113, lhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_18(D)->D.4160.f64
-	mov	rcx, QWORD PTR -32[rbp]	# tmp114, rhs
-	movsd	xmm1, QWORD PTR 8[rcx]	# _8, rhs_20(D)->D.4160.f64
-	comisd	xmm0, xmm1	# _7, _8
-	jb	.L591	#,
-# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
-	.loc 19 156 14 is_stmt 0 discriminator 1
-	movsd	xmm0, QWORD PTR .LC11[rip]	# iftmp.47_15,
-	jmp	.L587	#
-.L591:
-# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
-	.loc 19 156 14 discriminator 2
-	pxor	xmm0, xmm0	# iftmp.47_15
-.L587:
-# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
-	.loc 19 156 14 discriminator 4
-	mov	rsi, rax	# tmp116, D.5854
-	movabs	rcx, -4294967296	# tmp118,
-	and	rcx, rsi	# tmp117, tmp116
-	or	rcx, 1	# tmp119,
-	mov	rax, rcx	# D.5854, tmp119
-	movq	rdx, xmm0	# D.5854, iftmp.47_15
-# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
-	.loc 19 156 14
-	jmp	.L583	#
-.L588:
-	endbr64	
-# compiler/binary/eval.h:157: 	STR: return VALUE( I64, i64, lhs->str->len >= rhs->str->len );
-	.loc 19 157 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp120, lhs
-	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_18(D)->D.4160.str
-	mov	esi, DWORD PTR 4[rcx]	# _10, _9->len
-	mov	rcx, QWORD PTR -32[rbp]	# tmp121, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _11, rhs_20(D)->D.4160.str
-	mov	ecx, DWORD PTR 4[rcx]	# _12, _11->len
-	cmp	esi, ecx	# _10, _12
-	setnb	cl	#, _13
-	movzx	ecx, cl	# _14, _13
-	mov	rdi, rax	# tmp123, D.5854
-	movabs	rsi, -4294967296	# tmp125,
-	and	rsi, rdi	# tmp124, tmp123
-	mov	rax, rsi	# D.5854, tmp124
-	mov	rdx, rcx	# D.5854, _14
-.L583:
-# compiler/binary/eval.h:158: }
-	.loc 19 158 1
-	mov	rsi, rax	# tmp127, D.5854
-	mov	rdi, rdx	#, D.5854
-	mov	rcx, rax	# tmp128, D.5854
-	mov	rbx, rdx	#, D.5854
-	mov	eax, esi	# <retval>, tmp127
-	mov	rdx, rbx	# <retval>,
-	mov	rbx, QWORD PTR -8[rbp]	#,
-	leave	
-	.cfi_def_cfa 7, 8
-	ret	
-	.cfi_endproc
-.LFE137:
-	.size	EvalGe, .-EvalGe
-	.type	EvalAnd, @function
-EvalAnd:
-.LFB138:
-	.loc 19 161 1
-	.cfi_startproc
-	push	rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp	#,
-	.cfi_def_cfa_register 6
-	push	rbx	#
-	.cfi_offset 3, -24
-	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
-	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:163: 	goto *ops[ lhs->type ];
-	.loc 19 163 16
-	mov	rcx, QWORD PTR -24[rbp]	# tmp102, lhs
-	mov	ecx, DWORD PTR [rcx]	# _1, lhs_17(D)->type
-# compiler/binary/eval.h:163: 	goto *ops[ lhs->type ];
-	.loc 19 163 11
-	mov	ecx, ecx	# tmp103, _1
-	lea	rsi, 0[0+rcx*8]	# tmp104,
-	lea	rcx, ops.7[rip]	# tmp105,
-	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
-# compiler/binary/eval.h:163: 	goto *ops[ lhs->type ];
-	.loc 19 163 2
-	nop	
-	jmp	rcx	# _2
-.L594:
-	endbr64	
-# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
-	.loc 19 164 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp106, lhs
-	mov	rcx, QWORD PTR 8[rcx]	# _3, lhs_17(D)->D.4160.i64
-	test	rcx, rcx	# _3
-	je	.L596	#,
-# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
-	.loc 19 164 14 is_stmt 0 discriminator 1
-	mov	rcx, QWORD PTR -32[rbp]	# tmp107, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_19(D)->D.4160.i64
-	test	rcx, rcx	# _4
-	je	.L596	#,
-# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
-	.loc 19 164 14 discriminator 3
-	mov	ecx, 1	# iftmp.49_12,
-# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
-	.loc 19 164 14
-	jmp	.L597	#
-.L596:
-# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
-	.loc 19 164 14 discriminator 4
-	mov	ecx, 0	# iftmp.49_12,
-.L597:
-# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
-	.loc 19 164 14 discriminator 6
-	movsx	rcx, ecx	# _5, iftmp.49_12
-	mov	rdi, rax	# tmp109, D.5863
-	movabs	rsi, -4294967296	# tmp111,
-	and	rsi, rdi	# tmp110, tmp109
-	mov	rax, rsi	# D.5863, tmp110
-	mov	rdx, rcx	# D.5863, _5
-# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
-	.loc 19 164 14
-	jmp	.L598	#
-.L599:
-	endbr64	
-# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
-	.loc 19 165 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp112, lhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _6, lhs_17(D)->D.4160.f64
-	pxor	xmm1, xmm1	# tmp113
-	ucomisd	xmm0, xmm1	# _6, tmp113
-	jp	.L608	#,
-	pxor	xmm1, xmm1	# tmp114
-	ucomisd	xmm0, xmm1	# _6, tmp114
-	je	.L600	#,
-.L608:
-# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
-	.loc 19 165 14 is_stmt 0 discriminator 1
-	mov	rcx, QWORD PTR -32[rbp]	# tmp115, rhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _7, rhs_19(D)->D.4160.f64
-	pxor	xmm1, xmm1	# tmp116
-	ucomisd	xmm0, xmm1	# _7, tmp116
-	jp	.L609	#,
-	pxor	xmm1, xmm1	# tmp117
-	ucomisd	xmm0, xmm1	# _7, tmp117
-	je	.L600	#,
-.L609:
-# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
-	.loc 19 165 14 discriminator 3
-	mov	ecx, 1	# iftmp.50_13,
-# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
-	.loc 19 165 14
-	jmp	.L603	#
-.L600:
-# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
-	.loc 19 165 14 discriminator 4
-	mov	ecx, 0	# iftmp.50_13,
-.L603:
-# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
-	.loc 19 165 14 discriminator 6
-	pxor	xmm0, xmm0	# _8
-	cvtsi2sd	xmm0, ecx	# _8, iftmp.50_13
-	mov	rsi, rax	# tmp119, D.5863
-	movabs	rcx, -4294967296	# tmp121,
-	and	rcx, rsi	# tmp120, tmp119
-	or	rcx, 1	# tmp122,
-	mov	rax, rcx	# D.5863, tmp122
-	movq	rdx, xmm0	# D.5863, _8
-# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
-	.loc 19 165 14
-	jmp	.L598	#
-.L604:
-	endbr64	
-# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
-	.loc 19 166 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp123, lhs
-	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_17(D)->D.4160.str
-	test	rcx, rcx	# _9
-	je	.L605	#,
-# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
-	.loc 19 166 14 is_stmt 0 discriminator 1
-	mov	rcx, QWORD PTR -32[rbp]	# tmp124, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _10, rhs_19(D)->D.4160.str
-	test	rcx, rcx	# _10
-	je	.L605	#,
-# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
-	.loc 19 166 14 discriminator 3
-	mov	ecx, 1	# iftmp.51_14,
-# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
-	.loc 19 166 14
-	jmp	.L606	#
-.L605:
-# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
-	.loc 19 166 14 discriminator 4
-	mov	ecx, 0	# iftmp.51_14,
-.L606:
-# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
-	.loc 19 166 14 discriminator 6
-	movsx	rcx, ecx	# _11, iftmp.51_14
-	mov	rdi, rax	# tmp126, D.5863
-	movabs	rsi, -4294967296	# tmp128,
-	and	rsi, rdi	# tmp127, tmp126
-	mov	rax, rsi	# D.5863, tmp127
-	mov	rdx, rcx	# D.5863, _11
-.L598:
-# compiler/binary/eval.h:167: }
-	.loc 19 167 1 is_stmt 1
-	mov	rsi, rax	# tmp130, D.5863
-	mov	rdi, rdx	#, D.5863
-	mov	rcx, rax	# tmp131, D.5863
-	mov	rbx, rdx	#, D.5863
-	mov	eax, esi	# <retval>, tmp130
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
@@ -9549,11 +9786,11 @@ EvalAnd:
 	ret	
 	.cfi_endproc
 .LFE138:
-	.size	EvalAnd, .-EvalAnd
-	.type	EvalOr, @function
-EvalOr:
+	.size	EvalEqEq, .-EvalEqEq
+	.type	EvalNeq, @function
+EvalNeq:
 .LFB139:
-	.loc 19 170 1
+	.loc 20 116 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -9564,146 +9801,94 @@ EvalOr:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:172: 	goto *ops[ lhs->type ];
-	.loc 19 172 16
-	mov	rcx, QWORD PTR -24[rbp]	# tmp102, lhs
-	mov	ecx, DWORD PTR [rcx]	# _1, lhs_17(D)->type
-# compiler/binary/eval.h:172: 	goto *ops[ lhs->type ];
-	.loc 19 172 11
-	mov	ecx, ecx	# tmp103, _1
-	lea	rsi, 0[0+rcx*8]	# tmp104,
-	lea	rcx, ops.6[rip]	# tmp105,
+# compiler/binary/eval.h:118: 	goto *ops[ lhs->type ];
+	.loc 20 118 16
+	mov	rcx, QWORD PTR -24[rbp]	# tmp101, lhs
+	mov	ecx, DWORD PTR [rcx]	# _1, lhs_16(D)->type
+# compiler/binary/eval.h:118: 	goto *ops[ lhs->type ];
+	.loc 20 118 11
+	mov	ecx, ecx	# tmp102, _1
+	lea	rsi, 0[0+rcx*8]	# tmp103,
+	lea	rcx, ops.10[rip]	# tmp104,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
-# compiler/binary/eval.h:172: 	goto *ops[ lhs->type ];
-	.loc 19 172 2
+# compiler/binary/eval.h:118: 	goto *ops[ lhs->type ];
+	.loc 20 118 2
 	nop	
 	jmp	rcx	# _2
-.L612:
+.L578:
 	endbr64	
-# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
-	.loc 19 173 14
-	mov	rcx, QWORD PTR -24[rbp]	# tmp106, lhs
-	mov	rcx, QWORD PTR 8[rcx]	# _3, lhs_17(D)->D.4160.i64
-	test	rcx, rcx	# _3
-	jne	.L613	#,
-# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
-	.loc 19 173 14 is_stmt 0 discriminator 2
-	mov	rcx, QWORD PTR -32[rbp]	# tmp107, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_19(D)->D.4160.i64
-	test	rcx, rcx	# _4
-	je	.L615	#,
-.L613:
-# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
-	.loc 19 173 14 discriminator 3
-	mov	ecx, 1	# iftmp.53_12,
-# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
-	.loc 19 173 14
-	jmp	.L616	#
-.L615:
-# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
-	.loc 19 173 14 discriminator 4
-	mov	ecx, 0	# iftmp.53_12,
-.L616:
-# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
-	.loc 19 173 14 discriminator 6
-	movsx	rcx, ecx	# _5, iftmp.53_12
-	mov	rdi, rax	# tmp109, D.5883
-	movabs	rsi, -4294967296	# tmp111,
-	and	rsi, rdi	# tmp110, tmp109
-	mov	rax, rsi	# D.5883, tmp110
-	mov	rdx, rcx	# D.5883, _5
-# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
-	.loc 19 173 14
-	jmp	.L617	#
-.L618:
+# compiler/binary/eval.h:119: 	I64: return VALUE( I64, i64, lhs->i64 != rhs->i64 );
+	.loc 20 119 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp105, lhs
+	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_16(D)->D.4160.i64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp106, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_18(D)->D.4160.i64
+	cmp	rsi, rcx	# _3, _4
+	setne	cl	#, _5
+	movzx	ecx, cl	# _6, _5
+	mov	rdi, rax	# tmp108, D.5910
+	movabs	rsi, -4294967296	# tmp110,
+	and	rsi, rdi	# tmp109, tmp108
+	mov	rax, rsi	# D.5910, tmp109
+	mov	rdx, rcx	# D.5910, _6
+	jmp	.L579	#
+.L580:
 	endbr64	
-# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
-	.loc 19 174 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp112, lhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _6, lhs_17(D)->D.4160.f64
-	pxor	xmm1, xmm1	# tmp113
-	ucomisd	xmm0, xmm1	# _6, tmp113
-	jp	.L619	#,
-	pxor	xmm1, xmm1	# tmp114
-	ucomisd	xmm0, xmm1	# _6, tmp114
-	jne	.L619	#,
-# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
-	.loc 19 174 14 is_stmt 0 discriminator 2
-	mov	rcx, QWORD PTR -32[rbp]	# tmp115, rhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _7, rhs_19(D)->D.4160.f64
-	pxor	xmm1, xmm1	# tmp116
-	ucomisd	xmm0, xmm1	# _7, tmp116
-	jp	.L619	#,
-	pxor	xmm1, xmm1	# tmp117
-	ucomisd	xmm0, xmm1	# _7, tmp117
-	je	.L621	#,
-.L619:
-# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
-	.loc 19 174 14 discriminator 3
-	mov	ecx, 1	# iftmp.54_13,
-# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
-	.loc 19 174 14
-	jmp	.L623	#
-.L621:
-# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
-	.loc 19 174 14 discriminator 4
-	mov	ecx, 0	# iftmp.54_13,
-.L623:
-# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
-	.loc 19 174 14 discriminator 6
-	pxor	xmm0, xmm0	# _8
-	cvtsi2sd	xmm0, ecx	# _8, iftmp.54_13
-	mov	rsi, rax	# tmp119, D.5883
-	movabs	rcx, -4294967296	# tmp121,
-	and	rcx, rsi	# tmp120, tmp119
-	or	rcx, 1	# tmp122,
-	mov	rax, rcx	# D.5883, tmp122
-	movq	rdx, xmm0	# D.5883, _8
-# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
-	.loc 19 174 14
-	jmp	.L617	#
-.L624:
+# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
+	.loc 20 120 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp111, lhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_16(D)->D.4160.f64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp112, rhs
+	movsd	xmm1, QWORD PTR 8[rcx]	# _8, rhs_18(D)->D.4160.f64
+	ucomisd	xmm0, xmm1	# _7, _8
+	jp	.L586	#,
+	ucomisd	xmm0, xmm1	# _7, _8
+	je	.L581	#,
+.L586:
+# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
+	.loc 20 120 14 is_stmt 0 discriminator 1
+	movsd	xmm0, QWORD PTR .LC12[rip]	# iftmp.46_13,
+	jmp	.L583	#
+.L581:
+# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
+	.loc 20 120 14 discriminator 2
+	pxor	xmm0, xmm0	# iftmp.46_13
+.L583:
+# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
+	.loc 20 120 14 discriminator 4
+	mov	rsi, rax	# tmp114, D.5910
+	movabs	rcx, -4294967296	# tmp116,
+	and	rcx, rsi	# tmp115, tmp114
+	or	rcx, 1	# tmp117,
+	mov	rax, rcx	# D.5910, tmp117
+	movq	rdx, xmm0	# D.5910, iftmp.46_13
+# compiler/binary/eval.h:120: 	F64: return VALUE( F64, f64, lhs->f64 != rhs->f64 );
+	.loc 20 120 14
+	jmp	.L579	#
+.L584:
 	endbr64	
-# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
-	.loc 19 175 14 is_stmt 1
-	mov	rcx, QWORD PTR -24[rbp]	# tmp123, lhs
-	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_17(D)->D.4160.str
-	test	rcx, rcx	# _9
-	jne	.L625	#,
-# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
-	.loc 19 175 14 is_stmt 0 discriminator 2
-	mov	rcx, QWORD PTR -32[rbp]	# tmp124, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _10, rhs_19(D)->D.4160.str
-	test	rcx, rcx	# _10
-	je	.L626	#,
-.L625:
-# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
-	.loc 19 175 14 discriminator 3
-	mov	ecx, 1	# iftmp.55_14,
-# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
-	.loc 19 175 14
-	jmp	.L627	#
-.L626:
-# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
-	.loc 19 175 14 discriminator 4
-	mov	ecx, 0	# iftmp.55_14,
-.L627:
-# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
-	.loc 19 175 14 discriminator 6
-	movsx	rcx, ecx	# _11, iftmp.55_14
-	mov	rdi, rax	# tmp126, D.5883
-	movabs	rsi, -4294967296	# tmp128,
-	and	rsi, rdi	# tmp127, tmp126
-	mov	rax, rsi	# D.5883, tmp127
-	mov	rdx, rcx	# D.5883, _11
-.L617:
-# compiler/binary/eval.h:176: }
-	.loc 19 176 1 is_stmt 1
-	mov	rsi, rax	# tmp130, D.5883
-	mov	rdi, rdx	#, D.5883
-	mov	rcx, rax	# tmp131, D.5883
-	mov	rbx, rdx	#, D.5883
-	mov	eax, esi	# <retval>, tmp130
+# compiler/binary/eval.h:121: 	STR: return VALUE( I64, i64, lhs->str != rhs->str );
+	.loc 20 121 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp118, lhs
+	mov	rsi, QWORD PTR 8[rcx]	# _9, lhs_16(D)->D.4160.str
+	mov	rcx, QWORD PTR -32[rbp]	# tmp119, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _10, rhs_18(D)->D.4160.str
+	cmp	rsi, rcx	# _9, _10
+	setne	cl	#, _11
+	movzx	ecx, cl	# _12, _11
+	mov	rdi, rax	# tmp121, D.5910
+	movabs	rsi, -4294967296	# tmp123,
+	and	rsi, rdi	# tmp122, tmp121
+	mov	rax, rsi	# D.5910, tmp122
+	mov	rdx, rcx	# D.5910, _12
+.L579:
+# compiler/binary/eval.h:122: }
+	.loc 20 122 1
+	mov	rsi, rax	# tmp125, D.5910
+	mov	rdi, rdx	#, D.5910
+	mov	rcx, rax	# tmp126, D.5910
+	mov	rbx, rdx	#, D.5910
+	mov	eax, esi	# <retval>, tmp125
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
@@ -9711,11 +9896,11 @@ EvalOr:
 	ret	
 	.cfi_endproc
 .LFE139:
-	.size	EvalOr, .-EvalOr
-	.type	EvalMov, @function
-EvalMov:
+	.size	EvalNeq, .-EvalNeq
+	.type	EvalLt, @function
+EvalLt:
 .LFB140:
-	.loc 19 179 1
+	.loc 20 125 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -9726,65 +9911,93 @@ EvalMov:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:181: 	goto *ops[ lhs->type ];
-	.loc 19 181 16
-	mov	rcx, QWORD PTR -24[rbp]	# tmp93, lhs
-	mov	ecx, DWORD PTR [rcx]	# _1, lhs_8(D)->type
-# compiler/binary/eval.h:181: 	goto *ops[ lhs->type ];
-	.loc 19 181 11
-	mov	ecx, ecx	# tmp94, _1
-	lea	rsi, 0[0+rcx*8]	# tmp95,
-	lea	rcx, ops.5[rip]	# tmp96,
+# compiler/binary/eval.h:127: 	goto *ops[ lhs->type ];
+	.loc 20 127 16
+	mov	rcx, QWORD PTR -24[rbp]	# tmp103, lhs
+	mov	ecx, DWORD PTR [rcx]	# _1, lhs_18(D)->type
+# compiler/binary/eval.h:127: 	goto *ops[ lhs->type ];
+	.loc 20 127 11
+	mov	ecx, ecx	# tmp104, _1
+	lea	rsi, 0[0+rcx*8]	# tmp105,
+	lea	rcx, ops.9[rip]	# tmp106,
 	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
-# compiler/binary/eval.h:181: 	goto *ops[ lhs->type ];
-	.loc 19 181 2
+# compiler/binary/eval.h:127: 	goto *ops[ lhs->type ];
+	.loc 20 127 2
 	nop	
 	jmp	rcx	# _2
-.L632:
+.L589:
 	endbr64	
-# compiler/binary/eval.h:182: 	I64: return VALUE( I64, i64, rhs->i64 );
-	.loc 19 182 14
-	mov	rcx, QWORD PTR -32[rbp]	# tmp97, rhs
-	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_10(D)->D.4160.i64
-	mov	rdi, rax	# tmp99, D.5903
-	movabs	rsi, -4294967296	# tmp101,
-	and	rsi, rdi	# tmp100, tmp99
-	mov	rax, rsi	# D.5903, tmp100
-	mov	rdx, rcx	# D.5903, _3
-	jmp	.L633	#
-.L634:
-	endbr64	
-# compiler/binary/eval.h:183: 	F64: return VALUE( F64, f64, rhs->f64 );
-	.loc 19 183 14
-	mov	rcx, QWORD PTR -32[rbp]	# tmp102, rhs
-	movsd	xmm0, QWORD PTR 8[rcx]	# _4, rhs_10(D)->D.4160.f64
-	mov	rsi, rax	# tmp104, D.5903
-	movabs	rcx, -4294967296	# tmp106,
-	and	rcx, rsi	# tmp105, tmp104
-	or	rcx, 1	# tmp107,
-	mov	rax, rcx	# D.5903, tmp107
-	movq	rdx, xmm0	# D.5903, _4
-	jmp	.L633	#
-.L635:
-	endbr64	
-# compiler/binary/eval.h:184: 	STR: return VALUE( STR, str, rhs->str );
-	.loc 19 184 14
+# compiler/binary/eval.h:128: 	I64: return VALUE( I64, i64, lhs->i64 < rhs->i64 );
+	.loc 20 128 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
+	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_18(D)->D.4160.i64
 	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
-	mov	rsi, QWORD PTR 8[rcx]	# _5, rhs_10(D)->D.4160.str
-	mov	rdi, rax	# tmp110, D.5903
-	movabs	rcx, -4294967296	# tmp112,
-	and	rcx, rdi	# tmp111, tmp110
-	or	rcx, 2	# tmp113,
-	mov	rax, rcx	# D.5903, tmp113
-	mov	rdx, rsi	# D.5903, _5
-.L633:
-# compiler/binary/eval.h:185: }
-	.loc 19 185 1
-	mov	rsi, rax	# tmp115, D.5903
-	mov	rdi, rdx	#, D.5903
-	mov	rcx, rax	# tmp116, D.5903
-	mov	rbx, rdx	#, D.5903
-	mov	eax, esi	# <retval>, tmp115
+	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_20(D)->D.4160.i64
+	cmp	rsi, rcx	# _3, _4
+	setl	cl	#, _5
+	movzx	ecx, cl	# _6, _5
+	mov	rdi, rax	# tmp110, D.5919
+	movabs	rsi, -4294967296	# tmp112,
+	and	rsi, rdi	# tmp111, tmp110
+	mov	rax, rsi	# D.5919, tmp111
+	mov	rdx, rcx	# D.5919, _6
+	jmp	.L590	#
+.L591:
+	endbr64	
+# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
+	.loc 20 129 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp113, lhs
+	movsd	xmm1, QWORD PTR 8[rcx]	# _7, lhs_18(D)->D.4160.f64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp114, rhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _8, rhs_20(D)->D.4160.f64
+	comisd	xmm0, xmm1	# _8, _7
+	jbe	.L598	#,
+# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
+	.loc 20 129 14 is_stmt 0 discriminator 1
+	movsd	xmm0, QWORD PTR .LC12[rip]	# iftmp.48_15,
+	jmp	.L594	#
+.L598:
+# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
+	.loc 20 129 14 discriminator 2
+	pxor	xmm0, xmm0	# iftmp.48_15
+.L594:
+# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
+	.loc 20 129 14 discriminator 4
+	mov	rsi, rax	# tmp116, D.5919
+	movabs	rcx, -4294967296	# tmp118,
+	and	rcx, rsi	# tmp117, tmp116
+	or	rcx, 1	# tmp119,
+	mov	rax, rcx	# D.5919, tmp119
+	movq	rdx, xmm0	# D.5919, iftmp.48_15
+# compiler/binary/eval.h:129: 	F64: return VALUE( F64, f64, lhs->f64 < rhs->f64 );
+	.loc 20 129 14
+	jmp	.L590	#
+.L595:
+	endbr64	
+# compiler/binary/eval.h:130: 	STR: return VALUE( I64, i64, lhs->str->len < rhs->str->len );
+	.loc 20 130 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp120, lhs
+	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_18(D)->D.4160.str
+	mov	esi, DWORD PTR 4[rcx]	# _10, _9->len
+	mov	rcx, QWORD PTR -32[rbp]	# tmp121, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _11, rhs_20(D)->D.4160.str
+	mov	ecx, DWORD PTR 4[rcx]	# _12, _11->len
+	cmp	esi, ecx	# _10, _12
+	setb	cl	#, _13
+	movzx	ecx, cl	# _14, _13
+	mov	rdi, rax	# tmp123, D.5919
+	movabs	rsi, -4294967296	# tmp125,
+	and	rsi, rdi	# tmp124, tmp123
+	mov	rax, rsi	# D.5919, tmp124
+	mov	rdx, rcx	# D.5919, _14
+.L590:
+# compiler/binary/eval.h:131: }
+	.loc 20 131 1
+	mov	rsi, rax	# tmp127, D.5919
+	mov	rdi, rdx	#, D.5919
+	mov	rcx, rax	# tmp128, D.5919
+	mov	rbx, rdx	#, D.5919
+	mov	eax, esi	# <retval>, tmp127
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
@@ -9792,11 +10005,11 @@ EvalMov:
 	ret	
 	.cfi_endproc
 .LFE140:
-	.size	EvalMov, .-EvalMov
-	.type	EvalAddEq, @function
-EvalAddEq:
+	.size	EvalLt, .-EvalLt
+	.type	EvalLe, @function
+EvalLe:
 .LFB141:
-	.loc 19 188 1
+	.loc 20 134 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -9804,40 +10017,108 @@ EvalAddEq:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 	push	rbx	#
-	sub	rsp, 24	#,
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:189: 	return EvalAdd( lhs, rhs );
-	.loc 19 189 9
-	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
-	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
-	mov	rsi, rdx	#, tmp85
-	mov	rdi, rax	#, tmp86
-	call	EvalAdd	#
-	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5908, tmp88
-# compiler/binary/eval.h:189: 	return EvalAdd( lhs, rhs );
-	.loc 19 189 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5908
-	mov	rdi, rdx	#, D.5908
-	mov	rcx, rax	# tmp91, D.5908
-	mov	rbx, rdx	#, D.5908
-	mov	eax, esi	# <retval>, tmp90
+# compiler/binary/eval.h:136: 	goto *ops[ lhs->type ];
+	.loc 20 136 16
+	mov	rcx, QWORD PTR -24[rbp]	# tmp103, lhs
+	mov	ecx, DWORD PTR [rcx]	# _1, lhs_18(D)->type
+# compiler/binary/eval.h:136: 	goto *ops[ lhs->type ];
+	.loc 20 136 11
+	mov	ecx, ecx	# tmp104, _1
+	lea	rsi, 0[0+rcx*8]	# tmp105,
+	lea	rcx, ops.8[rip]	# tmp106,
+	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
+# compiler/binary/eval.h:136: 	goto *ops[ lhs->type ];
+	.loc 20 136 2
+	nop	
+	jmp	rcx	# _2
+.L601:
+	endbr64	
+# compiler/binary/eval.h:137: 	I64: return VALUE( I64, i64, lhs->i64 <= rhs->i64 );
+	.loc 20 137 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
+	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_18(D)->D.4160.i64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_20(D)->D.4160.i64
+	cmp	rsi, rcx	# _3, _4
+	setle	cl	#, _5
+	movzx	ecx, cl	# _6, _5
+	mov	rdi, rax	# tmp110, D.5928
+	movabs	rsi, -4294967296	# tmp112,
+	and	rsi, rdi	# tmp111, tmp110
+	mov	rax, rsi	# D.5928, tmp111
+	mov	rdx, rcx	# D.5928, _6
+	jmp	.L602	#
+.L603:
+	endbr64	
+# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
+	.loc 20 138 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp113, lhs
+	movsd	xmm1, QWORD PTR 8[rcx]	# _7, lhs_18(D)->D.4160.f64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp114, rhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _8, rhs_20(D)->D.4160.f64
+	comisd	xmm0, xmm1	# _8, _7
+	jb	.L610	#,
+# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
+	.loc 20 138 14 is_stmt 0 discriminator 1
+	movsd	xmm0, QWORD PTR .LC12[rip]	# iftmp.50_15,
+	jmp	.L606	#
+.L610:
+# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
+	.loc 20 138 14 discriminator 2
+	pxor	xmm0, xmm0	# iftmp.50_15
+.L606:
+# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
+	.loc 20 138 14 discriminator 4
+	mov	rsi, rax	# tmp116, D.5928
+	movabs	rcx, -4294967296	# tmp118,
+	and	rcx, rsi	# tmp117, tmp116
+	or	rcx, 1	# tmp119,
+	mov	rax, rcx	# D.5928, tmp119
+	movq	rdx, xmm0	# D.5928, iftmp.50_15
+# compiler/binary/eval.h:138: 	F64: return VALUE( F64, f64, lhs->f64 <= rhs->f64 );
+	.loc 20 138 14
+	jmp	.L602	#
+.L607:
+	endbr64	
+# compiler/binary/eval.h:139: 	STR: return VALUE( I64, i64, lhs->str->len <= rhs->str->len );
+	.loc 20 139 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp120, lhs
+	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_18(D)->D.4160.str
+	mov	ecx, DWORD PTR 4[rcx]	# _10, _9->len
+	mov	rsi, QWORD PTR -32[rbp]	# tmp121, rhs
+	mov	rsi, QWORD PTR 8[rsi]	# _11, rhs_20(D)->D.4160.str
+	mov	esi, DWORD PTR 4[rsi]	# _12, _11->len
+	cmp	esi, ecx	# _12, _10
+	setnb	cl	#, _13
+	movzx	ecx, cl	# _14, _13
+	mov	rdi, rax	# tmp123, D.5928
+	movabs	rsi, -4294967296	# tmp125,
+	and	rsi, rdi	# tmp124, tmp123
+	mov	rax, rsi	# D.5928, tmp124
+	mov	rdx, rcx	# D.5928, _14
+.L602:
+# compiler/binary/eval.h:140: }
+	.loc 20 140 1
+	mov	rsi, rax	# tmp127, D.5928
+	mov	rdi, rdx	#, D.5928
+	mov	rcx, rax	# tmp128, D.5928
+	mov	rbx, rdx	#, D.5928
+	mov	eax, esi	# <retval>, tmp127
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:190: }
-	.loc 19 190 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE141:
-	.size	EvalAddEq, .-EvalAddEq
-	.type	EvalSubEq, @function
-EvalSubEq:
+	.size	EvalLe, .-EvalLe
+	.type	EvalGt, @function
+EvalGt:
 .LFB142:
-	.loc 19 193 1
+	.loc 20 143 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -9845,40 +10126,108 @@ EvalSubEq:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 	push	rbx	#
-	sub	rsp, 24	#,
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:194: 	return EvalSub( lhs, rhs );
-	.loc 19 194 9
-	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
-	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
-	mov	rsi, rdx	#, tmp85
-	mov	rdi, rax	#, tmp86
-	call	EvalSub	#
-	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5910, tmp88
-# compiler/binary/eval.h:194: 	return EvalSub( lhs, rhs );
-	.loc 19 194 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5910
-	mov	rdi, rdx	#, D.5910
-	mov	rcx, rax	# tmp91, D.5910
-	mov	rbx, rdx	#, D.5910
-	mov	eax, esi	# <retval>, tmp90
+# compiler/binary/eval.h:145: 	goto *ops[ lhs->type ];
+	.loc 20 145 16
+	mov	rcx, QWORD PTR -24[rbp]	# tmp103, lhs
+	mov	ecx, DWORD PTR [rcx]	# _1, lhs_18(D)->type
+# compiler/binary/eval.h:145: 	goto *ops[ lhs->type ];
+	.loc 20 145 11
+	mov	ecx, ecx	# tmp104, _1
+	lea	rsi, 0[0+rcx*8]	# tmp105,
+	lea	rcx, ops.7[rip]	# tmp106,
+	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
+# compiler/binary/eval.h:145: 	goto *ops[ lhs->type ];
+	.loc 20 145 2
+	nop	
+	jmp	rcx	# _2
+.L613:
+	endbr64	
+# compiler/binary/eval.h:146: 	I64: return VALUE( I64, i64, lhs->i64 > rhs->i64 );
+	.loc 20 146 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
+	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_18(D)->D.4160.i64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_20(D)->D.4160.i64
+	cmp	rsi, rcx	# _3, _4
+	setg	cl	#, _5
+	movzx	ecx, cl	# _6, _5
+	mov	rdi, rax	# tmp110, D.5937
+	movabs	rsi, -4294967296	# tmp112,
+	and	rsi, rdi	# tmp111, tmp110
+	mov	rax, rsi	# D.5937, tmp111
+	mov	rdx, rcx	# D.5937, _6
+	jmp	.L614	#
+.L615:
+	endbr64	
+# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
+	.loc 20 147 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp113, lhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_18(D)->D.4160.f64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp114, rhs
+	movsd	xmm1, QWORD PTR 8[rcx]	# _8, rhs_20(D)->D.4160.f64
+	comisd	xmm0, xmm1	# _7, _8
+	jbe	.L622	#,
+# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
+	.loc 20 147 14 is_stmt 0 discriminator 1
+	movsd	xmm0, QWORD PTR .LC12[rip]	# iftmp.52_15,
+	jmp	.L618	#
+.L622:
+# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
+	.loc 20 147 14 discriminator 2
+	pxor	xmm0, xmm0	# iftmp.52_15
+.L618:
+# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
+	.loc 20 147 14 discriminator 4
+	mov	rsi, rax	# tmp116, D.5937
+	movabs	rcx, -4294967296	# tmp118,
+	and	rcx, rsi	# tmp117, tmp116
+	or	rcx, 1	# tmp119,
+	mov	rax, rcx	# D.5937, tmp119
+	movq	rdx, xmm0	# D.5937, iftmp.52_15
+# compiler/binary/eval.h:147: 	F64: return VALUE( F64, f64, lhs->f64 > rhs->f64 );
+	.loc 20 147 14
+	jmp	.L614	#
+.L619:
+	endbr64	
+# compiler/binary/eval.h:148: 	STR: return VALUE( I64, i64, lhs->str->len > rhs->str->len );
+	.loc 20 148 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp120, lhs
+	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_18(D)->D.4160.str
+	mov	ecx, DWORD PTR 4[rcx]	# _10, _9->len
+	mov	rsi, QWORD PTR -32[rbp]	# tmp121, rhs
+	mov	rsi, QWORD PTR 8[rsi]	# _11, rhs_20(D)->D.4160.str
+	mov	esi, DWORD PTR 4[rsi]	# _12, _11->len
+	cmp	esi, ecx	# _12, _10
+	setb	cl	#, _13
+	movzx	ecx, cl	# _14, _13
+	mov	rdi, rax	# tmp123, D.5937
+	movabs	rsi, -4294967296	# tmp125,
+	and	rsi, rdi	# tmp124, tmp123
+	mov	rax, rsi	# D.5937, tmp124
+	mov	rdx, rcx	# D.5937, _14
+.L614:
+# compiler/binary/eval.h:149: }
+	.loc 20 149 1
+	mov	rsi, rax	# tmp127, D.5937
+	mov	rdi, rdx	#, D.5937
+	mov	rcx, rax	# tmp128, D.5937
+	mov	rbx, rdx	#, D.5937
+	mov	eax, esi	# <retval>, tmp127
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:195: }
-	.loc 19 195 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE142:
-	.size	EvalSubEq, .-EvalSubEq
-	.type	EvalMulEq, @function
-EvalMulEq:
+	.size	EvalGt, .-EvalGt
+	.type	EvalGe, @function
+EvalGe:
 .LFB143:
-	.loc 19 198 1
+	.loc 20 152 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -9886,40 +10235,108 @@ EvalMulEq:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 	push	rbx	#
-	sub	rsp, 24	#,
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:199: 	return EvalMul( lhs, rhs );
-	.loc 19 199 9
-	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
-	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
-	mov	rsi, rdx	#, tmp85
-	mov	rdi, rax	#, tmp86
-	call	EvalMul	#
-	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5912, tmp88
-# compiler/binary/eval.h:199: 	return EvalMul( lhs, rhs );
-	.loc 19 199 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5912
-	mov	rdi, rdx	#, D.5912
-	mov	rcx, rax	# tmp91, D.5912
-	mov	rbx, rdx	#, D.5912
-	mov	eax, esi	# <retval>, tmp90
+# compiler/binary/eval.h:154: 	goto *ops[ lhs->type ];
+	.loc 20 154 16
+	mov	rcx, QWORD PTR -24[rbp]	# tmp103, lhs
+	mov	ecx, DWORD PTR [rcx]	# _1, lhs_18(D)->type
+# compiler/binary/eval.h:154: 	goto *ops[ lhs->type ];
+	.loc 20 154 11
+	mov	ecx, ecx	# tmp104, _1
+	lea	rsi, 0[0+rcx*8]	# tmp105,
+	lea	rcx, ops.6[rip]	# tmp106,
+	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
+# compiler/binary/eval.h:154: 	goto *ops[ lhs->type ];
+	.loc 20 154 2
+	nop	
+	jmp	rcx	# _2
+.L625:
+	endbr64	
+# compiler/binary/eval.h:155: 	I64: return VALUE( I64, i64, lhs->i64 >= rhs->i64 );
+	.loc 20 155 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp107, lhs
+	mov	rsi, QWORD PTR 8[rcx]	# _3, lhs_18(D)->D.4160.i64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_20(D)->D.4160.i64
+	cmp	rsi, rcx	# _3, _4
+	setge	cl	#, _5
+	movzx	ecx, cl	# _6, _5
+	mov	rdi, rax	# tmp110, D.5946
+	movabs	rsi, -4294967296	# tmp112,
+	and	rsi, rdi	# tmp111, tmp110
+	mov	rax, rsi	# D.5946, tmp111
+	mov	rdx, rcx	# D.5946, _6
+	jmp	.L626	#
+.L627:
+	endbr64	
+# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
+	.loc 20 156 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp113, lhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _7, lhs_18(D)->D.4160.f64
+	mov	rcx, QWORD PTR -32[rbp]	# tmp114, rhs
+	movsd	xmm1, QWORD PTR 8[rcx]	# _8, rhs_20(D)->D.4160.f64
+	comisd	xmm0, xmm1	# _7, _8
+	jb	.L634	#,
+# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
+	.loc 20 156 14 is_stmt 0 discriminator 1
+	movsd	xmm0, QWORD PTR .LC12[rip]	# iftmp.54_15,
+	jmp	.L630	#
+.L634:
+# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
+	.loc 20 156 14 discriminator 2
+	pxor	xmm0, xmm0	# iftmp.54_15
+.L630:
+# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
+	.loc 20 156 14 discriminator 4
+	mov	rsi, rax	# tmp116, D.5946
+	movabs	rcx, -4294967296	# tmp118,
+	and	rcx, rsi	# tmp117, tmp116
+	or	rcx, 1	# tmp119,
+	mov	rax, rcx	# D.5946, tmp119
+	movq	rdx, xmm0	# D.5946, iftmp.54_15
+# compiler/binary/eval.h:156: 	F64: return VALUE( F64, f64, lhs->f64 >= rhs->f64 );
+	.loc 20 156 14
+	jmp	.L626	#
+.L631:
+	endbr64	
+# compiler/binary/eval.h:157: 	STR: return VALUE( I64, i64, lhs->str->len >= rhs->str->len );
+	.loc 20 157 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp120, lhs
+	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_18(D)->D.4160.str
+	mov	esi, DWORD PTR 4[rcx]	# _10, _9->len
+	mov	rcx, QWORD PTR -32[rbp]	# tmp121, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _11, rhs_20(D)->D.4160.str
+	mov	ecx, DWORD PTR 4[rcx]	# _12, _11->len
+	cmp	esi, ecx	# _10, _12
+	setnb	cl	#, _13
+	movzx	ecx, cl	# _14, _13
+	mov	rdi, rax	# tmp123, D.5946
+	movabs	rsi, -4294967296	# tmp125,
+	and	rsi, rdi	# tmp124, tmp123
+	mov	rax, rsi	# D.5946, tmp124
+	mov	rdx, rcx	# D.5946, _14
+.L626:
+# compiler/binary/eval.h:158: }
+	.loc 20 158 1
+	mov	rsi, rax	# tmp127, D.5946
+	mov	rdi, rdx	#, D.5946
+	mov	rcx, rax	# tmp128, D.5946
+	mov	rbx, rdx	#, D.5946
+	mov	eax, esi	# <retval>, tmp127
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:200: }
-	.loc 19 200 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE143:
-	.size	EvalMulEq, .-EvalMulEq
-	.type	EvalDivEq, @function
-EvalDivEq:
+	.size	EvalGe, .-EvalGe
+	.type	EvalAnd, @function
+EvalAnd:
 .LFB144:
-	.loc 19 203 1
+	.loc 20 161 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -9927,40 +10344,160 @@ EvalDivEq:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 	push	rbx	#
-	sub	rsp, 24	#,
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:204: 	return EvalDiv( lhs, rhs );
-	.loc 19 204 9
-	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
-	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
-	mov	rsi, rdx	#, tmp85
-	mov	rdi, rax	#, tmp86
-	call	EvalDiv	#
-	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5914, tmp88
-# compiler/binary/eval.h:204: 	return EvalDiv( lhs, rhs );
-	.loc 19 204 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5914
-	mov	rdi, rdx	#, D.5914
-	mov	rcx, rax	# tmp91, D.5914
-	mov	rbx, rdx	#, D.5914
-	mov	eax, esi	# <retval>, tmp90
+# compiler/binary/eval.h:163: 	goto *ops[ lhs->type ];
+	.loc 20 163 16
+	mov	rcx, QWORD PTR -24[rbp]	# tmp102, lhs
+	mov	ecx, DWORD PTR [rcx]	# _1, lhs_17(D)->type
+# compiler/binary/eval.h:163: 	goto *ops[ lhs->type ];
+	.loc 20 163 11
+	mov	ecx, ecx	# tmp103, _1
+	lea	rsi, 0[0+rcx*8]	# tmp104,
+	lea	rcx, ops.5[rip]	# tmp105,
+	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
+# compiler/binary/eval.h:163: 	goto *ops[ lhs->type ];
+	.loc 20 163 2
+	nop	
+	jmp	rcx	# _2
+.L637:
+	endbr64	
+# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
+	.loc 20 164 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp106, lhs
+	mov	rcx, QWORD PTR 8[rcx]	# _3, lhs_17(D)->D.4160.i64
+	test	rcx, rcx	# _3
+	je	.L639	#,
+# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
+	.loc 20 164 14 is_stmt 0 discriminator 1
+	mov	rcx, QWORD PTR -32[rbp]	# tmp107, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_19(D)->D.4160.i64
+	test	rcx, rcx	# _4
+	je	.L639	#,
+# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
+	.loc 20 164 14 discriminator 3
+	mov	ecx, 1	# iftmp.56_12,
+# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
+	.loc 20 164 14
+	jmp	.L640	#
+.L639:
+# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
+	.loc 20 164 14 discriminator 4
+	mov	ecx, 0	# iftmp.56_12,
+.L640:
+# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
+	.loc 20 164 14 discriminator 6
+	movsx	rcx, ecx	# _5, iftmp.56_12
+	mov	rdi, rax	# tmp109, D.5955
+	movabs	rsi, -4294967296	# tmp111,
+	and	rsi, rdi	# tmp110, tmp109
+	mov	rax, rsi	# D.5955, tmp110
+	mov	rdx, rcx	# D.5955, _5
+# compiler/binary/eval.h:164: 	I64: return VALUE( I64, i64, lhs->i64 && rhs->i64 );
+	.loc 20 164 14
+	jmp	.L641	#
+.L642:
+	endbr64	
+# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
+	.loc 20 165 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp112, lhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _6, lhs_17(D)->D.4160.f64
+	pxor	xmm1, xmm1	# tmp113
+	ucomisd	xmm0, xmm1	# _6, tmp113
+	jp	.L651	#,
+	pxor	xmm1, xmm1	# tmp114
+	ucomisd	xmm0, xmm1	# _6, tmp114
+	je	.L643	#,
+.L651:
+# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
+	.loc 20 165 14 is_stmt 0 discriminator 1
+	mov	rcx, QWORD PTR -32[rbp]	# tmp115, rhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _7, rhs_19(D)->D.4160.f64
+	pxor	xmm1, xmm1	# tmp116
+	ucomisd	xmm0, xmm1	# _7, tmp116
+	jp	.L652	#,
+	pxor	xmm1, xmm1	# tmp117
+	ucomisd	xmm0, xmm1	# _7, tmp117
+	je	.L643	#,
+.L652:
+# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
+	.loc 20 165 14 discriminator 3
+	mov	ecx, 1	# iftmp.57_13,
+# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
+	.loc 20 165 14
+	jmp	.L646	#
+.L643:
+# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
+	.loc 20 165 14 discriminator 4
+	mov	ecx, 0	# iftmp.57_13,
+.L646:
+# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
+	.loc 20 165 14 discriminator 6
+	pxor	xmm0, xmm0	# _8
+	cvtsi2sd	xmm0, ecx	# _8, iftmp.57_13
+	mov	rsi, rax	# tmp119, D.5955
+	movabs	rcx, -4294967296	# tmp121,
+	and	rcx, rsi	# tmp120, tmp119
+	or	rcx, 1	# tmp122,
+	mov	rax, rcx	# D.5955, tmp122
+	movq	rdx, xmm0	# D.5955, _8
+# compiler/binary/eval.h:165: 	F64: return VALUE( F64, f64, lhs->f64 && rhs->f64 );
+	.loc 20 165 14
+	jmp	.L641	#
+.L647:
+	endbr64	
+# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
+	.loc 20 166 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp123, lhs
+	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_17(D)->D.4160.str
+	test	rcx, rcx	# _9
+	je	.L648	#,
+# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
+	.loc 20 166 14 is_stmt 0 discriminator 1
+	mov	rcx, QWORD PTR -32[rbp]	# tmp124, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _10, rhs_19(D)->D.4160.str
+	test	rcx, rcx	# _10
+	je	.L648	#,
+# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
+	.loc 20 166 14 discriminator 3
+	mov	ecx, 1	# iftmp.58_14,
+# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
+	.loc 20 166 14
+	jmp	.L649	#
+.L648:
+# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
+	.loc 20 166 14 discriminator 4
+	mov	ecx, 0	# iftmp.58_14,
+.L649:
+# compiler/binary/eval.h:166: 	STR: return VALUE( I64, i64, lhs->str && rhs->str );
+	.loc 20 166 14 discriminator 6
+	movsx	rcx, ecx	# _11, iftmp.58_14
+	mov	rdi, rax	# tmp126, D.5955
+	movabs	rsi, -4294967296	# tmp128,
+	and	rsi, rdi	# tmp127, tmp126
+	mov	rax, rsi	# D.5955, tmp127
+	mov	rdx, rcx	# D.5955, _11
+.L641:
+# compiler/binary/eval.h:167: }
+	.loc 20 167 1 is_stmt 1
+	mov	rsi, rax	# tmp130, D.5955
+	mov	rdi, rdx	#, D.5955
+	mov	rcx, rax	# tmp131, D.5955
+	mov	rbx, rdx	#, D.5955
+	mov	eax, esi	# <retval>, tmp130
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:205: }
-	.loc 19 205 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE144:
-	.size	EvalDivEq, .-EvalDivEq
-	.type	EvalModEq, @function
-EvalModEq:
+	.size	EvalAnd, .-EvalAnd
+	.type	EvalOr, @function
+EvalOr:
 .LFB145:
-	.loc 19 208 1
+	.loc 20 170 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -9968,40 +10505,161 @@ EvalModEq:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 	push	rbx	#
-	sub	rsp, 24	#,
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:209: 	return EvalMod( lhs, rhs );
-	.loc 19 209 9
-	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
-	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
-	mov	rsi, rdx	#, tmp85
-	mov	rdi, rax	#, tmp86
-	call	EvalMod	#
-	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5916, tmp88
-# compiler/binary/eval.h:209: 	return EvalMod( lhs, rhs );
-	.loc 19 209 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5916
-	mov	rdi, rdx	#, D.5916
-	mov	rcx, rax	# tmp91, D.5916
-	mov	rbx, rdx	#, D.5916
-	mov	eax, esi	# <retval>, tmp90
+# compiler/binary/eval.h:172: 	goto *ops[ lhs->type ];
+	.loc 20 172 16
+	mov	rcx, QWORD PTR -24[rbp]	# tmp102, lhs
+	mov	ecx, DWORD PTR [rcx]	# _1, lhs_17(D)->type
+# compiler/binary/eval.h:172: 	goto *ops[ lhs->type ];
+	.loc 20 172 11
+	mov	ecx, ecx	# tmp103, _1
+	lea	rsi, 0[0+rcx*8]	# tmp104,
+	lea	rcx, ops.4[rip]	# tmp105,
+	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
+# compiler/binary/eval.h:172: 	goto *ops[ lhs->type ];
+	.loc 20 172 2
+	nop	
+	jmp	rcx	# _2
+.L655:
+	endbr64	
+# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
+	.loc 20 173 14
+	mov	rcx, QWORD PTR -24[rbp]	# tmp106, lhs
+	mov	rcx, QWORD PTR 8[rcx]	# _3, lhs_17(D)->D.4160.i64
+	test	rcx, rcx	# _3
+	jne	.L656	#,
+# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
+	.loc 20 173 14 is_stmt 0 discriminator 2
+	mov	rcx, QWORD PTR -32[rbp]	# tmp107, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _4, rhs_19(D)->D.4160.i64
+	test	rcx, rcx	# _4
+	je	.L658	#,
+.L656:
+# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
+	.loc 20 173 14 discriminator 3
+	mov	ecx, 1	# iftmp.60_12,
+# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
+	.loc 20 173 14
+	jmp	.L659	#
+.L658:
+# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
+	.loc 20 173 14 discriminator 4
+	mov	ecx, 0	# iftmp.60_12,
+.L659:
+# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
+	.loc 20 173 14 discriminator 6
+	movsx	rcx, ecx	# _5, iftmp.60_12
+	mov	rdi, rax	# tmp109, D.5975
+	movabs	rsi, -4294967296	# tmp111,
+	and	rsi, rdi	# tmp110, tmp109
+	mov	rax, rsi	# D.5975, tmp110
+	mov	rdx, rcx	# D.5975, _5
+# compiler/binary/eval.h:173: 	I64: return VALUE( I64, i64, lhs->i64 || rhs->i64 );
+	.loc 20 173 14
+	jmp	.L660	#
+.L661:
+	endbr64	
+# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
+	.loc 20 174 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp112, lhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _6, lhs_17(D)->D.4160.f64
+	pxor	xmm1, xmm1	# tmp113
+	ucomisd	xmm0, xmm1	# _6, tmp113
+	jp	.L662	#,
+	pxor	xmm1, xmm1	# tmp114
+	ucomisd	xmm0, xmm1	# _6, tmp114
+	jne	.L662	#,
+# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
+	.loc 20 174 14 is_stmt 0 discriminator 2
+	mov	rcx, QWORD PTR -32[rbp]	# tmp115, rhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _7, rhs_19(D)->D.4160.f64
+	pxor	xmm1, xmm1	# tmp116
+	ucomisd	xmm0, xmm1	# _7, tmp116
+	jp	.L662	#,
+	pxor	xmm1, xmm1	# tmp117
+	ucomisd	xmm0, xmm1	# _7, tmp117
+	je	.L664	#,
+.L662:
+# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
+	.loc 20 174 14 discriminator 3
+	mov	ecx, 1	# iftmp.61_13,
+# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
+	.loc 20 174 14
+	jmp	.L666	#
+.L664:
+# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
+	.loc 20 174 14 discriminator 4
+	mov	ecx, 0	# iftmp.61_13,
+.L666:
+# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
+	.loc 20 174 14 discriminator 6
+	pxor	xmm0, xmm0	# _8
+	cvtsi2sd	xmm0, ecx	# _8, iftmp.61_13
+	mov	rsi, rax	# tmp119, D.5975
+	movabs	rcx, -4294967296	# tmp121,
+	and	rcx, rsi	# tmp120, tmp119
+	or	rcx, 1	# tmp122,
+	mov	rax, rcx	# D.5975, tmp122
+	movq	rdx, xmm0	# D.5975, _8
+# compiler/binary/eval.h:174: 	F64: return VALUE( F64, f64, lhs->f64 || rhs->f64 );
+	.loc 20 174 14
+	jmp	.L660	#
+.L667:
+	endbr64	
+# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
+	.loc 20 175 14 is_stmt 1
+	mov	rcx, QWORD PTR -24[rbp]	# tmp123, lhs
+	mov	rcx, QWORD PTR 8[rcx]	# _9, lhs_17(D)->D.4160.str
+	test	rcx, rcx	# _9
+	jne	.L668	#,
+# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
+	.loc 20 175 14 is_stmt 0 discriminator 2
+	mov	rcx, QWORD PTR -32[rbp]	# tmp124, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _10, rhs_19(D)->D.4160.str
+	test	rcx, rcx	# _10
+	je	.L669	#,
+.L668:
+# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
+	.loc 20 175 14 discriminator 3
+	mov	ecx, 1	# iftmp.62_14,
+# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
+	.loc 20 175 14
+	jmp	.L670	#
+.L669:
+# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
+	.loc 20 175 14 discriminator 4
+	mov	ecx, 0	# iftmp.62_14,
+.L670:
+# compiler/binary/eval.h:175: 	STR: return VALUE( I64, i64, lhs->str || rhs->str );
+	.loc 20 175 14 discriminator 6
+	movsx	rcx, ecx	# _11, iftmp.62_14
+	mov	rdi, rax	# tmp126, D.5975
+	movabs	rsi, -4294967296	# tmp128,
+	and	rsi, rdi	# tmp127, tmp126
+	mov	rax, rsi	# D.5975, tmp127
+	mov	rdx, rcx	# D.5975, _11
+.L660:
+# compiler/binary/eval.h:176: }
+	.loc 20 176 1 is_stmt 1
+	mov	rsi, rax	# tmp130, D.5975
+	mov	rdi, rdx	#, D.5975
+	mov	rcx, rax	# tmp131, D.5975
+	mov	rbx, rdx	#, D.5975
+	mov	eax, esi	# <retval>, tmp130
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:210: }
-	.loc 19 210 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE145:
-	.size	EvalModEq, .-EvalModEq
-	.type	EvalPowEq, @function
-EvalPowEq:
+	.size	EvalOr, .-EvalOr
+	.type	EvalMov, @function
+EvalMov:
 .LFB146:
-	.loc 19 213 1
+	.loc 20 179 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -10009,40 +10667,80 @@ EvalPowEq:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 	push	rbx	#
-	sub	rsp, 24	#,
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:214: 	return EvalPow( lhs, rhs );
-	.loc 19 214 9
-	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
-	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
-	mov	rsi, rdx	#, tmp85
-	mov	rdi, rax	#, tmp86
-	call	EvalPow	#
-	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5918, tmp88
-# compiler/binary/eval.h:214: 	return EvalPow( lhs, rhs );
-	.loc 19 214 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5918
-	mov	rdi, rdx	#, D.5918
-	mov	rcx, rax	# tmp91, D.5918
-	mov	rbx, rdx	#, D.5918
-	mov	eax, esi	# <retval>, tmp90
+# compiler/binary/eval.h:181: 	goto *ops[ lhs->type ];
+	.loc 20 181 16
+	mov	rcx, QWORD PTR -24[rbp]	# tmp93, lhs
+	mov	ecx, DWORD PTR [rcx]	# _1, lhs_8(D)->type
+# compiler/binary/eval.h:181: 	goto *ops[ lhs->type ];
+	.loc 20 181 11
+	mov	ecx, ecx	# tmp94, _1
+	lea	rsi, 0[0+rcx*8]	# tmp95,
+	lea	rcx, ops.3[rip]	# tmp96,
+	mov	rcx, QWORD PTR [rsi+rcx]	# _2, ops[_1]
+# compiler/binary/eval.h:181: 	goto *ops[ lhs->type ];
+	.loc 20 181 2
+	nop	
+	jmp	rcx	# _2
+.L675:
+	endbr64	
+# compiler/binary/eval.h:182: 	I64: return VALUE( I64, i64, rhs->i64 );
+	.loc 20 182 14
+	mov	rcx, QWORD PTR -32[rbp]	# tmp97, rhs
+	mov	rcx, QWORD PTR 8[rcx]	# _3, rhs_10(D)->D.4160.i64
+	mov	rdi, rax	# tmp99, D.5995
+	movabs	rsi, -4294967296	# tmp101,
+	and	rsi, rdi	# tmp100, tmp99
+	mov	rax, rsi	# D.5995, tmp100
+	mov	rdx, rcx	# D.5995, _3
+	jmp	.L676	#
+.L677:
+	endbr64	
+# compiler/binary/eval.h:183: 	F64: return VALUE( F64, f64, rhs->f64 );
+	.loc 20 183 14
+	mov	rcx, QWORD PTR -32[rbp]	# tmp102, rhs
+	movsd	xmm0, QWORD PTR 8[rcx]	# _4, rhs_10(D)->D.4160.f64
+	mov	rsi, rax	# tmp104, D.5995
+	movabs	rcx, -4294967296	# tmp106,
+	and	rcx, rsi	# tmp105, tmp104
+	or	rcx, 1	# tmp107,
+	mov	rax, rcx	# D.5995, tmp107
+	movq	rdx, xmm0	# D.5995, _4
+	jmp	.L676	#
+.L678:
+	endbr64	
+# compiler/binary/eval.h:184: 	STR: return VALUE( STR, str, rhs->str );
+	.loc 20 184 14
+	mov	rcx, QWORD PTR -32[rbp]	# tmp108, rhs
+	mov	rsi, QWORD PTR 8[rcx]	# _5, rhs_10(D)->D.4160.str
+	mov	rdi, rax	# tmp110, D.5995
+	movabs	rcx, -4294967296	# tmp112,
+	and	rcx, rdi	# tmp111, tmp110
+	or	rcx, 2	# tmp113,
+	mov	rax, rcx	# D.5995, tmp113
+	mov	rdx, rsi	# D.5995, _5
+.L676:
+# compiler/binary/eval.h:185: }
+	.loc 20 185 1
+	mov	rsi, rax	# tmp115, D.5995
+	mov	rdi, rdx	#, D.5995
+	mov	rcx, rax	# tmp116, D.5995
+	mov	rbx, rdx	#, D.5995
+	mov	eax, esi	# <retval>, tmp115
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:215: }
-	.loc 19 215 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE146:
-	.size	EvalPowEq, .-EvalPowEq
-	.type	EvalBandEq, @function
-EvalBandEq:
+	.size	EvalMov, .-EvalMov
+	.type	EvalAddEq, @function
+EvalAddEq:
 .LFB147:
-	.loc 19 218 1
+	.loc 20 188 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -10054,36 +10752,36 @@ EvalBandEq:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:219: 	return EvalBand( lhs, rhs );
-	.loc 19 219 9
+# compiler/binary/eval.h:189: 	return EvalAdd( lhs, rhs );
+	.loc 20 189 9
 	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
 	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
 	mov	rsi, rdx	#, tmp85
 	mov	rdi, rax	#, tmp86
-	call	EvalBand	#
+	call	EvalAdd	#
 	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5920, tmp88
-# compiler/binary/eval.h:219: 	return EvalBand( lhs, rhs );
-	.loc 19 219 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5920
-	mov	rdi, rdx	#, D.5920
-	mov	rcx, rax	# tmp91, D.5920
-	mov	rbx, rdx	#, D.5920
+	mov	rdx, rcx	# D.6000, tmp88
+# compiler/binary/eval.h:189: 	return EvalAdd( lhs, rhs );
+	.loc 20 189 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6000
+	mov	rdi, rdx	#, D.6000
+	mov	rcx, rax	# tmp91, D.6000
+	mov	rbx, rdx	#, D.6000
 	mov	eax, esi	# <retval>, tmp90
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:220: }
-	.loc 19 220 1 is_stmt 1
+# compiler/binary/eval.h:190: }
+	.loc 20 190 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE147:
-	.size	EvalBandEq, .-EvalBandEq
-	.type	EvalBorEq, @function
-EvalBorEq:
+	.size	EvalAddEq, .-EvalAddEq
+	.type	EvalSubEq, @function
+EvalSubEq:
 .LFB148:
-	.loc 19 223 1
+	.loc 20 193 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -10095,36 +10793,36 @@ EvalBorEq:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:224: 	return EvalBor( lhs, rhs );
-	.loc 19 224 9
+# compiler/binary/eval.h:194: 	return EvalSub( lhs, rhs );
+	.loc 20 194 9
 	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
 	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
 	mov	rsi, rdx	#, tmp85
 	mov	rdi, rax	#, tmp86
-	call	EvalBor	#
+	call	EvalSub	#
 	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5922, tmp88
-# compiler/binary/eval.h:224: 	return EvalBor( lhs, rhs );
-	.loc 19 224 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5922
-	mov	rdi, rdx	#, D.5922
-	mov	rcx, rax	# tmp91, D.5922
-	mov	rbx, rdx	#, D.5922
+	mov	rdx, rcx	# D.6002, tmp88
+# compiler/binary/eval.h:194: 	return EvalSub( lhs, rhs );
+	.loc 20 194 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6002
+	mov	rdi, rdx	#, D.6002
+	mov	rcx, rax	# tmp91, D.6002
+	mov	rbx, rdx	#, D.6002
 	mov	eax, esi	# <retval>, tmp90
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:225: }
-	.loc 19 225 1 is_stmt 1
+# compiler/binary/eval.h:195: }
+	.loc 20 195 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE148:
-	.size	EvalBorEq, .-EvalBorEq
-	.type	EvalBxorEq, @function
-EvalBxorEq:
+	.size	EvalSubEq, .-EvalSubEq
+	.type	EvalMulEq, @function
+EvalMulEq:
 .LFB149:
-	.loc 19 228 1
+	.loc 20 198 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -10136,36 +10834,36 @@ EvalBxorEq:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:229: 	return EvalBxor( lhs, rhs );
-	.loc 19 229 9
+# compiler/binary/eval.h:199: 	return EvalMul( lhs, rhs );
+	.loc 20 199 9
 	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
 	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
 	mov	rsi, rdx	#, tmp85
 	mov	rdi, rax	#, tmp86
-	call	EvalBxor	#
+	call	EvalMul	#
 	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5924, tmp88
-# compiler/binary/eval.h:229: 	return EvalBxor( lhs, rhs );
-	.loc 19 229 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5924
-	mov	rdi, rdx	#, D.5924
-	mov	rcx, rax	# tmp91, D.5924
-	mov	rbx, rdx	#, D.5924
+	mov	rdx, rcx	# D.6004, tmp88
+# compiler/binary/eval.h:199: 	return EvalMul( lhs, rhs );
+	.loc 20 199 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6004
+	mov	rdi, rdx	#, D.6004
+	mov	rcx, rax	# tmp91, D.6004
+	mov	rbx, rdx	#, D.6004
 	mov	eax, esi	# <retval>, tmp90
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:230: }
-	.loc 19 230 1 is_stmt 1
+# compiler/binary/eval.h:200: }
+	.loc 20 200 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE149:
-	.size	EvalBxorEq, .-EvalBxorEq
-	.type	EvalLshEq, @function
-EvalLshEq:
+	.size	EvalMulEq, .-EvalMulEq
+	.type	EvalDivEq, @function
+EvalDivEq:
 .LFB150:
-	.loc 19 233 1
+	.loc 20 203 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -10177,36 +10875,282 @@ EvalLshEq:
 	.cfi_offset 3, -24
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
-# compiler/binary/eval.h:234: 	return EvalLsh( lhs, rhs );
-	.loc 19 234 9
+# compiler/binary/eval.h:204: 	return EvalDiv( lhs, rhs );
+	.loc 20 204 9
 	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
 	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
 	mov	rsi, rdx	#, tmp85
 	mov	rdi, rax	#, tmp86
-	call	EvalLsh	#
+	call	EvalDiv	#
 	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5926, tmp88
-# compiler/binary/eval.h:234: 	return EvalLsh( lhs, rhs );
-	.loc 19 234 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5926
-	mov	rdi, rdx	#, D.5926
-	mov	rcx, rax	# tmp91, D.5926
-	mov	rbx, rdx	#, D.5926
+	mov	rdx, rcx	# D.6006, tmp88
+# compiler/binary/eval.h:204: 	return EvalDiv( lhs, rhs );
+	.loc 20 204 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6006
+	mov	rdi, rdx	#, D.6006
+	mov	rcx, rax	# tmp91, D.6006
+	mov	rbx, rdx	#, D.6006
 	mov	eax, esi	# <retval>, tmp90
 	mov	rdx, rbx	# <retval>,
-# compiler/binary/eval.h:235: }
-	.loc 19 235 1 is_stmt 1
+# compiler/binary/eval.h:205: }
+	.loc 20 205 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
 .LFE150:
+	.size	EvalDivEq, .-EvalDivEq
+	.type	EvalModEq, @function
+EvalModEq:
+.LFB151:
+	.loc 20 208 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	sub	rsp, 24	#,
+	.cfi_offset 3, -24
+	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
+	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
+# compiler/binary/eval.h:209: 	return EvalMod( lhs, rhs );
+	.loc 20 209 9
+	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
+	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
+	mov	rsi, rdx	#, tmp85
+	mov	rdi, rax	#, tmp86
+	call	EvalMod	#
+	mov	rcx, rdx	# tmp88,
+	mov	rdx, rcx	# D.6008, tmp88
+# compiler/binary/eval.h:209: 	return EvalMod( lhs, rhs );
+	.loc 20 209 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6008
+	mov	rdi, rdx	#, D.6008
+	mov	rcx, rax	# tmp91, D.6008
+	mov	rbx, rdx	#, D.6008
+	mov	eax, esi	# <retval>, tmp90
+	mov	rdx, rbx	# <retval>,
+# compiler/binary/eval.h:210: }
+	.loc 20 210 1 is_stmt 1
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE151:
+	.size	EvalModEq, .-EvalModEq
+	.type	EvalPowEq, @function
+EvalPowEq:
+.LFB152:
+	.loc 20 213 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	sub	rsp, 24	#,
+	.cfi_offset 3, -24
+	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
+	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
+# compiler/binary/eval.h:214: 	return EvalPow( lhs, rhs );
+	.loc 20 214 9
+	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
+	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
+	mov	rsi, rdx	#, tmp85
+	mov	rdi, rax	#, tmp86
+	call	EvalPow	#
+	mov	rcx, rdx	# tmp88,
+	mov	rdx, rcx	# D.6010, tmp88
+# compiler/binary/eval.h:214: 	return EvalPow( lhs, rhs );
+	.loc 20 214 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6010
+	mov	rdi, rdx	#, D.6010
+	mov	rcx, rax	# tmp91, D.6010
+	mov	rbx, rdx	#, D.6010
+	mov	eax, esi	# <retval>, tmp90
+	mov	rdx, rbx	# <retval>,
+# compiler/binary/eval.h:215: }
+	.loc 20 215 1 is_stmt 1
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE152:
+	.size	EvalPowEq, .-EvalPowEq
+	.type	EvalBandEq, @function
+EvalBandEq:
+.LFB153:
+	.loc 20 218 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	sub	rsp, 24	#,
+	.cfi_offset 3, -24
+	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
+	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
+# compiler/binary/eval.h:219: 	return EvalBand( lhs, rhs );
+	.loc 20 219 9
+	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
+	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
+	mov	rsi, rdx	#, tmp85
+	mov	rdi, rax	#, tmp86
+	call	EvalBand	#
+	mov	rcx, rdx	# tmp88,
+	mov	rdx, rcx	# D.6012, tmp88
+# compiler/binary/eval.h:219: 	return EvalBand( lhs, rhs );
+	.loc 20 219 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6012
+	mov	rdi, rdx	#, D.6012
+	mov	rcx, rax	# tmp91, D.6012
+	mov	rbx, rdx	#, D.6012
+	mov	eax, esi	# <retval>, tmp90
+	mov	rdx, rbx	# <retval>,
+# compiler/binary/eval.h:220: }
+	.loc 20 220 1 is_stmt 1
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE153:
+	.size	EvalBandEq, .-EvalBandEq
+	.type	EvalBorEq, @function
+EvalBorEq:
+.LFB154:
+	.loc 20 223 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	sub	rsp, 24	#,
+	.cfi_offset 3, -24
+	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
+	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
+# compiler/binary/eval.h:224: 	return EvalBor( lhs, rhs );
+	.loc 20 224 9
+	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
+	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
+	mov	rsi, rdx	#, tmp85
+	mov	rdi, rax	#, tmp86
+	call	EvalBor	#
+	mov	rcx, rdx	# tmp88,
+	mov	rdx, rcx	# D.6014, tmp88
+# compiler/binary/eval.h:224: 	return EvalBor( lhs, rhs );
+	.loc 20 224 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6014
+	mov	rdi, rdx	#, D.6014
+	mov	rcx, rax	# tmp91, D.6014
+	mov	rbx, rdx	#, D.6014
+	mov	eax, esi	# <retval>, tmp90
+	mov	rdx, rbx	# <retval>,
+# compiler/binary/eval.h:225: }
+	.loc 20 225 1 is_stmt 1
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE154:
+	.size	EvalBorEq, .-EvalBorEq
+	.type	EvalBxorEq, @function
+EvalBxorEq:
+.LFB155:
+	.loc 20 228 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	sub	rsp, 24	#,
+	.cfi_offset 3, -24
+	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
+	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
+# compiler/binary/eval.h:229: 	return EvalBxor( lhs, rhs );
+	.loc 20 229 9
+	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
+	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
+	mov	rsi, rdx	#, tmp85
+	mov	rdi, rax	#, tmp86
+	call	EvalBxor	#
+	mov	rcx, rdx	# tmp88,
+	mov	rdx, rcx	# D.6016, tmp88
+# compiler/binary/eval.h:229: 	return EvalBxor( lhs, rhs );
+	.loc 20 229 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6016
+	mov	rdi, rdx	#, D.6016
+	mov	rcx, rax	# tmp91, D.6016
+	mov	rbx, rdx	#, D.6016
+	mov	eax, esi	# <retval>, tmp90
+	mov	rdx, rbx	# <retval>,
+# compiler/binary/eval.h:230: }
+	.loc 20 230 1 is_stmt 1
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE155:
+	.size	EvalBxorEq, .-EvalBxorEq
+	.type	EvalLshEq, @function
+EvalLshEq:
+.LFB156:
+	.loc 20 233 1
+	.cfi_startproc
+	push	rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp	#,
+	.cfi_def_cfa_register 6
+	push	rbx	#
+	sub	rsp, 24	#,
+	.cfi_offset 3, -24
+	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
+	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
+# compiler/binary/eval.h:234: 	return EvalLsh( lhs, rhs );
+	.loc 20 234 9
+	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
+	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
+	mov	rsi, rdx	#, tmp85
+	mov	rdi, rax	#, tmp86
+	call	EvalLsh	#
+	mov	rcx, rdx	# tmp88,
+	mov	rdx, rcx	# D.6018, tmp88
+# compiler/binary/eval.h:234: 	return EvalLsh( lhs, rhs );
+	.loc 20 234 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6018
+	mov	rdi, rdx	#, D.6018
+	mov	rcx, rax	# tmp91, D.6018
+	mov	rbx, rdx	#, D.6018
+	mov	eax, esi	# <retval>, tmp90
+	mov	rdx, rbx	# <retval>,
+# compiler/binary/eval.h:235: }
+	.loc 20 235 1 is_stmt 1
+	mov	rbx, QWORD PTR -8[rbp]	#,
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE156:
 	.size	EvalLshEq, .-EvalLshEq
 	.type	EvalRshEq, @function
 EvalRshEq:
-.LFB151:
-	.loc 19 238 1
+.LFB157:
+	.loc 20 238 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -10219,37 +11163,37 @@ EvalRshEq:
 	mov	QWORD PTR -24[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -32[rbp], rsi	# rhs, rhs
 # compiler/binary/eval.h:239: 	return EvalRsh( lhs, rhs );
-	.loc 19 239 9
+	.loc 20 239 9
 	mov	rdx, QWORD PTR -32[rbp]	# tmp85, rhs
 	mov	rax, QWORD PTR -24[rbp]	# tmp86, lhs
 	mov	rsi, rdx	#, tmp85
 	mov	rdi, rax	#, tmp86
 	call	EvalRsh	#
 	mov	rcx, rdx	# tmp88,
-	mov	rdx, rcx	# D.5928, tmp88
+	mov	rdx, rcx	# D.6020, tmp88
 # compiler/binary/eval.h:239: 	return EvalRsh( lhs, rhs );
-	.loc 19 239 9 is_stmt 0 discriminator 1
-	mov	rsi, rax	# tmp90, D.5928
-	mov	rdi, rdx	#, D.5928
-	mov	rcx, rax	# tmp91, D.5928
-	mov	rbx, rdx	#, D.5928
+	.loc 20 239 9 is_stmt 0 discriminator 1
+	mov	rsi, rax	# tmp90, D.6020
+	mov	rdi, rdx	#, D.6020
+	mov	rcx, rax	# tmp91, D.6020
+	mov	rbx, rdx	#, D.6020
 	mov	eax, esi	# <retval>, tmp90
 	mov	rdx, rbx	# <retval>,
 # compiler/binary/eval.h:240: }
-	.loc 19 240 1 is_stmt 1
+	.loc 20 240 1 is_stmt 1
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE151:
+.LFE157:
 	.size	EvalRshEq, .-EvalRshEq
 	.globl	BinPromote
 	.type	BinPromote, @function
 BinPromote:
-.LFB152:
-	.file 20 "compiler/binary/binary.h"
-	.loc 20 2 1
+.LFB158:
+	.file 21 "compiler/binary/binary.h"
+	.loc 21 2 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -10260,15 +11204,15 @@ BinPromote:
 	mov	QWORD PTR -8[rbp], rdi	# lhs, lhs
 	mov	QWORD PTR -16[rbp], rsi	# rhs, rhs
 # compiler/binary/binary.h:4: 	return types[ lhs->value.type ][ rhs->value.type ];
-	.loc 20 4 26
+	.loc 21 4 26
 	mov	rax, QWORD PTR -8[rbp]	# tmp86, lhs
 	mov	edx, DWORD PTR 8[rax]	# _1, lhs_4(D)->value.type
 # compiler/binary/binary.h:4: 	return types[ lhs->value.type ][ rhs->value.type ];
-	.loc 20 4 45
+	.loc 21 4 45
 	mov	rax, QWORD PTR -16[rbp]	# tmp87, rhs
 	mov	eax, DWORD PTR 8[rax]	# _2, rhs_5(D)->value.type
 # compiler/binary/binary.h:4: 	return types[ lhs->value.type ][ rhs->value.type ];
-	.loc 20 4 33
+	.loc 21 4 33
 	mov	ecx, eax	# tmp88, _2
 	mov	edx, edx	# tmp89, _1
 	mov	rax, rdx	# tmp90, tmp89
@@ -10276,21 +11220,21 @@ BinPromote:
 	add	rax, rdx	# tmp90, tmp89
 	add	rax, rcx	# tmp91, tmp88
 	lea	rdx, 0[0+rax*4]	# tmp92,
-	lea	rax, types.27[rip]	# tmp93,
+	lea	rax, types.25[rip]	# tmp93,
 	mov	eax, DWORD PTR [rdx+rax]	# _6, types[_1][_2]
 # compiler/binary/binary.h:5: }
-	.loc 20 5 1
+	.loc 21 5 1
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE152:
+.LFE158:
 	.size	BinPromote, .-BinPromote
 	.globl	BinCast
 	.type	BinCast, @function
 BinCast:
-.LFB153:
-	.loc 20 8 1
+.LFB159:
+	.loc 21 8 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -10301,16 +11245,16 @@ BinCast:
 	mov	QWORD PTR -8[rbp], rdi	# node, node
 	mov	DWORD PTR -12[rbp], esi	# common, common
 # compiler/binary/binary.h:10: 	node->value.type = common;
-	.loc 20 10 19
+	.loc 21 10 19
 	mov	rax, QWORD PTR -8[rbp]	# tmp88, node
 	mov	edx, DWORD PTR -12[rbp]	# tmp89, common
 	mov	DWORD PTR 8[rax], edx	# node_9(D)->value.type, tmp89
 # compiler/binary/binary.h:11: 	goto *types[ node->value.type ][ common ];
-	.loc 20 11 26
+	.loc 21 11 26
 	mov	rax, QWORD PTR -8[rbp]	# tmp90, node
 	mov	eax, DWORD PTR 8[rax]	# _1, node_9(D)->value.type
 # compiler/binary/binary.h:11: 	goto *types[ node->value.type ][ common ];
-	.loc 20 11 33
+	.loc 21 11 33
 	mov	edx, DWORD PTR -12[rbp]	# tmp91, common
 	mov	ecx, eax	# tmp92, _1
 	mov	rax, rcx	# tmp93, tmp92
@@ -10318,95 +11262,95 @@ BinCast:
 	add	rax, rcx	# tmp93, tmp92
 	add	rax, rdx	# tmp94, tmp91
 	lea	rdx, 0[0+rax*8]	# tmp95,
-	lea	rax, types.26[rip]	# tmp96,
+	lea	rax, types.24[rip]	# tmp96,
 	mov	rax, QWORD PTR [rdx+rax]	# _2, types[_1][common_10(D)]
 # compiler/binary/binary.h:11: 	goto *types[ node->value.type ][ common ];
-	.loc 20 11 2
+	.loc 21 11 2
 	nop	
 	jmp	rax	# _2
-.L663:
+.L706:
 	endbr64	
 # compiler/binary/cast_labels.h:1: I64_I64: return;
-	.file 21 "compiler/binary/cast_labels.h"
-	.loc 21 1 10
-	jmp	.L661	#
-.L665:
+	.file 22 "compiler/binary/cast_labels.h"
+	.loc 22 1 10
+	jmp	.L704	#
+.L708:
 	endbr64	
 # compiler/binary/cast_labels.h:2: I64_F64: node->value.f64 = ( F64 )node->value.i64; return;
-	.loc 21 2 46
+	.loc 22 2 46
 	mov	rax, QWORD PTR -8[rbp]	# tmp97, node
 	mov	rax, QWORD PTR 16[rax]	# _3, node_9(D)->value.D.4160.i64
 # compiler/binary/cast_labels.h:2: I64_F64: node->value.f64 = ( F64 )node->value.i64; return;
-	.loc 21 2 28
+	.loc 22 2 28
 	pxor	xmm0, xmm0	# _4
 	cvtsi2sd	xmm0, rax	# _4, _3
 # compiler/binary/cast_labels.h:2: I64_F64: node->value.f64 = ( F64 )node->value.i64; return;
-	.loc 21 2 26
+	.loc 22 2 26
 	mov	rax, QWORD PTR -8[rbp]	# tmp98, node
 	movsd	QWORD PTR 16[rax], xmm0	# node_9(D)->value.D.4160.f64, _4
 # compiler/binary/cast_labels.h:2: I64_F64: node->value.f64 = ( F64 )node->value.i64; return;
-	.loc 21 2 52
-	jmp	.L661	#
-.L666:
+	.loc 22 2 52
+	jmp	.L704	#
+.L709:
 	endbr64	
 # compiler/binary/cast_labels.h:3: I64_STR: return;
-	.loc 21 3 10
-	jmp	.L661	#
-.L667:
+	.loc 22 3 10
+	jmp	.L704	#
+.L710:
 	endbr64	
 # compiler/binary/cast_labels.h:5: F64_I64: node->value.i64 = ( I64 )node->value.f64; return;
-	.loc 21 5 46
+	.loc 22 5 46
 	mov	rax, QWORD PTR -8[rbp]	# tmp99, node
 	movsd	xmm0, QWORD PTR 16[rax]	# _5, node_9(D)->value.D.4160.f64
 # compiler/binary/cast_labels.h:5: F64_I64: node->value.i64 = ( I64 )node->value.f64; return;
-	.loc 21 5 28
+	.loc 22 5 28
 	cvttsd2si	rdx, xmm0	# _6, _5
 # compiler/binary/cast_labels.h:5: F64_I64: node->value.i64 = ( I64 )node->value.f64; return;
-	.loc 21 5 26
+	.loc 22 5 26
 	mov	rax, QWORD PTR -8[rbp]	# tmp100, node
 	mov	QWORD PTR 16[rax], rdx	# node_9(D)->value.D.4160.i64, _6
 # compiler/binary/cast_labels.h:5: F64_I64: node->value.i64 = ( I64 )node->value.f64; return;
-	.loc 21 5 52
-	jmp	.L661	#
-.L668:
+	.loc 22 5 52
+	jmp	.L704	#
+.L711:
 	endbr64	
 # compiler/binary/cast_labels.h:6: F64_F64: return;
-	.loc 21 6 10
-	jmp	.L661	#
-.L669:
+	.loc 22 6 10
+	jmp	.L704	#
+.L712:
 	endbr64	
 # compiler/binary/cast_labels.h:7: F64_STR: return;
-	.loc 21 7 10
-	jmp	.L661	#
-.L670:
+	.loc 22 7 10
+	jmp	.L704	#
+.L713:
 	endbr64	
 # compiler/binary/cast_labels.h:9: STR_I64: return;
-	.loc 21 9 10
-	jmp	.L661	#
-.L671:
+	.loc 22 9 10
+	jmp	.L704	#
+.L714:
 	endbr64	
 # compiler/binary/cast_labels.h:10: STR_F64: return;
-	.loc 21 10 10
-	jmp	.L661	#
-.L672:
+	.loc 22 10 10
+	jmp	.L704	#
+.L715:
 	endbr64	
 # compiler/binary/cast_labels.h:11: STR_STR: return;
-	.loc 21 11 10
+	.loc 22 11 10
 	nop	
-.L661:
+.L704:
 # compiler/binary/binary.h:13: }
-	.loc 20 13 1
+	.loc 21 13 1
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE153:
+.LFE159:
 	.size	BinCast, .-BinCast
 	.globl	BinFold
 	.type	BinFold, @function
 BinFold:
-.LFB154:
-	.loc 20 16 1
+.LFB160:
+	.loc 21 16 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -10421,20 +11365,20 @@ BinFold:
 	mov	DWORD PTR -28[rbp], esi	# op, op
 	mov	QWORD PTR -40[rbp], rdx	# rhs, rhs
 # compiler/binary/binary.h:18: 	goto *ops[ op ];
-	.loc 20 18 11
+	.loc 21 18 11
 	mov	eax, DWORD PTR -28[rbp]	# tmp150, op
 	lea	rdx, 0[0+rax*8]	# tmp151,
-	lea	rax, ops.25[rip]	# tmp152,
+	lea	rax, ops.23[rip]	# tmp152,
 	mov	rax, QWORD PTR [rdx+rax]	# _1, ops[op_68(D)]
 # compiler/binary/binary.h:18: 	goto *ops[ op ];
-	.loc 20 18 2
+	.loc 21 18 2
 	nop	
 	jmp	rax	# _1
-.L675:
+.L718:
 	endbr64	
 # compiler/binary/fold_labels.h:1: ERR: return EvalBinErr( &lhs->value, op, &rhs->value );
-	.file 22 "compiler/binary/fold_labels.h"
-	.loc 22 1 13
+	.file 23 "compiler/binary/fold_labels.h"
+	.loc 23 1 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp153, rhs
 	lea	rdx, 8[rax]	# _2,
 	mov	rax, QWORD PTR -24[rbp]	# tmp154, lhs
@@ -10444,12 +11388,12 @@ BinFold:
 	mov	rdi, rcx	#, _3
 	call	EvalBinErr	#
 	mov	rcx, rdx	# tmp157,
-	mov	rdx, rcx	# D.5747, tmp157
-	jmp	.L676	#
-.L677:
+	mov	rdx, rcx	# D.5839, tmp157
+	jmp	.L719	#
+.L720:
 	endbr64	
 # compiler/binary/fold_labels.h:2: ADD: return EvalAdd( &lhs->value, &rhs->value );
-	.loc 22 2 13
+	.loc 23 2 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp158, rhs
 	lea	rdx, 8[rax]	# _4,
 	mov	rax, QWORD PTR -24[rbp]	# tmp159, lhs
@@ -10458,12 +11402,12 @@ BinFold:
 	mov	rdi, rax	#, _5
 	call	EvalAdd	#
 	mov	rcx, rdx	# tmp161,
-	mov	rdx, rcx	# D.5747, tmp161
-	jmp	.L676	#
-.L678:
+	mov	rdx, rcx	# D.5839, tmp161
+	jmp	.L719	#
+.L721:
 	endbr64	
 # compiler/binary/fold_labels.h:3: SUB: return EvalSub( &lhs->value, &rhs->value );
-	.loc 22 3 13
+	.loc 23 3 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp162, rhs
 	lea	rdx, 8[rax]	# _6,
 	mov	rax, QWORD PTR -24[rbp]	# tmp163, lhs
@@ -10472,12 +11416,12 @@ BinFold:
 	mov	rdi, rax	#, _7
 	call	EvalSub	#
 	mov	rcx, rdx	# tmp165,
-	mov	rdx, rcx	# D.5747, tmp165
-	jmp	.L676	#
-.L679:
+	mov	rdx, rcx	# D.5839, tmp165
+	jmp	.L719	#
+.L722:
 	endbr64	
 # compiler/binary/fold_labels.h:4: MUL: return EvalMul( &lhs->value, &rhs->value );
-	.loc 22 4 13
+	.loc 23 4 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp166, rhs
 	lea	rdx, 8[rax]	# _8,
 	mov	rax, QWORD PTR -24[rbp]	# tmp167, lhs
@@ -10486,12 +11430,12 @@ BinFold:
 	mov	rdi, rax	#, _9
 	call	EvalMul	#
 	mov	rcx, rdx	# tmp169,
-	mov	rdx, rcx	# D.5747, tmp169
-	jmp	.L676	#
-.L680:
+	mov	rdx, rcx	# D.5839, tmp169
+	jmp	.L719	#
+.L723:
 	endbr64	
 # compiler/binary/fold_labels.h:5: DIV: return EvalDiv( &lhs->value, &rhs->value );
-	.loc 22 5 13
+	.loc 23 5 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp170, rhs
 	lea	rdx, 8[rax]	# _10,
 	mov	rax, QWORD PTR -24[rbp]	# tmp171, lhs
@@ -10500,12 +11444,12 @@ BinFold:
 	mov	rdi, rax	#, _11
 	call	EvalDiv	#
 	mov	rcx, rdx	# tmp173,
-	mov	rdx, rcx	# D.5747, tmp173
-	jmp	.L676	#
-.L681:
+	mov	rdx, rcx	# D.5839, tmp173
+	jmp	.L719	#
+.L724:
 	endbr64	
 # compiler/binary/fold_labels.h:6: MOD: return EvalMod( &lhs->value, &rhs->value );
-	.loc 22 6 13
+	.loc 23 6 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp174, rhs
 	lea	rdx, 8[rax]	# _12,
 	mov	rax, QWORD PTR -24[rbp]	# tmp175, lhs
@@ -10514,12 +11458,12 @@ BinFold:
 	mov	rdi, rax	#, _13
 	call	EvalMod	#
 	mov	rcx, rdx	# tmp177,
-	mov	rdx, rcx	# D.5747, tmp177
-	jmp	.L676	#
-.L682:
+	mov	rdx, rcx	# D.5839, tmp177
+	jmp	.L719	#
+.L725:
 	endbr64	
 # compiler/binary/fold_labels.h:7: POW: return EvalPow( &lhs->value, &rhs->value );
-	.loc 22 7 13
+	.loc 23 7 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp178, rhs
 	lea	rdx, 8[rax]	# _14,
 	mov	rax, QWORD PTR -24[rbp]	# tmp179, lhs
@@ -10528,12 +11472,12 @@ BinFold:
 	mov	rdi, rax	#, _15
 	call	EvalPow	#
 	mov	rcx, rdx	# tmp181,
-	mov	rdx, rcx	# D.5747, tmp181
-	jmp	.L676	#
-.L683:
+	mov	rdx, rcx	# D.5839, tmp181
+	jmp	.L719	#
+.L726:
 	endbr64	
 # compiler/binary/fold_labels.h:8: BAND: return EvalBand( &lhs->value, &rhs->value );
-	.loc 22 8 14
+	.loc 23 8 14
 	mov	rax, QWORD PTR -40[rbp]	# tmp182, rhs
 	lea	rdx, 8[rax]	# _16,
 	mov	rax, QWORD PTR -24[rbp]	# tmp183, lhs
@@ -10542,12 +11486,12 @@ BinFold:
 	mov	rdi, rax	#, _17
 	call	EvalBand	#
 	mov	rcx, rdx	# tmp185,
-	mov	rdx, rcx	# D.5747, tmp185
-	jmp	.L676	#
-.L684:
+	mov	rdx, rcx	# D.5839, tmp185
+	jmp	.L719	#
+.L727:
 	endbr64	
 # compiler/binary/fold_labels.h:9: BOR: return EvalBor( &lhs->value, &rhs->value );
-	.loc 22 9 13
+	.loc 23 9 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp186, rhs
 	lea	rdx, 8[rax]	# _18,
 	mov	rax, QWORD PTR -24[rbp]	# tmp187, lhs
@@ -10556,12 +11500,12 @@ BinFold:
 	mov	rdi, rax	#, _19
 	call	EvalBor	#
 	mov	rcx, rdx	# tmp189,
-	mov	rdx, rcx	# D.5747, tmp189
-	jmp	.L676	#
-.L685:
+	mov	rdx, rcx	# D.5839, tmp189
+	jmp	.L719	#
+.L728:
 	endbr64	
 # compiler/binary/fold_labels.h:10: BXOR: return EvalBxor( &lhs->value, &rhs->value );
-	.loc 22 10 14
+	.loc 23 10 14
 	mov	rax, QWORD PTR -40[rbp]	# tmp190, rhs
 	lea	rdx, 8[rax]	# _20,
 	mov	rax, QWORD PTR -24[rbp]	# tmp191, lhs
@@ -10570,12 +11514,12 @@ BinFold:
 	mov	rdi, rax	#, _21
 	call	EvalBxor	#
 	mov	rcx, rdx	# tmp193,
-	mov	rdx, rcx	# D.5747, tmp193
-	jmp	.L676	#
-.L686:
+	mov	rdx, rcx	# D.5839, tmp193
+	jmp	.L719	#
+.L729:
 	endbr64	
 # compiler/binary/fold_labels.h:11: LSH: return EvalLsh( &lhs->value, &rhs->value );
-	.loc 22 11 13
+	.loc 23 11 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp194, rhs
 	lea	rdx, 8[rax]	# _22,
 	mov	rax, QWORD PTR -24[rbp]	# tmp195, lhs
@@ -10584,12 +11528,12 @@ BinFold:
 	mov	rdi, rax	#, _23
 	call	EvalLsh	#
 	mov	rcx, rdx	# tmp197,
-	mov	rdx, rcx	# D.5747, tmp197
-	jmp	.L676	#
-.L687:
+	mov	rdx, rcx	# D.5839, tmp197
+	jmp	.L719	#
+.L730:
 	endbr64	
 # compiler/binary/fold_labels.h:12: RSH: return EvalRsh( &lhs->value, &rhs->value );
-	.loc 22 12 13
+	.loc 23 12 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp198, rhs
 	lea	rdx, 8[rax]	# _24,
 	mov	rax, QWORD PTR -24[rbp]	# tmp199, lhs
@@ -10598,12 +11542,12 @@ BinFold:
 	mov	rdi, rax	#, _25
 	call	EvalRsh	#
 	mov	rcx, rdx	# tmp201,
-	mov	rdx, rcx	# D.5747, tmp201
-	jmp	.L676	#
-.L688:
+	mov	rdx, rcx	# D.5839, tmp201
+	jmp	.L719	#
+.L731:
 	endbr64	
 # compiler/binary/fold_labels.h:13: EQEQ: return EvalEqEq( &lhs->value, &rhs->value );
-	.loc 22 13 14
+	.loc 23 13 14
 	mov	rax, QWORD PTR -40[rbp]	# tmp202, rhs
 	lea	rdx, 8[rax]	# _26,
 	mov	rax, QWORD PTR -24[rbp]	# tmp203, lhs
@@ -10612,12 +11556,12 @@ BinFold:
 	mov	rdi, rax	#, _27
 	call	EvalEqEq	#
 	mov	rcx, rdx	# tmp205,
-	mov	rdx, rcx	# D.5747, tmp205
-	jmp	.L676	#
-.L689:
+	mov	rdx, rcx	# D.5839, tmp205
+	jmp	.L719	#
+.L732:
 	endbr64	
 # compiler/binary/fold_labels.h:14: NEQ: return EvalNeq( &lhs->value, &rhs->value );
-	.loc 22 14 13
+	.loc 23 14 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp206, rhs
 	lea	rdx, 8[rax]	# _28,
 	mov	rax, QWORD PTR -24[rbp]	# tmp207, lhs
@@ -10626,12 +11570,12 @@ BinFold:
 	mov	rdi, rax	#, _29
 	call	EvalNeq	#
 	mov	rcx, rdx	# tmp209,
-	mov	rdx, rcx	# D.5747, tmp209
-	jmp	.L676	#
-.L690:
+	mov	rdx, rcx	# D.5839, tmp209
+	jmp	.L719	#
+.L733:
 	endbr64	
 # compiler/binary/fold_labels.h:15: LT: return EvalLt( &lhs->value, &rhs->value );
-	.loc 22 15 12
+	.loc 23 15 12
 	mov	rax, QWORD PTR -40[rbp]	# tmp210, rhs
 	lea	rdx, 8[rax]	# _30,
 	mov	rax, QWORD PTR -24[rbp]	# tmp211, lhs
@@ -10640,12 +11584,12 @@ BinFold:
 	mov	rdi, rax	#, _31
 	call	EvalLt	#
 	mov	rcx, rdx	# tmp213,
-	mov	rdx, rcx	# D.5747, tmp213
-	jmp	.L676	#
-.L691:
+	mov	rdx, rcx	# D.5839, tmp213
+	jmp	.L719	#
+.L734:
 	endbr64	
 # compiler/binary/fold_labels.h:16: LE: return EvalLe( &lhs->value, &rhs->value );
-	.loc 22 16 12
+	.loc 23 16 12
 	mov	rax, QWORD PTR -40[rbp]	# tmp214, rhs
 	lea	rdx, 8[rax]	# _32,
 	mov	rax, QWORD PTR -24[rbp]	# tmp215, lhs
@@ -10654,12 +11598,12 @@ BinFold:
 	mov	rdi, rax	#, _33
 	call	EvalLe	#
 	mov	rcx, rdx	# tmp217,
-	mov	rdx, rcx	# D.5747, tmp217
-	jmp	.L676	#
-.L692:
+	mov	rdx, rcx	# D.5839, tmp217
+	jmp	.L719	#
+.L735:
 	endbr64	
 # compiler/binary/fold_labels.h:17: GT: return EvalGt( &lhs->value, &rhs->value );
-	.loc 22 17 12
+	.loc 23 17 12
 	mov	rax, QWORD PTR -40[rbp]	# tmp218, rhs
 	lea	rdx, 8[rax]	# _34,
 	mov	rax, QWORD PTR -24[rbp]	# tmp219, lhs
@@ -10668,12 +11612,12 @@ BinFold:
 	mov	rdi, rax	#, _35
 	call	EvalGt	#
 	mov	rcx, rdx	# tmp221,
-	mov	rdx, rcx	# D.5747, tmp221
-	jmp	.L676	#
-.L693:
+	mov	rdx, rcx	# D.5839, tmp221
+	jmp	.L719	#
+.L736:
 	endbr64	
 # compiler/binary/fold_labels.h:18: GE: return EvalGe( &lhs->value, &rhs->value );
-	.loc 22 18 12
+	.loc 23 18 12
 	mov	rax, QWORD PTR -40[rbp]	# tmp222, rhs
 	lea	rdx, 8[rax]	# _36,
 	mov	rax, QWORD PTR -24[rbp]	# tmp223, lhs
@@ -10682,12 +11626,12 @@ BinFold:
 	mov	rdi, rax	#, _37
 	call	EvalGe	#
 	mov	rcx, rdx	# tmp225,
-	mov	rdx, rcx	# D.5747, tmp225
-	jmp	.L676	#
-.L694:
+	mov	rdx, rcx	# D.5839, tmp225
+	jmp	.L719	#
+.L737:
 	endbr64	
 # compiler/binary/fold_labels.h:19: AND: return EvalAnd( &lhs->value, &rhs->value );
-	.loc 22 19 13
+	.loc 23 19 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp226, rhs
 	lea	rdx, 8[rax]	# _38,
 	mov	rax, QWORD PTR -24[rbp]	# tmp227, lhs
@@ -10696,12 +11640,12 @@ BinFold:
 	mov	rdi, rax	#, _39
 	call	EvalAnd	#
 	mov	rcx, rdx	# tmp229,
-	mov	rdx, rcx	# D.5747, tmp229
-	jmp	.L676	#
-.L695:
+	mov	rdx, rcx	# D.5839, tmp229
+	jmp	.L719	#
+.L738:
 	endbr64	
 # compiler/binary/fold_labels.h:20: OR: return EvalOr( &lhs->value, &rhs->value );
-	.loc 22 20 12
+	.loc 23 20 12
 	mov	rax, QWORD PTR -40[rbp]	# tmp230, rhs
 	lea	rdx, 8[rax]	# _40,
 	mov	rax, QWORD PTR -24[rbp]	# tmp231, lhs
@@ -10710,12 +11654,12 @@ BinFold:
 	mov	rdi, rax	#, _41
 	call	EvalOr	#
 	mov	rcx, rdx	# tmp233,
-	mov	rdx, rcx	# D.5747, tmp233
-	jmp	.L676	#
-.L696:
+	mov	rdx, rcx	# D.5839, tmp233
+	jmp	.L719	#
+.L739:
 	endbr64	
 # compiler/binary/fold_labels.h:21: MOV: return EvalMov( &lhs->value, &rhs->value );
-	.loc 22 21 13
+	.loc 23 21 13
 	mov	rax, QWORD PTR -40[rbp]	# tmp234, rhs
 	lea	rdx, 8[rax]	# _42,
 	mov	rax, QWORD PTR -24[rbp]	# tmp235, lhs
@@ -10724,12 +11668,12 @@ BinFold:
 	mov	rdi, rax	#, _43
 	call	EvalMov	#
 	mov	rcx, rdx	# tmp237,
-	mov	rdx, rcx	# D.5747, tmp237
-	jmp	.L676	#
-.L697:
+	mov	rdx, rcx	# D.5839, tmp237
+	jmp	.L719	#
+.L740:
 	endbr64	
 # compiler/binary/fold_labels.h:22: ADDEQ: return EvalAddEq( &lhs->value, &rhs->value );
-	.loc 22 22 15
+	.loc 23 22 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp238, rhs
 	lea	rdx, 8[rax]	# _44,
 	mov	rax, QWORD PTR -24[rbp]	# tmp239, lhs
@@ -10738,12 +11682,12 @@ BinFold:
 	mov	rdi, rax	#, _45
 	call	EvalAddEq	#
 	mov	rcx, rdx	# tmp241,
-	mov	rdx, rcx	# D.5747, tmp241
-	jmp	.L676	#
-.L698:
+	mov	rdx, rcx	# D.5839, tmp241
+	jmp	.L719	#
+.L741:
 	endbr64	
 # compiler/binary/fold_labels.h:23: SUBEQ: return EvalSubEq( &lhs->value, &rhs->value );
-	.loc 22 23 15
+	.loc 23 23 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp242, rhs
 	lea	rdx, 8[rax]	# _46,
 	mov	rax, QWORD PTR -24[rbp]	# tmp243, lhs
@@ -10752,12 +11696,12 @@ BinFold:
 	mov	rdi, rax	#, _47
 	call	EvalSubEq	#
 	mov	rcx, rdx	# tmp245,
-	mov	rdx, rcx	# D.5747, tmp245
-	jmp	.L676	#
-.L699:
+	mov	rdx, rcx	# D.5839, tmp245
+	jmp	.L719	#
+.L742:
 	endbr64	
 # compiler/binary/fold_labels.h:24: MULEQ: return EvalMulEq( &lhs->value, &rhs->value );
-	.loc 22 24 15
+	.loc 23 24 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp246, rhs
 	lea	rdx, 8[rax]	# _48,
 	mov	rax, QWORD PTR -24[rbp]	# tmp247, lhs
@@ -10766,12 +11710,12 @@ BinFold:
 	mov	rdi, rax	#, _49
 	call	EvalMulEq	#
 	mov	rcx, rdx	# tmp249,
-	mov	rdx, rcx	# D.5747, tmp249
-	jmp	.L676	#
-.L700:
+	mov	rdx, rcx	# D.5839, tmp249
+	jmp	.L719	#
+.L743:
 	endbr64	
 # compiler/binary/fold_labels.h:25: DIVEQ: return EvalDivEq( &lhs->value, &rhs->value );
-	.loc 22 25 15
+	.loc 23 25 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp250, rhs
 	lea	rdx, 8[rax]	# _50,
 	mov	rax, QWORD PTR -24[rbp]	# tmp251, lhs
@@ -10780,12 +11724,12 @@ BinFold:
 	mov	rdi, rax	#, _51
 	call	EvalDivEq	#
 	mov	rcx, rdx	# tmp253,
-	mov	rdx, rcx	# D.5747, tmp253
-	jmp	.L676	#
-.L701:
+	mov	rdx, rcx	# D.5839, tmp253
+	jmp	.L719	#
+.L744:
 	endbr64	
 # compiler/binary/fold_labels.h:26: MODEQ: return EvalModEq( &lhs->value, &rhs->value );
-	.loc 22 26 15
+	.loc 23 26 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp254, rhs
 	lea	rdx, 8[rax]	# _52,
 	mov	rax, QWORD PTR -24[rbp]	# tmp255, lhs
@@ -10794,12 +11738,12 @@ BinFold:
 	mov	rdi, rax	#, _53
 	call	EvalModEq	#
 	mov	rcx, rdx	# tmp257,
-	mov	rdx, rcx	# D.5747, tmp257
-	jmp	.L676	#
-.L702:
+	mov	rdx, rcx	# D.5839, tmp257
+	jmp	.L719	#
+.L745:
 	endbr64	
 # compiler/binary/fold_labels.h:27: POWEQ: return EvalPowEq( &lhs->value, &rhs->value );
-	.loc 22 27 15
+	.loc 23 27 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp258, rhs
 	lea	rdx, 8[rax]	# _54,
 	mov	rax, QWORD PTR -24[rbp]	# tmp259, lhs
@@ -10808,12 +11752,12 @@ BinFold:
 	mov	rdi, rax	#, _55
 	call	EvalPowEq	#
 	mov	rcx, rdx	# tmp261,
-	mov	rdx, rcx	# D.5747, tmp261
-	jmp	.L676	#
-.L703:
+	mov	rdx, rcx	# D.5839, tmp261
+	jmp	.L719	#
+.L746:
 	endbr64	
 # compiler/binary/fold_labels.h:28: BANDEQ: return EvalBandEq( &lhs->value, &rhs->value );
-	.loc 22 28 16
+	.loc 23 28 16
 	mov	rax, QWORD PTR -40[rbp]	# tmp262, rhs
 	lea	rdx, 8[rax]	# _56,
 	mov	rax, QWORD PTR -24[rbp]	# tmp263, lhs
@@ -10822,12 +11766,12 @@ BinFold:
 	mov	rdi, rax	#, _57
 	call	EvalBandEq	#
 	mov	rcx, rdx	# tmp265,
-	mov	rdx, rcx	# D.5747, tmp265
-	jmp	.L676	#
-.L704:
+	mov	rdx, rcx	# D.5839, tmp265
+	jmp	.L719	#
+.L747:
 	endbr64	
 # compiler/binary/fold_labels.h:29: BOREQ: return EvalBorEq( &lhs->value, &rhs->value );
-	.loc 22 29 15
+	.loc 23 29 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp266, rhs
 	lea	rdx, 8[rax]	# _58,
 	mov	rax, QWORD PTR -24[rbp]	# tmp267, lhs
@@ -10836,12 +11780,12 @@ BinFold:
 	mov	rdi, rax	#, _59
 	call	EvalBorEq	#
 	mov	rcx, rdx	# tmp269,
-	mov	rdx, rcx	# D.5747, tmp269
-	jmp	.L676	#
-.L705:
+	mov	rdx, rcx	# D.5839, tmp269
+	jmp	.L719	#
+.L748:
 	endbr64	
 # compiler/binary/fold_labels.h:30: BXOREQ: return EvalBxorEq( &lhs->value, &rhs->value );
-	.loc 22 30 16
+	.loc 23 30 16
 	mov	rax, QWORD PTR -40[rbp]	# tmp270, rhs
 	lea	rdx, 8[rax]	# _60,
 	mov	rax, QWORD PTR -24[rbp]	# tmp271, lhs
@@ -10850,12 +11794,12 @@ BinFold:
 	mov	rdi, rax	#, _61
 	call	EvalBxorEq	#
 	mov	rcx, rdx	# tmp273,
-	mov	rdx, rcx	# D.5747, tmp273
-	jmp	.L676	#
-.L706:
+	mov	rdx, rcx	# D.5839, tmp273
+	jmp	.L719	#
+.L749:
 	endbr64	
 # compiler/binary/fold_labels.h:31: LSHEQ: return EvalLshEq( &lhs->value, &rhs->value );
-	.loc 22 31 15
+	.loc 23 31 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp274, rhs
 	lea	rdx, 8[rax]	# _62,
 	mov	rax, QWORD PTR -24[rbp]	# tmp275, lhs
@@ -10864,12 +11808,12 @@ BinFold:
 	mov	rdi, rax	#, _63
 	call	EvalLshEq	#
 	mov	rcx, rdx	# tmp277,
-	mov	rdx, rcx	# D.5747, tmp277
-	jmp	.L676	#
-.L707:
+	mov	rdx, rcx	# D.5839, tmp277
+	jmp	.L719	#
+.L750:
 	endbr64	
 # compiler/binary/fold_labels.h:32: RSHEQ: return EvalRshEq( &lhs->value, &rhs->value );
-	.loc 22 32 15
+	.loc 23 32 15
 	mov	rax, QWORD PTR -40[rbp]	# tmp278, rhs
 	lea	rdx, 8[rax]	# _64,
 	mov	rax, QWORD PTR -24[rbp]	# tmp279, lhs
@@ -10878,14 +11822,14 @@ BinFold:
 	mov	rdi, rax	#, _65
 	call	EvalRshEq	#
 	mov	rcx, rdx	# tmp281,
-	mov	rdx, rcx	# D.5747, tmp281
-.L676:
+	mov	rdx, rcx	# D.5839, tmp281
+.L719:
 # compiler/binary/binary.h:20: }
-	.loc 20 20 1
-	mov	rsi, rax	# tmp283, D.5747
-	mov	rdi, rdx	#, D.5747
-	mov	rcx, rax	# tmp284, D.5747
-	mov	rbx, rdx	#, D.5747
+	.loc 21 20 1
+	mov	rsi, rax	# tmp283, D.5839
+	mov	rdi, rdx	#, D.5839
+	mov	rcx, rax	# tmp284, D.5839
+	mov	rbx, rdx	#, D.5839
 	mov	eax, esi	# <retval>, tmp283
 	mov	rdx, rbx	# <retval>,
 	mov	rbx, QWORD PTR -8[rbp]	#,
@@ -10893,13 +11837,13 @@ BinFold:
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE154:
+.LFE160:
 	.size	BinFold, .-BinFold
 	.globl	BinConstConst
 	.type	BinConstConst, @function
 BinConstConst:
-.LFB155:
-	.loc 20 23 1
+.LFB161:
+	.loc 21 23 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -10913,19 +11857,19 @@ BinConstConst:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:24: 	ParseNode node = { .type = PT_CONST, .value.type = lhs->value.type };
-	.loc 20 24 12
+	.loc 21 24 12
 	pxor	xmm0, xmm0	# tmp83
 	movaps	XMMWORD PTR -32[rbp], xmm0	# node, tmp83
 	movq	QWORD PTR -16[rbp], xmm0	# node, tmp83
 # compiler/binary/binary.h:24: 	ParseNode node = { .type = PT_CONST, .value.type = lhs->value.type };
-	.loc 20 24 63
+	.loc 21 24 63
 	mov	rax, QWORD PTR -48[rbp]	# tmp84, lhs
 	mov	eax, DWORD PTR 8[rax]	# _1, lhs_4(D)->value.type
 # compiler/binary/binary.h:24: 	ParseNode node = { .type = PT_CONST, .value.type = lhs->value.type };
-	.loc 20 24 12
+	.loc 21 24 12
 	mov	DWORD PTR -24[rbp], eax	# node.value.type, _1
 # compiler/binary/binary.h:25: 	node.value = BinFold( lhs, op, rhs );
-	.loc 20 25 15
+	.loc 21 25 15
 	mov	rdx, QWORD PTR -64[rbp]	# tmp85, rhs
 	mov	ecx, DWORD PTR -52[rbp]	# tmp86, op
 	mov	rax, QWORD PTR -48[rbp]	# tmp87, lhs
@@ -10937,7 +11881,7 @@ BinConstConst:
 	mov	DWORD PTR -24[rbp], ecx	# node.value, tmp88
 	mov	QWORD PTR -16[rbp], rax	# node.value, tmp89
 # compiler/binary/binary.h:26: 	return node;
-	.loc 20 26 9
+	.loc 21 26 9
 	mov	rcx, QWORD PTR -40[rbp]	# tmp90, .result_ptr
 	mov	rax, QWORD PTR -32[rbp]	# tmp91, node
 	mov	rdx, QWORD PTR -24[rbp]	#, node
@@ -10946,19 +11890,19 @@ BinConstConst:
 	mov	rax, QWORD PTR -16[rbp]	# tmp92, node
 	mov	QWORD PTR 16[rcx], rax	# <retval>, tmp92
 # compiler/binary/binary.h:27: }
-	.loc 20 27 1
+	.loc 21 27 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE155:
+.LFE161:
 	.size	BinConstConst, .-BinConstConst
 	.globl	BinConstRef
 	.type	BinConstRef, @function
 BinConstRef:
-.LFB156:
-	.loc 20 30 1
+.LFB162:
+	.loc 21 30 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -10971,25 +11915,25 @@ BinConstRef:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:31: 	return ( ParseNode ){ 0 };
-	.loc 20 31 9
+	.loc 21 31 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/binary/binary.h:32: }
-	.loc 20 32 1
+	.loc 21 32 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE156:
+.LFE162:
 	.size	BinConstRef, .-BinConstRef
 	.globl	BinConstCall
 	.type	BinConstCall, @function
 BinConstCall:
-.LFB157:
-	.loc 20 35 1
+.LFB163:
+	.loc 21 35 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11002,25 +11946,25 @@ BinConstCall:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:36: 	return ( ParseNode ){ 0 };
-	.loc 20 36 9
+	.loc 21 36 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/binary/binary.h:37: }
-	.loc 20 37 1
+	.loc 21 37 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE157:
+.LFE163:
 	.size	BinConstCall, .-BinConstCall
 	.globl	BinRefConst
 	.type	BinRefConst, @function
 BinRefConst:
-.LFB158:
-	.loc 20 40 1
+.LFB164:
+	.loc 21 40 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11033,25 +11977,25 @@ BinRefConst:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:41: 	return ( ParseNode ){ 0 };
-	.loc 20 41 9
+	.loc 21 41 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/binary/binary.h:42: }
-	.loc 20 42 1
+	.loc 21 42 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE158:
+.LFE164:
 	.size	BinRefConst, .-BinRefConst
 	.globl	BinRefRef
 	.type	BinRefRef, @function
 BinRefRef:
-.LFB159:
-	.loc 20 45 1
+.LFB165:
+	.loc 21 45 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11064,25 +12008,25 @@ BinRefRef:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:46: 	return ( ParseNode ){ 0 };
-	.loc 20 46 9
+	.loc 21 46 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/binary/binary.h:47: }
-	.loc 20 47 1
+	.loc 21 47 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE159:
+.LFE165:
 	.size	BinRefRef, .-BinRefRef
 	.globl	BinRefCall
 	.type	BinRefCall, @function
 BinRefCall:
-.LFB160:
-	.loc 20 50 1
+.LFB166:
+	.loc 21 50 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11095,25 +12039,25 @@ BinRefCall:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:51: 	return ( ParseNode ){ 0 };
-	.loc 20 51 9
+	.loc 21 51 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/binary/binary.h:52: }
-	.loc 20 52 1
+	.loc 21 52 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE160:
+.LFE166:
 	.size	BinRefCall, .-BinRefCall
 	.globl	BinCallConst
 	.type	BinCallConst, @function
 BinCallConst:
-.LFB161:
-	.loc 20 55 1
+.LFB167:
+	.loc 21 55 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11126,25 +12070,25 @@ BinCallConst:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:56: 	return ( ParseNode ){ 0 };
-	.loc 20 56 9
+	.loc 21 56 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/binary/binary.h:57: }
-	.loc 20 57 1
+	.loc 21 57 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE161:
+.LFE167:
 	.size	BinCallConst, .-BinCallConst
 	.globl	BinCallRef
 	.type	BinCallRef, @function
 BinCallRef:
-.LFB162:
-	.loc 20 60 1
+.LFB168:
+	.loc 21 60 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11157,25 +12101,25 @@ BinCallRef:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:61: 	return ( ParseNode ){ 0 };
-	.loc 20 61 9
+	.loc 21 61 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/binary/binary.h:62: }
-	.loc 20 62 1
+	.loc 21 62 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE162:
+.LFE168:
 	.size	BinCallRef, .-BinCallRef
 	.globl	BinCallCall
 	.type	BinCallCall, @function
 BinCallCall:
-.LFB163:
-	.loc 20 65 1
+.LFB169:
+	.loc 21 65 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11188,25 +12132,25 @@ BinCallCall:
 	mov	DWORD PTR -52[rbp], edx	# op, op
 	mov	QWORD PTR -64[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:66: 	return ( ParseNode ){ 0 };
-	.loc 20 66 9
+	.loc 21 66 9
 	mov	rax, QWORD PTR -40[rbp]	# tmp82, .result_ptr
 	pxor	xmm0, xmm0	# tmp83
 	movups	XMMWORD PTR [rax], xmm0	# <retval>, tmp83
 	movq	QWORD PTR 16[rax], xmm0	# <retval>, tmp83
 # compiler/binary/binary.h:67: }
-	.loc 20 67 1
+	.loc 21 67 1
 	mov	rax, QWORD PTR -40[rbp]	#, .result_ptr
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE163:
+.LFE169:
 	.size	BinCallCall, .-BinCallCall
 	.globl	CompileBin
 	.type	CompileBin, @function
 CompileBin:
-.LFB164:
-	.loc 20 70 1
+.LFB170:
+	.loc 21 70 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11220,18 +12164,18 @@ CompileBin:
 	mov	DWORD PTR -36[rbp], edx	# token_type, token_type
 	mov	QWORD PTR -48[rbp], rcx	# rhs, rhs
 # compiler/binary/binary.h:70: {
-	.loc 20 70 1
+	.loc 21 70 1
 	mov	rax, QWORD PTR fs:40	# tmp138, MEM[(<address-space-1> long unsigned int *)40B]
-	mov	QWORD PTR -8[rbp], rax	# D.6521, tmp138
+	mov	QWORD PTR -8[rbp], rax	# D.6637, tmp138
 	xor	eax, eax	# tmp138
 # compiler/binary/binary.h:72: 	OpCode op = TkToOp( token_type );
-	.loc 20 72 14
+	.loc 21 72 14
 	mov	eax, DWORD PTR -36[rbp]	# tmp85, token_type
 	mov	edi, eax	#, tmp85
 	call	TkToOp	#
 	mov	DWORD PTR -16[rbp], eax	# op, tmp86
 # compiler/binary/binary.h:73: 	ValueType common = BinPromote( lhs, rhs );
-	.loc 20 73 21
+	.loc 21 73 21
 	mov	rdx, QWORD PTR -48[rbp]	# tmp87, rhs
 	mov	rax, QWORD PTR -32[rbp]	# tmp88, lhs
 	mov	rsi, rdx	#, tmp87
@@ -11239,29 +12183,29 @@ CompileBin:
 	call	BinPromote	#
 	mov	DWORD PTR -12[rbp], eax	# common, tmp89
 # compiler/binary/binary.h:74: 	BinCast( lhs, common );
-	.loc 20 74 2
+	.loc 21 74 2
 	mov	edx, DWORD PTR -12[rbp]	# tmp90, common
 	mov	rax, QWORD PTR -32[rbp]	# tmp91, lhs
 	mov	esi, edx	#, tmp90
 	mov	rdi, rax	#, tmp91
 	call	BinCast	#
 # compiler/binary/binary.h:75: 	BinCast( rhs, common );
-	.loc 20 75 2
+	.loc 21 75 2
 	mov	edx, DWORD PTR -12[rbp]	# tmp92, common
 	mov	rax, QWORD PTR -48[rbp]	# tmp93, rhs
 	mov	esi, edx	#, tmp92
 	mov	rdi, rax	#, tmp93
 	call	BinCast	#
 # compiler/binary/binary.h:76: 	goto *irs[ lhs->type ][ rhs->type ];
-	.loc 20 76 16
+	.loc 21 76 16
 	mov	rax, QWORD PTR -32[rbp]	# tmp94, lhs
 	mov	edx, DWORD PTR [rax]	# _1, lhs_9(D)->type
 # compiler/binary/binary.h:76: 	goto *irs[ lhs->type ][ rhs->type ];
-	.loc 20 76 29
+	.loc 21 76 29
 	mov	rax, QWORD PTR -48[rbp]	# tmp95, rhs
 	mov	eax, DWORD PTR [rax]	# _2, rhs_10(D)->type
 # compiler/binary/binary.h:76: 	goto *irs[ lhs->type ][ rhs->type ];
-	.loc 20 76 24
+	.loc 21 76 24
 	mov	ecx, eax	# tmp96, _2
 	mov	edx, edx	# tmp97, _1
 	mov	rax, rdx	# tmp98, tmp97
@@ -11269,132 +12213,132 @@ CompileBin:
 	add	rax, rdx	# tmp98, tmp97
 	add	rax, rcx	# tmp99, tmp96
 	lea	rdx, 0[0+rax*8]	# tmp100,
-	lea	rax, irs.4[rip]	# tmp101,
+	lea	rax, irs.2[rip]	# tmp101,
 	mov	rax, QWORD PTR [rdx+rax]	# _3, irs[_1][_2]
 # compiler/binary/binary.h:76: 	goto *irs[ lhs->type ][ rhs->type ];
-	.loc 20 76 2
+	.loc 21 76 2
 	nop	
 	jmp	rax	# _3
-.L728:
+.L771:
 	endbr64	
 # compiler/binary/ir_labels.h:1: CONST_CONST: return BinConstConst( lhs, op, rhs );
-	.file 23 "compiler/binary/ir_labels.h"
-	.loc 23 1 21
+	.file 24 "compiler/binary/ir_labels.h"
+	.loc 24 1 21
 	mov	rax, QWORD PTR -24[rbp]	# tmp102, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp103, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp104, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp105, lhs
 	mov	rdi, rax	#, tmp102
 	call	BinConstConst	#
-	jmp	.L729	#
-.L730:
+	jmp	.L772	#
+.L773:
 	endbr64	
 # compiler/binary/ir_labels.h:2: CONST_REF: 	return BinConstRef( lhs, op, rhs );
-	.loc 23 2 20
+	.loc 24 2 20
 	mov	rax, QWORD PTR -24[rbp]	# tmp106, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp107, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp108, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp109, lhs
 	mov	rdi, rax	#, tmp106
 	call	BinConstRef	#
-	jmp	.L729	#
-.L731:
+	jmp	.L772	#
+.L774:
 	endbr64	
 # compiler/binary/ir_labels.h:3: CONST_CALL: return BinConstCall( lhs, op, rhs );
-	.loc 23 3 20
+	.loc 24 3 20
 	mov	rax, QWORD PTR -24[rbp]	# tmp110, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp111, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp112, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp113, lhs
 	mov	rdi, rax	#, tmp110
 	call	BinConstCall	#
-	jmp	.L729	#
-.L732:
+	jmp	.L772	#
+.L775:
 	endbr64	
 # compiler/binary/ir_labels.h:4: REF_CONST: return BinRefConst( lhs, op, rhs );
-	.loc 23 4 19
+	.loc 24 4 19
 	mov	rax, QWORD PTR -24[rbp]	# tmp114, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp115, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp116, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp117, lhs
 	mov	rdi, rax	#, tmp114
 	call	BinRefConst	#
-	jmp	.L729	#
-.L733:
+	jmp	.L772	#
+.L776:
 	endbr64	
 # compiler/binary/ir_labels.h:5: REF_REF: return BinRefRef( lhs, op, rhs );
-	.loc 23 5 17
+	.loc 24 5 17
 	mov	rax, QWORD PTR -24[rbp]	# tmp118, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp119, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp120, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp121, lhs
 	mov	rdi, rax	#, tmp118
 	call	BinRefRef	#
-	jmp	.L729	#
-.L734:
+	jmp	.L772	#
+.L777:
 	endbr64	
 # compiler/binary/ir_labels.h:6: REF_CALL: return BinRefCall( lhs, op, rhs );
-	.loc 23 6 18
+	.loc 24 6 18
 	mov	rax, QWORD PTR -24[rbp]	# tmp122, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp123, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp124, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp125, lhs
 	mov	rdi, rax	#, tmp122
 	call	BinRefCall	#
-	jmp	.L729	#
-.L735:
+	jmp	.L772	#
+.L778:
 	endbr64	
 # compiler/binary/ir_labels.h:7: CALL_CONST: return BinCallConst( lhs, op, rhs );
-	.loc 23 7 20
+	.loc 24 7 20
 	mov	rax, QWORD PTR -24[rbp]	# tmp126, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp127, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp128, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp129, lhs
 	mov	rdi, rax	#, tmp126
 	call	BinCallConst	#
-	jmp	.L729	#
-.L736:
+	jmp	.L772	#
+.L779:
 	endbr64	
 # compiler/binary/ir_labels.h:8: CALL_REF: return BinCallRef( lhs, op, rhs );
-	.loc 23 8 18
+	.loc 24 8 18
 	mov	rax, QWORD PTR -24[rbp]	# tmp130, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp131, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp132, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp133, lhs
 	mov	rdi, rax	#, tmp130
 	call	BinCallRef	#
-	jmp	.L729	#
-.L737:
+	jmp	.L772	#
+.L780:
 	endbr64	
 # compiler/binary/ir_labels.h:9: CALL_CALL: return BinCallCall( lhs, op, rhs );
-	.loc 23 9 19
+	.loc 24 9 19
 	mov	rax, QWORD PTR -24[rbp]	# tmp134, .result_ptr
 	mov	rcx, QWORD PTR -48[rbp]	# tmp135, rhs
 	mov	edx, DWORD PTR -16[rbp]	# tmp136, op
 	mov	rsi, QWORD PTR -32[rbp]	# tmp137, lhs
 	mov	rdi, rax	#, tmp134
 	call	BinCallCall	#
-.L729:
+.L772:
 # compiler/binary/binary.h:78: }
-	.loc 20 78 1
-	mov	rax, QWORD PTR -8[rbp]	# tmp139, D.6521
+	.loc 21 78 1
+	mov	rax, QWORD PTR -8[rbp]	# tmp139, D.6637
 	sub	rax, QWORD PTR fs:40	# tmp139, MEM[(<address-space-1> long unsigned int *)40B]
-	je	.L738	#,
+	je	.L781	#,
 	call	__stack_chk_fail@PLT	#
-.L738:
+.L781:
 	mov	rax, QWORD PTR -24[rbp]	#, .result_ptr
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE164:
+.LFE170:
 	.size	CompileBin, .-CompileBin
 	.globl	MemAlloc
 	.type	MemAlloc, @function
 MemAlloc:
-.LFB165:
-	.file 24 "mem.h"
-	.loc 24 2 1
+.LFB171:
+	.file 25 "mem.h"
+	.loc 25 2 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11406,102 +12350,102 @@ MemAlloc:
 	sub	rsp, 8	#,
 	.cfi_offset 3, -24
 # mem.h:3: 	ArenaAlloc( GetSrc( ), KB( 32 ) ); /* Arena< I8 > */
-	.loc 24 3 2
+	.loc 25 3 2
 	call	GetSrc	#
 # mem.h:3: 	ArenaAlloc( GetSrc( ), KB( 32 ) ); /* Arena< I8 > */
-	.loc 24 3 2 is_stmt 0 discriminator 1
+	.loc 25 3 2 is_stmt 0 discriminator 1
 	mov	esi, 32768	#,
 	mov	rdi, rax	#, _1
 	call	ArenaAlloc	#
 # mem.h:4: 	ArenaAlloc( GetStrings( ), KB( 16 ) ); /* Arena< I8 > */
-	.loc 24 4 2 is_stmt 1
+	.loc 25 4 2 is_stmt 1
 	call	GetStrings	#
 # mem.h:4: 	ArenaAlloc( GetStrings( ), KB( 16 ) ); /* Arena< I8 > */
-	.loc 24 4 2 is_stmt 0 discriminator 1
+	.loc 25 4 2 is_stmt 0 discriminator 1
 	mov	esi, 16384	#,
 	mov	rdi, rax	#, _2
 	call	ArenaAlloc	#
 # mem.h:5: 	TableAlloc( GetInterns( ), GetStrings( ), 256 ); /* Table< String > */
-	.loc 24 5 2 is_stmt 1
+	.loc 25 5 2 is_stmt 1
 	call	GetStrings	#
 	mov	rbx, rax	# _3,
 # mem.h:5: 	TableAlloc( GetInterns( ), GetStrings( ), 256 ); /* Table< String > */
-	.loc 24 5 2 is_stmt 0 discriminator 1
+	.loc 25 5 2 is_stmt 0 discriminator 1
 	call	GetInterns	#
 # mem.h:5: 	TableAlloc( GetInterns( ), GetStrings( ), 256 ); /* Table< String > */
-	.loc 24 5 2 discriminator 2
+	.loc 25 5 2 discriminator 2
 	mov	edx, 256	#,
 	mov	rsi, rbx	#, _3
 	mov	rdi, rax	#, _4
 	call	TableAlloc	#
 # mem.h:6: 	VecAlloc( GetConsts( ), 256, sizeof( Value ) ); /* Vec< Value > */
-	.loc 24 6 2 is_stmt 1
+	.loc 25 6 2 is_stmt 1
 	call	GetConsts	#
 # mem.h:6: 	VecAlloc( GetConsts( ), 256, sizeof( Value ) ); /* Vec< Value > */
-	.loc 24 6 2 is_stmt 0 discriminator 1
+	.loc 25 6 2 is_stmt 0 discriminator 1
 	mov	edx, 16	#,
 	mov	esi, 256	#,
 	mov	rdi, rax	#, _5
 	call	VecAlloc	#
 # mem.h:7: 	VecAlloc( GetLocals( ), 256, sizeof( Var ) ); /* Vec< Var > */
-	.loc 24 7 2 is_stmt 1
+	.loc 25 7 2 is_stmt 1
 	call	GetLocals	#
 # mem.h:7: 	VecAlloc( GetLocals( ), 256, sizeof( Var ) ); /* Vec< Var > */
-	.loc 24 7 2 is_stmt 0 discriminator 1
-	mov	edx, 16	#,
+	.loc 25 7 2 is_stmt 0 discriminator 1
+	mov	edx, 24	#,
 	mov	esi, 256	#,
 	mov	rdi, rax	#, _6
 	call	VecAlloc	#
 # mem.h:8: 	VecAlloc( GetGlobals( ), 256, sizeof( Var ) ); /* Vec< Var > */
-	.loc 24 8 2 is_stmt 1
+	.loc 25 8 2 is_stmt 1
 	call	GetGlobals	#
 # mem.h:8: 	VecAlloc( GetGlobals( ), 256, sizeof( Var ) ); /* Vec< Var > */
-	.loc 24 8 2 is_stmt 0 discriminator 1
-	mov	edx, 16	#,
+	.loc 25 8 2 is_stmt 0 discriminator 1
+	mov	edx, 24	#,
 	mov	esi, 256	#,
 	mov	rdi, rax	#, _7
 	call	VecAlloc	#
 # mem.h:9: 	MapAlloc( GetEnv( ), 256 ); /* Map< String, U8 > */
-	.loc 24 9 2 is_stmt 1
+	.loc 25 9 2 is_stmt 1
 	call	GetEnv	#
 # mem.h:9: 	MapAlloc( GetEnv( ), 256 ); /* Map< String, U8 > */
-	.loc 24 9 2 is_stmt 0 discriminator 1
+	.loc 25 9 2 is_stmt 0 discriminator 1
 	mov	esi, 256	#,
 	mov	rdi, rax	#, _8
 	call	MapAlloc	#
 # mem.h:10: 	VecAlloc( GetCode( ), 256, sizeof( Op ) ); /* Vec< Op > */
-	.loc 24 10 2 is_stmt 1
+	.loc 25 10 2 is_stmt 1
 	call	GetCode	#
 # mem.h:10: 	VecAlloc( GetCode( ), 256, sizeof( Op ) ); /* Vec< Op > */
-	.loc 24 10 2 is_stmt 0 discriminator 1
+	.loc 25 10 2 is_stmt 0 discriminator 1
 	mov	edx, 4	#,
 	mov	esi, 256	#,
 	mov	rdi, rax	#, _9
 	call	VecAlloc	#
 # mem.h:11: 	VecAlloc( GetFuncs( ), 128, sizeof( Func ) ); /* Vec< Func > */
-	.loc 24 11 2 is_stmt 1
+	.loc 25 11 2 is_stmt 1
 	call	GetFuncs	#
 # mem.h:11: 	VecAlloc( GetFuncs( ), 128, sizeof( Func ) ); /* Vec< Func > */
-	.loc 24 11 2 is_stmt 0 discriminator 1
+	.loc 25 11 2 is_stmt 0 discriminator 1
 	mov	edx, 16	#,
 	mov	esi, 128	#,
 	mov	rdi, rax	#, _10
 	call	VecAlloc	#
 # mem.h:12: }
-	.loc 24 12 1 is_stmt 1
+	.loc 25 12 1 is_stmt 1
 	nop	
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE165:
+.LFE171:
 	.size	MemAlloc, .-MemAlloc
 	.globl	MemDealloc
 	.type	MemDealloc, @function
 MemDealloc:
-.LFB166:
-	.loc 24 15 1
+.LFB172:
+	.loc 25 15 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11510,109 +12454,109 @@ MemDealloc:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 # mem.h:16: 	free( GetFuncs( )->base );
-	.loc 24 16 8
+	.loc 25 16 8
 	call	GetFuncs	#
 # mem.h:16: 	free( GetFuncs( )->base );
-	.loc 24 16 19 discriminator 1
+	.loc 25 16 19 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _2, _1->base
 # mem.h:16: 	free( GetFuncs( )->base );
-	.loc 24 16 2 discriminator 1
+	.loc 25 16 2 discriminator 1
 	mov	rdi, rax	#, _2
 	call	free@PLT	#
 # mem.h:17: 	free( GetCode( )->base );
-	.loc 24 17 8
+	.loc 25 17 8
 	call	GetCode	#
 # mem.h:17: 	free( GetCode( )->base );
-	.loc 24 17 18 discriminator 1
+	.loc 25 17 18 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _4, _3->base
 # mem.h:17: 	free( GetCode( )->base );
-	.loc 24 17 2 discriminator 1
+	.loc 25 17 2 discriminator 1
 	mov	rdi, rax	#, _4
 	call	free@PLT	#
 # mem.h:18: 	free( GetEnv( )->base );
-	.loc 24 18 8
+	.loc 25 18 8
 	call	GetEnv	#
 # mem.h:18: 	free( GetEnv( )->base );
-	.loc 24 18 17 discriminator 1
+	.loc 25 18 17 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _6, _5->base
 # mem.h:18: 	free( GetEnv( )->base );
-	.loc 24 18 2 discriminator 1
+	.loc 25 18 2 discriminator 1
 	mov	rdi, rax	#, _6
 	call	free@PLT	#
 # mem.h:19: 	free( GetGlobals( )->base );
-	.loc 24 19 8
+	.loc 25 19 8
 	call	GetGlobals	#
 # mem.h:19: 	free( GetGlobals( )->base );
-	.loc 24 19 21 discriminator 1
+	.loc 25 19 21 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _8, _7->base
 # mem.h:19: 	free( GetGlobals( )->base );
-	.loc 24 19 2 discriminator 1
+	.loc 25 19 2 discriminator 1
 	mov	rdi, rax	#, _8
 	call	free@PLT	#
 # mem.h:20: 	free( GetLocals( )->base );
-	.loc 24 20 8
+	.loc 25 20 8
 	call	GetLocals	#
 # mem.h:20: 	free( GetLocals( )->base );
-	.loc 24 20 20 discriminator 1
+	.loc 25 20 20 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _10, _9->base
 # mem.h:20: 	free( GetLocals( )->base );
-	.loc 24 20 2 discriminator 1
+	.loc 25 20 2 discriminator 1
 	mov	rdi, rax	#, _10
 	call	free@PLT	#
 # mem.h:21: 	free( GetConsts( )->base );
-	.loc 24 21 8
+	.loc 25 21 8
 	call	GetConsts	#
 # mem.h:21: 	free( GetConsts( )->base );
-	.loc 24 21 20 discriminator 1
+	.loc 25 21 20 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _12, _11->base
 # mem.h:21: 	free( GetConsts( )->base );
-	.loc 24 21 2 discriminator 1
+	.loc 25 21 2 discriminator 1
 	mov	rdi, rax	#, _12
 	call	free@PLT	#
 # mem.h:22: 	free( GetInterns( )->base );
-	.loc 24 22 8
+	.loc 25 22 8
 	call	GetInterns	#
 # mem.h:22: 	free( GetInterns( )->base );
-	.loc 24 22 21 discriminator 1
+	.loc 25 22 21 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _14, _13->base
 # mem.h:22: 	free( GetInterns( )->base );
-	.loc 24 22 2 discriminator 1
+	.loc 25 22 2 discriminator 1
 	mov	rdi, rax	#, _14
 	call	free@PLT	#
 # mem.h:23: 	free( GetStrings( )->base );
-	.loc 24 23 8
+	.loc 25 23 8
 	call	GetStrings	#
 # mem.h:23: 	free( GetStrings( )->base );
-	.loc 24 23 21 discriminator 1
+	.loc 25 23 21 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _16, _15->base
 # mem.h:23: 	free( GetStrings( )->base );
-	.loc 24 23 2 discriminator 1
+	.loc 25 23 2 discriminator 1
 	mov	rdi, rax	#, _16
 	call	free@PLT	#
 # mem.h:24: 	free( GetSrc( )->base );
-	.loc 24 24 8
+	.loc 25 24 8
 	call	GetSrc	#
 # mem.h:24: 	free( GetSrc( )->base );
-	.loc 24 24 17 discriminator 1
+	.loc 25 24 17 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _18, _17->base
 # mem.h:24: 	free( GetSrc( )->base );
-	.loc 24 24 2 discriminator 1
+	.loc 25 24 2 discriminator 1
 	mov	rdi, rax	#, _18
 	call	free@PLT	#
 # mem.h:25: }
-	.loc 24 25 1
+	.loc 25 25 1
 	nop	
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE166:
+.LFE172:
 	.size	MemDealloc, .-MemDealloc
 	.type	OnSig, @function
 OnSig:
-.LFB167:
-	.file 25 "main.h"
-	.loc 25 2 1
+.LFB173:
+	.file 26 "main.h"
+	.loc 26 2 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11623,20 +12567,20 @@ OnSig:
 	sub	rsp, 16	#,
 	mov	DWORD PTR -4[rbp], edi	# sig, sig
 # main.h:3: 	longjmp( *GetJmp( ), EXIT_SUCCESS );
-	.loc 25 3 12
+	.loc 26 3 12
 	call	GetJmp	#
 # main.h:3: 	longjmp( *GetJmp( ), EXIT_SUCCESS );
-	.loc 25 3 2 discriminator 1
+	.loc 26 3 2 discriminator 1
 	mov	esi, 0	#,
 	mov	rdi, rax	#, _1
 	call	longjmp@PLT	#
 	.cfi_endproc
-.LFE167:
+.LFE173:
 	.size	OnSig, .-OnSig
 	.type	Init, @function
 Init:
-.LFB168:
-	.loc 25 7 1
+.LFB174:
+	.loc 26 7 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -11647,58 +12591,58 @@ Init:
 	sub	rsp, 8	#,
 	.cfi_offset 3, -24
 # main.h:8: 	MemAlloc( );
-	.loc 25 8 2
+	.loc 26 8 2
 	call	MemAlloc	#
 # main.h:9: 	LexerInit( GetSrc( ), GetInterns( ) );
-	.loc 25 9 2
+	.loc 26 9 2
 	call	GetInterns	#
 	mov	rbx, rax	# _1,
 # main.h:9: 	LexerInit( GetSrc( ), GetInterns( ) );
-	.loc 25 9 2 is_stmt 0 discriminator 1
+	.loc 26 9 2 is_stmt 0 discriminator 1
 	call	GetSrc	#
 # main.h:9: 	LexerInit( GetSrc( ), GetInterns( ) );
-	.loc 25 9 2 discriminator 2
+	.loc 26 9 2 discriminator 2
 	mov	rsi, rbx	#, _1
 	mov	rdi, rax	#, _2
 	call	LexerInit	#
 # main.h:10: 	ParserInit( );
-	.loc 25 10 2 is_stmt 1
+	.loc 26 10 2 is_stmt 1
 	call	ParserInit	#
 # main.h:11: 	CompilerInit( );
-	.loc 25 11 2
+	.loc 26 11 2
 	call	CompilerInit	#
 # main.h:12: 	signal( SIGINT, OnSig );
-	.loc 25 12 2
+	.loc 26 12 2
 	lea	rax, OnSig[rip]	# tmp84,
 	mov	rsi, rax	#, tmp84
 	mov	edi, 2	#,
 	call	__sysv_signal@PLT	#
 # main.h:13: 	signal( SIGTSTP, OnSig );
-	.loc 25 13 2
+	.loc 26 13 2
 	lea	rax, OnSig[rip]	# tmp85,
 	mov	rsi, rax	#, tmp85
 	mov	edi, 20	#,
 	call	__sysv_signal@PLT	#
 # main.h:14: 	signal( SIGKILL, OnSig );
-	.loc 25 14 2
+	.loc 26 14 2
 	lea	rax, OnSig[rip]	# tmp86,
 	mov	rsi, rax	#, tmp86
 	mov	edi, 9	#,
 	call	__sysv_signal@PLT	#
 # main.h:15: }
-	.loc 25 15 1
+	.loc 26 15 1
 	nop	
 	mov	rbx, QWORD PTR -8[rbp]	#,
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE168:
+.LFE174:
 	.size	Init, .-Init
 	.type	Run, @function
 Run:
-.LFB169:
-	.loc 25 18 1
+.LFB175:
+	.loc 26 18 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -11706,35 +12650,35 @@ Run:
 	mov	rbp, rsp	#,
 	.cfi_def_cfa_register 6
 # main.h:19: 	LexReinit( ( I8* )GetSrc( )->base );
-	.loc 25 19 20
+	.loc 26 19 20
 	call	GetSrc	#
 # main.h:19: 	LexReinit( ( I8* )GetSrc( )->base );
-	.loc 25 19 29 discriminator 1
+	.loc 26 19 29 discriminator 1
 	mov	rax, QWORD PTR [rax]	# _2, _1->base
 # main.h:19: 	LexReinit( ( I8* )GetSrc( )->base );
-	.loc 25 19 2 discriminator 1
+	.loc 26 19 2 discriminator 1
 	mov	rdi, rax	#, _2
 	call	LexReinit	#
 # main.h:20: 	Parse( );
-	.loc 25 20 2
+	.loc 26 20 2
 	call	Parse	#
 # main.h:21: }
-	.loc 25 21 1
+	.loc 26 21 1
 	nop	
 	pop	rbp	#
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE169:
+.LFE175:
 	.size	Run, .-Run
 	.section	.rodata
-.LC14:
+.LC15:
 	.string	"$ "
 	.text
 	.type	Repl, @function
 Repl:
-.LFB170:
-	.loc 25 24 1
+.LFB176:
+	.loc 26 24 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -11743,33 +12687,33 @@ Repl:
 	.cfi_def_cfa_register 6
 	sub	rsp, 16	#,
 # main.h:25: 	Init( );
-	.loc 25 25 2
+	.loc 26 25 2
 	call	Init	#
 # main.h:26: 	Arena *src = GetSrc( );
-	.loc 25 26 15
+	.loc 26 26 15
 	call	GetSrc	#
 	mov	QWORD PTR -8[rbp], rax	# src, tmp86
 # main.h:27: 	I8 *line = ( I8* )src->base;
-	.loc 25 27 6
+	.loc 26 27 6
 	mov	rax, QWORD PTR -8[rbp]	# tmp87, src
 	mov	rax, QWORD PTR [rax]	# tmp88, src_9->base
 	mov	QWORD PTR -16[rbp], rax	# line, tmp88
-.L745:
+.L788:
 # main.h:30: 		printf( "$ " );
-	.loc 25 30 3
-	lea	rax, .LC14[rip]	# tmp89,
+	.loc 26 30 3
+	lea	rax, .LC15[rip]	# tmp89,
 	mov	rdi, rax	#, tmp89
 	mov	eax, 0	#,
 	call	printf@PLT	#
 # main.h:31: 		line = fgets( line, src->max, stdin );
-	.loc 25 31 10
-	mov	rdx, QWORD PTR stdin[rip]	# stdin.59_1, stdin
+	.loc 26 31 10
+	mov	rdx, QWORD PTR stdin[rip]	# stdin.66_1, stdin
 # main.h:31: 		line = fgets( line, src->max, stdin );
-	.loc 25 31 26
+	.loc 26 31 26
 	mov	rax, QWORD PTR -8[rbp]	# tmp90, src
 	mov	eax, DWORD PTR 12[rax]	# _2, src_9->max
 # main.h:31: 		line = fgets( line, src->max, stdin );
-	.loc 25 31 10
+	.loc 26 31 10
 	mov	ecx, eax	# _3, _2
 	mov	rax, QWORD PTR -16[rbp]	# tmp91, line
 	mov	esi, ecx	#, _3
@@ -11777,19 +12721,19 @@ Repl:
 	call	fgets@PLT	#
 	mov	QWORD PTR -16[rbp], rax	# line, tmp92
 # main.h:32: 		Run( );
-	.loc 25 32 3 discriminator 1
+	.loc 26 32 3 discriminator 1
 	call	Run	#
 # main.h:30: 		printf( "$ " );
-	.loc 25 30 3
+	.loc 26 30 3
 	nop	
-	jmp	.L745	#
+	jmp	.L788	#
 	.cfi_endproc
-.LFE170:
+.LFE176:
 	.size	Repl, .-Repl
 	.type	Load, @function
 Load:
-.LFB171:
-	.loc 25 38 1
+.LFB177:
+	.loc 26 38 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -11799,36 +12743,36 @@ Load:
 	sub	rsp, 16	#,
 	mov	QWORD PTR -8[rbp], rdi	# file, file
 # main.h:39: 	Init( );
-	.loc 25 39 2
+	.loc 26 39 2
 	call	Init	#
 # main.h:40: 	IoRead( GetSrc( ), file );
-	.loc 25 40 2
+	.loc 26 40 2
 	call	GetSrc	#
 	mov	rdx, rax	# _1,
 # main.h:40: 	IoRead( GetSrc( ), file );
-	.loc 25 40 2 is_stmt 0 discriminator 1
+	.loc 26 40 2 is_stmt 0 discriminator 1
 	mov	rax, QWORD PTR -8[rbp]	# tmp85, file
 	mov	rsi, rax	#, tmp85
 	mov	rdi, rdx	#, _1
 	call	IoRead	#
 # main.h:41: 	Run( );
-	.loc 25 41 2 is_stmt 1
+	.loc 26 41 2 is_stmt 1
 	call	Run	#
 # main.h:42: 	return EXIT_SUCCESS;
-	.loc 25 42 9
+	.loc 26 42 9
 	mov	eax, 0	# _8,
 # main.h:43: }
-	.loc 25 43 1
+	.loc 26 43 1
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE171:
+.LFE177:
 	.size	Load, .-Load
 	.type	Deinit, @function
 Deinit:
-.LFB172:
-	.loc 25 46 1
+.LFB178:
+	.loc 26 46 1
 	.cfi_startproc
 	push	rbp	#
 	.cfi_def_cfa_offset 16
@@ -11838,24 +12782,24 @@ Deinit:
 	sub	rsp, 16	#,
 	mov	DWORD PTR -4[rbp], edi	# err, err
 # main.h:47: 	MemDealloc( );
-	.loc 25 47 2
+	.loc 26 47 2
 	call	MemDealloc	#
 # main.h:48: 	return err;
-	.loc 25 48 9
+	.loc 26 48 9
 	mov	eax, DWORD PTR -4[rbp]	# _4, err
 # main.h:49: }
-	.loc 25 49 1
+	.loc 26 49 1
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE172:
+.LFE178:
 	.size	Deinit, .-Deinit
 	.globl	main
 	.type	main, @function
 main:
-.LFB173:
-	.loc 25 52 1
+.LFB179:
+	.loc 26 52 1
 	.cfi_startproc
 	endbr64	
 	push	rbp	#
@@ -11867,70 +12811,70 @@ main:
 	mov	DWORD PTR -20[rbp], edi	# nargs, nargs
 	mov	QWORD PTR -32[rbp], rsi	# args, args
 # main.h:53: 	I32 res = setjmp( *GetJmp( ) );
-	.loc 25 53 12
+	.loc 26 53 12
 	call	GetJmp	#
 # main.h:53: 	I32 res = setjmp( *GetJmp( ) );
-	.loc 25 53 12 is_stmt 0 discriminator 2
+	.loc 26 53 12 is_stmt 0 discriminator 2
 	mov	rdi, rax	#, _1
 	call	_setjmp@PLT	#
 	endbr64	
 # main.h:53: 	I32 res = setjmp( *GetJmp( ) );
-	.loc 25 53 12 discriminator 3
+	.loc 26 53 12 discriminator 3
 	mov	DWORD PTR -4[rbp], eax	# res, _16
 # main.h:54: 	if( res ){ return Deinit( res ); }
-	.loc 25 54 4 is_stmt 1
+	.loc 26 54 4 is_stmt 1
 	cmp	DWORD PTR -4[rbp], 0	# res,
-	je	.L752	#,
+	je	.L795	#,
 # main.h:54: 	if( res ){ return Deinit( res ); }
-	.loc 25 54 20 discriminator 1
+	.loc 26 54 20 discriminator 1
 	mov	eax, DWORD PTR -4[rbp]	# tmp89, res
 	mov	edi, eax	#, tmp89
 	call	Deinit	#
 # main.h:54: 	if( res ){ return Deinit( res ); }
-	.loc 25 54 20 is_stmt 0
-	jmp	.L753	#
-.L752:
+	.loc 26 54 20 is_stmt 0
+	jmp	.L796	#
+.L795:
 # main.h:55: 	if( nargs == 1 ){ return Repl( ); }
-	.loc 25 55 4 is_stmt 1
+	.loc 26 55 4 is_stmt 1
 	cmp	DWORD PTR -20[rbp], 1	# nargs,
-	jne	.L754	#,
+	jne	.L797	#,
 # main.h:55: 	if( nargs == 1 ){ return Repl( ); }
-	.loc 25 55 27 discriminator 1
+	.loc 26 55 27 discriminator 1
 	call	Repl	#
 # main.h:55: 	if( nargs == 1 ){ return Repl( ); }
-	.loc 25 55 27 is_stmt 0
-	jmp	.L753	#
-.L754:
+	.loc 26 55 27 is_stmt 0
+	jmp	.L796	#
+.L797:
 # main.h:56: 	return Load( args[ 1 ] );
-	.loc 25 56 19 is_stmt 1
+	.loc 26 56 19 is_stmt 1
 	mov	rax, QWORD PTR -32[rbp]	# tmp90, args
 	add	rax, 8	# _2,
 # main.h:56: 	return Load( args[ 1 ] );
-	.loc 25 56 9
+	.loc 26 56 9
 	mov	rax, QWORD PTR [rax]	# _3, *_2
 	mov	rdi, rax	#, _3
 	call	Load	#
-.L753:
+.L796:
 # main.h:57: }
-	.loc 25 57 1
+	.loc 26 57 1
 	leave	
 	.cfi_def_cfa 7, 8
 	ret	
 	.cfi_endproc
-.LFE173:
+.LFE179:
 	.size	main, .-main
 	.section	.data.rel.local,"aw"
 	.align 16
-	.type	types.50, @object
-	.size	types.50, 24
-types.50:
+	.type	types.51, @object
+	.size	types.51, 24
+types.51:
 	.quad	.L55
 	.quad	.L57
 	.quad	.L58
 	.align 32
-	.type	ascii.49, @object
-	.size	ascii.49, 1024
-ascii.49:
+	.type	ascii.50, @object
+	.size	ascii.50, 1024
+ascii.50:
 	.quad	.L235
 	.quad	.L234
 	.quad	.L234
@@ -12059,23 +13003,23 @@ ascii.49:
 	.quad	.L265
 	.quad	.L262
 	.quad	.L234
-	.local	lexer.48
-	.comm	lexer.48,32,32
-	.local	buf.47
-	.comm	buf.47,200,32
+	.local	lexer.49
+	.comm	lexer.49,32,32
+	.local	buf.48
+	.comm	buf.48,200,32
 	.align 16
-	.type	types.46, @object
-	.size	types.46, 24
-types.46:
+	.type	types.47, @object
+	.size	types.47, 24
+types.47:
 	.quad	.L274
 	.quad	.L275
 	.quad	.L276
-	.local	strings.45
-	.comm	strings.45,16,16
+	.local	strings.46
+	.comm	strings.46,16,16
 	.align 32
-	.type	rules.44, @object
-	.size	rules.44, 1392
-rules.44:
+	.type	rules.45, @object
+	.size	rules.45, 1392
+rules.45:
 # nud:
 	.quad	.L335
 # led:
@@ -12483,9 +13427,9 @@ rules.44:
 	.long	0
 	.zero	4
 	.align 32
-	.type	stmts.43, @object
-	.size	stmts.43, 464
-stmts.43:
+	.type	stmts.44, @object
+	.size	stmts.44, 464
+stmts.44:
 	.quad	.L350
 	.quad	.L350
 	.quad	.L350
@@ -12544,72 +13488,83 @@ stmts.43:
 	.quad	.L350
 	.quad	.L350
 	.quad	.L356
-	.local	parser.42
-	.comm	parser.42,24,16
-	.local	compiler.41
-	.comm	compiler.41,16,16
-	.local	funcs.40
-	.comm	funcs.40,24,16
-	.local	consts.39
-	.comm	consts.39,24,16
-	.local	locals.38
-	.comm	locals.38,24,16
-	.local	code.37
-	.comm	code.37,24,16
-	.align 16
-	.type	types.36, @object
-	.size	types.36, 24
-types.36:
-	.quad	.L372
-	.quad	.L374
-	.quad	.L378
+	.local	parser.43
+	.comm	parser.43,24,16
+	.local	compiler.42
+	.comm	compiler.42,16,16
+	.local	funcs.41
+	.comm	funcs.41,24,16
+	.local	consts.40
+	.comm	consts.40,24,16
+	.local	locals.39
+	.comm	locals.39,24,16
+	.local	code.38
+	.comm	code.38,24,16
+	.local	globals.37
+	.comm	globals.37,24,16
+	.local	env.36
+	.comm	env.36,16,16
 	.align 16
 	.type	types.35, @object
 	.size	types.35, 24
 types.35:
-	.quad	.L383
-	.quad	.L385
-	.quad	.L386
+	.quad	.L401
+	.quad	.L403
+	.quad	.L404
 	.align 16
 	.type	types.34, @object
 	.size	types.34, 24
 types.34:
-	.quad	.L390
-	.quad	.L392
-	.quad	.L393
+	.quad	.L415
+	.quad	.L417
+	.quad	.L421
 	.align 16
 	.type	types.33, @object
 	.size	types.33, 24
 types.33:
-	.quad	.L397
-	.quad	.L399
-	.quad	.L400
+	.quad	.L426
+	.quad	.L428
+	.quad	.L429
 	.align 16
 	.type	types.32, @object
 	.size	types.32, 24
 types.32:
-	.quad	.L404
-	.quad	.L406
-	.quad	.L407
+	.quad	.L433
+	.quad	.L435
+	.quad	.L436
 	.align 16
 	.type	types.31, @object
 	.size	types.31, 24
 types.31:
-	.quad	.L411
-	.quad	.L413
-	.quad	.L414
+	.quad	.L440
+	.quad	.L442
+	.quad	.L443
 	.align 16
-	.type	irs.30, @object
-	.size	irs.30, 24
-irs.30:
-	.quad	.L434
-	.quad	.L436
-	.quad	.L437
+	.type	types.30, @object
+	.size	types.30, 24
+types.30:
+	.quad	.L447
+	.quad	.L449
+	.quad	.L450
+	.align 16
+	.type	types.29, @object
+	.size	types.29, 24
+types.29:
+	.quad	.L454
+	.quad	.L456
+	.quad	.L457
+	.align 16
+	.type	irs.28, @object
+	.size	irs.28, 24
+irs.28:
+	.quad	.L477
+	.quad	.L479
+	.quad	.L480
 	.data
 	.align 32
-	.type	token_ops.29, @object
-	.size	token_ops.29, 232
-token_ops.29:
+	.type	token_ops.27, @object
+	.size	token_ops.27, 232
+token_ops.27:
 	.long	0
 	.long	1
 	.long	19
@@ -12670,52 +13625,52 @@ token_ops.29:
 	.long	0
 	.section	.data.rel.local
 	.align 32
-	.type	ops.28, @object
-	.size	ops.28, 304
-ops.28:
-	.quad	.L418
-	.quad	.L420
-	.quad	.L421
-	.quad	.L424
-	.quad	.L425
-	.quad	.L418
-	.quad	.L418
-	.quad	.L422
-	.quad	.L423
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
-	.quad	.L418
+	.type	ops.26, @object
+	.size	ops.26, 304
+ops.26:
+	.quad	.L461
+	.quad	.L463
+	.quad	.L464
+	.quad	.L467
+	.quad	.L468
+	.quad	.L461
+	.quad	.L461
+	.quad	.L465
+	.quad	.L466
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
+	.quad	.L461
 	.data
 	.align 32
-	.type	types.27, @object
-	.size	types.27, 36
-types.27:
+	.type	types.25, @object
+	.size	types.25, 36
+types.25:
 	.long	0
 	.long	1
 	.long	2
@@ -12727,205 +13682,39 @@ types.27:
 	.long	2
 	.section	.data.rel.local
 	.align 32
-	.type	types.26, @object
-	.size	types.26, 72
-types.26:
-	.quad	.L663
-	.quad	.L665
-	.quad	.L666
-	.quad	.L667
-	.quad	.L668
-	.quad	.L669
-	.quad	.L670
-	.quad	.L671
-	.quad	.L672
-	.align 32
-	.type	ops.25, @object
-	.size	ops.25, 304
-ops.25:
-	.quad	.L675
-	.quad	.L675
-	.quad	.L675
-	.quad	.L675
-	.quad	.L675
-	.quad	.L675
-	.quad	.L675
-	.quad	.L677
-	.quad	.L678
-	.quad	.L679
-	.quad	.L680
-	.quad	.L681
-	.quad	.L682
-	.quad	.L683
-	.quad	.L684
-	.quad	.L685
-	.quad	.L686
-	.quad	.L687
-	.quad	.L688
-	.quad	.L689
-	.quad	.L690
-	.quad	.L691
-	.quad	.L692
-	.quad	.L693
-	.quad	.L694
-	.quad	.L695
-	.quad	.L696
-	.quad	.L697
-	.quad	.L698
-	.quad	.L699
-	.quad	.L700
-	.quad	.L701
-	.quad	.L702
-	.quad	.L703
-	.quad	.L704
-	.quad	.L705
+	.type	types.24, @object
+	.size	types.24, 72
+types.24:
 	.quad	.L706
-	.quad	.L707
-	.align 16
-	.type	ops.24, @object
-	.size	ops.24, 24
-ops.24:
-	.quad	.L443
-	.quad	.L445
-	.quad	.L446
-	.align 16
-	.type	ops.23, @object
-	.size	ops.23, 24
-ops.23:
-	.quad	.L450
-	.quad	.L452
-	.quad	.L453
-	.align 16
-	.type	ops.22, @object
-	.size	ops.22, 24
-ops.22:
-	.quad	.L457
-	.quad	.L459
-	.quad	.L460
-	.align 16
-	.type	ops.21, @object
-	.size	ops.21, 24
-ops.21:
-	.quad	.L464
-	.quad	.L466
-	.quad	.L467
-	.align 16
-	.type	ops.20, @object
-	.size	ops.20, 24
-ops.20:
-	.quad	.L471
-	.quad	.L473
-	.quad	.L474
-	.align 16
-	.type	ops.19, @object
-	.size	ops.19, 24
-ops.19:
-	.quad	.L478
-	.quad	.L480
-	.quad	.L481
-	.align 16
-	.type	ops.18, @object
-	.size	ops.18, 24
-ops.18:
-	.quad	.L489
-	.quad	.L491
-	.quad	.L492
-	.align 16
-	.type	ops.17, @object
-	.size	ops.17, 24
-ops.17:
-	.quad	.L496
-	.quad	.L498
-	.quad	.L499
-	.align 16
-	.type	ops.16, @object
-	.size	ops.16, 24
-ops.16:
-	.quad	.L503
-	.quad	.L505
-	.quad	.L506
-	.align 16
-	.type	ops.15, @object
-	.size	ops.15, 24
-ops.15:
-	.quad	.L510
-	.quad	.L512
-	.quad	.L513
-	.align 16
-	.type	ops.14, @object
-	.size	ops.14, 24
-ops.14:
-	.quad	.L517
-	.quad	.L519
-	.quad	.L520
-	.align 16
-	.type	ops.13, @object
-	.size	ops.13, 24
-ops.13:
-	.quad	.L524
-	.quad	.L526
-	.quad	.L530
-	.align 16
-	.type	ops.12, @object
-	.size	ops.12, 24
-ops.12:
-	.quad	.L535
-	.quad	.L537
-	.quad	.L541
-	.align 16
-	.type	ops.11, @object
-	.size	ops.11, 24
-ops.11:
-	.quad	.L546
-	.quad	.L548
-	.quad	.L552
-	.align 16
-	.type	ops.10, @object
-	.size	ops.10, 24
-ops.10:
-	.quad	.L558
-	.quad	.L560
-	.quad	.L564
-	.align 16
-	.type	ops.9, @object
-	.size	ops.9, 24
-ops.9:
-	.quad	.L570
-	.quad	.L572
-	.quad	.L576
-	.align 16
-	.type	ops.8, @object
-	.size	ops.8, 24
-ops.8:
-	.quad	.L582
-	.quad	.L584
-	.quad	.L588
-	.align 16
-	.type	ops.7, @object
-	.size	ops.7, 24
-ops.7:
-	.quad	.L594
-	.quad	.L599
-	.quad	.L604
-	.align 16
-	.type	ops.6, @object
-	.size	ops.6, 24
-ops.6:
-	.quad	.L612
-	.quad	.L618
-	.quad	.L624
-	.align 16
-	.type	ops.5, @object
-	.size	ops.5, 24
-ops.5:
-	.quad	.L632
-	.quad	.L634
-	.quad	.L635
+	.quad	.L708
+	.quad	.L709
+	.quad	.L710
+	.quad	.L711
+	.quad	.L712
+	.quad	.L713
+	.quad	.L714
+	.quad	.L715
 	.align 32
-	.type	irs.4, @object
-	.size	irs.4, 72
-irs.4:
+	.type	ops.23, @object
+	.size	ops.23, 304
+ops.23:
+	.quad	.L718
+	.quad	.L718
+	.quad	.L718
+	.quad	.L718
+	.quad	.L718
+	.quad	.L718
+	.quad	.L718
+	.quad	.L720
+	.quad	.L721
+	.quad	.L722
+	.quad	.L723
+	.quad	.L724
+	.quad	.L725
+	.quad	.L726
+	.quad	.L727
 	.quad	.L728
+	.quad	.L729
 	.quad	.L730
 	.quad	.L731
 	.quad	.L732
@@ -12934,71 +13723,234 @@ irs.4:
 	.quad	.L735
 	.quad	.L736
 	.quad	.L737
-	.local	src.3
-	.comm	src.3,16,16
-	.local	interns.2
-	.comm	interns.2,24,16
-	.local	globals.1
-	.comm	globals.1,24,16
-	.local	env.0
-	.comm	env.0,16,16
+	.quad	.L738
+	.quad	.L739
+	.quad	.L740
+	.quad	.L741
+	.quad	.L742
+	.quad	.L743
+	.quad	.L744
+	.quad	.L745
+	.quad	.L746
+	.quad	.L747
+	.quad	.L748
+	.quad	.L749
+	.quad	.L750
+	.align 16
+	.type	ops.22, @object
+	.size	ops.22, 24
+ops.22:
+	.quad	.L486
+	.quad	.L488
+	.quad	.L489
+	.align 16
+	.type	ops.21, @object
+	.size	ops.21, 24
+ops.21:
+	.quad	.L493
+	.quad	.L495
+	.quad	.L496
+	.align 16
+	.type	ops.20, @object
+	.size	ops.20, 24
+ops.20:
+	.quad	.L500
+	.quad	.L502
+	.quad	.L503
+	.align 16
+	.type	ops.19, @object
+	.size	ops.19, 24
+ops.19:
+	.quad	.L507
+	.quad	.L509
+	.quad	.L510
+	.align 16
+	.type	ops.18, @object
+	.size	ops.18, 24
+ops.18:
+	.quad	.L514
+	.quad	.L516
+	.quad	.L517
+	.align 16
+	.type	ops.17, @object
+	.size	ops.17, 24
+ops.17:
+	.quad	.L521
+	.quad	.L523
+	.quad	.L524
+	.align 16
+	.type	ops.16, @object
+	.size	ops.16, 24
+ops.16:
+	.quad	.L532
+	.quad	.L534
+	.quad	.L535
+	.align 16
+	.type	ops.15, @object
+	.size	ops.15, 24
+ops.15:
+	.quad	.L539
+	.quad	.L541
+	.quad	.L542
+	.align 16
+	.type	ops.14, @object
+	.size	ops.14, 24
+ops.14:
+	.quad	.L546
+	.quad	.L548
+	.quad	.L549
+	.align 16
+	.type	ops.13, @object
+	.size	ops.13, 24
+ops.13:
+	.quad	.L553
+	.quad	.L555
+	.quad	.L556
+	.align 16
+	.type	ops.12, @object
+	.size	ops.12, 24
+ops.12:
+	.quad	.L560
+	.quad	.L562
+	.quad	.L563
+	.align 16
+	.type	ops.11, @object
+	.size	ops.11, 24
+ops.11:
+	.quad	.L567
+	.quad	.L569
+	.quad	.L573
+	.align 16
+	.type	ops.10, @object
+	.size	ops.10, 24
+ops.10:
+	.quad	.L578
+	.quad	.L580
+	.quad	.L584
+	.align 16
+	.type	ops.9, @object
+	.size	ops.9, 24
+ops.9:
+	.quad	.L589
+	.quad	.L591
+	.quad	.L595
+	.align 16
+	.type	ops.8, @object
+	.size	ops.8, 24
+ops.8:
+	.quad	.L601
+	.quad	.L603
+	.quad	.L607
+	.align 16
+	.type	ops.7, @object
+	.size	ops.7, 24
+ops.7:
+	.quad	.L613
+	.quad	.L615
+	.quad	.L619
+	.align 16
+	.type	ops.6, @object
+	.size	ops.6, 24
+ops.6:
+	.quad	.L625
+	.quad	.L627
+	.quad	.L631
+	.align 16
+	.type	ops.5, @object
+	.size	ops.5, 24
+ops.5:
+	.quad	.L637
+	.quad	.L642
+	.quad	.L647
+	.align 16
+	.type	ops.4, @object
+	.size	ops.4, 24
+ops.4:
+	.quad	.L655
+	.quad	.L661
+	.quad	.L667
+	.align 16
+	.type	ops.3, @object
+	.size	ops.3, 24
+ops.3:
+	.quad	.L675
+	.quad	.L677
+	.quad	.L678
+	.align 32
+	.type	irs.2, @object
+	.size	irs.2, 72
+irs.2:
+	.quad	.L771
+	.quad	.L773
+	.quad	.L774
+	.quad	.L775
+	.quad	.L776
+	.quad	.L777
+	.quad	.L778
+	.quad	.L779
+	.quad	.L780
+	.local	src.1
+	.comm	src.1,16,16
+	.local	interns.0
+	.comm	interns.0,24,16
 	.section	.rodata
 	.align 8
 .LC0:
 	.long	858993459
 	.long	1071854387
 	.align 8
-.LC11:
+.LC12:
 	.long	0
 	.long	1072693248
 	.align 16
-.LC12:
+.LC13:
 	.long	0
 	.long	-2147483648
 	.long	0
 	.long	0
 	.text
 .Letext0:
-	.file 26 "/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h"
-	.file 27 "/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h"
-	.file 28 "<built-in>"
-	.file 29 "/usr/include/x86_64-linux-gnu/bits/types.h"
-	.file 30 "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h"
-	.file 31 "/usr/include/x86_64-linux-gnu/bits/types/FILE.h"
-	.file 32 "/usr/include/stdio.h"
-	.file 33 "/usr/include/x86_64-linux-gnu/bits/setjmp.h"
-	.file 34 "/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h"
-	.file 35 "/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h"
-	.file 36 "/usr/include/setjmp.h"
-	.file 37 "/usr/include/signal.h"
-	.file 38 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h"
-	.file 39 "std/types.h"
-	.file 40 "lexer/token_type.h"
-	.file 41 "parser/prec.h"
-	.file 42 "parser/parse_type.h"
-	.file 43 "compiler/opcode.h"
-	.file 44 "/usr/include/stdlib.h"
-	.file 45 "/usr/include/string.h"
-	.file 46 "compiler/binary/ir_table.h"
-	.file 47 "compiler/binary/fold_table.h"
-	.file 48 "compiler/binary/cast_table.h"
-	.file 49 "compiler/binary/promote_table.h"
-	.file 50 "compiler/unary/ir_table.h"
-	.file 51 "compiler/unary/fold_table.h"
-	.file 52 "compiler/token_op_table.h"
-	.file 53 "parser/stmt_table.h"
-	.file 54 "parser/expr_table.h"
-	.file 55 "lexer/ascii_table.h"
-	.file 56 "/usr/include/x86_64-linux-gnu/bits/mathcalls.h"
+	.file 27 "/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h"
+	.file 28 "/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h"
+	.file 29 "<built-in>"
+	.file 30 "/usr/include/x86_64-linux-gnu/bits/types.h"
+	.file 31 "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h"
+	.file 32 "/usr/include/x86_64-linux-gnu/bits/types/FILE.h"
+	.file 33 "/usr/include/stdio.h"
+	.file 34 "/usr/include/x86_64-linux-gnu/bits/setjmp.h"
+	.file 35 "/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h"
+	.file 36 "/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h"
+	.file 37 "/usr/include/setjmp.h"
+	.file 38 "/usr/include/signal.h"
+	.file 39 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h"
+	.file 40 "std/types.h"
+	.file 41 "lexer/token_type.h"
+	.file 42 "parser/prec.h"
+	.file 43 "parser/parse_type.h"
+	.file 44 "compiler/opcode.h"
+	.file 45 "/usr/include/stdlib.h"
+	.file 46 "/usr/include/string.h"
+	.file 47 "compiler/binary/ir_table.h"
+	.file 48 "compiler/binary/fold_table.h"
+	.file 49 "compiler/binary/cast_table.h"
+	.file 50 "compiler/binary/promote_table.h"
+	.file 51 "compiler/unary/ir_table.h"
+	.file 52 "compiler/unary/fold_table.h"
+	.file 53 "compiler/assign/ir_table.h"
+	.file 54 "compiler/token_op_table.h"
+	.file 55 "parser/stmt_table.h"
+	.file 56 "parser/expr_table.h"
+	.file 57 "lexer/ascii_table.h"
+	.file 58 "/usr/include/x86_64-linux-gnu/bits/mathcalls.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0x4a6f
+	.long	0x508a
 	.value	0x5
 	.byte	0x1
 	.byte	0x8
 	.long	.Ldebug_abbrev0
-	.uleb128 0x2a
-	.long	.LASF524
+	.uleb128 0x2b
+	.long	.LASF544
 	.byte	0x1d
 	.long	.LASF0
 	.long	.LASF1
@@ -13007,34 +13959,34 @@ irs.4:
 	.long	.Ldebug_line0
 	.uleb128 0xc
 	.long	.LASF2
-	.byte	0x1a
+	.byte	0x1b
 	.byte	0xd6
 	.byte	0x17
 	.long	0x3a
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x8
 	.byte	0x7
 	.long	.LASF8
 	.uleb128 0xc
 	.long	.LASF3
-	.byte	0x1b
+	.byte	0x1c
 	.byte	0x28
 	.byte	0x1b
 	.long	0x4d
-	.uleb128 0x2b
-	.long	.LASF525
+	.uleb128 0x2c
+	.long	.LASF545
 	.long	0x56
-	.uleb128 0x12
+	.uleb128 0x13
 	.long	0x66
 	.long	0x66
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0
 	.byte	0
-	.uleb128 0x2c
-	.long	.LASF526
+	.uleb128 0x2d
+	.long	.LASF546
 	.byte	0x18
-	.byte	0x1c
+	.byte	0x1d
 	.byte	0
 	.long	0x9b
 	.uleb128 0x1e
@@ -13054,290 +14006,290 @@ irs.4:
 	.long	0xa2
 	.byte	0x10
 	.byte	0
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x4
 	.byte	0x7
 	.long	.LASF9
-	.uleb128 0x2d
+	.uleb128 0x2e
 	.byte	0x8
-	.uleb128 0x1a
+	.uleb128 0x1b
 	.long	0xa2
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x1
 	.byte	0x8
 	.long	.LASF10
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x2
 	.byte	0x7
 	.long	.LASF11
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x1
 	.byte	0x6
 	.long	.LASF12
 	.uleb128 0xc
 	.long	.LASF13
-	.byte	0x1d
+	.byte	0x1e
 	.byte	0x26
 	.byte	0x17
 	.long	0xa9
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x2
 	.byte	0x5
 	.long	.LASF14
 	.uleb128 0xc
 	.long	.LASF15
-	.byte	0x1d
+	.byte	0x1e
 	.byte	0x28
 	.byte	0x1c
 	.long	0xb0
-	.uleb128 0x2e
+	.uleb128 0x2f
 	.byte	0x4
 	.byte	0x5
 	.string	"int"
 	.uleb128 0xc
 	.long	.LASF16
-	.byte	0x1d
+	.byte	0x1e
 	.byte	0x2a
 	.byte	0x16
 	.long	0x9b
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x8
 	.byte	0x5
 	.long	.LASF17
 	.uleb128 0xc
 	.long	.LASF18
-	.byte	0x1d
+	.byte	0x1e
 	.byte	0x2d
 	.byte	0x1b
 	.long	0x3a
 	.uleb128 0xc
 	.long	.LASF19
-	.byte	0x1d
+	.byte	0x1e
 	.byte	0x98
 	.byte	0x19
 	.long	0xf0
 	.uleb128 0xc
 	.long	.LASF20
-	.byte	0x1d
+	.byte	0x1e
 	.byte	0x99
 	.byte	0x1b
 	.long	0xf0
 	.uleb128 0xd
 	.long	0x125
-	.uleb128 0x1a
+	.uleb128 0x1b
 	.long	0x11b
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x1
 	.byte	0x6
 	.long	.LASF21
-	.uleb128 0x2f
+	.uleb128 0x30
 	.long	0x125
-	.uleb128 0x13
+	.uleb128 0x14
 	.long	.LASF62
 	.byte	0xd8
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x31
 	.byte	0x8
 	.long	0x2b8
 	.uleb128 0x7
 	.long	.LASF22
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x33
 	.byte	0x7
 	.long	0xdd
 	.byte	0
 	.uleb128 0x7
 	.long	.LASF23
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x36
 	.byte	0x9
 	.long	0x11b
 	.byte	0x8
 	.uleb128 0x7
 	.long	.LASF24
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x37
 	.byte	0x9
 	.long	0x11b
 	.byte	0x10
 	.uleb128 0x7
 	.long	.LASF25
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x38
 	.byte	0x9
 	.long	0x11b
 	.byte	0x18
 	.uleb128 0x7
 	.long	.LASF26
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x39
 	.byte	0x9
 	.long	0x11b
 	.byte	0x20
 	.uleb128 0x7
 	.long	.LASF27
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x3a
 	.byte	0x9
 	.long	0x11b
 	.byte	0x28
 	.uleb128 0x7
 	.long	.LASF28
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x3b
 	.byte	0x9
 	.long	0x11b
 	.byte	0x30
 	.uleb128 0x7
 	.long	.LASF29
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x3c
 	.byte	0x9
 	.long	0x11b
 	.byte	0x38
 	.uleb128 0x7
 	.long	.LASF30
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x3d
 	.byte	0x9
 	.long	0x11b
 	.byte	0x40
 	.uleb128 0x7
 	.long	.LASF31
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x40
 	.byte	0x9
 	.long	0x11b
 	.byte	0x48
 	.uleb128 0x7
 	.long	.LASF32
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x41
 	.byte	0x9
 	.long	0x11b
 	.byte	0x50
 	.uleb128 0x7
 	.long	.LASF33
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x42
 	.byte	0x9
 	.long	0x11b
 	.byte	0x58
 	.uleb128 0x7
 	.long	.LASF34
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x44
 	.byte	0x16
 	.long	0x2d1
 	.byte	0x60
 	.uleb128 0x7
 	.long	.LASF35
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x46
 	.byte	0x14
 	.long	0x2d6
 	.byte	0x68
 	.uleb128 0x7
 	.long	.LASF36
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x48
 	.byte	0x7
 	.long	0xdd
 	.byte	0x70
 	.uleb128 0x7
 	.long	.LASF37
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x49
 	.byte	0x7
 	.long	0xdd
 	.byte	0x74
 	.uleb128 0x7
 	.long	.LASF38
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x4a
 	.byte	0xb
 	.long	0x103
 	.byte	0x78
 	.uleb128 0x7
 	.long	.LASF39
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x4d
 	.byte	0x12
 	.long	0xb0
 	.byte	0x80
 	.uleb128 0x7
 	.long	.LASF40
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x4e
 	.byte	0xf
 	.long	0xb7
 	.byte	0x82
 	.uleb128 0x7
 	.long	.LASF41
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x4f
 	.byte	0x8
 	.long	0x2db
 	.byte	0x83
 	.uleb128 0x7
 	.long	.LASF42
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x51
 	.byte	0xf
 	.long	0x2eb
 	.byte	0x88
 	.uleb128 0x7
 	.long	.LASF43
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x59
 	.byte	0xd
 	.long	0x10f
 	.byte	0x90
 	.uleb128 0x7
 	.long	.LASF44
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x5b
 	.byte	0x17
 	.long	0x2f5
 	.byte	0x98
 	.uleb128 0x7
 	.long	.LASF45
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x5c
 	.byte	0x19
 	.long	0x2ff
 	.byte	0xa0
 	.uleb128 0x7
 	.long	.LASF46
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x5d
 	.byte	0x14
 	.long	0x2d6
 	.byte	0xa8
 	.uleb128 0x7
 	.long	.LASF47
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x5e
 	.byte	0x9
 	.long	0xa2
 	.byte	0xb0
 	.uleb128 0x7
 	.long	.LASF48
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x5f
 	.byte	0xa
 	.long	0x2e
 	.byte	0xb8
 	.uleb128 0x7
 	.long	.LASF49
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x60
 	.byte	0x7
 	.long	0xdd
 	.byte	0xc0
 	.uleb128 0x7
 	.long	.LASF50
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x62
 	.byte	0x8
 	.long	0x304
@@ -13345,13 +14297,13 @@ irs.4:
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF51
-	.byte	0x1f
+	.byte	0x20
 	.byte	0x7
 	.byte	0x19
 	.long	0x131
 	.uleb128 0x1f
 	.long	.LASF75
-	.byte	0x1e
+	.byte	0x1f
 	.byte	0x2b
 	.byte	0xe
 	.uleb128 0x20
@@ -13360,7 +14312,7 @@ irs.4:
 	.long	0x2cc
 	.uleb128 0xd
 	.long	0x131
-	.uleb128 0x12
+	.uleb128 0x13
 	.long	0x125
 	.long	0x2eb
 	.uleb128 0x10
@@ -13377,66 +14329,66 @@ irs.4:
 	.long	.LASF54
 	.uleb128 0xd
 	.long	0x2fa
-	.uleb128 0x12
+	.uleb128 0x13
 	.long	0x125
 	.long	0x314
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x13
 	.byte	0
-	.uleb128 0x24
+	.uleb128 0x26
 	.long	.LASF55
 	.byte	0x95
 	.long	0x31e
 	.uleb128 0xd
 	.long	0x2b8
-	.uleb128 0x1a
+	.uleb128 0x1b
 	.long	0x31e
-	.uleb128 0x24
+	.uleb128 0x26
 	.long	.LASF56
 	.byte	0x97
 	.long	0x31e
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x8
 	.byte	0x5
 	.long	.LASF57
 	.uleb128 0xd
 	.long	0x33e
-	.uleb128 0x30
+	.uleb128 0x31
 	.uleb128 0xc
 	.long	.LASF58
-	.byte	0x1b
+	.byte	0x1c
 	.byte	0x67
 	.byte	0x18
 	.long	0x41
 	.uleb128 0xc
 	.long	.LASF59
-	.byte	0x21
+	.byte	0x22
 	.byte	0x1f
 	.byte	0x12
 	.long	0x357
-	.uleb128 0x12
+	.uleb128 0x13
 	.long	0xf0
 	.long	0x367
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x7
 	.byte	0
-	.uleb128 0x31
+	.uleb128 0x32
 	.byte	0x80
-	.byte	0x22
+	.byte	0x23
 	.byte	0x5
 	.byte	0x9
 	.long	0x37e
 	.uleb128 0x7
 	.long	.LASF60
-	.byte	0x22
+	.byte	0x23
 	.byte	0x7
 	.byte	0x15
 	.long	0x37e
 	.byte	0
 	.byte	0
-	.uleb128 0x12
+	.uleb128 0x13
 	.long	0x3a
 	.long	0x38e
 	.uleb128 0x10
@@ -13445,34 +14397,34 @@ irs.4:
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF61
-	.byte	0x22
+	.byte	0x23
 	.byte	0x8
 	.byte	0x3
 	.long	0x367
-	.uleb128 0x13
+	.uleb128 0x14
 	.long	.LASF63
 	.byte	0xc8
-	.byte	0x23
+	.byte	0x24
 	.byte	0x1a
 	.byte	0x8
 	.long	0x3cf
 	.uleb128 0x7
 	.long	.LASF64
-	.byte	0x23
+	.byte	0x24
 	.byte	0x20
 	.byte	0xf
 	.long	0x34b
 	.byte	0
 	.uleb128 0x7
 	.long	.LASF65
-	.byte	0x23
+	.byte	0x24
 	.byte	0x21
 	.byte	0x9
 	.long	0xdd
 	.byte	0x40
 	.uleb128 0x7
 	.long	.LASF66
-	.byte	0x23
+	.byte	0x24
 	.byte	0x22
 	.byte	0x10
 	.long	0x38e
@@ -13480,11 +14432,11 @@ irs.4:
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF67
-	.byte	0x24
+	.byte	0x25
 	.byte	0x20
 	.byte	0x1e
 	.long	0x3db
-	.uleb128 0x12
+	.uleb128 0x13
 	.long	0x39a
 	.long	0x3eb
 	.uleb128 0x10
@@ -13493,108 +14445,108 @@ irs.4:
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF68
-	.byte	0x25
+	.byte	0x26
 	.byte	0x48
 	.byte	0x10
 	.long	0x3f7
 	.uleb128 0xd
 	.long	0x3fc
-	.uleb128 0x32
+	.uleb128 0x33
 	.long	0x407
 	.uleb128 0xa
 	.long	0xdd
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF69
-	.byte	0x26
+	.byte	0x27
 	.byte	0x18
 	.byte	0x13
 	.long	0xbe
 	.uleb128 0xc
 	.long	.LASF70
-	.byte	0x26
+	.byte	0x27
 	.byte	0x19
 	.byte	0x14
 	.long	0xd1
 	.uleb128 0xc
 	.long	.LASF71
-	.byte	0x26
+	.byte	0x27
 	.byte	0x1a
 	.byte	0x14
 	.long	0xe4
 	.uleb128 0xc
 	.long	.LASF72
-	.byte	0x26
+	.byte	0x27
 	.byte	0x1b
 	.byte	0x14
 	.long	0xf7
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x4
 	.byte	0x4
 	.long	.LASF73
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x8
 	.byte	0x4
 	.long	.LASF74
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"I8"
-	.byte	0x27
+	.byte	0x28
 	.byte	0x2
 	.byte	0xe
 	.long	0x125
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"I32"
-	.byte	0x27
+	.byte	0x28
 	.byte	0x4
 	.byte	0xd
 	.long	0xdd
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"I64"
-	.byte	0x27
+	.byte	0x28
 	.byte	0x5
 	.byte	0xe
 	.long	0xf0
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"U8"
-	.byte	0x27
+	.byte	0x28
 	.byte	0xa
 	.byte	0x11
 	.long	0x407
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"U16"
-	.byte	0x27
+	.byte	0x28
 	.byte	0xb
 	.byte	0x12
 	.long	0x413
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"U32"
-	.byte	0x27
+	.byte	0x28
 	.byte	0xc
 	.byte	0x12
 	.long	0x41f
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"U64"
-	.byte	0x27
+	.byte	0x28
 	.byte	0xd
 	.byte	0x12
 	.long	0x42b
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"F64"
-	.byte	0x27
+	.byte	0x28
 	.byte	0xf
 	.byte	0x10
 	.long	0x43e
 	.uleb128 0x1f
 	.long	.LASF76
-	.byte	0x27
+	.byte	0x28
 	.byte	0x10
 	.byte	0xe
 	.uleb128 0x1f
 	.long	.LASF77
-	.byte	0x27
+	.byte	0x28
 	.byte	0x10
 	.byte	0x14
-	.uleb128 0x13
+	.uleb128 0x14
 	.long	.LASF78
 	.byte	0x10
 	.byte	0x1
@@ -13615,7 +14567,7 @@ irs.4:
 	.byte	0x6
 	.long	0x47f
 	.byte	0x8
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"max"
 	.byte	0x1
 	.byte	0xb
@@ -13649,7 +14601,7 @@ irs.4:
 	.byte	0x16
 	.long	0x47f
 	.byte	0
-	.uleb128 0x25
+	.uleb128 0x22
 	.string	"Vec"
 	.byte	0x18
 	.byte	0x2
@@ -13662,10 +14614,10 @@ irs.4:
 	.byte	0x8
 	.long	0x4e8
 	.byte	0
-	.uleb128 0x22
+	.uleb128 0x23
 	.long	0x4f9
 	.byte	0x8
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"max"
 	.byte	0x2
 	.byte	0x5
@@ -13680,13 +14632,13 @@ irs.4:
 	.long	0x47f
 	.byte	0x10
 	.byte	0
-	.uleb128 0x16
+	.uleb128 0x15
 	.string	"Vec"
 	.byte	0x2
 	.byte	0x7
 	.byte	0x3
 	.long	0x51a
-	.uleb128 0x13
+	.uleb128 0x14
 	.long	.LASF82
 	.byte	0xc
 	.byte	0x3
@@ -13700,7 +14652,7 @@ irs.4:
 	.byte	0x6
 	.long	0x47f
 	.byte	0
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"len"
 	.byte	0x3
 	.byte	0x4
@@ -13721,7 +14673,7 @@ irs.4:
 	.byte	0x6
 	.byte	0x3
 	.long	0x560
-	.uleb128 0x1b
+	.uleb128 0x1a
 	.long	.LASF89
 	.long	0x9b
 	.byte	0x4
@@ -13772,7 +14724,7 @@ irs.4:
 	.byte	0
 	.uleb128 0xd
 	.long	0x595
-	.uleb128 0x13
+	.uleb128 0x14
 	.long	.LASF90
 	.byte	0x10
 	.byte	0x4
@@ -13786,7 +14738,7 @@ irs.4:
 	.byte	0xc
 	.long	0x5c9
 	.byte	0
-	.uleb128 0x22
+	.uleb128 0x23
 	.long	0x5d5
 	.byte	0x8
 	.byte	0
@@ -13796,7 +14748,7 @@ irs.4:
 	.byte	0x14
 	.byte	0x3
 	.long	0x607
-	.uleb128 0x13
+	.uleb128 0x14
 	.long	.LASF92
 	.byte	0x18
 	.byte	0x5
@@ -13817,14 +14769,14 @@ irs.4:
 	.byte	0x9
 	.long	0x676
 	.byte	0x8
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"len"
 	.byte	0x5
 	.byte	0x7
 	.byte	0x6
 	.long	0x47f
 	.byte	0x10
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"max"
 	.byte	0x5
 	.byte	0x8
@@ -13851,60 +14803,64 @@ irs.4:
 	.byte	0x3
 	.byte	0x11
 	.long	0x602
-	.uleb128 0x33
+	.uleb128 0x34
 	.long	.LASF94
 	.byte	0x6
 	.byte	0x3
 	.byte	0x1e
 	.long	0x602
 	.byte	0
-	.uleb128 0x13
+	.uleb128 0x14
 	.long	.LASF95
-	.byte	0x10
+	.byte	0x18
 	.byte	0x6
 	.byte	0x1
 	.byte	0x10
 	.long	0x6c9
-	.uleb128 0x22
+	.uleb128 0x23
 	.long	0x687
 	.byte	0
 	.uleb128 0x7
 	.long	.LASF96
 	.byte	0x6
 	.byte	0x4
-	.byte	0x9
-	.long	0x6c9
+	.byte	0x8
+	.long	0x628
 	.byte	0x8
 	.byte	0
-	.uleb128 0xd
-	.long	0x628
 	.uleb128 0xc
 	.long	.LASF95
 	.byte	0x6
 	.byte	0x5
 	.byte	0x3
 	.long	0x6a8
-	.uleb128 0x25
+	.uleb128 0x15
+	.string	"Var"
+	.byte	0x6
+	.byte	0x6
+	.byte	0xf
+	.long	0x6c9
+	.uleb128 0x22
 	.string	"Map"
 	.byte	0x10
 	.byte	0x6
 	.byte	0x8
-	.long	0x70e
+	.long	0x715
 	.uleb128 0x7
 	.long	.LASF79
 	.byte	0x6
 	.byte	0xa
 	.byte	0x9
-	.long	0x70e
+	.long	0x715
 	.byte	0
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"len"
 	.byte	0x6
 	.byte	0xb
 	.byte	0x6
 	.long	0x47f
 	.byte	0x8
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"max"
 	.byte	0x6
 	.byte	0xc
@@ -13913,19 +14869,19 @@ irs.4:
 	.byte	0xc
 	.byte	0
 	.uleb128 0xd
-	.long	0x6ce
-	.uleb128 0x16
+	.long	0x6c9
+	.uleb128 0x15
 	.string	"Map"
 	.byte	0x6
 	.byte	0xd
 	.byte	0x3
-	.long	0x6da
-	.uleb128 0x1b
+	.long	0x6e1
+	.uleb128 0x1a
 	.long	.LASF97
 	.long	0x9b
-	.byte	0x28
+	.byte	0x29
 	.byte	0x1
-	.long	0x891
+	.long	0x898
 	.uleb128 0x3
 	.long	.LASF98
 	.byte	0
@@ -14106,23 +15062,23 @@ irs.4:
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF97
-	.byte	0x28
+	.byte	0x29
 	.byte	0x52
 	.byte	0x3
-	.long	0x71f
-	.uleb128 0x13
+	.long	0x726
+	.uleb128 0x14
 	.long	.LASF157
 	.byte	0x18
 	.byte	0x9
 	.byte	0x1
 	.byte	0x10
-	.long	0x8c5
+	.long	0x8cc
 	.uleb128 0x7
 	.long	.LASF91
 	.byte	0x9
 	.byte	0x3
 	.byte	0xc
-	.long	0x891
+	.long	0x898
 	.byte	0
 	.uleb128 0x7
 	.long	.LASF96
@@ -14137,27 +15093,27 @@ irs.4:
 	.byte	0x9
 	.byte	0x5
 	.byte	0x3
-	.long	0x89d
-	.uleb128 0x13
+	.long	0x8a4
+	.uleb128 0x14
 	.long	.LASF158
 	.byte	0x20
 	.byte	0x9
 	.byte	0x7
 	.byte	0x10
-	.long	0x920
+	.long	0x927
 	.uleb128 0x7
 	.long	.LASF159
 	.byte	0x9
 	.byte	0x9
 	.byte	0x6
-	.long	0x920
+	.long	0x927
 	.byte	0
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"end"
 	.byte	0x9
 	.byte	0xa
 	.byte	0x6
-	.long	0x920
+	.long	0x927
 	.byte	0x8
 	.uleb128 0x7
 	.long	.LASF160
@@ -14166,7 +15122,7 @@ irs.4:
 	.byte	0x6
 	.long	0x47f
 	.byte	0x10
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"col"
 	.byte	0x9
 	.byte	0xc
@@ -14178,7 +15134,7 @@ irs.4:
 	.byte	0x9
 	.byte	0xd
 	.byte	0x9
-	.long	0x925
+	.long	0x92c
 	.byte	0x18
 	.byte	0
 	.uleb128 0xd
@@ -14190,13 +15146,13 @@ irs.4:
 	.byte	0x9
 	.byte	0xe
 	.byte	0x3
-	.long	0x8d1
-	.uleb128 0x1b
+	.long	0x8d8
+	.uleb128 0x1a
 	.long	.LASF162
 	.long	0x9b
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x1
-	.long	0x9e8
+	.long	0x9ef
 	.uleb128 0x3
 	.long	.LASF163
 	.byte	0
@@ -14281,16 +15237,16 @@ irs.4:
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF162
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x1e
 	.byte	0x3
-	.long	0x936
-	.uleb128 0x1b
+	.long	0x93d
+	.uleb128 0x1a
 	.long	.LASF190
 	.long	0x9b
-	.byte	0x2a
+	.byte	0x2b
 	.byte	0x1
-	.long	0xa1c
+	.long	0xa23
 	.uleb128 0x3
 	.long	.LASF191
 	.byte	0
@@ -14306,23 +15262,23 @@ irs.4:
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF190
-	.byte	0x2a
+	.byte	0x2b
 	.byte	0x7
 	.byte	0x3
-	.long	0x9f4
-	.uleb128 0x13
+	.long	0x9fb
+	.uleb128 0x14
 	.long	.LASF195
 	.byte	0x18
 	.byte	0xb
 	.byte	0x1
 	.byte	0x10
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x7
 	.long	.LASF91
 	.byte	0xb
 	.byte	0x3
 	.byte	0xc
-	.long	0xa1c
+	.long	0xa23
 	.byte	0
 	.uleb128 0x7
 	.long	.LASF96
@@ -14337,34 +15293,34 @@ irs.4:
 	.byte	0xb
 	.byte	0x5
 	.byte	0x3
-	.long	0xa28
-	.uleb128 0x13
+	.long	0xa2f
+	.uleb128 0x14
 	.long	.LASF196
 	.byte	0x18
 	.byte	0xb
 	.byte	0x7
 	.byte	0x10
-	.long	0xa91
-	.uleb128 0x14
+	.long	0xa98
+	.uleb128 0x11
 	.string	"nud"
 	.byte	0xb
 	.byte	0x9
 	.byte	0x9
-	.long	0xa91
+	.long	0xa98
 	.byte	0
-	.uleb128 0x14
+	.uleb128 0x11
 	.string	"led"
 	.byte	0xb
 	.byte	0xa
 	.byte	0x9
-	.long	0xa91
+	.long	0xa98
 	.byte	0x8
 	.uleb128 0x7
 	.long	.LASF197
 	.byte	0xb
 	.byte	0xb
 	.byte	0x7
-	.long	0x9e8
+	.long	0x9ef
 	.byte	0x10
 	.byte	0
 	.uleb128 0xd
@@ -14374,20 +15330,20 @@ irs.4:
 	.byte	0xb
 	.byte	0xc
 	.byte	0x3
-	.long	0xa5c
-	.uleb128 0x13
+	.long	0xa63
+	.uleb128 0x14
 	.long	.LASF198
 	.byte	0x18
 	.byte	0xb
 	.byte	0xe
 	.byte	0x10
-	.long	0xabd
+	.long	0xac4
 	.uleb128 0x7
 	.long	.LASF199
 	.byte	0xb
 	.byte	0x10
 	.byte	0x8
-	.long	0x8c5
+	.long	0x8cc
 	.byte	0
 	.byte	0
 	.uleb128 0xc
@@ -14395,13 +15351,13 @@ irs.4:
 	.byte	0xb
 	.byte	0x11
 	.byte	0x3
-	.long	0xaa2
-	.uleb128 0x1b
+	.long	0xaa9
+	.uleb128 0x1a
 	.long	.LASF200
 	.long	0x9b
-	.byte	0x2b
+	.byte	0x2c
 	.byte	0x1
-	.long	0xbc3
+	.long	0xbca
 	.uleb128 0x3
 	.long	.LASF201
 	.byte	0
@@ -14522,54 +15478,125 @@ irs.4:
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF200
-	.byte	0x2b
+	.byte	0x2c
 	.byte	0x30
 	.byte	0x3
-	.long	0xac9
-	.uleb128 0x13
+	.long	0xad0
+	.uleb128 0x1a
 	.long	.LASF240
+	.long	0x9b
+	.byte	0xe
+	.byte	0x1
+	.long	0xbfe
+	.uleb128 0x3
+	.long	.LASF241
+	.byte	0
+	.uleb128 0x3
+	.long	.LASF242
+	.byte	0x1
+	.uleb128 0x3
+	.long	.LASF243
+	.byte	0x2
+	.uleb128 0x3
+	.long	.LASF244
+	.byte	0x3
+	.byte	0
+	.uleb128 0x22
+	.string	"Op"
+	.byte	0x4
+	.byte	0xe
+	.byte	0x9
+	.long	0xc4c
+	.uleb128 0x11
+	.string	"OP"
+	.byte	0xe
+	.byte	0xb
+	.byte	0x5
+	.long	0x468
+	.byte	0
+	.uleb128 0x11
+	.string	"D"
+	.byte	0xe
+	.byte	0xc
+	.byte	0x5
+	.long	0x468
+	.byte	0x1
+	.uleb128 0x11
+	.string	"S"
+	.byte	0xe
+	.byte	0xd
+	.byte	0x5
+	.long	0x468
+	.byte	0x2
+	.uleb128 0x24
+	.string	"M"
+	.byte	0xf
+	.long	0x468
+	.byte	0x2
+	.byte	0x18
+	.uleb128 0x24
+	.string	"DT"
+	.byte	0x10
+	.long	0x468
+	.byte	0x3
+	.byte	0x1a
+	.uleb128 0x24
+	.string	"ST"
+	.byte	0x11
+	.long	0x468
+	.byte	0x3
+	.byte	0x1d
+	.byte	0
+	.uleb128 0x15
+	.string	"Op"
+	.byte	0xe
+	.byte	0x12
+	.byte	0x3
+	.long	0xbfe
+	.uleb128 0x14
+	.long	.LASF245
 	.byte	0x10
 	.byte	0xe
 	.byte	0x14
 	.byte	0x10
-	.long	0xc2b
+	.long	0xcb3
 	.uleb128 0x7
-	.long	.LASF241
+	.long	.LASF246
 	.byte	0xe
 	.byte	0x17
 	.byte	0x6
 	.long	0x47f
 	.byte	0
 	.uleb128 0x7
-	.long	.LASF242
+	.long	.LASF247
 	.byte	0xe
 	.byte	0x18
 	.byte	0x6
 	.long	0x47f
 	.byte	0x4
 	.uleb128 0x7
-	.long	.LASF243
+	.long	.LASF248
 	.byte	0xe
 	.byte	0x19
 	.byte	0x6
 	.long	0x47f
 	.byte	0x8
 	.uleb128 0x7
-	.long	.LASF244
+	.long	.LASF249
 	.byte	0xe
 	.byte	0x1b
 	.byte	0x5
 	.long	0x468
 	.byte	0xc
 	.uleb128 0x7
-	.long	.LASF245
+	.long	.LASF250
 	.byte	0xe
 	.byte	0x1c
 	.byte	0x5
 	.long	0x468
 	.byte	0xd
 	.uleb128 0x7
-	.long	.LASF246
+	.long	.LASF251
 	.byte	0xe
 	.byte	0x1d
 	.byte	0x6
@@ -14577,27 +15604,27 @@ irs.4:
 	.byte	0xe
 	.byte	0
 	.uleb128 0xc
-	.long	.LASF240
+	.long	.LASF245
 	.byte	0xe
 	.byte	0x1f
 	.byte	0x3
-	.long	0xbcf
-	.uleb128 0x13
-	.long	.LASF247
+	.long	0xc57
+	.uleb128 0x14
+	.long	.LASF252
 	.byte	0x10
 	.byte	0xe
 	.byte	0x21
 	.byte	0x10
-	.long	0xc5e
-	.uleb128 0x14
+	.long	0xce6
+	.uleb128 0x11
 	.string	"fn"
 	.byte	0xe
 	.byte	0x23
 	.byte	0x8
-	.long	0xc5e
+	.long	0xce6
 	.byte	0
 	.uleb128 0x7
-	.long	.LASF248
+	.long	.LASF253
 	.byte	0xe
 	.byte	0x24
 	.byte	0x5
@@ -14605,30 +15632,30 @@ irs.4:
 	.byte	0x8
 	.byte	0
 	.uleb128 0xd
-	.long	0xc2b
+	.long	0xcb3
 	.uleb128 0xc
-	.long	.LASF247
+	.long	.LASF252
 	.byte	0xe
 	.byte	0x25
 	.byte	0x3
-	.long	0xc37
+	.long	0xcbf
 	.uleb128 0x1c
-	.long	.LASF249
-	.byte	0x20
+	.long	.LASF254
+	.byte	0x21
 	.byte	0xb8
 	.byte	0xc
 	.long	0xdd
-	.long	0xc85
+	.long	0xd0d
 	.uleb128 0xa
 	.long	0x31e
 	.byte	0
 	.uleb128 0x17
-	.long	.LASF250
-	.byte	0x20
+	.long	.LASF255
+	.byte	0x21
 	.value	0x2e2
 	.byte	0xf
 	.long	0x2e
-	.long	0xcab
+	.long	0xd33
 	.uleb128 0xa
 	.long	0xa4
 	.uleb128 0xa
@@ -14639,22 +15666,22 @@ irs.4:
 	.long	0x323
 	.byte	0
 	.uleb128 0x17
-	.long	.LASF251
-	.byte	0x20
+	.long	.LASF256
+	.byte	0x21
 	.value	0x311
 	.byte	0x11
 	.long	0xf0
-	.long	0xcc2
+	.long	0xd4a
 	.uleb128 0xa
 	.long	0x31e
 	.byte	0
 	.uleb128 0x17
-	.long	.LASF252
-	.byte	0x20
+	.long	.LASF257
+	.byte	0x21
 	.value	0x30b
 	.byte	0xc
 	.long	0xdd
-	.long	0xce3
+	.long	0xd6b
 	.uleb128 0xa
 	.long	0x31e
 	.uleb128 0xa
@@ -14663,41 +15690,41 @@ irs.4:
 	.long	0xdd
 	.byte	0
 	.uleb128 0x17
-	.long	.LASF253
-	.byte	0x20
+	.long	.LASF258
+	.byte	0x21
 	.value	0x108
 	.byte	0xe
 	.long	0x31e
-	.long	0xcff
+	.long	0xd87
 	.uleb128 0xa
-	.long	0xd04
+	.long	0xd8c
 	.uleb128 0xa
-	.long	0xd04
+	.long	0xd8c
 	.byte	0
 	.uleb128 0xd
 	.long	0x12c
-	.uleb128 0x1a
-	.long	0xcff
-	.uleb128 0x26
-	.long	.LASF258
-	.byte	0x25
+	.uleb128 0x1b
+	.long	0xd87
+	.uleb128 0x27
+	.long	.LASF263
+	.byte	0x26
 	.byte	0x5d
 	.byte	0x17
-	.long	.LASF260
+	.long	.LASF265
 	.long	0x3eb
-	.long	0xd28
+	.long	0xdb0
 	.uleb128 0xa
 	.long	0xdd
 	.uleb128 0xa
 	.long	0x3eb
 	.byte	0
 	.uleb128 0x17
-	.long	.LASF254
-	.byte	0x20
+	.long	.LASF259
+	.byte	0x21
 	.value	0x28e
 	.byte	0xe
 	.long	0x11b
-	.long	0xd49
+	.long	0xdd1
 	.uleb128 0xa
 	.long	0x120
 	.uleb128 0xa
@@ -14706,183 +15733,183 @@ irs.4:
 	.long	0x323
 	.byte	0
 	.uleb128 0x1c
-	.long	.LASF255
-	.byte	0x24
+	.long	.LASF260
+	.byte	0x25
 	.byte	0x2d
 	.byte	0xc
 	.long	0xdd
-	.long	0xd5f
+	.long	0xde7
 	.uleb128 0xa
-	.long	0xd5f
+	.long	0xde7
 	.byte	0
 	.uleb128 0xd
 	.long	0x39a
-	.uleb128 0x34
+	.uleb128 0x35
 	.string	"pow"
-	.byte	0x38
+	.byte	0x3a
 	.byte	0x8c
 	.byte	0x1
 	.long	0x43e
-	.long	0xd7f
+	.long	0xe07
 	.uleb128 0xa
 	.long	0x43e
 	.uleb128 0xa
 	.long	0x43e
 	.byte	0
 	.uleb128 0x17
-	.long	.LASF256
-	.byte	0x20
+	.long	.LASF261
+	.byte	0x21
 	.value	0x16b
 	.byte	0xc
 	.long	0xdd
-	.long	0xd97
+	.long	0xe1f
 	.uleb128 0xa
-	.long	0xcff
-	.uleb128 0x27
+	.long	0xd87
+	.uleb128 0x28
 	.byte	0
 	.uleb128 0x1c
-	.long	.LASF257
-	.byte	0x2c
+	.long	.LASF262
+	.byte	0x2d
 	.byte	0x76
 	.byte	0xf
 	.long	0x43e
-	.long	0xdb2
+	.long	0xe3a
 	.uleb128 0xa
-	.long	0xd04
+	.long	0xd8c
 	.uleb128 0xa
-	.long	0xdb7
+	.long	0xe3f
 	.byte	0
 	.uleb128 0xd
 	.long	0x11b
-	.uleb128 0x1a
-	.long	0xdb2
-	.uleb128 0x26
-	.long	.LASF259
-	.byte	0x2c
-	.byte	0xee
-	.byte	0x16
-	.long	.LASF261
-	.long	0x332
-	.long	0xde0
-	.uleb128 0xa
-	.long	0xd04
-	.uleb128 0xa
-	.long	0xdb7
-	.uleb128 0xa
-	.long	0xdd
-	.byte	0
-	.uleb128 0x35
-	.long	.LASF262
-	.byte	0x24
-	.byte	0x36
-	.byte	0xd
-	.long	0xdf7
-	.uleb128 0xa
-	.long	0xd5f
-	.uleb128 0xa
-	.long	0xdd
-	.byte	0
-	.uleb128 0x17
-	.long	.LASF263
-	.byte	0x20
-	.value	0x174
-	.byte	0xc
-	.long	0xdd
-	.long	0xe18
-	.uleb128 0xa
-	.long	0x323
-	.uleb128 0xa
-	.long	0xd04
-	.uleb128 0xa
-	.long	0xe18
-	.byte	0
-	.uleb128 0xd
-	.long	0x66
-	.uleb128 0x36
-	.long	.LASF527
-	.byte	0x2c
-	.value	0x2af
-	.byte	0xd
-	.long	0xe30
-	.uleb128 0xa
-	.long	0xa2
-	.byte	0
-	.uleb128 0x1c
+	.uleb128 0x1b
+	.long	0xe3a
+	.uleb128 0x27
 	.long	.LASF264
 	.byte	0x2d
-	.byte	0x40
-	.byte	0xc
-	.long	0xdd
-	.long	0xe50
-	.uleb128 0xa
-	.long	0x339
-	.uleb128 0xa
-	.long	0x339
-	.uleb128 0xa
-	.long	0x2e
-	.byte	0
-	.uleb128 0x17
-	.long	.LASF265
-	.byte	0x2c
-	.value	0x2a3
-	.byte	0xe
-	.long	0xa2
-	.long	0xe6c
-	.uleb128 0xa
-	.long	0x2e
-	.uleb128 0xa
-	.long	0x2e
-	.byte	0
-	.uleb128 0x1c
+	.byte	0xee
+	.byte	0x16
 	.long	.LASF266
-	.byte	0x2d
-	.byte	0x2b
-	.byte	0xe
-	.long	0xa2
-	.long	0xe8c
+	.long	0x332
+	.long	0xe68
 	.uleb128 0xa
-	.long	0xa2
+	.long	0xd8c
 	.uleb128 0xa
-	.long	0x339
+	.long	0xe3f
 	.uleb128 0xa
-	.long	0x2e
+	.long	0xdd
 	.byte	0
-	.uleb128 0x17
+	.uleb128 0x36
 	.long	.LASF267
-	.byte	0x2c
-	.value	0x2ab
-	.byte	0xe
-	.long	0xa2
-	.long	0xea8
+	.byte	0x25
+	.byte	0x36
+	.byte	0xd
+	.long	0xe7f
 	.uleb128 0xa
-	.long	0xa2
+	.long	0xde7
 	.uleb128 0xa
-	.long	0x2e
+	.long	0xdd
 	.byte	0
 	.uleb128 0x17
 	.long	.LASF268
-	.byte	0x2c
+	.byte	0x21
+	.value	0x174
+	.byte	0xc
+	.long	0xdd
+	.long	0xea0
+	.uleb128 0xa
+	.long	0x323
+	.uleb128 0xa
+	.long	0xd8c
+	.uleb128 0xa
+	.long	0xea0
+	.byte	0
+	.uleb128 0xd
+	.long	0x66
+	.uleb128 0x37
+	.long	.LASF547
+	.byte	0x2d
+	.value	0x2af
+	.byte	0xd
+	.long	0xeb8
+	.uleb128 0xa
+	.long	0xa2
+	.byte	0
+	.uleb128 0x1c
+	.long	.LASF269
+	.byte	0x2e
+	.byte	0x40
+	.byte	0xc
+	.long	0xdd
+	.long	0xed8
+	.uleb128 0xa
+	.long	0x339
+	.uleb128 0xa
+	.long	0x339
+	.uleb128 0xa
+	.long	0x2e
+	.byte	0
+	.uleb128 0x17
+	.long	.LASF270
+	.byte	0x2d
+	.value	0x2a3
+	.byte	0xe
+	.long	0xa2
+	.long	0xef4
+	.uleb128 0xa
+	.long	0x2e
+	.uleb128 0xa
+	.long	0x2e
+	.byte	0
+	.uleb128 0x1c
+	.long	.LASF271
+	.byte	0x2e
+	.byte	0x2b
+	.byte	0xe
+	.long	0xa2
+	.long	0xf14
+	.uleb128 0xa
+	.long	0xa2
+	.uleb128 0xa
+	.long	0x339
+	.uleb128 0xa
+	.long	0x2e
+	.byte	0
+	.uleb128 0x17
+	.long	.LASF272
+	.byte	0x2d
+	.value	0x2ab
+	.byte	0xe
+	.long	0xa2
+	.long	0xf30
+	.uleb128 0xa
+	.long	0xa2
+	.uleb128 0xa
+	.long	0x2e
+	.byte	0
+	.uleb128 0x17
+	.long	.LASF273
+	.byte	0x2d
 	.value	0x2a0
 	.byte	0xe
 	.long	0xa2
-	.long	0xebf
+	.long	0xf47
 	.uleb128 0xa
 	.long	0x2e
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF278
-	.byte	0x19
+	.long	.LASF283
+	.byte	0x1a
 	.byte	0x33
 	.byte	0x5
 	.long	0x450
-	.quad	.LFB173
-	.quad	.LFE173-.LFB173
+	.quad	.LFB179
+	.quad	.LFE179-.LFB179
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0xf0f
+	.long	0xf97
 	.uleb128 0x4
-	.long	.LASF269
-	.byte	0x19
+	.long	.LASF274
+	.byte	0x1a
 	.byte	0x33
 	.byte	0xf
 	.long	0x450
@@ -14890,17 +15917,17 @@ irs.4:
 	.byte	0x91
 	.sleb128 -36
 	.uleb128 0x4
-	.long	.LASF270
-	.byte	0x19
+	.long	.LASF275
+	.byte	0x1a
 	.byte	0x33
 	.byte	0x1b
-	.long	0xf0f
+	.long	0xf97
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"res"
-	.byte	0x19
+	.byte	0x1a
 	.byte	0x35
 	.byte	0x6
 	.long	0x450
@@ -14909,21 +15936,21 @@ irs.4:
 	.sleb128 -20
 	.byte	0
 	.uleb128 0xd
-	.long	0x920
-	.uleb128 0x9
-	.long	.LASF271
-	.byte	0x19
+	.long	0x927
+	.uleb128 0x8
+	.long	.LASF276
+	.byte	0x1a
 	.byte	0x2d
 	.byte	0xa
 	.long	0x450
-	.quad	.LFB172
-	.quad	.LFE172-.LFB172
+	.quad	.LFB178
+	.quad	.LFE178-.LFB178
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0xf46
+	.long	0xfce
 	.uleb128 0x1
 	.string	"err"
-	.byte	0x19
+	.byte	0x1a
 	.byte	0x2d
 	.byte	0x16
 	.long	0x450
@@ -14931,41 +15958,41 @@ irs.4:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF272
-	.byte	0x19
+	.uleb128 0x8
+	.long	.LASF277
+	.byte	0x1a
 	.byte	0x25
 	.byte	0xa
 	.long	0x450
-	.quad	.LFB171
-	.quad	.LFE171-.LFB171
+	.quad	.LFB177
+	.quad	.LFE177-.LFB177
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0xf78
+	.long	0x1000
 	.uleb128 0x4
-	.long	.LASF273
-	.byte	0x19
+	.long	.LASF278
+	.byte	0x1a
 	.byte	0x25
 	.byte	0x14
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF274
-	.byte	0x19
+	.uleb128 0x8
+	.long	.LASF279
+	.byte	0x1a
 	.byte	0x17
 	.byte	0xa
 	.long	0x450
-	.quad	.LFB170
-	.quad	.LFE170-.LFB170
+	.quad	.LFB176
+	.quad	.LFE176-.LFB176
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0xfb9
+	.long	0x1041
 	.uleb128 0x6
 	.string	"src"
-	.byte	0x19
+	.byte	0x1a
 	.byte	0x1a
 	.byte	0x9
 	.long	0x676
@@ -14974,44 +16001,44 @@ irs.4:
 	.sleb128 -24
 	.uleb128 0x5
 	.long	.LASF160
-	.byte	0x19
+	.byte	0x1a
 	.byte	0x1b
 	.byte	0x6
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
 	.byte	0
-	.uleb128 0x37
+	.uleb128 0x38
 	.string	"Run"
-	.byte	0x19
+	.byte	0x1a
 	.byte	0x11
 	.byte	0xb
-	.quad	.LFB169
-	.quad	.LFE169-.LFB169
+	.quad	.LFB175
+	.quad	.LFE175-.LFB175
 	.uleb128 0x1
 	.byte	0x9c
-	.uleb128 0x38
-	.long	.LASF275
-	.byte	0x19
+	.uleb128 0x39
+	.long	.LASF280
+	.byte	0x1a
 	.byte	0x6
 	.byte	0xb
-	.quad	.LFB168
-	.quad	.LFE168-.LFB168
+	.quad	.LFB174
+	.quad	.LFE174-.LFB174
 	.uleb128 0x1
 	.byte	0x9c
 	.uleb128 0x1d
-	.long	.LASF451
-	.byte	0x19
+	.long	.LASF475
+	.byte	0x1a
 	.byte	0x1
-	.quad	.LFB167
-	.quad	.LFE167-.LFB167
+	.quad	.LFB173
+	.quad	.LFE173-.LFB173
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x101a
+	.long	0x10a2
 	.uleb128 0x1
 	.string	"sig"
-	.byte	0x19
+	.byte	0x1a
 	.byte	0x1
 	.byte	0x16
 	.long	0x450
@@ -15019,133 +16046,133 @@ irs.4:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x28
-	.long	.LASF276
+	.uleb128 0x29
+	.long	.LASF281
 	.byte	0xe
-	.quad	.LFB166
-	.quad	.LFE166-.LFB166
+	.quad	.LFB172
+	.quad	.LFE172-.LFB172
 	.uleb128 0x1
 	.byte	0x9c
-	.uleb128 0x28
-	.long	.LASF277
+	.uleb128 0x29
+	.long	.LASF282
 	.byte	0x1
-	.quad	.LFB165
-	.quad	.LFE165-.LFB165
+	.quad	.LFB171
+	.quad	.LFE171-.LFB171
 	.uleb128 0x1
 	.byte	0x9c
 	.uleb128 0xe
-	.long	.LASF279
-	.byte	0x14
+	.long	.LASF284
+	.byte	0x15
 	.byte	0x45
 	.byte	0xb
-	.long	0xa50
-	.quad	.LFB164
-	.quad	.LFE164-.LFB164
+	.long	0xa57
+	.quad	.LFB170
+	.quad	.LFE170-.LFB170
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x14
+	.byte	0x15
 	.byte	0x45
 	.byte	0x22
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x4
-	.long	.LASF280
-	.byte	0x14
+	.long	.LASF285
+	.byte	0x15
 	.byte	0x45
 	.byte	0x31
-	.long	0x891
+	.long	0x898
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -52
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x14
+	.byte	0x15
 	.byte	0x45
 	.byte	0x48
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x6
 	.string	"irs"
-	.byte	0x2e
+	.byte	0x2f
 	.byte	0x1
 	.byte	0xf
-	.long	0x1162
+	.long	0x11ea
 	.uleb128 0x9
 	.byte	0x3
-	.quad	irs.4
-	.uleb128 0x8
-	.long	.LASF281
-	.byte	0x17
+	.quad	irs.2
+	.uleb128 0x9
+	.long	.LASF286
+	.byte	0x18
 	.byte	0x1
 	.byte	0x1
-	.quad	.L728
-	.uleb128 0x8
-	.long	.LASF282
-	.byte	0x17
+	.quad	.L771
+	.uleb128 0x9
+	.long	.LASF287
+	.byte	0x18
 	.byte	0x2
 	.byte	0x1
-	.quad	.L730
-	.uleb128 0x8
-	.long	.LASF283
-	.byte	0x17
+	.quad	.L773
+	.uleb128 0x9
+	.long	.LASF288
+	.byte	0x18
 	.byte	0x3
 	.byte	0x1
-	.quad	.L731
-	.uleb128 0x8
-	.long	.LASF284
-	.byte	0x17
+	.quad	.L774
+	.uleb128 0x9
+	.long	.LASF289
+	.byte	0x18
 	.byte	0x4
 	.byte	0x1
-	.quad	.L732
-	.uleb128 0x8
-	.long	.LASF285
-	.byte	0x17
+	.quad	.L775
+	.uleb128 0x9
+	.long	.LASF290
+	.byte	0x18
 	.byte	0x5
 	.byte	0x1
-	.quad	.L733
-	.uleb128 0x8
-	.long	.LASF286
-	.byte	0x17
+	.quad	.L776
+	.uleb128 0x9
+	.long	.LASF291
+	.byte	0x18
 	.byte	0x6
 	.byte	0x1
-	.quad	.L734
-	.uleb128 0x8
-	.long	.LASF287
-	.byte	0x17
+	.quad	.L777
+	.uleb128 0x9
+	.long	.LASF292
+	.byte	0x18
 	.byte	0x7
 	.byte	0x1
-	.quad	.L735
-	.uleb128 0x8
-	.long	.LASF288
-	.byte	0x17
+	.quad	.L778
+	.uleb128 0x9
+	.long	.LASF293
+	.byte	0x18
 	.byte	0x8
 	.byte	0x1
-	.quad	.L736
-	.uleb128 0x8
-	.long	.LASF289
-	.byte	0x17
+	.quad	.L779
+	.uleb128 0x9
+	.long	.LASF294
+	.byte	0x18
 	.byte	0x9
 	.byte	0x1
-	.quad	.L737
+	.quad	.L780
 	.uleb128 0x6
 	.string	"op"
-	.byte	0x14
+	.byte	0x15
 	.byte	0x48
 	.byte	0x9
-	.long	0xbc3
+	.long	0xbca
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF290
-	.byte	0x14
+	.long	.LASF295
+	.byte	0x15
 	.byte	0x49
 	.byte	0xc
 	.long	0x5c9
@@ -15154,645 +16181,645 @@ irs.4:
 	.sleb128 -28
 	.byte	0
 	.uleb128 0xd
-	.long	0xa50
-	.uleb128 0x12
-	.long	0xa91
-	.long	0x1178
+	.long	0xa57
+	.uleb128 0x13
+	.long	0xa98
+	.long	0x1200
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x2
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x2
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF291
-	.byte	0x14
-	.byte	0x40
-	.byte	0xb
-	.long	0xa50
-	.quad	.LFB163
-	.quad	.LFE163-.LFB163
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x11c9
-	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x14
-	.byte	0x40
-	.byte	0x23
-	.long	0x115d
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -64
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x14
-	.byte	0x40
-	.byte	0x2f
-	.long	0xbc3
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -68
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x14
-	.byte	0x40
-	.byte	0x3e
-	.long	0x115d
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -80
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF292
-	.byte	0x14
-	.byte	0x3b
-	.byte	0xb
-	.long	0xa50
-	.quad	.LFB162
-	.quad	.LFE162-.LFB162
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x121a
-	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x14
-	.byte	0x3b
-	.byte	0x22
-	.long	0x115d
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -64
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x14
-	.byte	0x3b
-	.byte	0x2e
-	.long	0xbc3
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -68
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x14
-	.byte	0x3b
-	.byte	0x3d
-	.long	0x115d
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -80
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF293
-	.byte	0x14
-	.byte	0x36
-	.byte	0xb
-	.long	0xa50
-	.quad	.LFB161
-	.quad	.LFE161-.LFB161
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x126b
-	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x14
-	.byte	0x36
-	.byte	0x24
-	.long	0x115d
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -64
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x14
-	.byte	0x36
-	.byte	0x30
-	.long	0xbc3
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -68
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x14
-	.byte	0x36
-	.byte	0x3f
-	.long	0x115d
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -80
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF294
-	.byte	0x14
-	.byte	0x31
-	.byte	0xb
-	.long	0xa50
-	.quad	.LFB160
-	.quad	.LFE160-.LFB160
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x12bc
-	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x14
-	.byte	0x31
-	.byte	0x22
-	.long	0x115d
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -64
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x14
-	.byte	0x31
-	.byte	0x2e
-	.long	0xbc3
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -68
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x14
-	.byte	0x31
-	.byte	0x3d
-	.long	0x115d
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -80
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF295
-	.byte	0x14
-	.byte	0x2c
-	.byte	0xb
-	.long	0xa50
-	.quad	.LFB159
-	.quad	.LFE159-.LFB159
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x130d
-	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x14
-	.byte	0x2c
-	.byte	0x21
-	.long	0x115d
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -64
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x14
-	.byte	0x2c
-	.byte	0x2d
-	.long	0xbc3
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -68
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x14
-	.byte	0x2c
-	.byte	0x3c
-	.long	0x115d
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -80
 	.byte	0
 	.uleb128 0xf
 	.long	.LASF296
-	.byte	0x14
-	.byte	0x27
+	.byte	0x15
+	.byte	0x40
 	.byte	0xb
-	.long	0xa50
-	.quad	.LFB158
-	.quad	.LFE158-.LFB158
+	.long	0xa57
+	.quad	.LFB169
+	.quad	.LFE169-.LFB169
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x135e
+	.long	0x1251
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x14
-	.byte	0x27
+	.byte	0x15
+	.byte	0x40
 	.byte	0x23
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x1
 	.string	"op"
-	.byte	0x14
-	.byte	0x27
+	.byte	0x15
+	.byte	0x40
 	.byte	0x2f
-	.long	0xbc3
+	.long	0xbca
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -68
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x14
-	.byte	0x27
+	.byte	0x15
+	.byte	0x40
 	.byte	0x3e
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
 	.byte	0
 	.uleb128 0xf
 	.long	.LASF297
-	.byte	0x14
-	.byte	0x22
+	.byte	0x15
+	.byte	0x3b
 	.byte	0xb
-	.long	0xa50
-	.quad	.LFB157
-	.quad	.LFE157-.LFB157
+	.long	0xa57
+	.quad	.LFB168
+	.quad	.LFE168-.LFB168
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x13af
+	.long	0x12a2
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x14
+	.byte	0x15
+	.byte	0x3b
 	.byte	0x22
-	.byte	0x24
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x1
 	.string	"op"
-	.byte	0x14
-	.byte	0x22
-	.byte	0x30
-	.long	0xbc3
+	.byte	0x15
+	.byte	0x3b
+	.byte	0x2e
+	.long	0xbca
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -68
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x14
-	.byte	0x22
-	.byte	0x3f
-	.long	0x115d
+	.byte	0x15
+	.byte	0x3b
+	.byte	0x3d
+	.long	0x11e5
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
 	.byte	0
 	.uleb128 0xf
 	.long	.LASF298
-	.byte	0x14
-	.byte	0x1d
+	.byte	0x15
+	.byte	0x36
 	.byte	0xb
-	.long	0xa50
-	.quad	.LFB156
-	.quad	.LFE156-.LFB156
+	.long	0xa57
+	.quad	.LFB167
+	.quad	.LFE167-.LFB167
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1400
+	.long	0x12f3
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x14
-	.byte	0x1d
-	.byte	0x23
-	.long	0x115d
+	.byte	0x15
+	.byte	0x36
+	.byte	0x24
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x1
 	.string	"op"
-	.byte	0x14
-	.byte	0x1d
-	.byte	0x2f
-	.long	0xbc3
+	.byte	0x15
+	.byte	0x36
+	.byte	0x30
+	.long	0xbca
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -68
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x14
+	.byte	0x15
+	.byte	0x36
+	.byte	0x3f
+	.long	0x11e5
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -80
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF299
+	.byte	0x15
+	.byte	0x31
+	.byte	0xb
+	.long	0xa57
+	.quad	.LFB166
+	.quad	.LFE166-.LFB166
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x1344
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x15
+	.byte	0x31
+	.byte	0x22
+	.long	0x11e5
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x1
+	.string	"op"
+	.byte	0x15
+	.byte	0x31
+	.byte	0x2e
+	.long	0xbca
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -68
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x15
+	.byte	0x31
+	.byte	0x3d
+	.long	0x11e5
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -80
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF300
+	.byte	0x15
+	.byte	0x2c
+	.byte	0xb
+	.long	0xa57
+	.quad	.LFB165
+	.quad	.LFE165-.LFB165
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x1395
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x15
+	.byte	0x2c
+	.byte	0x21
+	.long	0x11e5
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x1
+	.string	"op"
+	.byte	0x15
+	.byte	0x2c
+	.byte	0x2d
+	.long	0xbca
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -68
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x15
+	.byte	0x2c
+	.byte	0x3c
+	.long	0x11e5
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -80
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF301
+	.byte	0x15
+	.byte	0x27
+	.byte	0xb
+	.long	0xa57
+	.quad	.LFB164
+	.quad	.LFE164-.LFB164
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x13e6
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x15
+	.byte	0x27
+	.byte	0x23
+	.long	0x11e5
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x1
+	.string	"op"
+	.byte	0x15
+	.byte	0x27
+	.byte	0x2f
+	.long	0xbca
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -68
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x15
+	.byte	0x27
+	.byte	0x3e
+	.long	0x11e5
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -80
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF302
+	.byte	0x15
+	.byte	0x22
+	.byte	0xb
+	.long	0xa57
+	.quad	.LFB163
+	.quad	.LFE163-.LFB163
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x1437
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x15
+	.byte	0x22
+	.byte	0x24
+	.long	0x11e5
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x1
+	.string	"op"
+	.byte	0x15
+	.byte	0x22
+	.byte	0x30
+	.long	0xbca
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -68
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x15
+	.byte	0x22
+	.byte	0x3f
+	.long	0x11e5
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -80
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF303
+	.byte	0x15
+	.byte	0x1d
+	.byte	0xb
+	.long	0xa57
+	.quad	.LFB162
+	.quad	.LFE162-.LFB162
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x1488
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x15
+	.byte	0x1d
+	.byte	0x23
+	.long	0x11e5
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x1
+	.string	"op"
+	.byte	0x15
+	.byte	0x1d
+	.byte	0x2f
+	.long	0xbca
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -68
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x15
 	.byte	0x1d
 	.byte	0x3e
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF299
-	.byte	0x14
+	.long	.LASF304
+	.byte	0x15
 	.byte	0x16
 	.byte	0xb
-	.long	0xa50
-	.quad	.LFB155
-	.quad	.LFE155-.LFB155
+	.long	0xa57
+	.quad	.LFB161
+	.quad	.LFE161-.LFB161
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1460
+	.long	0x14e8
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x14
+	.byte	0x15
 	.byte	0x16
 	.byte	0x25
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x1
 	.string	"op"
-	.byte	0x14
+	.byte	0x15
 	.byte	0x16
 	.byte	0x31
-	.long	0xbc3
+	.long	0xbca
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -68
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x14
+	.byte	0x15
 	.byte	0x16
 	.byte	0x40
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
 	.uleb128 0x5
-	.long	.LASF300
-	.byte	0x14
+	.long	.LASF305
+	.byte	0x15
 	.byte	0x18
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF301
-	.byte	0x14
+	.long	.LASF306
+	.byte	0x15
 	.byte	0xf
 	.byte	0x7
 	.long	0x628
-	.quad	.LFB154
-	.quad	.LFE154-.LFB154
+	.quad	.LFB160
+	.quad	.LFE160-.LFB160
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x16c0
+	.long	0x1748
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x14
+	.byte	0x15
 	.byte	0xf
 	.byte	0x1b
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"op"
-	.byte	0x14
+	.byte	0x15
 	.byte	0xf
 	.byte	0x27
-	.long	0xbc3
+	.long	0xbca
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -44
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x14
+	.byte	0x15
 	.byte	0xf
 	.byte	0x36
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x2f
+	.byte	0x30
 	.byte	0x1
 	.byte	0xf
-	.long	0x16c0
+	.long	0x1748
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.25
+	.quad	ops.23
 	.uleb128 0x2
 	.string	"ERR"
-	.byte	0x16
-	.byte	0x1
-	.byte	0x1
-	.quad	.L675
-	.uleb128 0x2
-	.string	"ADD"
-	.byte	0x16
-	.byte	0x2
-	.byte	0x1
-	.quad	.L677
-	.uleb128 0x2
-	.string	"SUB"
-	.byte	0x16
-	.byte	0x3
-	.byte	0x1
-	.quad	.L678
-	.uleb128 0x2
-	.string	"MUL"
-	.byte	0x16
-	.byte	0x4
-	.byte	0x1
-	.quad	.L679
-	.uleb128 0x2
-	.string	"DIV"
-	.byte	0x16
-	.byte	0x5
-	.byte	0x1
-	.quad	.L680
-	.uleb128 0x2
-	.string	"MOD"
-	.byte	0x16
-	.byte	0x6
-	.byte	0x1
-	.quad	.L681
-	.uleb128 0x2
-	.string	"POW"
-	.byte	0x16
-	.byte	0x7
-	.byte	0x1
-	.quad	.L682
-	.uleb128 0x8
-	.long	.LASF302
-	.byte	0x16
-	.byte	0x8
-	.byte	0x1
-	.quad	.L683
-	.uleb128 0x2
-	.string	"BOR"
-	.byte	0x16
-	.byte	0x9
-	.byte	0x1
-	.quad	.L684
-	.uleb128 0x8
-	.long	.LASF303
-	.byte	0x16
-	.byte	0xa
-	.byte	0x1
-	.quad	.L685
-	.uleb128 0x2
-	.string	"LSH"
-	.byte	0x16
-	.byte	0xb
-	.byte	0x1
-	.quad	.L686
-	.uleb128 0x2
-	.string	"RSH"
-	.byte	0x16
-	.byte	0xc
-	.byte	0x1
-	.quad	.L687
-	.uleb128 0x8
-	.long	.LASF304
-	.byte	0x16
-	.byte	0xd
-	.byte	0x1
-	.quad	.L688
-	.uleb128 0x2
-	.string	"NEQ"
-	.byte	0x16
-	.byte	0xe
-	.byte	0x1
-	.quad	.L689
-	.uleb128 0x2
-	.string	"LT"
-	.byte	0x16
-	.byte	0xf
-	.byte	0x1
-	.quad	.L690
-	.uleb128 0x2
-	.string	"LE"
-	.byte	0x16
-	.byte	0x10
-	.byte	0x1
-	.quad	.L691
-	.uleb128 0x2
-	.string	"GT"
-	.byte	0x16
-	.byte	0x11
-	.byte	0x1
-	.quad	.L692
-	.uleb128 0x2
-	.string	"GE"
-	.byte	0x16
-	.byte	0x12
-	.byte	0x1
-	.quad	.L693
-	.uleb128 0x2
-	.string	"AND"
-	.byte	0x16
-	.byte	0x13
-	.byte	0x1
-	.quad	.L694
-	.uleb128 0x2
-	.string	"OR"
-	.byte	0x16
-	.byte	0x14
-	.byte	0x1
-	.quad	.L695
-	.uleb128 0x2
-	.string	"MOV"
-	.byte	0x16
-	.byte	0x15
-	.byte	0x1
-	.quad	.L696
-	.uleb128 0x8
-	.long	.LASF305
-	.byte	0x16
-	.byte	0x16
-	.byte	0x1
-	.quad	.L697
-	.uleb128 0x8
-	.long	.LASF306
-	.byte	0x16
 	.byte	0x17
 	.byte	0x1
-	.quad	.L698
-	.uleb128 0x8
+	.byte	0x1
+	.quad	.L718
+	.uleb128 0x2
+	.string	"ADD"
+	.byte	0x17
+	.byte	0x2
+	.byte	0x1
+	.quad	.L720
+	.uleb128 0x2
+	.string	"SUB"
+	.byte	0x17
+	.byte	0x3
+	.byte	0x1
+	.quad	.L721
+	.uleb128 0x2
+	.string	"MUL"
+	.byte	0x17
+	.byte	0x4
+	.byte	0x1
+	.quad	.L722
+	.uleb128 0x2
+	.string	"DIV"
+	.byte	0x17
+	.byte	0x5
+	.byte	0x1
+	.quad	.L723
+	.uleb128 0x2
+	.string	"MOD"
+	.byte	0x17
+	.byte	0x6
+	.byte	0x1
+	.quad	.L724
+	.uleb128 0x2
+	.string	"POW"
+	.byte	0x17
+	.byte	0x7
+	.byte	0x1
+	.quad	.L725
+	.uleb128 0x9
 	.long	.LASF307
+	.byte	0x17
+	.byte	0x8
+	.byte	0x1
+	.quad	.L726
+	.uleb128 0x2
+	.string	"BOR"
+	.byte	0x17
+	.byte	0x9
+	.byte	0x1
+	.quad	.L727
+	.uleb128 0x9
+	.long	.LASF308
+	.byte	0x17
+	.byte	0xa
+	.byte	0x1
+	.quad	.L728
+	.uleb128 0x2
+	.string	"LSH"
+	.byte	0x17
+	.byte	0xb
+	.byte	0x1
+	.quad	.L729
+	.uleb128 0x2
+	.string	"RSH"
+	.byte	0x17
+	.byte	0xc
+	.byte	0x1
+	.quad	.L730
+	.uleb128 0x9
+	.long	.LASF309
+	.byte	0x17
+	.byte	0xd
+	.byte	0x1
+	.quad	.L731
+	.uleb128 0x2
+	.string	"NEQ"
+	.byte	0x17
+	.byte	0xe
+	.byte	0x1
+	.quad	.L732
+	.uleb128 0x2
+	.string	"LT"
+	.byte	0x17
+	.byte	0xf
+	.byte	0x1
+	.quad	.L733
+	.uleb128 0x2
+	.string	"LE"
+	.byte	0x17
+	.byte	0x10
+	.byte	0x1
+	.quad	.L734
+	.uleb128 0x2
+	.string	"GT"
+	.byte	0x17
+	.byte	0x11
+	.byte	0x1
+	.quad	.L735
+	.uleb128 0x2
+	.string	"GE"
+	.byte	0x17
+	.byte	0x12
+	.byte	0x1
+	.quad	.L736
+	.uleb128 0x2
+	.string	"AND"
+	.byte	0x17
+	.byte	0x13
+	.byte	0x1
+	.quad	.L737
+	.uleb128 0x2
+	.string	"OR"
+	.byte	0x17
+	.byte	0x14
+	.byte	0x1
+	.quad	.L738
+	.uleb128 0x2
+	.string	"MOV"
+	.byte	0x17
+	.byte	0x15
+	.byte	0x1
+	.quad	.L739
+	.uleb128 0x9
+	.long	.LASF310
+	.byte	0x17
 	.byte	0x16
+	.byte	0x1
+	.quad	.L740
+	.uleb128 0x9
+	.long	.LASF311
+	.byte	0x17
+	.byte	0x17
+	.byte	0x1
+	.quad	.L741
+	.uleb128 0x9
+	.long	.LASF312
+	.byte	0x17
 	.byte	0x18
 	.byte	0x1
-	.quad	.L699
-	.uleb128 0x8
-	.long	.LASF308
-	.byte	0x16
+	.quad	.L742
+	.uleb128 0x9
+	.long	.LASF313
+	.byte	0x17
 	.byte	0x19
 	.byte	0x1
-	.quad	.L700
-	.uleb128 0x8
-	.long	.LASF309
-	.byte	0x16
+	.quad	.L743
+	.uleb128 0x9
+	.long	.LASF314
+	.byte	0x17
 	.byte	0x1a
 	.byte	0x1
-	.quad	.L701
-	.uleb128 0x8
-	.long	.LASF310
-	.byte	0x16
+	.quad	.L744
+	.uleb128 0x9
+	.long	.LASF315
+	.byte	0x17
 	.byte	0x1b
 	.byte	0x1
-	.quad	.L702
-	.uleb128 0x8
-	.long	.LASF311
-	.byte	0x16
+	.quad	.L745
+	.uleb128 0x9
+	.long	.LASF316
+	.byte	0x17
 	.byte	0x1c
 	.byte	0x1
-	.quad	.L703
-	.uleb128 0x8
-	.long	.LASF312
-	.byte	0x16
+	.quad	.L746
+	.uleb128 0x9
+	.long	.LASF317
+	.byte	0x17
 	.byte	0x1d
 	.byte	0x1
-	.quad	.L704
-	.uleb128 0x8
-	.long	.LASF313
-	.byte	0x16
+	.quad	.L747
+	.uleb128 0x9
+	.long	.LASF318
+	.byte	0x17
 	.byte	0x1e
 	.byte	0x1
-	.quad	.L705
-	.uleb128 0x8
-	.long	.LASF314
-	.byte	0x16
+	.quad	.L748
+	.uleb128 0x9
+	.long	.LASF319
+	.byte	0x17
 	.byte	0x1f
 	.byte	0x1
-	.quad	.L706
-	.uleb128 0x8
-	.long	.LASF315
-	.byte	0x16
+	.quad	.L749
+	.uleb128 0x9
+	.long	.LASF320
+	.byte	0x17
 	.byte	0x20
 	.byte	0x1
-	.quad	.L707
+	.quad	.L750
 	.byte	0
-	.uleb128 0x12
-	.long	0xa91
-	.long	0x16d0
+	.uleb128 0x13
+	.long	0xa98
+	.long	0x1758
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x25
 	.byte	0
-	.uleb128 0x23
-	.long	.LASF378
-	.byte	0x14
+	.uleb128 0x25
+	.long	.LASF403
+	.byte	0x15
 	.byte	0x7
-	.quad	.LFB153
-	.quad	.LFE153-.LFB153
+	.quad	.LFB159
+	.quad	.LFE159-.LFB159
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x17b2
+	.long	0x183a
 	.uleb128 0x4
-	.long	.LASF300
-	.byte	0x14
+	.long	.LASF305
+	.byte	0x15
 	.byte	0x7
 	.byte	0x1a
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.uleb128 0x4
-	.long	.LASF290
-	.byte	0x14
+	.long	.LASF295
+	.byte	0x15
 	.byte	0x7
 	.byte	0x2a
 	.long	0x5c9
@@ -15800,111 +16827,111 @@ irs.4:
 	.byte	0x91
 	.sleb128 -28
 	.uleb128 0x5
-	.long	.LASF316
-	.byte	0x30
+	.long	.LASF321
+	.byte	0x31
 	.byte	0x1
 	.byte	0xf
-	.long	0x1162
+	.long	0x11ea
 	.uleb128 0x9
 	.byte	0x3
-	.quad	types.26
-	.uleb128 0x8
-	.long	.LASF317
-	.byte	0x15
+	.quad	types.24
+	.uleb128 0x9
+	.long	.LASF322
+	.byte	0x16
 	.byte	0x1
 	.byte	0x1
-	.quad	.L663
-	.uleb128 0x8
-	.long	.LASF318
-	.byte	0x15
+	.quad	.L706
+	.uleb128 0x9
+	.long	.LASF323
+	.byte	0x16
 	.byte	0x2
 	.byte	0x1
-	.quad	.L665
-	.uleb128 0x8
-	.long	.LASF319
-	.byte	0x15
+	.quad	.L708
+	.uleb128 0x9
+	.long	.LASF324
+	.byte	0x16
 	.byte	0x3
 	.byte	0x1
-	.quad	.L666
-	.uleb128 0x8
-	.long	.LASF320
-	.byte	0x15
+	.quad	.L709
+	.uleb128 0x9
+	.long	.LASF325
+	.byte	0x16
 	.byte	0x5
 	.byte	0x1
-	.quad	.L667
-	.uleb128 0x8
-	.long	.LASF321
-	.byte	0x15
+	.quad	.L710
+	.uleb128 0x9
+	.long	.LASF326
+	.byte	0x16
 	.byte	0x6
 	.byte	0x1
-	.quad	.L668
-	.uleb128 0x8
-	.long	.LASF322
-	.byte	0x15
+	.quad	.L711
+	.uleb128 0x9
+	.long	.LASF327
+	.byte	0x16
 	.byte	0x7
 	.byte	0x1
-	.quad	.L669
-	.uleb128 0x8
-	.long	.LASF323
-	.byte	0x15
+	.quad	.L712
+	.uleb128 0x9
+	.long	.LASF328
+	.byte	0x16
 	.byte	0x9
 	.byte	0x1
-	.quad	.L670
-	.uleb128 0x8
-	.long	.LASF324
-	.byte	0x15
+	.quad	.L713
+	.uleb128 0x9
+	.long	.LASF329
+	.byte	0x16
 	.byte	0xa
 	.byte	0x1
-	.quad	.L671
-	.uleb128 0x8
-	.long	.LASF325
-	.byte	0x15
+	.quad	.L714
+	.uleb128 0x9
+	.long	.LASF330
+	.byte	0x16
 	.byte	0xb
 	.byte	0x1
-	.quad	.L672
+	.quad	.L715
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF326
-	.byte	0x14
+	.long	.LASF331
+	.byte	0x15
 	.byte	0x1
 	.byte	0xb
 	.long	0x5c9
-	.quad	.LFB152
-	.quad	.LFE152-.LFB152
+	.quad	.LFB158
+	.quad	.LFE158-.LFB158
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1809
+	.long	0x1891
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x14
+	.byte	0x15
 	.byte	0x1
 	.byte	0x22
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x14
+	.byte	0x15
 	.byte	0x1
 	.byte	0x32
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF316
-	.byte	0x31
+	.long	.LASF321
+	.byte	0x32
 	.byte	0x1
 	.byte	0x12
-	.long	0x1809
+	.long	0x1891
 	.uleb128 0x9
 	.byte	0x3
-	.quad	types.27
+	.quad	types.25
 	.byte	0
-	.uleb128 0x12
+	.uleb128 0x13
 	.long	0x5c9
-	.long	0x181f
+	.long	0x18a7
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x2
@@ -15912,2159 +16939,2884 @@ irs.4:
 	.long	0x3a
 	.byte	0x2
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF327
-	.byte	0x13
+	.uleb128 0x8
+	.long	.LASF332
+	.byte	0x14
 	.byte	0xed
+	.byte	0xc
+	.long	0x628
+	.quad	.LFB157
+	.quad	.LFE157-.LFB157
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x18e8
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x14
+	.byte	0xed
+	.byte	0x1e
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x14
+	.byte	0xed
+	.byte	0x2a
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.byte	0
+	.uleb128 0xd
+	.long	0x628
+	.uleb128 0x8
+	.long	.LASF333
+	.byte	0x14
+	.byte	0xe8
+	.byte	0xc
+	.long	0x628
+	.quad	.LFB156
+	.quad	.LFE156-.LFB156
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x192e
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x14
+	.byte	0xe8
+	.byte	0x1e
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x14
+	.byte	0xe8
+	.byte	0x2a
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF334
+	.byte	0x14
+	.byte	0xe3
+	.byte	0xc
+	.long	0x628
+	.quad	.LFB155
+	.quad	.LFE155-.LFB155
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x196f
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x14
+	.byte	0xe3
+	.byte	0x1f
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x14
+	.byte	0xe3
+	.byte	0x2b
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF335
+	.byte	0x14
+	.byte	0xde
+	.byte	0xc
+	.long	0x628
+	.quad	.LFB154
+	.quad	.LFE154-.LFB154
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x19b0
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x14
+	.byte	0xde
+	.byte	0x1e
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x14
+	.byte	0xde
+	.byte	0x2a
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF336
+	.byte	0x14
+	.byte	0xd9
+	.byte	0xc
+	.long	0x628
+	.quad	.LFB153
+	.quad	.LFE153-.LFB153
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x19f1
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x14
+	.byte	0xd9
+	.byte	0x1f
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x14
+	.byte	0xd9
+	.byte	0x2b
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF337
+	.byte	0x14
+	.byte	0xd4
+	.byte	0xc
+	.long	0x628
+	.quad	.LFB152
+	.quad	.LFE152-.LFB152
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x1a32
+	.uleb128 0x1
+	.string	"lhs"
+	.byte	0x14
+	.byte	0xd4
+	.byte	0x1e
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x14
+	.byte	0xd4
+	.byte	0x2a
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF338
+	.byte	0x14
+	.byte	0xcf
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB151
 	.quad	.LFE151-.LFB151
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1860
+	.long	0x1a73
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xed
+	.byte	0x14
+	.byte	0xcf
 	.byte	0x1e
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xed
+	.byte	0x14
+	.byte	0xcf
 	.byte	0x2a
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF328
-	.byte	0x13
-	.byte	0xe8
+	.uleb128 0x8
+	.long	.LASF339
+	.byte	0x14
+	.byte	0xca
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB150
 	.quad	.LFE150-.LFB150
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x18a1
+	.long	0x1ab4
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xe8
+	.byte	0x14
+	.byte	0xca
 	.byte	0x1e
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xe8
+	.byte	0x14
+	.byte	0xca
 	.byte	0x2a
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF329
-	.byte	0x13
-	.byte	0xe3
+	.uleb128 0x8
+	.long	.LASF340
+	.byte	0x14
+	.byte	0xc5
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB149
 	.quad	.LFE149-.LFB149
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x18e2
+	.long	0x1af5
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xe3
-	.byte	0x1f
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xc5
+	.byte	0x1e
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xe3
-	.byte	0x2b
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xc5
+	.byte	0x2a
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF330
-	.byte	0x13
-	.byte	0xde
+	.uleb128 0x8
+	.long	.LASF341
+	.byte	0x14
+	.byte	0xc0
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB148
 	.quad	.LFE148-.LFB148
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1923
+	.long	0x1b36
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xde
+	.byte	0x14
+	.byte	0xc0
 	.byte	0x1e
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xde
+	.byte	0x14
+	.byte	0xc0
 	.byte	0x2a
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF331
-	.byte	0x13
-	.byte	0xd9
+	.uleb128 0x8
+	.long	.LASF342
+	.byte	0x14
+	.byte	0xbb
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB147
 	.quad	.LFE147-.LFB147
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1964
+	.long	0x1b77
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xd9
-	.byte	0x1f
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xbb
+	.byte	0x1e
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xd9
-	.byte	0x2b
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xbb
+	.byte	0x2a
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF332
-	.byte	0x13
-	.byte	0xd4
+	.uleb128 0xb
+	.long	.LASF343
+	.byte	0x14
+	.byte	0xb2
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB146
 	.quad	.LFE146-.LFB146
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x19a5
+	.long	0x1bfe
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xd4
-	.byte	0x1e
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xb2
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xd4
-	.byte	0x2a
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xb2
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.byte	0
+	.uleb128 0x6
+	.string	"ops"
+	.byte	0x14
+	.byte	0xb4
+	.byte	0x10
+	.long	0x1bfe
 	.uleb128 0x9
-	.long	.LASF333
-	.byte	0x13
-	.byte	0xcf
+	.byte	0x3
+	.quad	ops.3
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x14
+	.byte	0xb6
+	.byte	0x2
+	.quad	.L675
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x14
+	.byte	0xb7
+	.byte	0x2
+	.quad	.L677
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x14
+	.byte	0xb8
+	.byte	0x2
+	.quad	.L678
+	.byte	0
+	.uleb128 0x13
+	.long	0xa98
+	.long	0x1c0e
+	.uleb128 0x10
+	.long	0x3a
+	.byte	0x2
+	.byte	0
+	.uleb128 0xb
+	.long	.LASF344
+	.byte	0x14
+	.byte	0xa9
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB145
 	.quad	.LFE145-.LFB145
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x19e6
+	.long	0x1c95
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xcf
-	.byte	0x1e
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xa9
+	.byte	0x1b
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xcf
-	.byte	0x2a
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xa9
+	.byte	0x27
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.byte	0
+	.uleb128 0x6
+	.string	"ops"
+	.byte	0x14
+	.byte	0xab
+	.byte	0x10
+	.long	0x1bfe
 	.uleb128 0x9
-	.long	.LASF334
-	.byte	0x13
-	.byte	0xca
+	.byte	0x3
+	.quad	ops.4
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x14
+	.byte	0xad
+	.byte	0x2
+	.quad	.L655
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x14
+	.byte	0xae
+	.byte	0x2
+	.quad	.L661
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x14
+	.byte	0xaf
+	.byte	0x2
+	.quad	.L667
+	.byte	0
+	.uleb128 0xb
+	.long	.LASF345
+	.byte	0x14
+	.byte	0xa0
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB144
 	.quad	.LFE144-.LFB144
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1a27
+	.long	0x1d1c
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xca
-	.byte	0x1e
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xa0
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xca
-	.byte	0x2a
-	.long	0x6c9
+	.byte	0x14
+	.byte	0xa0
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.byte	0
+	.uleb128 0x6
+	.string	"ops"
+	.byte	0x14
+	.byte	0xa2
+	.byte	0x10
+	.long	0x1bfe
 	.uleb128 0x9
-	.long	.LASF335
-	.byte	0x13
-	.byte	0xc5
+	.byte	0x3
+	.quad	ops.5
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x14
+	.byte	0xa4
+	.byte	0x2
+	.quad	.L637
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x14
+	.byte	0xa5
+	.byte	0x2
+	.quad	.L642
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x14
+	.byte	0xa6
+	.byte	0x2
+	.quad	.L647
+	.byte	0
+	.uleb128 0xb
+	.long	.LASF346
+	.byte	0x14
+	.byte	0x97
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB143
 	.quad	.LFE143-.LFB143
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1a68
+	.long	0x1da3
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xc5
-	.byte	0x1e
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x97
+	.byte	0x1b
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xc5
-	.byte	0x2a
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x97
+	.byte	0x27
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.byte	0
+	.uleb128 0x6
+	.string	"ops"
+	.byte	0x14
+	.byte	0x99
+	.byte	0x10
+	.long	0x1bfe
 	.uleb128 0x9
-	.long	.LASF336
-	.byte	0x13
-	.byte	0xc0
+	.byte	0x3
+	.quad	ops.6
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x14
+	.byte	0x9b
+	.byte	0x2
+	.quad	.L625
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x14
+	.byte	0x9c
+	.byte	0x2
+	.quad	.L627
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x14
+	.byte	0x9d
+	.byte	0x2
+	.quad	.L631
+	.byte	0
+	.uleb128 0xb
+	.long	.LASF347
+	.byte	0x14
+	.byte	0x8e
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB142
 	.quad	.LFE142-.LFB142
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1aa9
+	.long	0x1e2a
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xc0
-	.byte	0x1e
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x8e
+	.byte	0x1b
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xc0
-	.byte	0x2a
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x8e
+	.byte	0x27
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.byte	0
+	.uleb128 0x6
+	.string	"ops"
+	.byte	0x14
+	.byte	0x90
+	.byte	0x10
+	.long	0x1bfe
 	.uleb128 0x9
-	.long	.LASF337
-	.byte	0x13
-	.byte	0xbb
+	.byte	0x3
+	.quad	ops.7
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x14
+	.byte	0x92
+	.byte	0x2
+	.quad	.L613
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x14
+	.byte	0x93
+	.byte	0x2
+	.quad	.L615
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x14
+	.byte	0x94
+	.byte	0x2
+	.quad	.L619
+	.byte	0
+	.uleb128 0xb
+	.long	.LASF348
+	.byte	0x14
+	.byte	0x85
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB141
 	.quad	.LFE141-.LFB141
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1aea
+	.long	0x1eb1
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xbb
-	.byte	0x1e
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x85
+	.byte	0x1b
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xbb
-	.byte	0x2a
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x85
+	.byte	0x27
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
+	.uleb128 0x6
+	.string	"ops"
+	.byte	0x14
+	.byte	0x87
+	.byte	0x10
+	.long	0x1bfe
+	.uleb128 0x9
+	.byte	0x3
+	.quad	ops.8
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x14
+	.byte	0x89
+	.byte	0x2
+	.quad	.L601
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x14
+	.byte	0x8a
+	.byte	0x2
+	.quad	.L603
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x14
+	.byte	0x8b
+	.byte	0x2
+	.quad	.L607
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF338
-	.byte	0x13
-	.byte	0xb2
+	.long	.LASF349
+	.byte	0x14
+	.byte	0x7c
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB140
 	.quad	.LFE140-.LFB140
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1b71
+	.long	0x1f38
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xb2
-	.byte	0x1c
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x7c
+	.byte	0x1b
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xb2
-	.byte	0x28
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x7c
+	.byte	0x27
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0xb4
+	.byte	0x14
+	.byte	0x7e
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.5
+	.quad	ops.9
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0xb6
+	.byte	0x14
+	.byte	0x80
 	.byte	0x2
-	.quad	.L632
+	.quad	.L589
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0xb7
+	.byte	0x14
+	.byte	0x81
 	.byte	0x2
-	.quad	.L634
+	.quad	.L591
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0xb8
+	.byte	0x14
+	.byte	0x82
 	.byte	0x2
-	.quad	.L635
-	.byte	0
-	.uleb128 0x12
-	.long	0xa91
-	.long	0x1b81
-	.uleb128 0x10
-	.long	0x3a
-	.byte	0x2
+	.quad	.L595
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF339
-	.byte	0x13
-	.byte	0xa9
+	.long	.LASF350
+	.byte	0x14
+	.byte	0x73
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB139
 	.quad	.LFE139-.LFB139
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1c08
+	.long	0x1fbf
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xa9
-	.byte	0x1b
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x73
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xa9
-	.byte	0x27
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x73
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0xab
+	.byte	0x14
+	.byte	0x75
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.6
+	.quad	ops.10
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0xad
+	.byte	0x14
+	.byte	0x77
 	.byte	0x2
-	.quad	.L612
+	.quad	.L578
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0xae
+	.byte	0x14
+	.byte	0x78
 	.byte	0x2
-	.quad	.L618
+	.quad	.L580
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0xaf
+	.byte	0x14
+	.byte	0x79
 	.byte	0x2
-	.quad	.L624
+	.quad	.L584
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF340
-	.byte	0x13
-	.byte	0xa0
+	.long	.LASF351
+	.byte	0x14
+	.byte	0x6a
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB138
 	.quad	.LFE138-.LFB138
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1c8f
+	.long	0x2046
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0xa0
-	.byte	0x1c
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x6a
+	.byte	0x1d
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0xa0
-	.byte	0x28
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x6a
+	.byte	0x29
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0xa2
+	.byte	0x14
+	.byte	0x6c
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.7
+	.quad	ops.11
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0xa4
+	.byte	0x14
+	.byte	0x6e
 	.byte	0x2
-	.quad	.L594
+	.quad	.L567
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0xa5
+	.byte	0x14
+	.byte	0x6f
 	.byte	0x2
-	.quad	.L599
+	.quad	.L569
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0xa6
+	.byte	0x14
+	.byte	0x70
 	.byte	0x2
-	.quad	.L604
+	.quad	.L573
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF341
-	.byte	0x13
-	.byte	0x97
+	.long	.LASF352
+	.byte	0x14
+	.byte	0x61
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB137
 	.quad	.LFE137-.LFB137
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1d16
+	.long	0x20cd
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x97
-	.byte	0x1b
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x61
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x97
-	.byte	0x27
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x61
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x99
+	.byte	0x14
+	.byte	0x63
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.8
+	.quad	ops.12
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x9b
+	.byte	0x14
+	.byte	0x65
 	.byte	0x2
-	.quad	.L582
+	.quad	.L560
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x9c
+	.byte	0x14
+	.byte	0x66
 	.byte	0x2
-	.quad	.L584
+	.quad	.L562
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x9d
+	.byte	0x14
+	.byte	0x67
 	.byte	0x2
-	.quad	.L588
+	.quad	.L563
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF342
-	.byte	0x13
-	.byte	0x8e
+	.long	.LASF353
+	.byte	0x14
+	.byte	0x58
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB136
 	.quad	.LFE136-.LFB136
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1d9d
+	.long	0x2154
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x8e
-	.byte	0x1b
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x58
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x8e
-	.byte	0x27
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x58
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x90
+	.byte	0x14
+	.byte	0x5a
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.9
+	.quad	ops.13
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x92
+	.byte	0x14
+	.byte	0x5c
 	.byte	0x2
-	.quad	.L570
+	.quad	.L553
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x93
+	.byte	0x14
+	.byte	0x5d
 	.byte	0x2
-	.quad	.L572
+	.quad	.L555
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x94
+	.byte	0x14
+	.byte	0x5e
 	.byte	0x2
-	.quad	.L576
+	.quad	.L556
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF343
-	.byte	0x13
-	.byte	0x85
+	.long	.LASF354
+	.byte	0x14
+	.byte	0x4f
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB135
 	.quad	.LFE135-.LFB135
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1e24
+	.long	0x21db
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x85
-	.byte	0x1b
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x4f
+	.byte	0x1d
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x85
-	.byte	0x27
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x4f
+	.byte	0x29
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x87
+	.byte	0x14
+	.byte	0x51
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.10
+	.quad	ops.14
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x89
+	.byte	0x14
+	.byte	0x53
 	.byte	0x2
-	.quad	.L558
+	.quad	.L546
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x8a
+	.byte	0x14
+	.byte	0x54
 	.byte	0x2
-	.quad	.L560
+	.quad	.L548
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x8b
+	.byte	0x14
+	.byte	0x55
 	.byte	0x2
-	.quad	.L564
+	.quad	.L549
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF344
-	.byte	0x13
-	.byte	0x7c
+	.long	.LASF355
+	.byte	0x14
+	.byte	0x46
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB134
 	.quad	.LFE134-.LFB134
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1eab
+	.long	0x2262
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x7c
-	.byte	0x1b
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x46
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x7c
-	.byte	0x27
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x46
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x7e
+	.byte	0x14
+	.byte	0x48
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.11
+	.quad	ops.15
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x80
+	.byte	0x14
+	.byte	0x4a
 	.byte	0x2
-	.quad	.L546
+	.quad	.L539
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x81
+	.byte	0x14
+	.byte	0x4b
 	.byte	0x2
-	.quad	.L548
+	.quad	.L541
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x82
+	.byte	0x14
+	.byte	0x4c
 	.byte	0x2
-	.quad	.L552
+	.quad	.L542
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF345
-	.byte	0x13
-	.byte	0x73
+	.long	.LASF356
+	.byte	0x14
+	.byte	0x3d
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB133
 	.quad	.LFE133-.LFB133
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1f32
+	.long	0x22e9
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x73
-	.byte	0x1c
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x3d
+	.byte	0x1d
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x73
-	.byte	0x28
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x3d
+	.byte	0x29
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x75
+	.byte	0x14
+	.byte	0x3f
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.12
+	.quad	ops.16
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x77
+	.byte	0x14
+	.byte	0x41
 	.byte	0x2
-	.quad	.L535
+	.quad	.L532
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x78
+	.byte	0x14
+	.byte	0x42
 	.byte	0x2
-	.quad	.L537
+	.quad	.L534
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x79
+	.byte	0x14
+	.byte	0x43
 	.byte	0x2
-	.quad	.L541
+	.quad	.L535
 	.byte	0
-	.uleb128 0xb
-	.long	.LASF346
-	.byte	0x13
-	.byte	0x6a
+	.uleb128 0x8
+	.long	.LASF357
+	.byte	0x14
+	.byte	0x34
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB132
 	.quad	.LFE132-.LFB132
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x1fb9
+	.long	0x2370
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x6a
-	.byte	0x1d
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x34
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -40
+	.sleb128 -56
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x6a
-	.byte	0x29
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x34
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -48
+	.sleb128 -64
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x6c
+	.byte	0x14
+	.byte	0x36
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.13
+	.quad	ops.17
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x6e
+	.byte	0x14
+	.byte	0x38
 	.byte	0x2
-	.quad	.L524
+	.quad	.L521
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x6f
+	.byte	0x14
+	.byte	0x39
 	.byte	0x2
-	.quad	.L526
+	.quad	.L523
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x70
+	.byte	0x14
+	.byte	0x3a
 	.byte	0x2
-	.quad	.L530
+	.quad	.L524
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF347
-	.byte	0x13
-	.byte	0x61
+	.long	.LASF358
+	.byte	0x14
+	.byte	0x2b
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB131
 	.quad	.LFE131-.LFB131
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2040
+	.long	0x23f7
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x61
+	.byte	0x14
+	.byte	0x2b
 	.byte	0x1c
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x61
+	.byte	0x14
+	.byte	0x2b
 	.byte	0x28
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x63
+	.byte	0x14
+	.byte	0x2d
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.14
+	.quad	ops.18
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x65
+	.byte	0x14
+	.byte	0x2f
 	.byte	0x2
-	.quad	.L517
+	.quad	.L514
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x66
+	.byte	0x14
+	.byte	0x30
 	.byte	0x2
-	.quad	.L519
+	.quad	.L516
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x67
+	.byte	0x14
+	.byte	0x31
 	.byte	0x2
-	.quad	.L520
+	.quad	.L517
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF348
-	.byte	0x13
-	.byte	0x58
+	.long	.LASF359
+	.byte	0x14
+	.byte	0x22
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB130
 	.quad	.LFE130-.LFB130
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x20c7
+	.long	0x247e
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x58
+	.byte	0x14
+	.byte	0x22
 	.byte	0x1c
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x58
+	.byte	0x14
+	.byte	0x22
 	.byte	0x28
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x5a
+	.byte	0x14
+	.byte	0x24
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.15
+	.quad	ops.19
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x5c
+	.byte	0x14
+	.byte	0x26
 	.byte	0x2
-	.quad	.L510
+	.quad	.L507
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x5d
+	.byte	0x14
+	.byte	0x27
 	.byte	0x2
-	.quad	.L512
+	.quad	.L509
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x5e
+	.byte	0x14
+	.byte	0x28
 	.byte	0x2
-	.quad	.L513
+	.quad	.L510
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF349
-	.byte	0x13
-	.byte	0x4f
+	.long	.LASF360
+	.byte	0x14
+	.byte	0x19
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB129
 	.quad	.LFE129-.LFB129
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x214e
+	.long	0x2505
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x4f
-	.byte	0x1d
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x19
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x4f
-	.byte	0x29
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x19
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x51
+	.byte	0x14
+	.byte	0x1b
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.16
+	.quad	ops.20
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x53
+	.byte	0x14
+	.byte	0x1d
 	.byte	0x2
-	.quad	.L503
+	.quad	.L500
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x54
+	.byte	0x14
+	.byte	0x1e
 	.byte	0x2
-	.quad	.L505
+	.quad	.L502
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x55
+	.byte	0x14
+	.byte	0x1f
 	.byte	0x2
-	.quad	.L506
+	.quad	.L503
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF350
-	.byte	0x13
-	.byte	0x46
+	.long	.LASF361
+	.byte	0x14
+	.byte	0x10
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB128
 	.quad	.LFE128-.LFB128
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x21d5
+	.long	0x258c
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x46
+	.byte	0x14
+	.byte	0x10
 	.byte	0x1c
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x46
+	.byte	0x14
+	.byte	0x10
 	.byte	0x28
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x48
+	.byte	0x14
+	.byte	0x12
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.17
+	.quad	ops.21
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x4a
+	.byte	0x14
+	.byte	0x14
 	.byte	0x2
-	.quad	.L496
+	.quad	.L493
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x4b
+	.byte	0x14
+	.byte	0x15
 	.byte	0x2
-	.quad	.L498
+	.quad	.L495
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x4c
+	.byte	0x14
+	.byte	0x16
 	.byte	0x2
-	.quad	.L499
+	.quad	.L496
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF351
-	.byte	0x13
-	.byte	0x3d
+	.long	.LASF362
+	.byte	0x14
+	.byte	0x7
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB127
 	.quad	.LFE127-.LFB127
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x225c
+	.long	0x2613
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x3d
-	.byte	0x1d
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x7
+	.byte	0x1c
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x3d
-	.byte	0x29
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x7
+	.byte	0x28
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x13
-	.byte	0x3f
+	.byte	0x14
+	.byte	0x9
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.18
+	.quad	ops.22
 	.uleb128 0x2
 	.string	"I64"
-	.byte	0x13
-	.byte	0x41
+	.byte	0x14
+	.byte	0xb
 	.byte	0x2
-	.quad	.L489
+	.quad	.L486
 	.uleb128 0x2
 	.string	"F64"
-	.byte	0x13
-	.byte	0x42
+	.byte	0x14
+	.byte	0xc
 	.byte	0x2
-	.quad	.L491
+	.quad	.L488
 	.uleb128 0x2
 	.string	"STR"
-	.byte	0x13
-	.byte	0x43
+	.byte	0x14
+	.byte	0xd
 	.byte	0x2
-	.quad	.L492
+	.quad	.L489
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF352
-	.byte	0x13
-	.byte	0x34
+	.uleb128 0x8
+	.long	.LASF363
+	.byte	0x14
+	.byte	0x1
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB126
 	.quad	.LFE126-.LFB126
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x22e3
+	.long	0x2662
 	.uleb128 0x1
 	.string	"lhs"
-	.byte	0x13
-	.byte	0x34
-	.byte	0x1c
-	.long	0x6c9
+	.byte	0x14
+	.byte	0x1
+	.byte	0x1f
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"op"
+	.byte	0x14
+	.byte	0x1
+	.byte	0x2b
+	.long	0xbca
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -44
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x14
+	.byte	0x1
+	.byte	0x36
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x13
-	.byte	0x34
-	.byte	0x28
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -64
-	.uleb128 0x6
-	.string	"ops"
-	.byte	0x13
-	.byte	0x36
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	ops.19
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0x13
-	.byte	0x38
-	.byte	0x2
-	.quad	.L478
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0x13
-	.byte	0x39
-	.byte	0x2
-	.quad	.L480
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0x13
-	.byte	0x3a
-	.byte	0x2
-	.quad	.L481
 	.byte	0
-	.uleb128 0xb
-	.long	.LASF353
-	.byte	0x13
-	.byte	0x2b
-	.byte	0xc
-	.long	0x628
+	.uleb128 0xe
+	.long	.LASF364
+	.byte	0x11
+	.byte	0x19
+	.byte	0xb
+	.long	0xa57
 	.quad	.LFB125
 	.quad	.LFE125-.LFB125
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x236a
-	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x13
-	.byte	0x2b
-	.byte	0x1c
-	.long	0x6c9
+	.long	0x26f7
+	.uleb128 0x4
+	.long	.LASF285
+	.byte	0x11
+	.byte	0x19
+	.byte	0x21
+	.long	0x898
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -40
+	.sleb128 -44
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x2b
-	.byte	0x28
-	.long	0x6c9
+	.byte	0x11
+	.byte	0x19
+	.byte	0x38
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -48
+	.sleb128 -56
 	.uleb128 0x6
-	.string	"ops"
-	.byte	0x13
-	.byte	0x2d
-	.byte	0x10
-	.long	0x1b71
+	.string	"irs"
+	.byte	0x33
+	.byte	0x1
+	.byte	0xf
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.20
-	.uleb128 0x2
-	.string	"I64"
+	.quad	irs.28
+	.uleb128 0x9
+	.long	.LASF365
 	.byte	0x13
-	.byte	0x2f
-	.byte	0x2
-	.quad	.L471
+	.byte	0x1
+	.byte	0x1
+	.quad	.L477
 	.uleb128 0x2
-	.string	"F64"
+	.string	"REF"
 	.byte	0x13
-	.byte	0x30
 	.byte	0x2
-	.quad	.L473
+	.byte	0x1
+	.quad	.L479
+	.uleb128 0x9
+	.long	.LASF366
+	.byte	0x13
+	.byte	0x3
+	.byte	0x1
+	.quad	.L480
+	.uleb128 0x6
+	.string	"op"
+	.byte	0x11
+	.byte	0x1c
+	.byte	0x9
+	.long	0xbca
 	.uleb128 0x2
-	.string	"STR"
-	.byte	0x13
-	.byte	0x31
-	.byte	0x2
-	.quad	.L474
+	.byte	0x91
+	.sleb128 -28
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF354
-	.byte	0x13
-	.byte	0x22
-	.byte	0xc
-	.long	0x628
+	.long	.LASF367
+	.byte	0x11
+	.byte	0x14
+	.byte	0x10
+	.long	0xa57
 	.quad	.LFB124
 	.quad	.LFE124-.LFB124
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x23f1
+	.long	0x2738
 	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x13
-	.byte	0x22
-	.byte	0x1c
-	.long	0x6c9
+	.string	"op"
+	.byte	0x11
+	.byte	0x14
+	.byte	0x20
+	.long	0xbca
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -40
+	.sleb128 -60
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x22
-	.byte	0x28
-	.long	0x6c9
-	.uleb128 0x2
+	.byte	0x11
+	.byte	0x14
+	.byte	0x2f
+	.long	0x11e5
+	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -48
-	.uleb128 0x6
-	.string	"ops"
-	.byte	0x13
-	.byte	0x24
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	ops.21
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0x13
-	.byte	0x26
-	.byte	0x2
-	.quad	.L464
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0x13
-	.byte	0x27
-	.byte	0x2
-	.quad	.L466
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0x13
-	.byte	0x28
-	.byte	0x2
-	.quad	.L467
+	.sleb128 -72
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF355
-	.byte	0x13
-	.byte	0x19
-	.byte	0xc
-	.long	0x628
+	.long	.LASF368
+	.byte	0x11
+	.byte	0xf
+	.byte	0x10
+	.long	0xa57
 	.quad	.LFB123
 	.quad	.LFE123-.LFB123
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2478
+	.long	0x2779
 	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x13
-	.byte	0x19
-	.byte	0x1c
-	.long	0x6c9
+	.string	"op"
+	.byte	0x11
+	.byte	0xf
+	.byte	0x1f
+	.long	0xbca
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -40
+	.sleb128 -60
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x19
-	.byte	0x28
-	.long	0x6c9
-	.uleb128 0x2
+	.byte	0x11
+	.byte	0xf
+	.byte	0x2e
+	.long	0x11e5
+	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -48
-	.uleb128 0x6
-	.string	"ops"
-	.byte	0x13
-	.byte	0x1b
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	ops.22
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0x13
-	.byte	0x1d
-	.byte	0x2
-	.quad	.L457
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0x13
-	.byte	0x1e
-	.byte	0x2
-	.quad	.L459
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0x13
-	.byte	0x1f
-	.byte	0x2
-	.quad	.L460
+	.sleb128 -72
 	.byte	0
-	.uleb128 0xb
-	.long	.LASF356
-	.byte	0x13
+	.uleb128 0x8
+	.long	.LASF369
+	.byte	0x11
+	.byte	0x8
 	.byte	0x10
-	.byte	0xc
-	.long	0x628
+	.long	0xa57
 	.quad	.LFB122
 	.quad	.LFE122-.LFB122
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x24ff
+	.long	0x27c9
 	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x13
-	.byte	0x10
-	.byte	0x1c
-	.long	0x6c9
+	.string	"op"
+	.byte	0x11
+	.byte	0x8
+	.byte	0x21
+	.long	0xbca
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -40
+	.sleb128 -60
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x13
-	.byte	0x10
-	.byte	0x28
-	.long	0x6c9
+	.byte	0x11
+	.byte	0x8
+	.byte	0x30
+	.long	0x11e5
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -72
+	.uleb128 0x5
+	.long	.LASF305
+	.byte	0x11
+	.byte	0xa
+	.byte	0xc
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x6
-	.string	"ops"
-	.byte	0x13
-	.byte	0x12
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	ops.23
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0x13
-	.byte	0x14
-	.byte	0x2
-	.quad	.L450
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0x13
-	.byte	0x15
-	.byte	0x2
-	.quad	.L452
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0x13
-	.byte	0x16
-	.byte	0x2
-	.quad	.L453
 	.byte	0
-	.uleb128 0xb
-	.long	.LASF357
-	.byte	0x13
-	.byte	0x7
+	.uleb128 0x8
+	.long	.LASF370
+	.byte	0x11
+	.byte	0x1
 	.byte	0xc
 	.long	0x628
 	.quad	.LFB121
 	.quad	.LFE121-.LFB121
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2586
-	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x13
-	.byte	0x7
-	.byte	0x1c
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -40
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x13
-	.byte	0x7
-	.byte	0x28
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -48
-	.uleb128 0x6
-	.string	"ops"
-	.byte	0x13
-	.byte	0x9
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	ops.24
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0x13
-	.byte	0xb
-	.byte	0x2
-	.quad	.L443
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0x13
-	.byte	0xc
-	.byte	0x2
-	.quad	.L445
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0x13
-	.byte	0xd
-	.byte	0x2
-	.quad	.L446
-	.byte	0
-	.uleb128 0x9
-	.long	.LASF358
-	.byte	0x13
-	.byte	0x1
-	.byte	0xc
-	.long	0x628
-	.quad	.LFB120
-	.quad	.LFE120-.LFB120
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x25d5
-	.uleb128 0x1
-	.string	"lhs"
-	.byte	0x13
-	.byte	0x1
-	.byte	0x1f
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -40
+	.long	0x288f
 	.uleb128 0x1
 	.string	"op"
-	.byte	0x13
-	.byte	0x1
-	.byte	0x2b
-	.long	0xbc3
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -44
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x13
-	.byte	0x1
-	.byte	0x36
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -56
-	.byte	0
-	.uleb128 0xe
-	.long	.LASF359
-	.byte	0x10
-	.byte	0x19
-	.byte	0xb
-	.long	0xa50
-	.quad	.LFB119
-	.quad	.LFE119-.LFB119
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x266a
-	.uleb128 0x4
-	.long	.LASF280
-	.byte	0x10
-	.byte	0x19
-	.byte	0x21
-	.long	0x891
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -44
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x10
-	.byte	0x19
-	.byte	0x38
-	.long	0x115d
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -56
-	.uleb128 0x6
-	.string	"irs"
-	.byte	0x32
-	.byte	0x1
-	.byte	0xf
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	irs.30
-	.uleb128 0x8
-	.long	.LASF360
-	.byte	0x12
-	.byte	0x1
-	.byte	0x1
-	.quad	.L434
-	.uleb128 0x2
-	.string	"REF"
-	.byte	0x12
-	.byte	0x2
-	.byte	0x1
-	.quad	.L436
-	.uleb128 0x8
-	.long	.LASF361
-	.byte	0x12
-	.byte	0x3
-	.byte	0x1
-	.quad	.L437
-	.uleb128 0x6
-	.string	"op"
-	.byte	0x10
-	.byte	0x1c
-	.byte	0x9
-	.long	0xbc3
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -28
-	.byte	0
-	.uleb128 0xb
-	.long	.LASF362
-	.byte	0x10
-	.byte	0x14
-	.byte	0x10
-	.long	0xa50
-	.quad	.LFB118
-	.quad	.LFE118-.LFB118
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x26ab
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x10
-	.byte	0x14
-	.byte	0x20
-	.long	0xbc3
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -60
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x10
-	.byte	0x14
-	.byte	0x2f
-	.long	0x115d
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -72
-	.byte	0
-	.uleb128 0xb
-	.long	.LASF363
-	.byte	0x10
-	.byte	0xf
-	.byte	0x10
-	.long	0xa50
-	.quad	.LFB117
-	.quad	.LFE117-.LFB117
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x26ec
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x10
-	.byte	0xf
-	.byte	0x1f
-	.long	0xbc3
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -60
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x10
-	.byte	0xf
-	.byte	0x2e
-	.long	0x115d
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -72
-	.byte	0
-	.uleb128 0x9
-	.long	.LASF364
-	.byte	0x10
-	.byte	0x8
-	.byte	0x10
-	.long	0xa50
-	.quad	.LFB116
-	.quad	.LFE116-.LFB116
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x273c
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x10
-	.byte	0x8
-	.byte	0x21
-	.long	0xbc3
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -60
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0x10
-	.byte	0x8
-	.byte	0x30
-	.long	0x115d
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -72
-	.uleb128 0x5
-	.long	.LASF300
-	.byte	0x10
-	.byte	0xa
-	.byte	0xc
-	.long	0xa50
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -48
-	.byte	0
-	.uleb128 0x9
-	.long	.LASF365
-	.byte	0x10
-	.byte	0x1
-	.byte	0xc
-	.long	0x628
-	.quad	.LFB115
-	.quad	.LFE115-.LFB115
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x2802
-	.uleb128 0x1
-	.string	"op"
-	.byte	0x10
+	.byte	0x11
 	.byte	0x1
 	.byte	0x1c
-	.long	0xbc3
+	.long	0xbca
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -36
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0x10
+	.byte	0x11
 	.byte	0x1
 	.byte	0x2b
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x6
 	.string	"ops"
-	.byte	0x33
+	.byte	0x34
 	.byte	0x1
 	.byte	0xf
-	.long	0x16c0
+	.long	0x1748
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ops.28
+	.quad	ops.26
 	.uleb128 0x2
 	.string	"ERR"
-	.byte	0x11
+	.byte	0x12
 	.byte	0x1
 	.byte	0x1
-	.quad	.L418
+	.quad	.L461
 	.uleb128 0x2
 	.string	"NOT"
-	.byte	0x11
+	.byte	0x12
 	.byte	0x2
 	.byte	0x1
-	.quad	.L420
-	.uleb128 0x8
-	.long	.LASF366
-	.byte	0x11
+	.quad	.L463
+	.uleb128 0x9
+	.long	.LASF371
+	.byte	0x12
 	.byte	0x3
 	.byte	0x1
-	.quad	.L421
-	.uleb128 0x8
-	.long	.LASF367
-	.byte	0x11
+	.quad	.L464
+	.uleb128 0x9
+	.long	.LASF372
+	.byte	0x12
 	.byte	0x4
 	.byte	0x1
-	.quad	.L422
-	.uleb128 0x8
-	.long	.LASF368
-	.byte	0x11
+	.quad	.L465
+	.uleb128 0x9
+	.long	.LASF373
+	.byte	0x12
 	.byte	0x5
 	.byte	0x1
-	.quad	.L423
+	.quad	.L466
 	.uleb128 0x2
 	.string	"INC"
-	.byte	0x11
+	.byte	0x12
 	.byte	0x6
 	.byte	0x1
-	.quad	.L424
+	.quad	.L467
 	.uleb128 0x2
 	.string	"DEC"
-	.byte	0x11
+	.byte	0x12
 	.byte	0x7
 	.byte	0x1
-	.quad	.L425
+	.quad	.L468
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF369
-	.byte	0xf
+	.long	.LASF374
+	.byte	0x10
 	.byte	0x34
+	.byte	0x7
+	.long	0x628
+	.quad	.LFB120
+	.quad	.LFE120-.LFB120
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2907
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x10
+	.byte	0x34
+	.byte	0x17
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x5
+	.long	.LASF321
+	.byte	0x10
+	.byte	0x36
+	.byte	0x10
+	.long	0x1bfe
+	.uleb128 0x9
+	.byte	0x3
+	.quad	types.29
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x10
+	.byte	0x38
+	.byte	0x2
+	.quad	.L454
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x10
+	.byte	0x39
+	.byte	0x2
+	.quad	.L456
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x10
+	.byte	0x3a
+	.byte	0x2
+	.quad	.L457
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF375
+	.byte	0x10
+	.byte	0x2b
+	.byte	0x7
+	.long	0x628
+	.quad	.LFB119
+	.quad	.LFE119-.LFB119
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x297f
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x10
+	.byte	0x2b
+	.byte	0x17
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x5
+	.long	.LASF321
+	.byte	0x10
+	.byte	0x2d
+	.byte	0x10
+	.long	0x1bfe
+	.uleb128 0x9
+	.byte	0x3
+	.quad	types.30
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x10
+	.byte	0x2f
+	.byte	0x2
+	.quad	.L447
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x10
+	.byte	0x30
+	.byte	0x2
+	.quad	.L449
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x10
+	.byte	0x31
+	.byte	0x2
+	.quad	.L450
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF376
+	.byte	0x10
+	.byte	0x22
+	.byte	0x7
+	.long	0x628
+	.quad	.LFB118
+	.quad	.LFE118-.LFB118
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x29f7
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x10
+	.byte	0x22
+	.byte	0x19
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x5
+	.long	.LASF321
+	.byte	0x10
+	.byte	0x24
+	.byte	0x10
+	.long	0x1bfe
+	.uleb128 0x9
+	.byte	0x3
+	.quad	types.31
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x10
+	.byte	0x26
+	.byte	0x2
+	.quad	.L440
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x10
+	.byte	0x27
+	.byte	0x2
+	.quad	.L442
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x10
+	.byte	0x28
+	.byte	0x2
+	.quad	.L443
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF377
+	.byte	0x10
+	.byte	0x19
+	.byte	0x7
+	.long	0x628
+	.quad	.LFB117
+	.quad	.LFE117-.LFB117
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2a6f
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x10
+	.byte	0x19
+	.byte	0x18
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x5
+	.long	.LASF321
+	.byte	0x10
+	.byte	0x1b
+	.byte	0x10
+	.long	0x1bfe
+	.uleb128 0x9
+	.byte	0x3
+	.quad	types.32
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x10
+	.byte	0x1d
+	.byte	0x2
+	.quad	.L433
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x10
+	.byte	0x1e
+	.byte	0x2
+	.quad	.L435
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x10
+	.byte	0x1f
+	.byte	0x2
+	.quad	.L436
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF378
+	.byte	0x10
+	.byte	0x10
+	.byte	0x7
+	.long	0x628
+	.quad	.LFB116
+	.quad	.LFE116-.LFB116
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2ae7
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x10
+	.byte	0x10
+	.byte	0x18
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x5
+	.long	.LASF321
+	.byte	0x10
+	.byte	0x12
+	.byte	0x10
+	.long	0x1bfe
+	.uleb128 0x9
+	.byte	0x3
+	.quad	types.33
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x10
+	.byte	0x14
+	.byte	0x2
+	.quad	.L426
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x10
+	.byte	0x15
+	.byte	0x2
+	.quad	.L428
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x10
+	.byte	0x16
+	.byte	0x2
+	.quad	.L429
+	.byte	0
+	.uleb128 0xf
+	.long	.LASF379
+	.byte	0x10
+	.byte	0x7
+	.byte	0x7
+	.long	0x628
+	.quad	.LFB115
+	.quad	.LFE115-.LFB115
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2b5f
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0x10
+	.byte	0x7
+	.byte	0x17
+	.long	0x18e8
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x5
+	.long	.LASF321
+	.byte	0x10
+	.byte	0x9
+	.byte	0x10
+	.long	0x1bfe
+	.uleb128 0x9
+	.byte	0x3
+	.quad	types.34
+	.uleb128 0x2
+	.string	"I64"
+	.byte	0x10
+	.byte	0xb
+	.byte	0x2
+	.quad	.L415
+	.uleb128 0x2
+	.string	"F64"
+	.byte	0x10
+	.byte	0xc
+	.byte	0x2
+	.quad	.L417
+	.uleb128 0x2
+	.string	"STR"
+	.byte	0x10
+	.byte	0xd
+	.byte	0x2
+	.quad	.L421
+	.byte	0
+	.uleb128 0xe
+	.long	.LASF380
+	.byte	0x10
+	.byte	0x1
 	.byte	0x7
 	.long	0x628
 	.quad	.LFB114
 	.quad	.LFE114-.LFB114
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x287a
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0xf
-	.byte	0x34
-	.byte	0x17
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -40
-	.uleb128 0x5
-	.long	.LASF316
-	.byte	0xf
-	.byte	0x36
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	types.31
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0xf
-	.byte	0x38
-	.byte	0x2
-	.quad	.L411
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0xf
-	.byte	0x39
-	.byte	0x2
-	.quad	.L413
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0xf
-	.byte	0x3a
-	.byte	0x2
-	.quad	.L414
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF370
-	.byte	0xf
-	.byte	0x2b
-	.byte	0x7
-	.long	0x628
-	.quad	.LFB113
-	.quad	.LFE113-.LFB113
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x28f2
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0xf
-	.byte	0x2b
-	.byte	0x17
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -40
-	.uleb128 0x5
-	.long	.LASF316
-	.byte	0xf
-	.byte	0x2d
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	types.32
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0xf
-	.byte	0x2f
-	.byte	0x2
-	.quad	.L404
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0xf
-	.byte	0x30
-	.byte	0x2
-	.quad	.L406
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0xf
-	.byte	0x31
-	.byte	0x2
-	.quad	.L407
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF371
-	.byte	0xf
-	.byte	0x22
-	.byte	0x7
-	.long	0x628
-	.quad	.LFB112
-	.quad	.LFE112-.LFB112
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x296a
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0xf
-	.byte	0x22
-	.byte	0x19
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -40
-	.uleb128 0x5
-	.long	.LASF316
-	.byte	0xf
-	.byte	0x24
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	types.33
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0xf
-	.byte	0x26
-	.byte	0x2
-	.quad	.L397
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0xf
-	.byte	0x27
-	.byte	0x2
-	.quad	.L399
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0xf
-	.byte	0x28
-	.byte	0x2
-	.quad	.L400
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF372
-	.byte	0xf
-	.byte	0x19
-	.byte	0x7
-	.long	0x628
-	.quad	.LFB111
-	.quad	.LFE111-.LFB111
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x29e2
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0xf
-	.byte	0x19
-	.byte	0x18
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -40
-	.uleb128 0x5
-	.long	.LASF316
-	.byte	0xf
-	.byte	0x1b
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	types.34
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0xf
-	.byte	0x1d
-	.byte	0x2
-	.quad	.L390
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0xf
-	.byte	0x1e
-	.byte	0x2
-	.quad	.L392
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0xf
-	.byte	0x1f
-	.byte	0x2
-	.quad	.L393
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF373
-	.byte	0xf
-	.byte	0x10
-	.byte	0x7
-	.long	0x628
-	.quad	.LFB110
-	.quad	.LFE110-.LFB110
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x2a5a
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0xf
-	.byte	0x10
-	.byte	0x18
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -40
-	.uleb128 0x5
-	.long	.LASF316
-	.byte	0xf
-	.byte	0x12
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	types.35
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0xf
-	.byte	0x14
-	.byte	0x2
-	.quad	.L383
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0xf
-	.byte	0x15
-	.byte	0x2
-	.quad	.L385
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0xf
-	.byte	0x16
-	.byte	0x2
-	.quad	.L386
-	.byte	0
-	.uleb128 0xf
-	.long	.LASF374
-	.byte	0xf
-	.byte	0x7
-	.byte	0x7
-	.long	0x628
-	.quad	.LFB109
-	.quad	.LFE109-.LFB109
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x2ad2
-	.uleb128 0x1
-	.string	"rhs"
-	.byte	0xf
-	.byte	0x7
-	.byte	0x17
-	.long	0x6c9
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -40
-	.uleb128 0x5
-	.long	.LASF316
-	.byte	0xf
-	.byte	0x9
-	.byte	0x10
-	.long	0x1b71
-	.uleb128 0x9
-	.byte	0x3
-	.quad	types.36
-	.uleb128 0x2
-	.string	"I64"
-	.byte	0xf
-	.byte	0xb
-	.byte	0x2
-	.quad	.L372
-	.uleb128 0x2
-	.string	"F64"
-	.byte	0xf
-	.byte	0xc
-	.byte	0x2
-	.quad	.L374
-	.uleb128 0x2
-	.string	"STR"
-	.byte	0xf
-	.byte	0xd
-	.byte	0x2
-	.quad	.L378
-	.byte	0
-	.uleb128 0xe
-	.long	.LASF375
-	.byte	0xf
-	.byte	0x1
-	.byte	0x7
-	.long	0x628
-	.quad	.LFB108
-	.quad	.LFE108-.LFB108
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x2b12
+	.long	0x2b9f
 	.uleb128 0x1
 	.string	"op"
-	.byte	0xf
+	.byte	0x10
 	.byte	0x1
 	.byte	0x1a
-	.long	0xbc3
+	.long	0xbca
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -36
 	.uleb128 0x1
 	.string	"rhs"
-	.byte	0xf
+	.byte	0x10
 	.byte	0x1
 	.byte	0x25
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
+	.uleb128 0xe
+	.long	.LASF381
+	.byte	0xf
+	.byte	0x34
+	.byte	0x5
+	.long	0x47f
+	.quad	.LFB113
+	.quad	.LFE113-.LFB113
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2c0d
+	.uleb128 0x4
+	.long	.LASF94
+	.byte	0xf
+	.byte	0x34
+	.byte	0x1c
+	.long	0x602
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -56
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0xf
+	.byte	0x34
+	.byte	0x2d
+	.long	0x11e5
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x5
+	.long	.LASF382
+	.byte	0xf
+	.byte	0x36
+	.byte	0xc
+	.long	0x2c0d
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x6
+	.string	"idx"
+	.byte	0xf
+	.byte	0x38
+	.byte	0x6
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -44
+	.uleb128 0x6
+	.string	"var"
+	.byte	0xf
+	.byte	0x39
+	.byte	0x7
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -32
+	.byte	0
+	.uleb128 0xd
+	.long	0xceb
+	.uleb128 0xd
+	.long	0x6d5
+	.uleb128 0x8
+	.long	.LASF383
+	.byte	0xf
+	.byte	0x22
+	.byte	0xa
+	.long	0x47f
+	.quad	.LFB112
+	.quad	.LFE112-.LFB112
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2cbc
+	.uleb128 0x1
+	.string	"var"
+	.byte	0xf
+	.byte	0x22
+	.byte	0x1d
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.uleb128 0x4
+	.long	.LASF384
+	.byte	0xf
+	.byte	0x22
+	.byte	0x26
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -28
+	.uleb128 0x4
+	.long	.LASF94
+	.byte	0xf
+	.byte	0x22
+	.byte	0x34
+	.long	0x602
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0xf
+	.byte	0x22
+	.byte	0x45
+	.long	0x11e5
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.uleb128 0x5
+	.long	.LASF321
+	.byte	0x35
+	.byte	0x1
+	.byte	0xf
+	.long	0x1bfe
+	.uleb128 0x9
+	.byte	0x3
+	.quad	types.35
+	.uleb128 0x9
+	.long	.LASF365
+	.byte	0xf
+	.byte	0x28
+	.byte	0x2
+	.quad	.L401
+	.uleb128 0x2
+	.string	"REF"
+	.byte	0xf
+	.byte	0x29
+	.byte	0x2
+	.quad	.L403
+	.uleb128 0x9
+	.long	.LASF366
+	.byte	0xf
+	.byte	0x2a
+	.byte	0x2
+	.quad	.L404
+	.byte	0
 	.uleb128 0xb
-	.long	.LASF376
+	.long	.LASF385
+	.byte	0xf
+	.byte	0x1d
+	.byte	0xa
+	.long	0x47f
+	.quad	.LFB111
+	.quad	.LFE111-.LFB111
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2cfd
+	.uleb128 0x4
+	.long	.LASF384
+	.byte	0xf
+	.byte	0x1d
+	.byte	0x20
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -20
+	.uleb128 0x1
+	.string	"var"
+	.byte	0xf
+	.byte	0x1d
+	.byte	0x2b
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -32
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF386
+	.byte	0xf
+	.byte	0x10
+	.byte	0xa
+	.long	0x47f
+	.quad	.LFB110
+	.quad	.LFE110-.LFB110
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2d7d
+	.uleb128 0x4
+	.long	.LASF384
+	.byte	0xf
+	.byte	0x10
+	.byte	0x1f
+	.long	0x47f
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -84
+	.uleb128 0x1
+	.string	"var"
+	.byte	0xf
+	.byte	0x10
+	.byte	0x2a
+	.long	0x2c12
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -96
+	.uleb128 0x5
+	.long	.LASF382
+	.byte	0xf
+	.byte	0x12
+	.byte	0xc
+	.long	0x2c0d
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x6
+	.string	"src"
+	.byte	0xf
+	.byte	0x13
+	.byte	0x6
+	.long	0x47f
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -68
+	.uleb128 0x6
+	.string	"ref"
+	.byte	0xf
+	.byte	0x14
+	.byte	0x7
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -56
+	.uleb128 0x6
+	.string	"val"
+	.byte	0xf
+	.byte	0x18
+	.byte	0x6
+	.long	0x927
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF387
+	.byte	0xf
+	.byte	0x9
+	.byte	0xa
+	.long	0x47f
+	.quad	.LFB109
+	.quad	.LFE109-.LFB109
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2ddc
+	.uleb128 0x4
+	.long	.LASF384
+	.byte	0xf
+	.byte	0x9
+	.byte	0x21
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -36
+	.uleb128 0x1
+	.string	"var"
+	.byte	0xf
+	.byte	0x9
+	.byte	0x2c
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.uleb128 0x5
+	.long	.LASF388
+	.byte	0xf
+	.byte	0xb
+	.byte	0x6
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.uleb128 0x5
+	.long	.LASF389
+	.byte	0xf
+	.byte	0xc
+	.byte	0x6
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -20
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF390
+	.byte	0xf
+	.byte	0x1
+	.byte	0xa
+	.long	0x47f
+	.quad	.LFB108
+	.quad	.LFE108-.LFB108
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2e4a
+	.uleb128 0x1
+	.string	"fn"
+	.byte	0xf
+	.byte	0x1
+	.byte	0x1d
+	.long	0xce6
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -56
+	.uleb128 0x4
+	.long	.LASF94
+	.byte	0xf
+	.byte	0x1
+	.byte	0x29
+	.long	0x602
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x1
+	.string	"rhs"
+	.byte	0xf
+	.byte	0x1
+	.byte	0x3a
+	.long	0x11e5
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -72
+	.uleb128 0x6
+	.string	"idx"
+	.byte	0xf
+	.byte	0x3
+	.byte	0x6
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -36
+	.uleb128 0x6
+	.string	"var"
+	.byte	0xf
+	.byte	0x4
+	.byte	0x7
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -32
+	.byte	0
+	.uleb128 0xb
+	.long	.LASF391
 	.byte	0xe
-	.byte	0x8d
+	.byte	0x8c
 	.byte	0xd
-	.long	0xbc3
+	.long	0xbca
 	.quad	.LFB107
 	.quad	.LFE107-.LFB107
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2b5a
+	.long	0x2e92
 	.uleb128 0x4
 	.long	.LASF91
 	.byte	0xe
-	.byte	0x8d
+	.byte	0x8c
 	.byte	0x1f
-	.long	0x891
+	.long	0x898
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -20
 	.uleb128 0x5
-	.long	.LASF377
-	.byte	0x34
+	.long	.LASF392
+	.byte	0x36
 	.byte	0x1
 	.byte	0xf
-	.long	0x2b5a
+	.long	0x2e92
 	.uleb128 0x9
 	.byte	0x3
-	.quad	token_ops.29
+	.quad	token_ops.27
 	.byte	0
-	.uleb128 0x12
-	.long	0xbc3
-	.long	0x2b6a
+	.uleb128 0x13
+	.long	0xbca
+	.long	0x2ea2
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x39
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF379
+	.uleb128 0x8
+	.long	.LASF393
+	.byte	0xe
+	.byte	0x78
+	.byte	0xa
+	.long	0x47f
+	.quad	.LFB105
+	.quad	.LFE105-.LFB105
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2f44
+	.uleb128 0x1
+	.string	"OP"
+	.byte	0xe
+	.byte	0x78
+	.byte	0x19
+	.long	0xbca
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -52
+	.uleb128 0x1
+	.string	"D"
+	.byte	0xe
+	.byte	0x78
+	.byte	0x20
+	.long	0x468
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -56
+	.uleb128 0x1
+	.string	"S"
+	.byte	0xe
+	.byte	0x78
+	.byte	0x26
+	.long	0x468
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -60
+	.uleb128 0x1
+	.string	"M"
+	.byte	0xe
+	.byte	0x78
+	.byte	0x2c
+	.long	0x468
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x1
+	.string	"DT"
+	.byte	0xe
+	.byte	0x78
+	.byte	0x32
+	.long	0x468
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -68
+	.uleb128 0x1
+	.string	"ST"
+	.byte	0xe
+	.byte	0x78
+	.byte	0x39
+	.long	0x468
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -72
+	.uleb128 0x5
+	.long	.LASF382
+	.byte	0xe
+	.byte	0x7a
+	.byte	0xc
+	.long	0x2c0d
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x5
+	.long	.LASF394
+	.byte	0xe
+	.byte	0x7b
+	.byte	0x7
+	.long	0x2f44
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -32
+	.uleb128 0x6
+	.string	"op"
+	.byte	0xe
+	.byte	0x7d
+	.byte	0x6
+	.long	0x2f49
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.byte	0
+	.uleb128 0xd
+	.long	0x554
+	.uleb128 0xd
+	.long	0xc4c
+	.uleb128 0x8
+	.long	.LASF395
+	.byte	0xe
+	.byte	0x6f
+	.byte	0xb
+	.long	0x2c12
+	.quad	.LFB104
+	.quad	.LFE104-.LFB104
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x2fad
+	.uleb128 0x4
+	.long	.LASF396
+	.byte	0xe
+	.byte	0x6f
+	.byte	0x1b
+	.long	0x2fad
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x4
+	.long	.LASF94
+	.byte	0xe
+	.byte	0x6f
+	.byte	0x2c
+	.long	0x602
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.uleb128 0x5
+	.long	.LASF397
+	.byte	0xe
+	.byte	0x71
+	.byte	0x7
+	.long	0x2f44
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -32
+	.uleb128 0x6
+	.string	"var"
+	.byte	0xe
+	.byte	0x72
+	.byte	0x7
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.byte	0
+	.uleb128 0xd
+	.long	0x47f
+	.uleb128 0x8
+	.long	.LASF398
+	.byte	0xe
+	.byte	0x63
+	.byte	0xb
+	.long	0x2c12
+	.quad	.LFB103
+	.quad	.LFE103-.LFB103
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x3033
+	.uleb128 0x4
+	.long	.LASF396
+	.byte	0xe
+	.byte	0x63
+	.byte	0x1c
+	.long	0x2fad
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -88
+	.uleb128 0x4
+	.long	.LASF94
+	.byte	0xe
+	.byte	0x63
+	.byte	0x2d
+	.long	0x602
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -96
+	.uleb128 0x4
+	.long	.LASF96
+	.byte	0xe
+	.byte	0x63
+	.byte	0x39
+	.long	0x628
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -112
+	.uleb128 0x5
+	.long	.LASF397
+	.byte	0xe
+	.byte	0x65
+	.byte	0x7
+	.long	0x2f44
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x6
+	.string	"idx"
+	.byte	0xe
+	.byte	0x66
+	.byte	0x6
+	.long	0x47f
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -68
+	.uleb128 0x6
+	.string	"var"
+	.byte	0xe
+	.byte	0x67
+	.byte	0x7
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -56
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF399
+	.byte	0xe
+	.byte	0x56
+	.byte	0xb
+	.long	0x2c12
+	.quad	.LFB102
+	.quad	.LFE102-.LFB102
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x30d1
+	.uleb128 0x4
+	.long	.LASF396
+	.byte	0xe
+	.byte	0x56
+	.byte	0x1a
+	.long	0x2fad
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -56
+	.uleb128 0x1
+	.string	"fn"
+	.byte	0xe
+	.byte	0x56
+	.byte	0x29
+	.long	0xce6
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -64
+	.uleb128 0x4
+	.long	.LASF94
+	.byte	0xe
+	.byte	0x56
+	.byte	0x35
+	.long	0x602
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -72
+	.uleb128 0x5
+	.long	.LASF400
+	.byte	0xe
+	.byte	0x58
+	.byte	0x7
+	.long	0x2f44
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -32
+	.uleb128 0x5
+	.long	.LASF159
+	.byte	0xe
+	.byte	0x59
+	.byte	0x6
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -36
+	.uleb128 0x6
+	.string	"end"
+	.byte	0xe
+	.byte	0x5a
+	.byte	0x6
+	.long	0x47f
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x18
+	.quad	.LBB12
+	.quad	.LBE12-.LBB12
+	.uleb128 0x6
+	.string	"var"
+	.byte	0xe
+	.byte	0x5d
+	.byte	0x8
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.byte	0
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF401
+	.byte	0xe
+	.byte	0x4b
+	.byte	0xb
+	.long	0x2c12
+	.quad	.LFB101
+	.quad	.LFE101-.LFB101
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x314e
+	.uleb128 0x4
+	.long	.LASF396
+	.byte	0xe
+	.byte	0x4b
+	.byte	0x1b
+	.long	0x2fad
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x1
+	.string	"fn"
+	.byte	0xe
+	.byte	0x4b
+	.byte	0x2a
+	.long	0xce6
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.uleb128 0x4
+	.long	.LASF94
+	.byte	0xe
+	.byte	0x4b
+	.byte	0x36
+	.long	0x602
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -56
+	.uleb128 0x4
+	.long	.LASF96
+	.byte	0xe
+	.byte	0x4b
+	.byte	0x42
+	.long	0x628
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -80
+	.uleb128 0x5
+	.long	.LASF400
+	.byte	0xe
+	.byte	0x4e
+	.byte	0x7
+	.long	0x2f44
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -32
+	.uleb128 0x6
+	.string	"var"
+	.byte	0xe
+	.byte	0x4f
+	.byte	0x7
+	.long	0x2c12
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF402
+	.byte	0xe
+	.byte	0x3f
+	.byte	0xa
+	.long	0x47f
+	.quad	.LFB99
+	.quad	.LFE99-.LFB99
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x318f
+	.uleb128 0x4
+	.long	.LASF96
+	.byte	0xe
+	.byte	0x3f
+	.byte	0x1b
+	.long	0x628
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -48
+	.uleb128 0x5
+	.long	.LASF382
+	.byte	0xe
+	.byte	0x41
+	.byte	0xc
+	.long	0x2c0d
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.byte	0
+	.uleb128 0x12
+	.long	.LASF404
 	.byte	0xe
 	.byte	0x38
 	.quad	.LFB98
 	.quad	.LFE98-.LFB98
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2b97
+	.long	0x31bc
 	.uleb128 0x5
-	.long	.LASF380
+	.long	.LASF382
 	.byte	0xe
 	.byte	0x3a
 	.byte	0xc
-	.long	0x2b97
+	.long	0x2c0d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0xd
-	.long	0xc63
-	.uleb128 0x11
-	.long	.LASF381
+	.uleb128 0x12
+	.long	.LASF405
 	.byte	0xe
 	.byte	0x2d
 	.quad	.LFB97
 	.quad	.LFE97-.LFB97
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2bd7
+	.long	0x31f7
 	.uleb128 0x5
-	.long	.LASF380
+	.long	.LASF382
 	.byte	0xe
 	.byte	0x2f
 	.byte	0xc
-	.long	0x2b97
+	.long	0x2c0d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -18073,47 +19825,47 @@ irs.4:
 	.byte	0xe
 	.byte	0x30
 	.byte	0x8
-	.long	0xc5e
+	.long	0xce6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF382
+	.long	.LASF406
 	.byte	0xe
 	.byte	0x27
 	.byte	0x10
-	.long	0x2b97
+	.long	0x2c0d
 	.quad	.LFB96
 	.quad	.LFE96-.LFB96
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2c10
+	.long	0x3230
 	.uleb128 0x5
-	.long	.LASF380
+	.long	.LASF382
 	.byte	0xe
 	.byte	0x29
 	.byte	0x12
-	.long	0xc63
+	.long	0xceb
 	.uleb128 0x9
 	.byte	0x3
-	.quad	compiler.41
+	.quad	compiler.42
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF383
+	.uleb128 0x12
+	.long	.LASF407
 	.byte	0xb
 	.byte	0xe5
 	.quad	.LFB95
 	.quad	.LFE95-.LFB95
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x5
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0xe7
 	.byte	0xa
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
@@ -18121,49 +19873,49 @@ irs.4:
 	.quad	.LBB11
 	.quad	.LBE11-.LBB11
 	.uleb128 0x5
-	.long	.LASF300
+	.long	.LASF305
 	.byte	0xb
 	.byte	0xeb
 	.byte	0xd
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.byte	0
 	.byte	0
 	.uleb128 0xd
-	.long	0xabd
+	.long	0xac4
 	.uleb128 0xe
-	.long	.LASF385
+	.long	.LASF409
 	.byte	0xb
 	.byte	0xde
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB94
 	.quad	.LFE94-.LFB94
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2d09
+	.long	0x3329
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0xde
 	.byte	0x1e
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x5
-	.long	.LASF386
-	.byte	0x35
+	.long	.LASF410
+	.byte	0x37
 	.byte	0x1
 	.byte	0xf
-	.long	0x2d09
+	.long	0x3329
 	.uleb128 0x9
 	.byte	0x3
-	.quad	stmts.43
-	.uleb128 0x8
-	.long	.LASF387
+	.quad	stmts.44
+	.uleb128 0x9
+	.long	.LASF411
 	.byte	0xd
 	.byte	0x1
 	.byte	0x1
@@ -18186,8 +19938,8 @@ irs.4:
 	.byte	0x4
 	.byte	0x1
 	.quad	.L354
-	.uleb128 0x8
-	.long	.LASF388
+	.uleb128 0x9
+	.long	.LASF412
 	.byte	0xd
 	.byte	0x5
 	.byte	0x1
@@ -18199,30 +19951,30 @@ irs.4:
 	.byte	0x1
 	.quad	.L356
 	.byte	0
-	.uleb128 0x12
-	.long	0xa91
-	.long	0x2d19
+	.uleb128 0x13
+	.long	0xa98
+	.long	0x3339
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x39
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF389
+	.long	.LASF413
 	.byte	0xb
 	.byte	0xd0
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB93
 	.quad	.LFE93-.LFB93
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2e50
+	.long	0x3470
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0xd0
 	.byte	0x1e
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -18231,27 +19983,27 @@ irs.4:
 	.byte	0xb
 	.byte	0xd0
 	.byte	0x2b
-	.long	0x9e8
+	.long	0x9ef
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -84
 	.uleb128 0x5
-	.long	.LASF390
-	.byte	0x36
+	.long	.LASF414
+	.byte	0x38
 	.byte	0x1
 	.byte	0x12
-	.long	0x2e50
+	.long	0x3470
 	.uleb128 0x9
 	.byte	0x3
-	.quad	rules.44
+	.quad	rules.45
 	.uleb128 0x2
 	.string	"EOS"
 	.byte	0xc
 	.byte	0x1
 	.byte	0x1
 	.quad	.L335
-	.uleb128 0x8
-	.long	.LASF391
+	.uleb128 0x9
+	.long	.LASF415
 	.byte	0xc
 	.byte	0x3
 	.byte	0x1
@@ -18262,20 +20014,20 @@ irs.4:
 	.byte	0x2
 	.byte	0x1
 	.quad	.L336
-	.uleb128 0x8
-	.long	.LASF392
+	.uleb128 0x9
+	.long	.LASF416
 	.byte	0xc
 	.byte	0x4
 	.byte	0x1
 	.quad	.L338
-	.uleb128 0x8
-	.long	.LASF393
+	.uleb128 0x9
+	.long	.LASF417
 	.byte	0xc
 	.byte	0x5
 	.byte	0x1
 	.quad	.L339
-	.uleb128 0x8
-	.long	.LASF361
+	.uleb128 0x9
+	.long	.LASF366
 	.byte	0xc
 	.byte	0x6
 	.byte	0x1
@@ -18305,20 +20057,20 @@ irs.4:
 	.byte	0x1
 	.quad	.L344
 	.uleb128 0x5
-	.long	.LASF394
+	.long	.LASF418
 	.byte	0xb
 	.byte	0xd3
 	.byte	0xd
-	.long	0x2e60
+	.long	0x3480
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x5
-	.long	.LASF300
+	.long	.LASF305
 	.byte	0xb
 	.byte	0xd4
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -18328,159 +20080,159 @@ irs.4:
 	.byte	0xd6
 	.byte	0x2
 	.quad	.L332
-	.uleb128 0x8
-	.long	.LASF395
+	.uleb128 0x9
+	.long	.LASF419
 	.byte	0xb
 	.byte	0xdb
 	.byte	0x2
 	.quad	.L334
 	.byte	0
-	.uleb128 0x12
-	.long	0xa96
-	.long	0x2e60
+	.uleb128 0x13
+	.long	0xa9d
+	.long	0x3480
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x39
 	.byte	0
 	.uleb128 0xd
-	.long	0xa96
+	.long	0xa9d
 	.uleb128 0xe
-	.long	.LASF396
+	.long	.LASF420
 	.byte	0xb
 	.byte	0xc8
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB92
 	.quad	.LFE92-.LFB92
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2ea6
+	.long	0x34c6
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0xc8
 	.byte	0x1d
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x5
-	.long	.LASF300
+	.long	.LASF305
 	.byte	0xb
 	.byte	0xca
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF397
+	.long	.LASF421
 	.byte	0xb
 	.byte	0xc0
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB91
 	.quad	.LFE91-.LFB91
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2ee7
+	.long	0x3507
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0xc0
 	.byte	0x1d
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x5
-	.long	.LASF300
+	.long	.LASF305
 	.byte	0xb
 	.byte	0xc2
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF398
+	.long	.LASF422
 	.byte	0xb
 	.byte	0xb8
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB90
 	.quad	.LFE90-.LFB90
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2f28
+	.long	0x3548
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0xb8
 	.byte	0x1d
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x5
-	.long	.LASF300
+	.long	.LASF305
 	.byte	0xb
 	.byte	0xba
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF399
+	.long	.LASF423
 	.byte	0xb
 	.byte	0xb0
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB89
 	.quad	.LFE89-.LFB89
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2f69
+	.long	0x3589
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0xb0
 	.byte	0x1d
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x5
-	.long	.LASF300
+	.long	.LASF305
 	.byte	0xb
 	.byte	0xb2
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF400
+	.long	.LASF424
 	.byte	0xb
 	.byte	0xa6
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB88
 	.quad	.LFE88-.LFB88
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2fab
+	.long	0x35cb
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0xa6
 	.byte	0x1e
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -18495,52 +20247,52 @@ irs.4:
 	.sleb128 -56
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF401
+	.long	.LASF425
 	.byte	0xb
 	.byte	0x9e
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB87
 	.quad	.LFE87-.LFB87
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x2fec
+	.long	0x360c
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x9e
 	.byte	0x1f
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x5
-	.long	.LASF300
+	.long	.LASF305
 	.byte	0xb
 	.byte	0xa1
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF402
+	.long	.LASF426
 	.byte	0xb
 	.byte	0x96
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB86
 	.quad	.LFE86-.LFB86
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x305c
+	.long	0x367c
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x96
 	.byte	0x20
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -18549,7 +20301,7 @@ irs.4:
 	.byte	0xb
 	.byte	0x96
 	.byte	0x33
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
@@ -18558,7 +20310,7 @@ irs.4:
 	.byte	0xb
 	.byte	0x96
 	.byte	0x3d
-	.long	0x9e8
+	.long	0x9ef
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -92
@@ -18567,7 +20319,7 @@ irs.4:
 	.byte	0xb
 	.byte	0x98
 	.byte	0xc
-	.long	0x891
+	.long	0x898
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -52
@@ -18576,28 +20328,28 @@ irs.4:
 	.byte	0xb
 	.byte	0x9a
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF403
+	.long	.LASF427
 	.byte	0xb
 	.byte	0x8e
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB85
 	.quad	.LFE85-.LFB85
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x30bc
+	.long	0x36dc
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x8e
 	.byte	0x1f
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -18606,7 +20358,7 @@ irs.4:
 	.byte	0xb
 	.byte	0x8e
 	.byte	0x2c
-	.long	0x9e8
+	.long	0x9ef
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -84
@@ -18615,7 +20367,7 @@ irs.4:
 	.byte	0xb
 	.byte	0x90
 	.byte	0xc
-	.long	0x891
+	.long	0x898
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -52
@@ -18624,70 +20376,70 @@ irs.4:
 	.byte	0xb
 	.byte	0x92
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF404
+	.long	.LASF428
 	.byte	0xb
 	.byte	0x88
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB84
 	.quad	.LFE84-.LFB84
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x30ee
+	.long	0x370e
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x88
 	.byte	0x1d
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF405
+	.long	.LASF429
 	.byte	0xb
 	.byte	0x83
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB83
 	.quad	.LFE83-.LFB83
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3120
+	.long	0x3740
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x83
 	.byte	0x1d
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF406
+	.long	.LASF430
 	.byte	0xb
 	.byte	0x76
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB82
 	.quad	.LFE82-.LFB82
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3171
+	.long	0x3791
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x76
 	.byte	0x1c
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -18705,28 +20457,28 @@ irs.4:
 	.byte	0xb
 	.byte	0x7c
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF407
+	.long	.LASF431
 	.byte	0xb
 	.byte	0x69
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB81
 	.quad	.LFE81-.LFB81
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x31b3
+	.long	0x37d3
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x69
 	.byte	0x1e
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -18741,125 +20493,125 @@ irs.4:
 	.sleb128 -72
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF408
+	.long	.LASF432
 	.byte	0xb
 	.byte	0x63
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB80
 	.quad	.LFE80-.LFB80
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x31e5
+	.long	0x3805
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x63
 	.byte	0x1f
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF409
+	.long	.LASF433
 	.byte	0xb
 	.byte	0x5d
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB79
 	.quad	.LFE79-.LFB79
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3217
+	.long	0x3837
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x5d
 	.byte	0x1c
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF410
+	.long	.LASF434
 	.byte	0xb
 	.byte	0x57
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB78
 	.quad	.LFE78-.LFB78
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3249
+	.long	0x3869
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x57
 	.byte	0x1d
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF411
+	.long	.LASF435
 	.byte	0xb
 	.byte	0x42
 	.byte	0xb
-	.long	0xa50
+	.long	0xa57
 	.quad	.LFB77
 	.quad	.LFE77-.LFB77
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x32a1
+	.long	0x38c1
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x42
 	.byte	0x1c
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
 	.uleb128 0x5
-	.long	.LASF412
+	.long	.LASF436
 	.byte	0xb
 	.byte	0x45
 	.byte	0xc
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
-	.uleb128 0x39
+	.uleb128 0x3a
 	.long	.LLRL0
 	.uleb128 0x5
-	.long	.LASF413
+	.long	.LASF437
 	.byte	0xb
 	.byte	0x4b
 	.byte	0xd
-	.long	0xa50
+	.long	0xa57
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF414
+	.uleb128 0x12
+	.long	.LASF438
 	.byte	0xb
 	.byte	0x37
 	.quad	.LFB76
 	.quad	.LFE76-.LFB76
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x32dd
+	.long	0x38fd
 	.uleb128 0x4
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x37
 	.byte	0x1a
-	.long	0x2c5f
+	.long	0x327f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -18868,38 +20620,38 @@ irs.4:
 	.byte	0xb
 	.byte	0x37
 	.byte	0x2c
-	.long	0x891
+	.long	0x898
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -60
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF415
+	.uleb128 0x12
+	.long	.LASF439
 	.byte	0xb
 	.byte	0x25
 	.quad	.LFB75
 	.quad	.LFE75-.LFB75
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x336e
+	.long	0x398e
 	.uleb128 0x4
-	.long	.LASF300
+	.long	.LASF305
 	.byte	0xb
 	.byte	0x25
 	.byte	0x1f
-	.long	0x115d
+	.long	0x11e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x5
-	.long	.LASF316
+	.long	.LASF321
 	.byte	0xb
 	.byte	0x27
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	types.46
+	.quad	types.47
 	.uleb128 0x2
 	.string	"I64"
 	.byte	0xb
@@ -18928,17 +20680,17 @@ irs.4:
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF416
+	.long	.LASF440
 	.byte	0xb
 	.byte	0x32
 	.byte	0x7
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x3a
-	.long	.LASF417
+	.uleb128 0x3b
+	.long	.LASF441
 	.byte	0xb
 	.byte	0x1f
 	.byte	0x6
@@ -18947,55 +20699,55 @@ irs.4:
 	.uleb128 0x1
 	.byte	0x9c
 	.uleb128 0xb
-	.long	.LASF418
+	.long	.LASF442
 	.byte	0xb
 	.byte	0x13
 	.byte	0xe
-	.long	0x2c5f
+	.long	0x327f
 	.quad	.LFB73
 	.quad	.LFE73-.LFB73
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x33c1
+	.long	0x39e1
 	.uleb128 0x5
-	.long	.LASF384
+	.long	.LASF408
 	.byte	0xb
 	.byte	0x15
 	.byte	0x10
-	.long	0xabd
+	.long	0xac4
 	.uleb128 0x9
 	.byte	0x3
-	.quad	parser.42
+	.quad	parser.43
 	.byte	0
-	.uleb128 0x3b
+	.uleb128 0x3c
 	.string	"Lex"
 	.byte	0x9
 	.byte	0xcc
 	.byte	0x7
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB72
 	.quad	.LFE72-.LFB72
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x5
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xce
 	.byte	0x9
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF420
-	.byte	0x37
+	.long	.LASF444
+	.byte	0x39
 	.byte	0x1
 	.byte	0xf
-	.long	0x35f4
+	.long	0x3c14
 	.uleb128 0x9
 	.byte	0x3
-	.quad	ascii.49
+	.quad	ascii.50
 	.uleb128 0x2
 	.string	"EOS"
 	.byte	0xa
@@ -19008,8 +20760,8 @@ irs.4:
 	.byte	0xd1
 	.byte	0x2
 	.quad	.L234
-	.uleb128 0x8
-	.long	.LASF421
+	.uleb128 0x9
+	.long	.LASF445
 	.byte	0xa
 	.byte	0x2
 	.byte	0x1
@@ -19026,8 +20778,8 @@ irs.4:
 	.byte	0x4
 	.byte	0x1
 	.quad	.L239
-	.uleb128 0x8
-	.long	.LASF422
+	.uleb128 0x9
+	.long	.LASF446
 	.byte	0xa
 	.byte	0x5
 	.byte	0x1
@@ -19038,8 +20790,8 @@ irs.4:
 	.byte	0x6
 	.byte	0x1
 	.quad	.L241
-	.uleb128 0x8
-	.long	.LASF302
+	.uleb128 0x9
+	.long	.LASF307
 	.byte	0xa
 	.byte	0x7
 	.byte	0x1
@@ -19068,8 +20820,8 @@ irs.4:
 	.byte	0xb
 	.byte	0x1
 	.quad	.L246
-	.uleb128 0x8
-	.long	.LASF423
+	.uleb128 0x9
+	.long	.LASF447
 	.byte	0xa
 	.byte	0xc
 	.byte	0x1
@@ -19098,14 +20850,14 @@ irs.4:
 	.byte	0x10
 	.byte	0x1
 	.quad	.L251
-	.uleb128 0x8
-	.long	.LASF424
+	.uleb128 0x9
+	.long	.LASF448
 	.byte	0xa
 	.byte	0x11
 	.byte	0x1
 	.quad	.L252
-	.uleb128 0x8
-	.long	.LASF425
+	.uleb128 0x9
+	.long	.LASF449
 	.byte	0xa
 	.byte	0x12
 	.byte	0x1
@@ -19152,8 +20904,8 @@ irs.4:
 	.byte	0x19
 	.byte	0x1
 	.quad	.L260
-	.uleb128 0x8
-	.long	.LASF303
+	.uleb128 0x9
+	.long	.LASF308
 	.byte	0xa
 	.byte	0x1a
 	.byte	0x1
@@ -19176,60 +20928,60 @@ irs.4:
 	.byte	0x1e
 	.byte	0x1
 	.quad	.L265
-	.uleb128 0x8
-	.long	.LASF366
+	.uleb128 0x9
+	.long	.LASF371
 	.byte	0xa
 	.byte	0x1b
 	.byte	0x1
 	.quad	.L262
 	.byte	0
 	.uleb128 0xd
-	.long	0x92a
-	.uleb128 0x12
-	.long	0xa91
-	.long	0x3604
+	.long	0x931
+	.uleb128 0x13
+	.long	0xa98
+	.long	0x3c24
 	.uleb128 0x10
 	.long	0x3a
 	.byte	0x7f
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF426
+	.uleb128 0x8
+	.long	.LASF450
 	.byte	0x9
 	.byte	0xca
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB71
 	.quad	.LFE71-.LFB71
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3636
+	.long	0x3c56
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xca
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF427
+	.uleb128 0x8
+	.long	.LASF451
 	.byte	0x9
 	.byte	0xc4
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB70
 	.quad	.LFE70-.LFB70
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3677
+	.long	0x3c97
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xc4
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19243,65 +20995,65 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF428
+	.uleb128 0x8
+	.long	.LASF452
 	.byte	0x9
 	.byte	0xc2
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB69
 	.quad	.LFE69-.LFB69
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x36a9
+	.long	0x3cc9
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xc2
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF429
+	.uleb128 0x8
+	.long	.LASF453
 	.byte	0x9
 	.byte	0xc1
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB68
 	.quad	.LFE68-.LFB68
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x36db
+	.long	0x3cfb
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xc1
 	.byte	0x1c
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF430
+	.uleb128 0x8
+	.long	.LASF454
 	.byte	0x9
 	.byte	0xbb
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB67
 	.quad	.LFE67-.LFB67
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x371c
+	.long	0x3d3c
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xbb
 	.byte	0x1c
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19315,65 +21067,65 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF431
+	.uleb128 0x8
+	.long	.LASF455
 	.byte	0x9
 	.byte	0xb9
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB66
 	.quad	.LFE66-.LFB66
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x374e
+	.long	0x3d6e
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xb9
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF432
+	.uleb128 0x8
+	.long	.LASF456
 	.byte	0x9
 	.byte	0xb8
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB65
 	.quad	.LFE65-.LFB65
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3780
+	.long	0x3da0
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xb8
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF433
+	.uleb128 0x8
+	.long	.LASF457
 	.byte	0x9
 	.byte	0xae
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB64
 	.quad	.LFE64-.LFB64
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3800
+	.long	0x3e20
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xae
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -19382,7 +21134,7 @@ irs.4:
 	.byte	0x9
 	.byte	0xae
 	.byte	0x28
-	.long	0xa91
+	.long	0xa98
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
@@ -19391,16 +21143,16 @@ irs.4:
 	.byte	0x9
 	.byte	0xae
 	.byte	0x33
-	.long	0xa91
+	.long	0xa98
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
 	.uleb128 0x4
-	.long	.LASF420
+	.long	.LASF444
 	.byte	0x9
 	.byte	0xae
 	.byte	0x40
-	.long	0x3800
+	.long	0x3e20
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -104
@@ -19418,51 +21170,51 @@ irs.4:
 	.byte	0x9
 	.byte	0xb3
 	.byte	0x8
-	.long	0x8c5
+	.long	0x8cc
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xd
-	.long	0xa91
-	.uleb128 0x9
-	.long	.LASF434
+	.long	0xa98
+	.uleb128 0x8
+	.long	.LASF458
 	.byte	0x9
 	.byte	0xac
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB63
 	.quad	.LFE63-.LFB63
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3837
+	.long	0x3e57
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xac
 	.byte	0x1e
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF435
+	.uleb128 0x8
+	.long	.LASF459
 	.byte	0x9
 	.byte	0xa4
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB62
 	.quad	.LFE62-.LFB62
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3878
+	.long	0x3e98
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0xa4
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19476,23 +21228,23 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF436
+	.uleb128 0x8
+	.long	.LASF460
 	.byte	0x9
 	.byte	0x9e
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB61
 	.quad	.LFE61-.LFB61
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x38b9
+	.long	0x3ed9
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x9e
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19506,23 +21258,23 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF437
+	.uleb128 0x8
+	.long	.LASF461
 	.byte	0x9
 	.byte	0x96
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB60
 	.quad	.LFE60-.LFB60
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x38fa
+	.long	0x3f1a
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x96
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19536,23 +21288,23 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF438
+	.uleb128 0x8
+	.long	.LASF462
 	.byte	0x9
 	.byte	0x90
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB59
 	.quad	.LFE59-.LFB59
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x393b
+	.long	0x3f5b
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x90
 	.byte	0x1c
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19566,23 +21318,23 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF439
+	.uleb128 0x8
+	.long	.LASF463
 	.byte	0x9
 	.byte	0x8a
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB58
 	.quad	.LFE58-.LFB58
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x397c
+	.long	0x3f9c
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x8a
 	.byte	0x1d
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19596,23 +21348,23 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF440
+	.uleb128 0x8
+	.long	.LASF464
 	.byte	0x9
 	.byte	0x7b
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB57
 	.quad	.LFE57-.LFB57
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x39dd
+	.long	0x3ffd
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x7b
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -19621,16 +21373,16 @@ irs.4:
 	.byte	0x9
 	.byte	0x7b
 	.byte	0x29
-	.long	0xa91
+	.long	0xa98
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
 	.uleb128 0x4
-	.long	.LASF420
+	.long	.LASF444
 	.byte	0x9
 	.byte	0x7b
 	.byte	0x36
-	.long	0x3800
+	.long	0x3e20
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -19639,28 +21391,28 @@ irs.4:
 	.byte	0x9
 	.byte	0x7d
 	.byte	0x8
-	.long	0x8c5
+	.long	0x8cc
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF441
+	.uleb128 0x8
+	.long	.LASF465
 	.byte	0x9
 	.byte	0x75
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB56
 	.quad	.LFE56-.LFB56
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3a1e
+	.long	0x403e
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x75
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19674,44 +21426,44 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF442
+	.uleb128 0x8
+	.long	.LASF466
 	.byte	0x9
 	.byte	0x73
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB55
 	.quad	.LFE55-.LFB55
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3a50
+	.long	0x4070
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x73
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF443
+	.uleb128 0x8
+	.long	.LASF467
 	.byte	0x9
 	.byte	0x6d
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB54
 	.quad	.LFE54-.LFB54
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3a91
+	.long	0x40b1
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x6d
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19725,44 +21477,44 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF444
+	.uleb128 0x8
+	.long	.LASF468
 	.byte	0x9
 	.byte	0x6b
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB53
 	.quad	.LFE53-.LFB53
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3ac3
+	.long	0x40e3
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x6b
 	.byte	0x1d
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF445
+	.uleb128 0x8
+	.long	.LASF469
 	.byte	0x9
 	.byte	0x65
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB52
 	.quad	.LFE52-.LFB52
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3b04
+	.long	0x4124
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x65
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19776,23 +21528,23 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF446
+	.uleb128 0x8
+	.long	.LASF470
 	.byte	0x9
 	.byte	0x5d
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB51
 	.quad	.LFE51-.LFB51
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3b45
+	.long	0x4165
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x5d
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19806,65 +21558,65 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF447
+	.uleb128 0x8
+	.long	.LASF471
 	.byte	0x9
 	.byte	0x5b
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB50
 	.quad	.LFE50-.LFB50
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3b77
+	.long	0x4197
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x5b
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF448
+	.uleb128 0x8
+	.long	.LASF472
 	.byte	0x9
 	.byte	0x5a
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB49
 	.quad	.LFE49-.LFB49
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3ba9
+	.long	0x41c9
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x5a
 	.byte	0x1a
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF449
+	.uleb128 0x8
+	.long	.LASF473
 	.byte	0x9
 	.byte	0x54
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB48
 	.quad	.LFE48-.LFB48
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3bea
+	.long	0x420a
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x54
 	.byte	0x1c
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19878,23 +21630,23 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF450
+	.uleb128 0x8
+	.long	.LASF474
 	.byte	0x9
 	.byte	0x4e
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB47
 	.quad	.LFE47-.LFB47
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3c2b
+	.long	0x424b
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x4e
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19908,41 +21660,41 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x29
-	.long	.LASF452
+	.uleb128 0x2a
+	.long	.LASF476
 	.byte	0x47
 	.quad	.LFB46
 	.quad	.LFE46-.LFB46
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3c57
+	.long	0x4277
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x47
 	.byte	0x1e
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF453
+	.uleb128 0x8
+	.long	.LASF477
 	.byte	0x9
 	.byte	0x3b
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB45
 	.quad	.LFE45-.LFB45
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3ca8
+	.long	0x42c8
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x3b
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -19951,7 +21703,7 @@ irs.4:
 	.byte	0x9
 	.byte	0x3f
 	.byte	0x8
-	.long	0x8c5
+	.long	0x8cc
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19965,23 +21717,23 @@ irs.4:
 	.byte	0x91
 	.sleb128 -52
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF454
+	.uleb128 0x8
+	.long	.LASF478
 	.byte	0x9
 	.byte	0x35
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB44
 	.quad	.LFE44-.LFB44
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3ce9
+	.long	0x4309
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x35
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -19995,62 +21747,62 @@ irs.4:
 	.byte	0x91
 	.sleb128 -25
 	.byte	0
-	.uleb128 0x29
-	.long	.LASF455
+	.uleb128 0x2a
+	.long	.LASF479
 	.byte	0x2f
 	.quad	.LFB43
 	.quad	.LFE43-.LFB43
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3d15
+	.long	0x4335
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x2f
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF456
+	.uleb128 0x8
+	.long	.LASF480
 	.byte	0x9
 	.byte	0x2d
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB42
 	.quad	.LFE42-.LFB42
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3d47
+	.long	0x4367
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x2d
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF457
+	.long	.LASF481
 	.byte	0x9
 	.byte	0x26
 	.byte	0xc
-	.long	0x8c5
+	.long	0x8cc
 	.quad	.LFB41
 	.quad	.LFE41-.LFB41
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3da9
+	.long	0x43c9
 	.uleb128 0x4
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x26
 	.byte	0x1b
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -20059,7 +21811,7 @@ irs.4:
 	.byte	0x9
 	.byte	0x26
 	.byte	0x2c
-	.long	0x891
+	.long	0x898
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -68
@@ -20083,42 +21835,42 @@ irs.4:
 	.sleb128 -76
 	.byte	0
 	.uleb128 0x1d
-	.long	.LASF458
+	.long	.LASF482
 	.byte	0x9
 	.byte	0x20
 	.quad	.LFB40
 	.quad	.LFE40-.LFB40
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3de5
+	.long	0x4405
 	.uleb128 0x1
 	.string	"src"
 	.byte	0x9
 	.byte	0x20
 	.byte	0x1a
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x5
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x22
 	.byte	0x9
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0x1d
-	.long	.LASF459
+	.long	.LASF483
 	.byte	0x9
 	.byte	0x16
 	.quad	.LFB39
 	.quad	.LFE39-.LFB39
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3e30
+	.long	0x4450
 	.uleb128 0x1
 	.string	"src"
 	.byte	0x9
@@ -20133,50 +21885,50 @@ irs.4:
 	.byte	0x9
 	.byte	0x16
 	.byte	0x29
-	.long	0x925
+	.long	0x92c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x5
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x18
 	.byte	0x9
-	.long	0x35ef
+	.long	0x3c0f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF460
+	.long	.LASF484
 	.byte	0x9
 	.byte	0x10
 	.byte	0xd
-	.long	0x35ef
+	.long	0x3c0f
 	.quad	.LFB38
 	.quad	.LFE38-.LFB38
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3e69
+	.long	0x4489
 	.uleb128 0x5
-	.long	.LASF419
+	.long	.LASF443
 	.byte	0x9
 	.byte	0x12
 	.byte	0xf
-	.long	0x92a
+	.long	0x931
 	.uleb128 0x9
 	.byte	0x3
-	.quad	lexer.48
+	.quad	lexer.49
 	.byte	0
 	.uleb128 0x1d
-	.long	.LASF461
+	.long	.LASF485
 	.byte	0x8
 	.byte	0x1
 	.quad	.LFB37
 	.quad	.LFE37-.LFB37
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3ee1
+	.long	0x4501
 	.uleb128 0x1
 	.string	"src"
 	.byte	0x8
@@ -20187,16 +21939,16 @@ irs.4:
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x4
-	.long	.LASF273
+	.long	.LASF278
 	.byte	0x8
 	.byte	0x1
 	.byte	0x23
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x5
-	.long	.LASF462
+	.long	.LASF486
 	.byte	0x8
 	.byte	0x3
 	.byte	0x8
@@ -20218,12 +21970,12 @@ irs.4:
 	.byte	0x8
 	.byte	0x9
 	.byte	0x6
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF463
+	.long	.LASF487
 	.byte	0x8
 	.byte	0xa
 	.byte	0x6
@@ -20233,26 +21985,26 @@ irs.4:
 	.sleb128 -24
 	.byte	0
 	.uleb128 0x1d
-	.long	.LASF464
+	.long	.LASF488
 	.byte	0x7
 	.byte	0x7
 	.quad	.LFB36
 	.quad	.LFE36-.LFB36
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3f20
+	.long	0x4540
 	.uleb128 0x1
 	.string	"fmt"
 	.byte	0x7
 	.byte	0x7
 	.byte	0x16
-	.long	0x920
+	.long	0x927
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -232
-	.uleb128 0x27
+	.uleb128 0x28
 	.uleb128 0x5
-	.long	.LASF270
+	.long	.LASF275
 	.byte	0x7
 	.byte	0x9
 	.byte	0xa
@@ -20262,16 +22014,16 @@ irs.4:
 	.sleb128 -224
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF465
+	.long	.LASF489
 	.byte	0x7
 	.byte	0x1
 	.byte	0xf
-	.long	0x3f59
+	.long	0x4579
 	.quad	.LFB35
 	.quad	.LFE35-.LFB35
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3f59
+	.long	0x4579
 	.uleb128 0x6
 	.string	"buf"
 	.byte	0x7
@@ -20280,25 +22032,25 @@ irs.4:
 	.long	0x3cf
 	.uleb128 0x9
 	.byte	0x3
-	.quad	buf.47
+	.quad	buf.48
 	.byte	0
 	.uleb128 0xd
 	.long	0x3cf
-	.uleb128 0x11
-	.long	.LASF466
+	.uleb128 0x12
+	.long	.LASF490
 	.byte	0x6
 	.byte	0x43
 	.quad	.LFB34
 	.quad	.LFE34-.LFB34
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x3fa9
+	.long	0x45c9
 	.uleb128 0x1
 	.string	"map"
 	.byte	0x6
 	.byte	0x43
 	.byte	0x13
-	.long	0x3fa9
+	.long	0x45c9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -20312,32 +22064,32 @@ irs.4:
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x5
-	.long	.LASF467
+	.long	.LASF491
 	.byte	0x6
 	.byte	0x45
 	.byte	0x9
-	.long	0x70e
+	.long	0x715
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xd
-	.long	0x713
-	.uleb128 0x11
-	.long	.LASF468
+	.long	0x71a
+	.uleb128 0x12
+	.long	.LASF492
 	.byte	0x6
 	.byte	0x3a
 	.quad	.LFB33
 	.quad	.LFE33-.LFB33
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4008
+	.long	0x4628
 	.uleb128 0x1
 	.string	"map"
 	.byte	0x6
 	.byte	0x3a
 	.byte	0x13
-	.long	0x3fa9
+	.long	0x45c9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -20354,38 +22106,38 @@ irs.4:
 	.long	.LASF96
 	.byte	0x6
 	.byte	0x3a
-	.byte	0x2c
-	.long	0x6c9
+	.byte	0x2b
+	.long	0x628
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -56
+	.sleb128 -64
 	.uleb128 0x5
-	.long	.LASF467
+	.long	.LASF491
 	.byte	0x6
 	.byte	0x3d
 	.byte	0x9
-	.long	0x70e
+	.long	0x715
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF469
+	.long	.LASF493
 	.byte	0x6
 	.byte	0x2e
 	.byte	0x8
-	.long	0x70e
+	.long	0x715
 	.quad	.LFB32
 	.quad	.LFE32-.LFB32
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4079
+	.long	0x4699
 	.uleb128 0x1
 	.string	"map"
 	.byte	0x6
 	.byte	0x2e
 	.byte	0x15
-	.long	0x3fa9
+	.long	0x45c9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -20411,45 +22163,45 @@ irs.4:
 	.quad	.LBB8
 	.quad	.LBE8-.LBB8
 	.uleb128 0x5
-	.long	.LASF467
+	.long	.LASF491
 	.byte	0x6
 	.byte	0x33
 	.byte	0xa
-	.long	0x70e
+	.long	0x715
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF470
+	.uleb128 0x12
+	.long	.LASF494
 	.byte	0x6
 	.byte	0x20
 	.quad	.LFB31
 	.quad	.LFE31-.LFB31
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4104
+	.long	0x4724
 	.uleb128 0x1
 	.string	"map"
 	.byte	0x6
 	.byte	0x20
 	.byte	0x14
-	.long	0x3fa9
+	.long	0x45c9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x5
-	.long	.LASF471
+	.long	.LASF495
 	.byte	0x6
 	.byte	0x22
 	.byte	0x9
-	.long	0x70e
+	.long	0x715
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF472
+	.long	.LASF496
 	.byte	0x6
 	.byte	0x23
 	.byte	0x6
@@ -20473,32 +22225,32 @@ irs.4:
 	.quad	.LBB7
 	.quad	.LBE7-.LBB7
 	.uleb128 0x5
-	.long	.LASF467
+	.long	.LASF491
 	.byte	0x6
 	.byte	0x27
 	.byte	0xa
-	.long	0x70e
+	.long	0x715
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF473
+	.uleb128 0x12
+	.long	.LASF497
 	.byte	0x6
 	.byte	0x19
 	.quad	.LFB30
 	.quad	.LFE30-.LFB30
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4140
+	.long	0x4760
 	.uleb128 0x1
 	.string	"map"
 	.byte	0x6
 	.byte	0x19
 	.byte	0x15
-	.long	0x3fa9
+	.long	0x45c9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -20513,28 +22265,28 @@ irs.4:
 	.sleb128 -28
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF474
+	.long	.LASF498
 	.byte	0x6
 	.byte	0x13
 	.byte	0xb
-	.long	0x3fa9
+	.long	0x45c9
 	.quad	.LFB29
 	.quad	.LFE29-.LFB29
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4179
+	.long	0x4799
 	.uleb128 0x6
 	.string	"env"
 	.byte	0x6
 	.byte	0x15
 	.byte	0xd
-	.long	0x713
+	.long	0x71a
 	.uleb128 0x9
 	.byte	0x3
-	.quad	env.0
+	.quad	env.36
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF475
+	.long	.LASF499
 	.byte	0x5
 	.byte	0x3f
 	.byte	0x9
@@ -20543,13 +22295,13 @@ irs.4:
 	.quad	.LFE28-.LFB28
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x41e7
+	.long	0x4807
 	.uleb128 0x4
-	.long	.LASF476
+	.long	.LASF500
 	.byte	0x5
 	.byte	0x3f
 	.byte	0x1a
-	.long	0x925
+	.long	0x92c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -20558,7 +22310,7 @@ irs.4:
 	.byte	0x5
 	.byte	0x3f
 	.byte	0x25
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -20590,26 +22342,26 @@ irs.4:
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF477
+	.uleb128 0x12
+	.long	.LASF501
 	.byte	0x5
 	.byte	0x31
 	.quad	.LFB27
 	.quad	.LFE27-.LFB27
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4272
+	.long	0x4892
 	.uleb128 0x4
-	.long	.LASF476
+	.long	.LASF500
 	.byte	0x5
 	.byte	0x31
 	.byte	0x18
-	.long	0x925
+	.long	0x92c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x5
-	.long	.LASF478
+	.long	.LASF502
 	.byte	0x5
 	.byte	0x33
 	.byte	0xa
@@ -20618,7 +22370,7 @@ irs.4:
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF479
+	.long	.LASF503
 	.byte	0x5
 	.byte	0x34
 	.byte	0x6
@@ -20642,7 +22394,7 @@ irs.4:
 	.quad	.LBB5
 	.quad	.LBE5-.LBB5
 	.uleb128 0x5
-	.long	.LASF480
+	.long	.LASF504
 	.byte	0x5
 	.byte	0x38
 	.byte	0xb
@@ -20653,26 +22405,26 @@ irs.4:
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF481
+	.uleb128 0x12
+	.long	.LASF505
 	.byte	0x5
 	.byte	0x27
 	.quad	.LFB26
 	.quad	.LFE26-.LFB26
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x42cc
+	.long	0x48ec
 	.uleb128 0x4
-	.long	.LASF476
+	.long	.LASF500
 	.byte	0x5
 	.byte	0x27
 	.byte	0x19
-	.long	0x925
+	.long	0x92c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x4
-	.long	.LASF480
+	.long	.LASF504
 	.byte	0x5
 	.byte	0x27
 	.byte	0x28
@@ -20681,16 +22433,16 @@ irs.4:
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x5
-	.long	.LASF482
+	.long	.LASF506
 	.byte	0x5
 	.byte	0x29
 	.byte	0x6
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF483
+	.long	.LASF507
 	.byte	0x5
 	.byte	0x2a
 	.byte	0xa
@@ -20700,7 +22452,7 @@ irs.4:
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF484
+	.long	.LASF508
 	.byte	0x5
 	.byte	0x19
 	.byte	0x9
@@ -20709,22 +22461,22 @@ irs.4:
 	.quad	.LFE25-.LFB25
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x437b
+	.long	0x499b
 	.uleb128 0x4
-	.long	.LASF476
+	.long	.LASF500
 	.byte	0x5
 	.byte	0x19
 	.byte	0x1b
-	.long	0x925
+	.long	0x92c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x4
-	.long	.LASF485
+	.long	.LASF509
 	.byte	0x5
 	.byte	0x19
 	.byte	0x26
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -20768,11 +22520,11 @@ irs.4:
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x5
-	.long	.LASF486
+	.long	.LASF510
 	.byte	0x5
 	.byte	0x21
 	.byte	0x7
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -20787,21 +22539,21 @@ irs.4:
 	.sleb128 -36
 	.byte	0
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF487
+	.uleb128 0x12
+	.long	.LASF511
 	.byte	0x5
 	.byte	0x11
 	.quad	.LFB24
 	.quad	.LFE24-.LFB24
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x43c6
+	.long	0x49e6
 	.uleb128 0x4
-	.long	.LASF476
+	.long	.LASF500
 	.byte	0x5
 	.byte	0x11
 	.byte	0x19
-	.long	0x925
+	.long	0x92c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -20825,16 +22577,16 @@ irs.4:
 	.sleb128 -36
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF488
+	.long	.LASF512
 	.byte	0x5
 	.byte	0xb
 	.byte	0xd
-	.long	0x925
+	.long	0x92c
 	.quad	.LFB23
 	.quad	.LFE23-.LFB23
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x43ff
+	.long	0x4a1f
 	.uleb128 0x5
 	.long	.LASF161
 	.byte	0x5
@@ -20843,23 +22595,23 @@ irs.4:
 	.long	0x67b
 	.uleb128 0x9
 	.byte	0x3
-	.quad	interns.2
+	.quad	interns.0
 	.byte	0
-	.uleb128 0x23
-	.long	.LASF489
+	.uleb128 0x25
+	.long	.LASF513
 	.byte	0x4
 	.byte	0x16
 	.quad	.LFB22
 	.quad	.LFE22-.LFB22
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4490
+	.long	0x4ab0
 	.uleb128 0x4
 	.long	.LASF96
 	.byte	0x4
 	.byte	0x16
 	.byte	0x17
-	.long	0x6c9
+	.long	0x18e8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -20873,7 +22625,7 @@ irs.4:
 	.byte	0x91
 	.sleb128 -28
 	.uleb128 0x4
-	.long	.LASF490
+	.long	.LASF514
 	.byte	0x4
 	.byte	0x16
 	.byte	0x34
@@ -20882,14 +22634,14 @@ irs.4:
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x5
-	.long	.LASF316
+	.long	.LASF321
 	.byte	0x4
 	.byte	0x18
 	.byte	0x10
-	.long	0x1b71
+	.long	0x1bfe
 	.uleb128 0x9
 	.byte	0x3
-	.quad	types.50
+	.quad	types.51
 	.uleb128 0x2
 	.string	"I64"
 	.byte	0x4
@@ -20909,8 +22661,8 @@ irs.4:
 	.byte	0x2
 	.quad	.L58
 	.byte	0
-	.uleb128 0x9
-	.long	.LASF491
+	.uleb128 0x8
+	.long	.LASF515
 	.byte	0x3
 	.byte	0x14
 	.byte	0xa
@@ -20919,7 +22671,7 @@ irs.4:
 	.quad	.LFE21-.LFB21
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x44fe
+	.long	0x4b1e
 	.uleb128 0x4
 	.long	.LASF93
 	.byte	0x3
@@ -20934,7 +22686,7 @@ irs.4:
 	.byte	0x3
 	.byte	0x14
 	.byte	0x2b
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -20957,17 +22709,17 @@ irs.4:
 	.byte	0x91
 	.sleb128 -28
 	.uleb128 0x5
-	.long	.LASF492
+	.long	.LASF384
 	.byte	0x3
 	.byte	0x17
 	.byte	0x6
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF493
+	.long	.LASF516
 	.byte	0x3
 	.byte	0x8
 	.byte	0xa
@@ -20976,13 +22728,13 @@ irs.4:
 	.quad	.LFE20-.LFB20
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x457c
+	.long	0x4b9c
 	.uleb128 0x4
-	.long	.LASF416
+	.long	.LASF440
 	.byte	0x3
 	.byte	0x8
 	.byte	0x1a
-	.long	0x920
+	.long	0x927
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -21005,7 +22757,7 @@ irs.4:
 	.byte	0x91
 	.sleb128 -28
 	.uleb128 0x5
-	.long	.LASF494
+	.long	.LASF517
 	.byte	0x3
 	.byte	0xb
 	.byte	0x6
@@ -21028,7 +22780,7 @@ irs.4:
 	.byte	0
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF495
+	.long	.LASF518
 	.byte	0x2
 	.byte	0x59
 	.byte	0x7
@@ -21037,18 +22789,18 @@ irs.4:
 	.quad	.LFE19-.LFB19
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x45bd
+	.long	0x4bdd
 	.uleb128 0x1
 	.string	"vec"
 	.byte	0x2
 	.byte	0x59
 	.byte	0x16
-	.long	0x45bd
+	.long	0x2f44
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.uleb128 0x4
-	.long	.LASF496
+	.long	.LASF519
 	.byte	0x2
 	.byte	0x59
 	.byte	0x1f
@@ -21057,10 +22809,8 @@ irs.4:
 	.byte	0x91
 	.sleb128 -28
 	.byte	0
-	.uleb128 0xd
-	.long	0x554
 	.uleb128 0xf
-	.long	.LASF497
+	.long	.LASF520
 	.byte	0x2
 	.byte	0x53
 	.byte	0x7
@@ -21069,19 +22819,19 @@ irs.4:
 	.quad	.LFE18-.LFB18
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x45f4
+	.long	0x4c0f
 	.uleb128 0x1
 	.string	"vec"
 	.byte	0x2
 	.byte	0x53
 	.byte	0x15
-	.long	0x45bd
+	.long	0x2f44
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF498
+	.long	.LASF521
 	.byte	0x2
 	.byte	0x4d
 	.byte	0x7
@@ -21090,13 +22840,13 @@ irs.4:
 	.quad	.LFE17-.LFB17
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4635
+	.long	0x4c50
 	.uleb128 0x1
 	.string	"vec"
 	.byte	0x2
 	.byte	0x4d
 	.byte	0x14
-	.long	0x45bd
+	.long	0x2f44
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -21110,21 +22860,21 @@ irs.4:
 	.byte	0x91
 	.sleb128 -28
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF499
+	.uleb128 0x12
+	.long	.LASF522
 	.byte	0x2
 	.byte	0x46
 	.quad	.LFB16
 	.quad	.LFE16-.LFB16
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x468f
+	.long	0x4caa
 	.uleb128 0x1
 	.string	"vec"
 	.byte	0x2
 	.byte	0x46
 	.byte	0x13
-	.long	0x45bd
+	.long	0x2f44
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -21147,7 +22897,7 @@ irs.4:
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x5
-	.long	.LASF492
+	.long	.LASF384
 	.byte	0x2
 	.byte	0x49
 	.byte	0x8
@@ -21157,7 +22907,7 @@ irs.4:
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF500
+	.long	.LASF523
 	.byte	0x2
 	.byte	0x40
 	.byte	0x7
@@ -21166,19 +22916,19 @@ irs.4:
 	.quad	.LFE15-.LFB15
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x46c1
+	.long	0x4cdc
 	.uleb128 0x1
 	.string	"vec"
 	.byte	0x2
 	.byte	0x40
 	.byte	0x14
-	.long	0x45bd
+	.long	0x2f44
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF501
+	.long	.LASF524
 	.byte	0x2
 	.byte	0x39
 	.byte	0x5
@@ -21187,13 +22937,13 @@ irs.4:
 	.quad	.LFE14-.LFB14
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4711
+	.long	0x4d2c
 	.uleb128 0x1
 	.string	"vec"
 	.byte	0x2
 	.byte	0x39
 	.byte	0x13
-	.long	0x45bd
+	.long	0x2f44
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -21207,7 +22957,7 @@ irs.4:
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x5
-	.long	.LASF492
+	.long	.LASF384
 	.byte	0x2
 	.byte	0x3b
 	.byte	0x8
@@ -21217,7 +22967,7 @@ irs.4:
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF502
+	.long	.LASF525
 	.byte	0x2
 	.byte	0x2f
 	.byte	0x7
@@ -21226,32 +22976,32 @@ irs.4:
 	.quad	.LFE13-.LFB13
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4743
+	.long	0x4d5e
 	.uleb128 0x1
 	.string	"vec"
 	.byte	0x2
 	.byte	0x2f
 	.byte	0x17
-	.long	0x45bd
+	.long	0x2f44
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF503
+	.uleb128 0x12
+	.long	.LASF526
 	.byte	0x2
 	.byte	0x27
 	.quad	.LFB12
 	.quad	.LFE12-.LFB12
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x478e
+	.long	0x4da9
 	.uleb128 0x1
 	.string	"vec"
 	.byte	0x2
 	.byte	0x27
 	.byte	0x15
-	.long	0x45bd
+	.long	0x2f44
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -21275,121 +23025,121 @@ irs.4:
 	.sleb128 -32
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF504
+	.long	.LASF527
 	.byte	0x2
 	.byte	0x21
 	.byte	0xb
-	.long	0x45bd
+	.long	0x2f44
 	.quad	.LFB11
 	.quad	.LFE11-.LFB11
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x47c7
+	.long	0x4de2
 	.uleb128 0x5
-	.long	.LASF505
+	.long	.LASF528
 	.byte	0x2
 	.byte	0x23
 	.byte	0xd
 	.long	0x554
 	.uleb128 0x9
 	.byte	0x3
-	.quad	funcs.40
+	.quad	funcs.41
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF506
+	.long	.LASF529
 	.byte	0x2
 	.byte	0x1b
 	.byte	0xb
-	.long	0x45bd
+	.long	0x2f44
 	.quad	.LFB10
 	.quad	.LFE10-.LFB10
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4800
+	.long	0x4e1b
 	.uleb128 0x5
-	.long	.LASF507
+	.long	.LASF394
 	.byte	0x2
 	.byte	0x1d
 	.byte	0xd
 	.long	0x554
 	.uleb128 0x9
 	.byte	0x3
-	.quad	code.37
+	.quad	code.38
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF508
+	.long	.LASF530
 	.byte	0x2
 	.byte	0x15
 	.byte	0xb
-	.long	0x45bd
+	.long	0x2f44
 	.quad	.LFB9
 	.quad	.LFE9-.LFB9
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4839
+	.long	0x4e54
 	.uleb128 0x5
-	.long	.LASF509
+	.long	.LASF397
 	.byte	0x2
 	.byte	0x17
 	.byte	0xd
 	.long	0x554
 	.uleb128 0x9
 	.byte	0x3
-	.quad	globals.1
+	.quad	globals.37
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF510
+	.long	.LASF531
 	.byte	0x2
 	.byte	0xf
 	.byte	0xb
-	.long	0x45bd
+	.long	0x2f44
 	.quad	.LFB8
 	.quad	.LFE8-.LFB8
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4872
+	.long	0x4e8d
 	.uleb128 0x5
-	.long	.LASF511
+	.long	.LASF400
 	.byte	0x2
 	.byte	0x11
 	.byte	0xd
 	.long	0x554
 	.uleb128 0x9
 	.byte	0x3
-	.quad	locals.38
+	.quad	locals.39
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF512
+	.long	.LASF532
 	.byte	0x2
 	.byte	0x9
 	.byte	0xb
-	.long	0x45bd
+	.long	0x2f44
 	.quad	.LFB7
 	.quad	.LFE7-.LFB7
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x48ab
+	.long	0x4ec6
 	.uleb128 0x5
-	.long	.LASF513
+	.long	.LASF533
 	.byte	0x2
 	.byte	0xb
 	.byte	0xd
 	.long	0x554
 	.uleb128 0x9
 	.byte	0x3
-	.quad	consts.39
+	.quad	consts.40
 	.byte	0
-	.uleb128 0x23
-	.long	.LASF514
+	.uleb128 0x25
+	.long	.LASF534
 	.byte	0x1
 	.byte	0x3b
 	.quad	.LFB6
 	.quad	.LFE6-.LFB6
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x48d8
+	.long	0x4ef3
 	.uleb128 0x4
-	.long	.LASF515
+	.long	.LASF535
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x19
@@ -21399,7 +23149,7 @@ irs.4:
 	.sleb128 -24
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF516
+	.long	.LASF536
 	.byte	0x1
 	.byte	0x36
 	.byte	0x7
@@ -21408,9 +23158,9 @@ irs.4:
 	.quad	.LFE5-.LFB5
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4919
+	.long	0x4f34
 	.uleb128 0x4
-	.long	.LASF515
+	.long	.LASF535
 	.byte	0x1
 	.byte	0x36
 	.byte	0x18
@@ -21429,7 +23179,7 @@ irs.4:
 	.sleb128 -28
 	.byte	0
 	.uleb128 0xf
-	.long	.LASF517
+	.long	.LASF537
 	.byte	0x1
 	.byte	0x2e
 	.byte	0x5
@@ -21438,9 +23188,9 @@ irs.4:
 	.quad	.LFE4-.LFB4
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4969
+	.long	0x4f84
 	.uleb128 0x4
-	.long	.LASF515
+	.long	.LASF535
 	.byte	0x1
 	.byte	0x2e
 	.byte	0x16
@@ -21449,7 +23199,7 @@ irs.4:
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x4
-	.long	.LASF463
+	.long	.LASF487
 	.byte	0x1
 	.byte	0x2e
 	.byte	0x21
@@ -21468,7 +23218,7 @@ irs.4:
 	.sleb128 -20
 	.byte	0
 	.uleb128 0xe
-	.long	.LASF518
+	.long	.LASF538
 	.byte	0x1
 	.byte	0x22
 	.byte	0x5
@@ -21477,9 +23227,9 @@ irs.4:
 	.quad	.LFE3-.LFB3
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x49c8
+	.long	0x4fe3
 	.uleb128 0x4
-	.long	.LASF515
+	.long	.LASF535
 	.byte	0x1
 	.byte	0x22
 	.byte	0x17
@@ -21488,7 +23238,7 @@ irs.4:
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x4
-	.long	.LASF519
+	.long	.LASF539
 	.byte	0x1
 	.byte	0x22
 	.byte	0x22
@@ -21497,7 +23247,7 @@ irs.4:
 	.byte	0x91
 	.sleb128 -44
 	.uleb128 0x4
-	.long	.LASF520
+	.long	.LASF540
 	.byte	0x1
 	.byte	0x22
 	.byte	0x2c
@@ -21515,17 +23265,17 @@ irs.4:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF521
+	.uleb128 0x12
+	.long	.LASF541
 	.byte	0x1
 	.byte	0x1a
 	.quad	.LFB2
 	.quad	.LFE2-.LFB2
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4a04
+	.long	0x501f
 	.uleb128 0x4
-	.long	.LASF515
+	.long	.LASF535
 	.byte	0x1
 	.byte	0x1a
 	.byte	0x19
@@ -21544,7 +23294,7 @@ irs.4:
 	.sleb128 -28
 	.byte	0
 	.uleb128 0xb
-	.long	.LASF522
+	.long	.LASF542
 	.byte	0x1
 	.byte	0x14
 	.byte	0xd
@@ -21553,7 +23303,7 @@ irs.4:
 	.quad	.LFE1-.LFB1
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4a3d
+	.long	0x5058
 	.uleb128 0x5
 	.long	.LASF93
 	.byte	0x1
@@ -21562,10 +23312,10 @@ irs.4:
 	.long	0x4ed
 	.uleb128 0x9
 	.byte	0x3
-	.quad	strings.45
+	.quad	strings.46
 	.byte	0
-	.uleb128 0x3c
-	.long	.LASF523
+	.uleb128 0x3d
+	.long	.LASF543
 	.byte	0x1
 	.byte	0xe
 	.byte	0xd
@@ -21582,7 +23332,7 @@ irs.4:
 	.long	0x4ed
 	.uleb128 0x9
 	.byte	0x3
-	.quad	src.3
+	.quad	src.1
 	.byte	0
 	.byte	0
 	.section	.debug_abbrev,"",@progbits
@@ -21697,21 +23447,6 @@ irs.4:
 	.byte	0
 	.byte	0
 	.uleb128 0x8
-	.uleb128 0xa
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x11
-	.uleb128 0x1
-	.byte	0
-	.byte	0
-	.uleb128 0x9
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -21736,6 +23471,21 @@ irs.4:
 	.uleb128 0x19
 	.uleb128 0x1
 	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x9
+	.uleb128 0xa
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x11
+	.uleb128 0x1
 	.byte	0
 	.byte	0
 	.uleb128 0xa
@@ -21865,6 +23615,23 @@ irs.4:
 	.byte	0
 	.byte	0
 	.uleb128 0x11
+	.uleb128 0xd
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x38
+	.uleb128 0xb
+	.byte	0
+	.byte	0
+	.uleb128 0x12
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -21892,7 +23659,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x12
+	.uleb128 0x13
 	.uleb128 0x1
 	.byte	0x1
 	.uleb128 0x49
@@ -21901,7 +23668,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x13
+	.uleb128 0x14
 	.uleb128 0x13
 	.byte	0x1
 	.uleb128 0x3
@@ -21918,8 +23685,8 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x14
-	.uleb128 0xd
+	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0
 	.uleb128 0x3
 	.uleb128 0x8
@@ -21931,11 +23698,9 @@ irs.4:
 	.uleb128 0xb
 	.uleb128 0x49
 	.uleb128 0x13
-	.uleb128 0x38
-	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x15
+	.uleb128 0x16
 	.uleb128 0x24
 	.byte	0
 	.uleb128 0xb
@@ -21944,21 +23709,6 @@ irs.4:
 	.uleb128 0xb
 	.uleb128 0x3
 	.uleb128 0xe
-	.byte	0
-	.byte	0
-	.uleb128 0x16
-	.uleb128 0x16
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x17
@@ -22009,13 +23759,6 @@ irs.4:
 	.byte	0
 	.byte	0
 	.uleb128 0x1a
-	.uleb128 0x37
-	.byte	0
-	.uleb128 0x49
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x1b
 	.uleb128 0x4
 	.byte	0x1
 	.uleb128 0x3
@@ -22036,6 +23779,13 @@ irs.4:
 	.uleb128 0x21
 	.sleb128 14
 	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1b
+	.uleb128 0x37
+	.byte	0
+	.uleb128 0x49
 	.uleb128 0x13
 	.byte	0
 	.byte	0
@@ -22095,7 +23845,7 @@ irs.4:
 	.uleb128 0xe
 	.uleb128 0x3a
 	.uleb128 0x21
-	.sleb128 28
+	.sleb128 29
 	.uleb128 0x3b
 	.uleb128 0x21
 	.sleb128 0
@@ -22144,6 +23894,24 @@ irs.4:
 	.byte	0
 	.byte	0
 	.uleb128 0x22
+	.uleb128 0x13
+	.byte	0x1
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0x21
+	.sleb128 16
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x23
 	.uleb128 0xd
 	.byte	0
 	.uleb128 0x49
@@ -22152,7 +23920,28 @@ irs.4:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x23
+	.uleb128 0x24
+	.uleb128 0xd
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0x21
+	.sleb128 14
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0x21
+	.sleb128 5
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0xd
+	.uleb128 0xb
+	.uleb128 0x6b
+	.uleb128 0xb
+	.byte	0
+	.byte	0
+	.uleb128 0x25
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -22180,14 +23969,14 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x24
+	.uleb128 0x26
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
 	.uleb128 0xe
 	.uleb128 0x3a
 	.uleb128 0x21
-	.sleb128 32
+	.sleb128 33
 	.uleb128 0x3b
 	.uleb128 0xb
 	.uleb128 0x39
@@ -22201,25 +23990,7 @@ irs.4:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x25
-	.uleb128 0x13
-	.byte	0x1
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0xb
-	.uleb128 0xb
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0x21
-	.sleb128 16
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x26
+	.uleb128 0x27
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -22244,12 +24015,12 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x27
+	.uleb128 0x28
 	.uleb128 0x18
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x29
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3f
@@ -22258,7 +24029,7 @@ irs.4:
 	.uleb128 0xe
 	.uleb128 0x3a
 	.uleb128 0x21
-	.sleb128 24
+	.sleb128 25
 	.uleb128 0x3b
 	.uleb128 0xb
 	.uleb128 0x39
@@ -22276,7 +24047,7 @@ irs.4:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x29
+	.uleb128 0x2a
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -22303,7 +24074,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2a
+	.uleb128 0x2b
 	.uleb128 0x11
 	.byte	0x1
 	.uleb128 0x25
@@ -22322,7 +24093,7 @@ irs.4:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0x2b
+	.uleb128 0x2c
 	.uleb128 0x16
 	.byte	0
 	.uleb128 0x3
@@ -22331,7 +24102,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2c
+	.uleb128 0x2d
 	.uleb128 0x13
 	.byte	0x1
 	.uleb128 0x3
@@ -22346,14 +24117,14 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2d
+	.uleb128 0x2e
 	.uleb128 0xf
 	.byte	0
 	.uleb128 0xb
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x2e
+	.uleb128 0x2f
 	.uleb128 0x24
 	.byte	0
 	.uleb128 0xb
@@ -22364,19 +24135,19 @@ irs.4:
 	.uleb128 0x8
 	.byte	0
 	.byte	0
-	.uleb128 0x2f
+	.uleb128 0x30
 	.uleb128 0x26
 	.byte	0
 	.uleb128 0x49
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x31
 	.uleb128 0x26
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x31
+	.uleb128 0x32
 	.uleb128 0x13
 	.byte	0x1
 	.uleb128 0xb
@@ -22391,7 +24162,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x32
+	.uleb128 0x33
 	.uleb128 0x15
 	.byte	0x1
 	.uleb128 0x27
@@ -22400,7 +24171,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x33
+	.uleb128 0x34
 	.uleb128 0xd
 	.byte	0
 	.uleb128 0x3
@@ -22415,7 +24186,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x34
+	.uleb128 0x35
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -22438,7 +24209,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x35
+	.uleb128 0x36
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -22461,7 +24232,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x36
+	.uleb128 0x37
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -22482,7 +24253,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x37
+	.uleb128 0x38
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3
@@ -22505,7 +24276,7 @@ irs.4:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x38
+	.uleb128 0x39
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3
@@ -22528,14 +24299,14 @@ irs.4:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x39
+	.uleb128 0x3a
 	.uleb128 0xb
 	.byte	0x1
 	.uleb128 0x55
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0x3a
+	.uleb128 0x3b
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3f
@@ -22560,7 +24331,7 @@ irs.4:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x3b
+	.uleb128 0x3c
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -22589,7 +24360,7 @@ irs.4:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x3c
+	.uleb128 0x3d
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -22649,19 +24420,19 @@ irs.4:
 	.section	.debug_str,"MS",@progbits,1
 .LASF177:
 	.string	"PREC_EQNEQ"
-.LASF522:
+.LASF542:
 	.string	"GetStrings"
-.LASF496:
+.LASF519:
 	.string	"peek"
-.LASF375:
+.LASF380:
 	.string	"EvalUnaErr"
-.LASF474:
+.LASF498:
 	.string	"GetEnv"
 .LASF178:
 	.string	"PREC_GTLT"
-.LASF507:
+.LASF394:
 	.string	"code"
-.LASF302:
+.LASF307:
 	.string	"BAND"
 .LASF161:
 	.string	"interns"
@@ -22671,23 +24442,25 @@ irs.4:
 	.string	"OP_MOD"
 .LASF41:
 	.string	"_shortbuf"
-.LASF416:
+.LASF440:
 	.string	"cstr"
-.LASF287:
+.LASF292:
 	.string	"CALL_CONST"
 .LASF118:
 	.string	"TK_AND"
-.LASF308:
+.LASF313:
 	.string	"DIVEQ"
 .LASF75:
 	.string	"_IO_lock_t"
-.LASF450:
+.LASF474:
 	.string	"LexMod"
+.LASF507:
+	.string	"new_str"
 .LASF4:
 	.string	"gp_offset"
 .LASF77:
 	.string	"Label"
-.LASF290:
+.LASF295:
 	.string	"common"
 .LASF227:
 	.string	"OP_MOV"
@@ -22697,33 +24470,33 @@ irs.4:
 	.string	"_IO_buf_end"
 .LASF207:
 	.string	"OP_POSTDEC"
-.LASF396:
+.LASF420:
 	.string	"ParseRef"
-.LASF405:
+.LASF429:
 	.string	"ParseEos"
 .LASF82:
 	.string	"String"
-.LASF478:
+.LASF502:
 	.string	"old_base"
-.LASF258:
+.LASF263:
 	.string	"signal"
-.LASF294:
+.LASF299:
 	.string	"BinRefCall"
 .LASF143:
 	.string	"TK_ELSE"
-.LASF352:
+.LASF357:
 	.string	"EvalPow"
-.LASF494:
+.LASF517:
 	.string	"prime"
 .LASF233:
 	.string	"OP_POWEQ"
-.LASF361:
+.LASF366:
 	.string	"CALL"
-.LASF300:
+.LASF305:
 	.string	"node"
 .LASF215:
 	.string	"OP_BOR"
-.LASF256:
+.LASF261:
 	.string	"printf"
 .LASF211:
 	.string	"OP_DIV"
@@ -22735,43 +24508,45 @@ irs.4:
 	.string	"TK_RC"
 .LASF46:
 	.string	"_freeres_list"
-.LASF284:
+.LASF289:
 	.string	"REF_CONST"
 .LASF142:
 	.string	"TK_FOR"
 .LASF156:
 	.string	"TK_N"
+.LASF396:
+	.string	"out_idx"
 .LASF135:
 	.string	"TK_RP"
 .LASF22:
 	.string	"_flags"
 .LASF137:
 	.string	"TK_RS"
-.LASF382:
+.LASF406:
 	.string	"GetCompiler"
-.LASF389:
+.LASF413:
 	.string	"ParseExpr"
-.LASF471:
+.LASF495:
 	.string	"entries"
 .LASF132:
 	.string	"TK_RSH"
-.LASF497:
+.LASF520:
 	.string	"VecPeek"
-.LASF347:
+.LASF352:
 	.string	"EvalRsh"
-.LASF255:
+.LASF260:
 	.string	"_setjmp"
 .LASF216:
 	.string	"OP_BXOR"
-.LASF435:
+.LASF459:
 	.string	"LexGt"
-.LASF304:
+.LASF309:
 	.string	"EQEQ"
-.LASF305:
+.LASF310:
 	.string	"ADDEQ"
-.LASF433:
+.LASF457:
 	.string	"LexId"
-.LASF301:
+.LASF306:
 	.string	"BinFold"
 .LASF34:
 	.string	"_markers"
@@ -22781,69 +24556,71 @@ irs.4:
 	.string	"prec"
 .LASF196:
 	.string	"ParseRule"
-.LASF312:
+.LASF317:
 	.string	"BOREQ"
 .LASF93:
 	.string	"strings"
 .LASF190:
 	.string	"ParseType"
-.LASF499:
+.LASF522:
 	.string	"VecSet"
 .LASF125:
 	.string	"TK_EQEQ"
-.LASF250:
+.LASF255:
 	.string	"fread"
 .LASF203:
 	.string	"OP_BNOT"
-.LASF505:
+.LASF528:
 	.string	"funcs"
-.LASF279:
+.LASF284:
 	.string	"CompileBin"
+.LASF481:
+	.string	"LexSet"
 .LASF229:
 	.string	"OP_SUBEQ"
 .LASF76:
 	.string	"Void"
-.LASF398:
+.LASF422:
 	.string	"ParseF64"
-.LASF265:
+.LASF270:
 	.string	"calloc"
-.LASF438:
+.LASF462:
 	.string	"LexSemi"
 .LASF188:
 	.string	"PREC_CALL"
-.LASF243:
+.LASF248:
 	.string	"icode"
-.LASF453:
+.LASF477:
 	.string	"LexStr"
-.LASF457:
-	.string	"LexSet"
-.LASF449:
+.LASF242:
+	.string	"MODE_CONST"
+.LASF473:
 	.string	"LexBand"
-.LASF408:
+.LASF432:
 	.string	"ParseWhile"
-.LASF430:
+.LASF454:
 	.string	"LexBxor"
 .LASF145:
 	.string	"TK_DO"
-.LASF283:
+.LASF288:
 	.string	"CONST_CALL"
-.LASF378:
+.LASF403:
 	.string	"BinCast"
-.LASF364:
+.LASF369:
 	.string	"UnaConst"
-.LASF480:
+.LASF504:
 	.string	"old_str"
-.LASF241:
+.LASF246:
 	.string	"iconsts"
-.LASF388:
+.LASF412:
 	.string	"WHILE"
 .LASF163:
 	.string	"PREC_NONE"
 .LASF239:
 	.string	"OP_N"
-.LASF473:
+.LASF497:
 	.string	"MapAlloc"
-.LASF390:
+.LASF414:
 	.string	"rules"
 .LASF151:
 	.string	"TK_RET"
@@ -22851,7 +24628,7 @@ irs.4:
 	.string	"OP_AND"
 .LASF150:
 	.string	"TK_COMMA"
-.LASF334:
+.LASF339:
 	.string	"EvalDivEq"
 .LASF71:
 	.string	"uint32_t"
@@ -22861,13 +24638,13 @@ irs.4:
 	.string	"TK_SUBEQ"
 .LASF218:
 	.string	"OP_RSH"
-.LASF343:
+.LASF348:
 	.string	"EvalLe"
 .LASF230:
 	.string	"OP_MULEQ"
 .LASF33:
 	.string	"_IO_save_end"
-.LASF443:
+.LASF467:
 	.string	"LexSub"
 .LASF164:
 	.string	"PREC_LIST"
@@ -22875,53 +24652,53 @@ irs.4:
 	.string	"TK_THEN"
 .LASF73:
 	.string	"float"
-.LASF504:
+.LASF527:
 	.string	"GetFuncs"
 .LASF53:
 	.string	"_IO_codecvt"
-.LASF456:
+.LASF480:
 	.string	"LexEof"
-.LASF268:
+.LASF273:
 	.string	"malloc"
 .LASF79:
 	.string	"base"
-.LASF417:
+.LASF441:
 	.string	"ParserInit"
 .LASF213:
 	.string	"OP_POW"
-.LASF372:
+.LASF377:
 	.string	"EvalPlus"
-.LASF392:
+.LASF416:
 	.string	"BINARY"
 .LASF159:
 	.string	"start"
-.LASF485:
+.LASF509:
 	.string	"str_a"
-.LASF486:
+.LASF510:
 	.string	"str_b"
-.LASF344:
+.LASF349:
 	.string	"EvalLt"
 .LASF124:
 	.string	"TK_EQ"
-.LASF440:
+.LASF464:
 	.string	"LexNum"
 .LASF6:
 	.string	"overflow_arg_area"
-.LASF365:
+.LASF370:
 	.string	"UnaFold"
-.LASF262:
+.LASF267:
 	.string	"longjmp"
-.LASF391:
+.LASF415:
 	.string	"UNARY"
-.LASF273:
+.LASF278:
 	.string	"file"
 .LASF108:
 	.string	"TK_MUL"
 .LASF117:
 	.string	"TK_BANDEQ"
-.LASF355:
+.LASF360:
 	.string	"EvalMul"
-.LASF269:
+.LASF274:
 	.string	"nargs"
 .LASF86:
 	.string	"VALUE_F64"
@@ -22929,9 +24706,9 @@ irs.4:
 	.string	"TK_NOT"
 .LASF109:
 	.string	"TK_MULEQ"
-.LASF374:
+.LASF379:
 	.string	"EvalNot"
-.LASF479:
+.LASF503:
 	.string	"old_len"
 .LASF15:
 	.string	"__uint16_t"
@@ -22941,21 +24718,25 @@ irs.4:
 	.string	"__sighandler_t"
 .LASF32:
 	.string	"_IO_backup_base"
-.LASF245:
+.LASF250:
 	.string	"nlocals"
-.LASF293:
+.LASF298:
 	.string	"BinCallConst"
-.LASF336:
+.LASF341:
 	.string	"EvalSubEq"
 .LASF43:
 	.string	"_offset"
-.LASF387:
-	.string	"EXPR"
-.LASF489:
+.LASF397:
+	.string	"globals"
+.LASF513:
 	.string	"ValueSet"
-.LASF321:
+.LASF515:
+	.string	"StringAlloc"
+.LASF326:
 	.string	"F64_F64"
-.LASF501:
+.LASF476:
+	.string	"LexComment"
+.LASF524:
 	.string	"VecPush"
 .LASF96:
 	.string	"value"
@@ -22963,117 +24744,125 @@ irs.4:
 	.string	"TK_DOT"
 .LASF36:
 	.string	"_fileno"
-.LASF464:
+.LASF488:
 	.string	"Throw"
-.LASF248:
+.LASF385:
+	.string	"GlobalAssignCall"
+.LASF253:
 	.string	"in_fn"
 .LASF80:
 	.string	"used"
-.LASF359:
+.LASF364:
 	.string	"CompileUna"
 .LASF181:
 	.string	"PREC_FACT"
-.LASF373:
+.LASF378:
 	.string	"EvalBnot"
 .LASF3:
 	.string	"__gnuc_va_list"
 .LASF222:
 	.string	"OP_LE"
-.LASF414:
+.LASF438:
 	.string	"ParseMatch"
 .LASF153:
 	.string	"TK_F64"
-.LASF335:
+.LASF340:
 	.string	"EvalMulEq"
-.LASF275:
+.LASF280:
 	.string	"Init"
-.LASF395:
+.LASF419:
 	.string	"DONE"
 .LASF2:
 	.string	"size_t"
 .LASF189:
 	.string	"PREC_POSTTERM"
-.LASF506:
+.LASF354:
+	.string	"EvalBxor"
+.LASF529:
 	.string	"GetCode"
-.LASF412:
+.LASF436:
 	.string	"cond"
 .LASF83:
 	.string	"offset"
-.LASF291:
+.LASF296:
 	.string	"BinCallCall"
-.LASF429:
+.LASF453:
 	.string	"LexBnot"
-.LASF351:
+.LASF356:
 	.string	"EvalBand"
-.LASF282:
+.LASF287:
 	.string	"CONST_REF"
 .LASF25:
 	.string	"_IO_read_base"
-.LASF309:
+.LASF314:
 	.string	"MODEQ"
-.LASF399:
+.LASF423:
 	.string	"ParseI64"
-.LASF186:
-	.string	"PREC_MEMBER"
 .LASF55:
 	.string	"stdin"
 .LASF194:
 	.string	"PT_N"
-.LASF413:
+.LASF437:
 	.string	"stmt"
-.LASF514:
+.LASF534:
 	.string	"ArenaClear"
-.LASF366:
+.LASF371:
 	.string	"BNOT"
 .LASF131:
 	.string	"TK_GE"
-.LASF527:
+.LASF547:
 	.string	"free"
 .LASF18:
 	.string	"__uint64_t"
-.LASF491:
-	.string	"StringAlloc"
-.LASF517:
+.LASF399:
+	.string	"LocalGet"
+.LASF537:
 	.string	"ArenaPop"
+.LASF389:
+	.string	"op_idx"
 .LASF123:
 	.string	"TK_BXOREQ"
-.LASF436:
+.LASF460:
 	.string	"LexEq"
-.LASF319:
+.LASF324:
 	.string	"I64_STR"
 .LASF102:
 	.string	"TK_ADD"
 .LASF193:
 	.string	"PT_CALL"
-.LASF357:
+.LASF362:
 	.string	"EvalAdd"
 .LASF130:
 	.string	"TK_GT"
-.LASF498:
+.LASF521:
 	.string	"VecGet"
+.LASF395:
+	.string	"GlobalGet"
 .LASF158:
 	.string	"Lexer"
+.LASF243:
+	.string	"MODE_GLOBAL"
 .LASF64:
 	.string	"__jmpbuf"
 .LASF198:
 	.string	"Parser"
-.LASF316:
+.LASF321:
 	.string	"types"
-.LASF307:
+.LASF312:
 	.string	"MULEQ"
-.LASF385:
+.LASF409:
 	.string	"ParseStmt"
 .LASF231:
 	.string	"OP_DIVEQ"
-.LASF274:
+.LASF279:
 	.string	"Repl"
-.LASF377:
+.LASF392:
 	.string	"token_ops"
-.LASF370:
+.LASF375:
 	.string	"EvalInc"
-.LASF524:
+.LASF544:
 	.string	"GNU C2X 13.3.0 -masm=intel -mtune=generic -march=x86-64 -g -O0 -std=c2x -fasynchronous-unwind-tables -fstack-protector-strong -fstack-clash-protection -fcf-protection"
-.LASF472:
+.LASF496:
 	.string	"old_max"
 .LASF21:
 	.string	"char"
@@ -23083,21 +24872,21 @@ irs.4:
 	.string	"VALUE_STR"
 .LASF49:
 	.string	"_mode"
-.LASF246:
+.LASF251:
 	.string	"ncode"
-.LASF406:
+.LASF430:
 	.string	"ParseId"
 .LASF210:
 	.string	"OP_MUL"
-.LASF411:
+.LASF435:
 	.string	"ParseIf"
-.LASF303:
+.LASF308:
 	.string	"BXOR"
-.LASF488:
-	.string	"GetInterns"
+.LASF421:
+	.string	"ParseStr"
 .LASF173:
 	.string	"PREC_AND"
-.LASF315:
+.LASF320:
 	.string	"RSHEQ"
 .LASF201:
 	.string	"OP_NOP"
@@ -23105,61 +24894,67 @@ irs.4:
 	.string	"_IO_marker"
 .LASF202:
 	.string	"OP_NOT"
-.LASF448:
+.LASF472:
 	.string	"LexLp"
 .LASF23:
 	.string	"_IO_read_ptr"
-.LASF432:
+.LASF456:
 	.string	"LexLs"
-.LASF437:
+.LASF461:
 	.string	"LexLt"
-.LASF323:
+.LASF383:
+	.string	"GlobalAssign"
+.LASF328:
 	.string	"STR_I64"
-.LASF404:
+.LASF428:
 	.string	"ParseErr"
-.LASF322:
+.LASF327:
 	.string	"F64_STR"
 .LASF113:
 	.string	"TK_DIVEQ"
 .LASF78:
 	.string	"Arena"
-.LASF442:
+.LASF466:
 	.string	"LexDot"
 .LASF85:
 	.string	"VALUE_I64"
-.LASF297:
+.LASF302:
 	.string	"BinConstCall"
 .LASF69:
 	.string	"uint8_t"
-.LASF292:
+.LASF297:
 	.string	"BinCallRef"
-.LASF311:
+.LASF316:
 	.string	"BANDEQ"
-.LASF384:
+.LASF408:
 	.string	"parser"
-.LASF468:
+.LASF492:
 	.string	"MapPut"
 .LASF182:
 	.string	"PREC_POW"
-.LASF313:
+.LASF318:
 	.string	"BXOREQ"
-.LASF325:
+.LASF330:
 	.string	"STR_STR"
 .LASF103:
 	.string	"TK_ADDEQ"
-.LASF454:
+.LASF478:
 	.string	"LexNot"
 .LASF170:
 	.string	"PREC_EQ"
-.LASF381:
+.LASF405:
 	.string	"FnCommit"
-.LASF348:
+.LASF387:
+	.string	"GlobalAssignConst"
+.LASF353:
 	.string	"EvalLsh"
-.LASF467:
+.LASF491:
 	.string	"entry"
-.LASF320:
+.LASF325:
 	.string	"F64_I64"
-.LASF261:
+.LASF186:
+	.string	"PREC_MEMBER"
+.LASF266:
 	.string	"__isoc23_strtoll"
 .LASF58:
 	.string	"va_list"
@@ -23169,39 +24964,43 @@ irs.4:
 	.string	"TK_ID"
 .LASF141:
 	.string	"TK_IF"
-.LASF458:
+.LASF482:
 	.string	"LexReinit"
-.LASF310:
+.LASF315:
 	.string	"POWEQ"
+.LASF244:
+	.string	"MODE_IMM"
 .LASF57:
 	.string	"long long int"
-.LASF493:
+.LASF516:
 	.string	"StringHash"
-.LASF418:
+.LASF442:
 	.string	"GetParser"
 .LASF119:
 	.string	"TK_BOR"
-.LASF519:
+.LASF539:
 	.string	"size"
-.LASF350:
+.LASF355:
 	.string	"EvalBor"
 .LASF31:
 	.string	"_IO_save_base"
-.LASF330:
+.LASF335:
 	.string	"EvalBorEq"
-.LASF393:
+.LASF417:
 	.string	"GROUP"
 .LASF179:
 	.string	"PREC_SH"
-.LASF512:
+.LASF532:
 	.string	"GetConsts"
-.LASF314:
+.LASF319:
 	.string	"LSHEQ"
+.LASF388:
+	.string	"const_idx"
 .LASF226:
 	.string	"OP_OR"
-.LASF367:
+.LASF372:
 	.string	"PLUS"
-.LASF521:
+.LASF541:
 	.string	"ArenaAlloc"
 .LASF104:
 	.string	"TK_ADDADD"
@@ -23209,49 +25008,45 @@ irs.4:
 	.string	"TK_WHILE"
 .LASF208:
 	.string	"OP_ADD"
-.LASF349:
-	.string	"EvalBxor"
-.LASF337:
+.LASF342:
 	.string	"EvalAddEq"
-.LASF371:
+.LASF376:
 	.string	"EvalMinus"
-.LASF252:
+.LASF257:
 	.string	"fseek"
-.LASF425:
+.LASF449:
 	.string	"SEMI"
-.LASF484:
+.LASF508:
 	.string	"TableFind"
 .LASF204:
 	.string	"OP_PREINC"
-.LASF513:
+.LASF533:
 	.string	"consts"
-.LASF400:
+.LASF424:
 	.string	"ParseCall"
-.LASF288:
+.LASF293:
 	.string	"CALL_REF"
-.LASF280:
+.LASF285:
 	.string	"token_type"
-.LASF421:
+.LASF445:
 	.string	"LINE"
-.LASF502:
+.LASF525:
 	.string	"VecCommit"
 .LASF90:
 	.string	"Value"
-.LASF242:
+.LASF247:
 	.string	"ilocals"
 .LASF47:
 	.string	"_freeres_buf"
-.LASF509:
-	.string	"globals"
-.LASF475:
+.LASF499:
 	.string	"TablePut"
 .LASF154:
 	.string	"TK_STR"
 .LASF232:
 	.string	"OP_MODEQ"
-.LASF342:
+.LASF347:
 	.string	"EvalGt"
-.LASF251:
+.LASF256:
 	.string	"ftell"
 .LASF191:
 	.string	"PT_CONST"
@@ -23259,51 +25054,55 @@ irs.4:
 	.string	"__pad5"
 .LASF81:
 	.string	"szof"
-.LASF483:
-	.string	"new_str"
+.LASF398:
+	.string	"GlobalPush"
 .LASF169:
 	.string	"PREC_POWEQ"
-.LASF495:
-	.string	"VecPeekN"
-.LASF281:
+.LASF390:
+	.string	"LocalAssign"
+.LASF286:
 	.string	"CONST_CONST"
-.LASF424:
+.LASF448:
 	.string	"COLON"
+.LASF451:
+	.string	"LexBor"
 .LASF192:
 	.string	"PT_REF"
-.LASF500:
+.LASF523:
 	.string	"VecPop"
-.LASF326:
+.LASF331:
 	.string	"BinPromote"
-.LASF263:
+.LASF268:
 	.string	"vfprintf"
-.LASF253:
+.LASF258:
 	.string	"fopen"
 .LASF40:
 	.string	"_vtable_offset"
+.LASF402:
+	.string	"ConstPush"
 .LASF200:
 	.string	"OpCode"
 .LASF152:
 	.string	"TK_I64"
 .LASF149:
 	.string	"TK_END"
-.LASF254:
+.LASF259:
 	.string	"fgets"
-.LASF490:
+.LASF514:
 	.string	"data"
-.LASF403:
+.LASF427:
 	.string	"ParseUnary"
-.LASF270:
+.LASF275:
 	.string	"args"
 .LASF206:
 	.string	"OP_POSTINC"
 .LASF105:
 	.string	"TK_SUB"
-.LASF356:
+.LASF361:
 	.string	"EvalSub"
-.LASF369:
+.LASF374:
 	.string	"EvalDec"
-.LASF339:
+.LASF344:
 	.string	"EvalOr"
 .LASF115:
 	.string	"TK_MODEQ"
@@ -23311,48 +25110,50 @@ irs.4:
 	.string	"uint16_t"
 .LASF199:
 	.string	"token"
-.LASF353:
+.LASF358:
 	.string	"EvalMod"
-.LASF407:
+.LASF431:
 	.string	"ParseFunc"
-.LASF446:
+.LASF470:
 	.string	"LexMul"
 .LASF116:
 	.string	"TK_BAND"
 .LASF89:
 	.string	"ValueType"
-.LASF515:
+.LASF535:
 	.string	"arena"
-.LASF289:
+.LASF294:
 	.string	"CALL_CALL"
-.LASF386:
+.LASF410:
 	.string	"stmts"
-.LASF360:
-	.string	"CONST"
-.LASF380:
+.LASF382:
 	.string	"compiler"
-.LASF419:
+.LASF443:
 	.string	"lexer"
-.LASF341:
+.LASF346:
 	.string	"EvalGe"
+.LASF518:
+	.string	"VecPeekN"
 .LASF183:
 	.string	"PREC_NOT"
 .LASF24:
 	.string	"_IO_read_end"
 .LASF162:
 	.string	"Prec"
-.LASF441:
+.LASF465:
 	.string	"LexDiv"
 .LASF107:
 	.string	"TK_SUBSUB"
+.LASF401:
+	.string	"LocalPush"
 .LASF14:
 	.string	"short int"
-.LASF285:
+.LASF290:
 	.string	"REF_REF"
-.LASF240:
+.LASF245:
 	.string	"Func"
-.LASF452:
-	.string	"LexComment"
+.LASF240:
+	.string	"Mode"
 .LASF184:
 	.string	"PREC_PLUSMINUS"
 .LASF138:
@@ -23361,7 +25162,7 @@ irs.4:
 	.string	"long int"
 .LASF127:
 	.string	"TK_LE"
-.LASF463:
+.LASF487:
 	.string	"bytes"
 .LASF110:
 	.string	"TK_POW"
@@ -23373,7 +25174,7 @@ irs.4:
 	.string	"OP_BANDEQ"
 .LASF134:
 	.string	"TK_LP"
-.LASF455:
+.LASF479:
 	.string	"LexLine"
 .LASF92:
 	.string	"Table"
@@ -23381,15 +25182,15 @@ irs.4:
 	.string	"TK_LS"
 .LASF126:
 	.string	"TK_LT"
-.LASF333:
+.LASF338:
 	.string	"EvalModEq"
-.LASF402:
+.LASF426:
 	.string	"ParseBinary"
 .LASF176:
 	.string	"PREC_BAND"
-.LASF271:
+.LASF276:
 	.string	"Deinit"
-.LASF470:
+.LASF494:
 	.string	"MapGrow"
 .LASF166:
 	.string	"PREC_SHEQ"
@@ -23397,7 +25198,7 @@ irs.4:
 	.string	"_IO_wide_data"
 .LASF235:
 	.string	"OP_BOREQ"
-.LASF264:
+.LASF269:
 	.string	"memcmp"
 .LASF185:
 	.string	"PREC_PRETERM"
@@ -23405,39 +25206,41 @@ irs.4:
 	.string	"TK_LSH"
 .LASF72:
 	.string	"uint64_t"
-.LASF523:
+.LASF543:
 	.string	"GetSrc"
-.LASF249:
+.LASF254:
 	.string	"fclose"
+.LASF386:
+	.string	"GlobalAssignRef"
 .LASF238:
 	.string	"OP_RSHEQ"
-.LASF492:
+.LASF384:
 	.string	"dest"
-.LASF526:
+.LASF546:
 	.string	"__va_list_tag"
-.LASF508:
+.LASF530:
 	.string	"GetGlobals"
 .LASF221:
 	.string	"OP_LT"
-.LASF346:
+.LASF351:
 	.string	"EvalEqEq"
-.LASF444:
+.LASF468:
 	.string	"LexComma"
-.LASF260:
+.LASF265:
 	.string	"__sysv_signal"
-.LASF503:
+.LASF526:
 	.string	"VecAlloc"
-.LASF460:
+.LASF484:
 	.string	"GetLexer"
 .LASF5:
 	.string	"fp_offset"
 .LASF13:
 	.string	"__uint8_t"
-.LASF422:
+.LASF446:
 	.string	"COMMENT"
-.LASF420:
+.LASF444:
 	.string	"ascii"
-.LASF358:
+.LASF363:
 	.string	"EvalBinErr"
 .LASF94:
 	.string	"name"
@@ -23445,51 +25248,53 @@ irs.4:
 	.string	"__mask_was_saved"
 .LASF100:
 	.string	"TK_NEQ"
-.LASF434:
+.LASF458:
 	.string	"LexReturn"
-.LASF247:
+.LASF252:
 	.string	"Compiler"
 .LASF66:
 	.string	"__saved_mask"
-.LASF354:
+.LASF359:
 	.string	"EvalDiv"
 .LASF220:
 	.string	"OP_NEQ"
 .LASF45:
 	.string	"_wide_data"
-.LASF477:
+.LASF501:
 	.string	"TableGrow"
 .LASF133:
 	.string	"TK_RSHEQ"
 .LASF42:
 	.string	"_lock"
-.LASF466:
+.LASF490:
 	.string	"MapDel"
-.LASF415:
+.LASF439:
 	.string	"ParseNodeLog"
 .LASF172:
 	.string	"PREC_OR"
 .LASF8:
 	.string	"long unsigned int"
-.LASF296:
+.LASF301:
 	.string	"BinRefConst"
 .LASF209:
 	.string	"OP_SUB"
 .LASF38:
 	.string	"_old_offset"
-.LASF363:
+.LASF368:
 	.string	"UnaRef"
 .LASF62:
 	.string	"_IO_FILE"
-.LASF451:
+.LASF475:
 	.string	"OnSig"
 .LASF7:
 	.string	"reg_save_area"
-.LASF324:
+.LASF329:
 	.string	"STR_F64"
-.LASF298:
+.LASF365:
+	.string	"CONST"
+.LASF303:
 	.string	"BinConstRef"
-.LASF426:
+.LASF450:
 	.string	"LexRc"
 .LASF165:
 	.string	"PREC_BITEQ"
@@ -23497,93 +25302,95 @@ irs.4:
 	.string	"OP_LSHEQ"
 .LASF97:
 	.string	"TokenType"
-.LASF461:
+.LASF485:
 	.string	"IoRead"
-.LASF394:
+.LASF418:
 	.string	"rule"
-.LASF447:
+.LASF471:
 	.string	"LexRp"
 .LASF91:
 	.string	"type"
-.LASF431:
+.LASF455:
 	.string	"LexRs"
 .LASF10:
 	.string	"unsigned char"
-.LASF327:
+.LASF332:
 	.string	"EvalRshEq"
-.LASF368:
+.LASF373:
 	.string	"MINUS"
-.LASF510:
+.LASF531:
 	.string	"GetLocals"
 .LASF16:
 	.string	"__uint32_t"
-.LASF469:
+.LASF493:
 	.string	"MapGet"
 .LASF122:
 	.string	"TK_BXOR"
 .LASF160:
 	.string	"line"
-.LASF427:
-	.string	"LexBor"
-.LASF423:
+.LASF393:
+	.string	"OpPush"
+.LASF447:
 	.string	"COMMA"
 .LASF27:
 	.string	"_IO_write_ptr"
-.LASF482:
+.LASF506:
 	.string	"old_cstr"
-.LASF410:
+.LASF434:
 	.string	"ParseFor"
 .LASF114:
 	.string	"TK_MOD"
-.LASF306:
+.LASF311:
 	.string	"SUBEQ"
 .LASF167:
 	.string	"PREC_TERMEQ"
 .LASF168:
 	.string	"PREC_FACTEQ"
-.LASF257:
+.LASF262:
 	.string	"strtod"
-.LASF244:
+.LASF249:
 	.string	"nconsts"
-.LASF439:
+.LASF463:
 	.string	"LexColon"
 .LASF219:
 	.string	"OP_EQ"
-.LASF332:
+.LASF337:
 	.string	"EvalPowEq"
-.LASF338:
+.LASF343:
 	.string	"EvalMov"
 .LASF129:
 	.string	"TK_LSHEQ"
-.LASF317:
+.LASF322:
 	.string	"I64_I64"
 .LASF101:
 	.string	"TK_BNOT"
-.LASF376:
+.LASF391:
 	.string	"TkToOp"
-.LASF465:
+.LASF489:
 	.string	"GetJmp"
-.LASF299:
+.LASF304:
 	.string	"BinConstConst"
+.LASF241:
+	.string	"MODE_LOCAL"
 .LASF44:
 	.string	"_codecvt"
-.LASF331:
+.LASF336:
 	.string	"EvalBandEq"
-.LASF481:
+.LASF505:
 	.string	"TableReput"
 .LASF217:
 	.string	"OP_LSH"
-.LASF401:
+.LASF425:
 	.string	"ParseGroup"
-.LASF267:
+.LASF272:
 	.string	"realloc"
-.LASF409:
+.LASF433:
 	.string	"ParseDo"
 .LASF157:
 	.string	"Token"
 .LASF121:
 	.string	"TK_OR"
-.LASF383:
+.LASF407:
 	.string	"Parse"
 .LASF174:
 	.string	"PREC_BOR"
@@ -23593,19 +25400,19 @@ irs.4:
 	.string	"OP_BAND"
 .LASF112:
 	.string	"TK_DIV"
-.LASF379:
+.LASF404:
 	.string	"CompilerInit"
-.LASF272:
+.LASF277:
 	.string	"Load"
-.LASF345:
+.LASF350:
 	.string	"EvalNeq"
 .LASF175:
 	.string	"PREC_BXOR"
 .LASF12:
 	.string	"signed char"
-.LASF286:
+.LASF291:
 	.string	"REF_CALL"
-.LASF259:
+.LASF264:
 	.string	"strtoll"
 .LASF195:
 	.string	"ParseNode"
@@ -23613,59 +25420,63 @@ irs.4:
 	.string	"short unsigned int"
 .LASF187:
 	.string	"PREC_INDEX"
-.LASF276:
+.LASF281:
 	.string	"MemDealloc"
-.LASF266:
+.LASF271:
 	.string	"memcpy"
-.LASF278:
+.LASF283:
 	.string	"main"
-.LASF525:
+.LASF545:
 	.string	"__builtin_va_list"
 .LASF60:
 	.string	"__val"
-.LASF487:
+.LASF511:
 	.string	"TableAlloc"
-.LASF295:
+.LASF300:
 	.string	"BinRefRef"
-.LASF520:
+.LASF540:
 	.string	"p2align"
-.LASF397:
-	.string	"ParseStr"
+.LASF381:
+	.string	"CompileAssign"
 .LASF147:
 	.string	"TK_COLON"
 .LASF74:
 	.string	"double"
-.LASF328:
+.LASF333:
 	.string	"EvalLshEq"
 .LASF180:
 	.string	"PREC_TERM"
 .LASF171:
 	.string	"PREC_TERN"
+.LASF411:
+	.string	"EXPR"
 .LASF35:
 	.string	"_chain"
-.LASF445:
+.LASF512:
+	.string	"GetInterns"
+.LASF469:
 	.string	"LexAdd"
 .LASF51:
 	.string	"FILE"
-.LASF518:
+.LASF538:
 	.string	"ArenaPush"
-.LASF476:
+.LASF500:
 	.string	"table"
 .LASF37:
 	.string	"_flags2"
-.LASF511:
+.LASF400:
 	.string	"locals"
-.LASF362:
+.LASF367:
 	.string	"UnaCall"
 .LASF144:
 	.string	"TK_SEMI"
-.LASF516:
+.LASF536:
 	.string	"ArenaOff"
 .LASF205:
 	.string	"OP_PREDEC"
 .LASF67:
 	.string	"jmp_buf"
-.LASF277:
+.LASF282:
 	.string	"MemAlloc"
 .LASF39:
 	.string	"_cur_column"
@@ -23673,15 +25484,15 @@ irs.4:
 	.string	"OP_BXOREQ"
 .LASF95:
 	.string	"Entry"
-.LASF318:
+.LASF323:
 	.string	"I64_F64"
 .LASF224:
 	.string	"OP_GE"
-.LASF428:
+.LASF452:
 	.string	"LexLc"
-.LASF340:
+.LASF345:
 	.string	"EvalAnd"
-.LASF459:
+.LASF483:
 	.string	"LexerInit"
 .LASF20:
 	.string	"__off64_t"
@@ -23693,17 +25504,17 @@ irs.4:
 	.string	"__jmp_buf_tag"
 .LASF88:
 	.string	"VALUE_N"
-.LASF462:
+.LASF486:
 	.string	"stream"
-.LASF329:
+.LASF334:
 	.string	"EvalBxorEq"
 .LASF223:
 	.string	"OP_GT"
 	.section	.debug_line_str,"MS",@progbits,1
-.LASF1:
-	.string	"/home/morrantho/Documents/code/c/yep"
 .LASF0:
 	.string	"bs.c"
+.LASF1:
+	.string	"/home/morrantho/Documents/code/c/bs2"
 	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
