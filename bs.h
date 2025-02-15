@@ -8,6 +8,7 @@
 #include <math.h>
 
 #include "std/types.h"
+#include "std/err.h"
 #include "std/arena.h"
 #include "std/vec.h"
 #include "std/string.h"
@@ -15,7 +16,6 @@
 #include "std/table.h"
 #include "std/map.h"
 #include "std/env.h"
-#include "std/err.h"
 #include "std/io.h"
 
 #include "lexer/token_type.h"

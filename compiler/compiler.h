@@ -92,7 +92,7 @@ STIL Var *LocalGet( U32 *out_idx, Func *fn, String *name )
 	for( ; end >= start; end-- )
 	{
 		Var *var = VecGet( locals, end );
-		if( var->name == name ){ *out_idx = end; return var; }
+		if( var->name->offset == name->offset ){ *out_idx = end; return var; }
 	}
 	return NULL;
 }
@@ -111,11 +111,10 @@ STIL Var *GlobalPush( U32 *out_idx, String *name, Value value )
 
 STIL Var *GlobalGet( U32 *out_idx, String *name )
 {
-	Vec *globals = GetGlobals( );
 	Evar *evar = EnvGet( GetEnv( ), name );
-	if( !evar ){ return NULL; }
+	if( !evar->off ){ return NULL; }
 	*out_idx = evar->idx; /* its globals index */
-	return VecGet( globals, evar->idx );
+	return EvarToVar( evar );
 }
 
 STIL U32 OpPush( OpCode OP, U8 D, U8 S, U8 M, U8 DT, U8 ST )

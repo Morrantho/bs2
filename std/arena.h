@@ -27,7 +27,7 @@ Void ArenaAlloc( Arena *arena, U32 max )
 {
 	max = ALIGN_UP( max, PAGE( 1 ) );
 	arena->base = malloc( max );
-	arena->used = 1; /* ensures we can offset from 0 */
+	arena->used = 1; /* so we cant offset from 0 */
 	arena->max = max;
 }
 
@@ -45,9 +45,9 @@ U32 ArenaPush( Arena *arena, U32 size, U32 p2align )
 
 U32 ArenaPop( Arena *arena, U32 bytes )
 {
-	if( bytes > arena->used ){ return 0; }
+	if( bytes > arena->used - 1 ){ return 1; }
 	U32 offset = arena->used;
-	arena->used -= bytes;
+	arena->used -= bytes - 1; /* Don't let us pop to 0. */
 	return offset;
 }
 
@@ -58,5 +58,5 @@ Void *ArenaOff( Arena *arena, U32 offset )
 
 Void ArenaClear( Arena *arena )
 {
-	arena->used = 0;
+	arena->used = 1;
 }

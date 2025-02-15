@@ -56,6 +56,8 @@ Evar *EnvGet( Env *env, String *name )
 		if( !var->off ){ return var; }
 		if( var->off == name->offset ){ return var; }
 	}
+	I8 *cstr = ArenaOff( GetStrings( ), name->offset );
+	Throw( "Failed to find Evar: %s in Env.\n", cstr );
 	return NULL;
 }
 
@@ -71,6 +73,5 @@ Void EnvPut( Env *env, String *name, U32 idx )
 Void EnvDel( Env *env, String *name )
 {
 	Evar *var = EnvGet( env, name );
-	if( !var ){ return; }
 	var->off = 0;
 }
