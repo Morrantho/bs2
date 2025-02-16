@@ -1,20 +1,30 @@
 typedef enum Mode
 {
-	MODE_LOCAL,
-	MODE_CONST,
-	MODE_GLOBAL,
-	MODE_IMM
+	MODE_GC, /* global = const */
+	MODE_GG, /* global = global */
+	MODE_GL, /* global = local */
+	MODE_GI, /* global = immediate */
+	MODE_LC, /* local = const */
+	MODE_LL, /* local = local */
+	MODE_LG, /* local = global */
+	MODE_LI, /* local = immediate */
 } Mode;
 
 typedef struct Op
 {
-	U8 OP;
-	U8 D; /* dest */
-	U8 S; /* src */
-
-	U8 M: 2; /* mode: reg / local, const, global, imm ( 0-255 ) */
-	U8 DT: 3; /* dest type */
-	U8 ST: 3; /* src type */
+	#if ENDIAN_BIG
+	U8 spare: 3;
+	U8 types: 4; /* promoted / common */
+	U8 mode: 3;
+	U8 op: 6;
+	#elif ENDIAN_LIL
+	U8 op: 6;
+	U8 mode: 3;
+	U8 types: 4; /* promoted / common */
+	U8 spare: 3;
+	#endif
+	U8 dest;
+	U8 src;
 } Op;
 
 typedef struct Func
@@ -55,10 +65,7 @@ Void FnCommit( )
 
 Void CompilerInit( )
 {
-	Compiler *compiler = GetCompiler( );
-	// compiler->in_fn = 0;
-	// compiler->fn = 0;
-	// FnCommit( );
+
 }
 
 STIL U32 ConstPush( Value value )
@@ -117,18 +124,17 @@ STIL Var *GlobalGet( U32 *out_idx, String *name )
 	return EvarToVar( evar );
 }
 
-STIL U32 OpPush( OpCode OP, U8 D, U8 S, U8 M, U8 DT, U8 ST )
+STIL U32 OpPush( OpCode OP, U8 M, U8 T, U8 D, U8 S )
 {
 	Compiler *compiler = GetCompiler( );
 	Vec *code = GetCode( );
 	if( compiler->fn ){ compiler->fn->ncode++; }
 	Op *op = VecCommit( code );
-	op->OP = OP;
-	op->D = D; /* dest */
-	op->S = S; /* src */
-	op->M = M; /* mode */
-	op->DT = DT; /* dest type  */
-	op->ST = ST; /* src type */
+	op->op = OP;
+	op->mode = M;
+	op->types = T;
+	op->dest = D;
+	op->src = S;
 	return code->len - 1;
 }
 

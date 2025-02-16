@@ -18,4 +18,4 @@ DBG_LNK="$CC $DBG bin/$OBJ -o bin/$BIN $LIB"
 
 [ "$1" == "rel" ] && { $REL_CMP; $REL_LNK; }
 [ "$1" == "dbg" ] && { $DBG_CMP; $DBG_LNK; }
-objdump -d bin/$BIN > bin/dump.s
+objdump -d -M intel bin/$BIN > bin/dump.s

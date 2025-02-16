@@ -31,7 +31,7 @@ typedef enum OpCode
 	OP_AND,
 	OP_OR,
 
-	OP_MOV, /* Assign / : */
+	OP_MOV, /* Assign */
 	OP_ADDEQ,
 	OP_SUBEQ,
 	OP_MULEQ,
