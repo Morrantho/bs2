@@ -25,7 +25,7 @@ STIL U32 AssignCall( U32 dest, Var *var, Mode M )
 
 STIL U32 Assign( U32 dest, Var *var, Mode M, ParseType T )
 {
-	#include "ir_table.h"
+	static Label *types[ ] = { &&CONST, &&REF, &&CALL };
 	goto *types[ T ];
 	CONST: return AssignConst( dest, var, M );
 	REF: return AssignRef( dest, var, M );

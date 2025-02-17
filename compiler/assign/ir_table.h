@@ -1,1 +1,0 @@
-static Label *types[ ] = { &&CONST, &&REF, &&CALL };

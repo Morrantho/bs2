@@ -106,6 +106,7 @@ STIL Var *LocalPush( U32 *out_idx, Func *fn, String *name, Value value )
 STIL Var *LocalGet( U32 *out_idx, Func *fn, String *name )
 {
 	Vec *locals = GetLocals( );
+	if( !fn ){ return NULL; }
 	U32 start = fn->ilocals;
 	U32 end = ( start + fn->nlocals ) - 1;
 	for( ; end >= start; end-- )
