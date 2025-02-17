@@ -232,7 +232,6 @@ Void Parse( )
 	parser->token = Lex( );
 	while( parser->token.type != TK_EOS )
 	{
-		ParseNode node = ParseStmt( parser );
-		ParseNodeLog( &node );
+		ParseStmt( parser );
 	}
 }

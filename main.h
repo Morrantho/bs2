@@ -16,8 +16,12 @@ STIL Void Init( )
 
 STIL Void Run( )
 {
+	Vec *code = GetCode( );
+	U32 clen = code->len;
 	LexReinit( ( I8* )GetSrc( )->base );
 	Parse( );
+	if( code->len == clen ){ return; }
+	OpLog( VecPeek( code ) );
 }
 
 STIL I32 Repl( )

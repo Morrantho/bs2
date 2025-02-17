@@ -51,9 +51,9 @@ STIL U32 LocalAssign( Func* fn, String *name, ParseNode *rhs )
 U32 CompileAssign( String *name, ParseNode *rhs )
 {
 	Compiler *compiler = GetCompiler( );
-	if( !compiler->fn ){ return GlobalAssign( 0, NULL, name, rhs ); }
 	U32 dest = 0;
 	Var *var = GlobalGet( &dest, name );
-	if( var ){ return GlobalAssign( dest, var, name, rhs ); } /* global reassign */
-	return LocalAssign( compiler->fn, name, rhs ); /* local assign or reassign */
+	if( !compiler->fn ){ return GlobalAssign( dest, var, name, rhs ); }
+	if( var ){ return GlobalAssign( dest, var, name, rhs ); } /* global assign */
+	return LocalAssign( compiler->fn, name, rhs ); /* local assign */
 }

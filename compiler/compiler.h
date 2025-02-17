@@ -1,14 +1,26 @@
+#define X_MODE_ENUM( ENUM ) ENUM,
+#define X_MODE_STR( ENUM ) #ENUM,
+#define MODE_LIST( PFX, X )\
+	X( PFX##GC )\
+	X( PFX##GG )\
+	X( PFX##GL )\
+	X( PFX##GI )\
+	X( PFX##LC )\
+	X( PFX##LG )\
+	X( PFX##LL )\
+	X( PFX##LI )
+
 typedef enum Mode
 {
-	MODE_GC, /* global = const */
-	MODE_GG, /* global = global */
-	MODE_GL, /* global = local */
-	MODE_GI, /* global = immediate */
-	MODE_LC, /* local = const */
-	MODE_LL, /* local = local */
-	MODE_LG, /* local = global */
-	MODE_LI, /* local = immediate */
+	MODE_LIST( MODE_, X_MODE_ENUM )
+	MODE_N
 } Mode;
+
+STIL I8 *ModeToStr( Mode M )
+{
+	static I8 *modes[ MODE_N ] = { MODE_LIST( , X_MODE_STR ) };
+	return modes[ M ];
+}
 
 typedef struct Op
 {
@@ -141,6 +153,21 @@ STIL U32 OpPush( OpCode OP, U8 M, U8 T, U8 D, U8 S )
 STIL Op *OpGet( U32 idx )
 {
 	return VecGet( GetCode( ), idx );
+}
+
+STIL Void OpLog( Op *op )
+{
+	I8 *mode = ModeToStr( op->mode );
+	printf( "%s %c[ %d ], %c[ %d ]\n", OpToStr( op->op ), mode[ 0 ], op->dest, mode[ 1 ], op->src );
+}
+
+STIL Void OpLogAll( )
+{
+	Vec *code = GetCode( );
+	for( U32 i = 0; i < code->len; i++ )
+	{
+		OpLog( VecGet( code, i ) );
+	}
 }
 
 STIL OpCode TkToOp( TokenType type )
