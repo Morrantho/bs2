@@ -2,6 +2,7 @@
 #define X_OPCODE_STR( ENUM ) #ENUM,
 
 #define OPCODE_LIST( PFX, X )\
+	/* Unary */\
 	X( PFX##NOP )\
 	X( PFX##NOT )\
 	X( PFX##BNOT )\
@@ -9,30 +10,30 @@
 	X( PFX##PREDEC )\
 	X( PFX##POSTINC )\
 	X( PFX##POSTDEC )\
-	\
+	/* Binary Arithmetic */\
 	X( PFX##ADD )\
 	X( PFX##SUB )\
 	X( PFX##MUL )\
 	X( PFX##DIV )\
 	X( PFX##MOD )\
 	X( PFX##POW )\
-	\
+	/* Binary Bitwise Arithmetic */\
 	X( PFX##BAND )\
 	X( PFX##BOR )\
 	X( PFX##BXOR )\
 	X( PFX##LSH )\
 	X( PFX##RSH )\
-	\
+	/* Binary Relational */\
 	X( PFX##EQ )\
 	X( PFX##NEQ )\
 	X( PFX##LT )\
 	X( PFX##LE )\
 	X( PFX##GT )\
 	X( PFX##GE )\
-	\
+	/* Binary Logical */\
 	X( PFX##AND )\
 	X( PFX##OR )\
-	\
+	/* Binary Assignments */\
 	X( PFX##MOV )\
 	X( PFX##ADDEQ )\
 	X( PFX##SUBEQ )\
@@ -44,7 +45,10 @@
 	X( PFX##BOREQ )\
 	X( PFX##BXOREQ )\
 	X( PFX##LSHEQ )\
-	X( PFX##RSHEQ )
+	X( PFX##RSHEQ )\
+	/* Loading */\
+	X( PFX##LOADC )\
+	X( PFX##LOADG )
 
 typedef enum OpCode
 {

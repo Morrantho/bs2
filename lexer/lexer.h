@@ -10,7 +10,6 @@ typedef struct Lexer
 	I8 *end;
 	U32 line;
 	U32 col;
-	Table *interns;
 } Lexer;
 
 STIL Lexer *GetLexer( )
@@ -19,14 +18,14 @@ STIL Lexer *GetLexer( )
 	return &lexer;
 }
 
-STIL Void LexerInit( Arena *src, Table *interns )
+STIL Void LexerInit( )
 {
+	Arena *src = GetSrc( );
 	Lexer *lexer = GetLexer( );
 	lexer->start = ( I8* )src->base;
 	lexer->end = ( I8* )src->base;
 	lexer->col = 1;
 	lexer->line = 1;
-	lexer->interns = interns;
 }
 
 STIL Void LexReinit( I8 *src )
@@ -62,7 +61,7 @@ STIL Token LexStr( Lexer *lexer )
 	if( *lexer->end != '"' ){ Throw( "Unterminated String\n" ); }
 	Token token = { .type = TK_STR };
 	U32 len = ( lexer->end - lexer->start ) - 1;
-	token.value.str = TablePut( lexer->interns, lexer->start + 1, len );
+	token.value.str = TablePut( GetInterns( ), lexer->start + 1, len );
 	lexer->end++;
 	lexer->col += len + 2;
 	return token;
@@ -177,7 +176,7 @@ STIL Token LexId( Lexer *lexer, Label *ID, Label *NUM, Label **ascii )
 		|| ascii[ *( U8* )lexer->end ] == NUM ){ lexer->end++; }
 	U32 len = lexer->end - lexer->start;
 	Token token = { .type = TK_ID };
-	token.value.str = TablePut( lexer->interns, lexer->start + 1, len );
+	token.value.str = TablePut( GetInterns( ), lexer->start + 1, len );
 	return token;
 }
 

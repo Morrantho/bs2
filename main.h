@@ -6,7 +6,7 @@ STIL Void OnSig( I32 sig )
 STIL Void Init( )
 {
 	MemAlloc( );
-	LexerInit( GetSrc( ), GetInterns( ) );
+	LexerInit( );
 	ParserInit( );
 	CompilerInit( );
 	signal( SIGINT, OnSig );
